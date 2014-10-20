@@ -24,7 +24,7 @@ namespace MagicWars_NS {
     class TerrainMap
     {
     public:
-        TerrainMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTileset(i_tileset), d_mapWidth(i_width),d_mapHeight(i_height)
+        TerrainMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTileset(i_tileset), d_mapWidth(i_width), d_mapHeight(i_height)
         {
             if(!i_tileset)
                 throw std::runtime_error("null pointer");
@@ -41,7 +41,7 @@ namespace MagicWars_NS {
         //memory leak if map is not empty
         void fillMap(const std::string i_fillWith)
         {
-            if(!i_tileset)
+            if(!d_pTileset)
                 throw std::runtime_error("null pointer");
             
             MapCoord c = d_tiles[i_fillWith];
@@ -56,35 +56,29 @@ namespace MagicWars_NS {
         
         void set(const std::string i_with, size_t x, size_t y)
         {
-            if(!i_tileset)
-                throw std::runtime_error("null pointer");
-            if(x >= d_mapWidth || y >= d_mapHeight )
-                throw std::logic_error("invalid arguments");
-            
-            if(d_map[x,y])
-                d_map[x,y]->removeFromParent();
-            
-            MapCoord c = d_tiles[i_fillWith];
-            auto i = d_pTileset->createTile( c.x, c.y );
-            d_map[x,y] = i;
-            i->setPosition(x*d_pTileset->getTileWidth, y*d_pTileset->getTileHeight);
-            d_layer->addChild(i);
+            MapCoord c = d_tiles[i_with];
+            set(c, x, y);
         }
         
         void set(MapCoord i_with, size_t x, size_t y)
         {
-            if(!i_tileset)
+            if(!d_pTileset)
                 throw std::runtime_error("null pointer");
             if(x >= d_mapWidth || y >= d_mapHeight )
                 throw std::logic_error("invalid arguments");
             
-            if(d_map[x,y])
-                d_map[x,y]->removeFromParent();
+            if(d_map(x,y))
+                d_map(x,y)->removeFromParent();
             
             auto i = d_pTileset->createTile( i_with.x, i_with.y );
-            d_map[x,y] = i;
-            i->setPosition(x*d_pTileset->getTileWidth, y*d_pTileset->getTileHeight);
+            d_map(x,y) = i;
+            i->setPosition(x*d_pTileset->getTileWidth(), y*d_pTileset->getTileHeight());
             d_layer->addChild(i);
+        }
+        
+        cocos2d::Layer* get()
+        {
+            return d_layer;
         }
         
         

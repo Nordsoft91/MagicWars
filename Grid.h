@@ -22,7 +22,7 @@ namespace MagicWars_NS {
         
         size_t sizex() { return d_w; }
         size_t sizey() { return d_h; }
-        void resize(size_t i_h, size_t i_h)
+        void resize(size_t i_w, size_t i_h)
         {
             d_w = i_w; d_h = i_h;
             d_array.resize(d_w*d_h);
@@ -33,13 +33,13 @@ namespace MagicWars_NS {
             return d_array;
         }
         
-        T& operator[] (size_t x, size_t y)
+        T& operator() (size_t x, size_t y)
         {
             return d_array.at(y*d_w+x);
         }
         
     private:
-        std:vector<T> d_array;
+        std::vector<T> d_array;
         size_t d_w = 0;
         size_t d_h = 0;
     };
