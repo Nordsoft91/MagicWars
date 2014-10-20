@@ -63,8 +63,17 @@ bool HelloWorld::init()
     // add the label as a child to this layer
     this->addChild(label, 1);
     
-    MagicWars_NS::Magican mag1;
-    mag1.born(this, Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y) );
+    //MagicWars_NS::Magican mag1;
+    MagicWars_NS::TileGrid grid{30,30,15,20,1,1,3,3};
+    MagicWars_NS::Tileset tileset("Terrain1.png", grid);
+    
+    //mag1.born(this, Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y) );
+    Sprite *spr1 = tileset.createTile(1, 1);
+    if(spr1)
+    {
+        spr1->setPosition(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y);
+        this->addChild( spr1 );
+    }
     
     return true;
 }

@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Magican.h"
+#include "Tileset.h"
 
 class HelloWorld : public cocos2d::Layer
 {

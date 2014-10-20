@@ -16,19 +16,19 @@ namespace MagicWars_NS {
     
     struct TileGrid
     {
-        int d_tileWidth, d_tileHeight;
-        int d_rows, d_columns;
-        int d_offWidth, d_offHeight;
-        int d_sepWidth, d_sepHeight;
+        size_t d_tileWidth, d_tileHeight;
+        size_t d_rows, d_columns;
+        size_t d_offWidth, d_offHeight;
+        size_t d_sepWidth, d_sepHeight;
         
-        int getCoordX(size_t i_tilePos)
+        size_t getCoordX(size_t i_tilePos) const
         {
-            int posx = i_tilePos % d_columns;
+            size_t posx = i_tilePos % d_columns;
             return d_offWidth + posx * (d_tileWidth + d_sepWidth);
         }
-        int getCoordY(size_t i_tilePos)
+        size_t getCoordY(size_t i_tilePos) const
         {
-            int posy = i_tilePos \ d_columns;
+            size_t posy = i_tilePos / d_columns;
             return d_offHeight + posy * (d_tileHeight + d_sepHeight);
         }
     };
@@ -36,13 +36,41 @@ namespace MagicWars_NS {
     class Tileset
     {
     public:
-        Tileset(const std::string i_picutre)
+        Tileset(const std::string i_picture, const TileGrid i_grid): d_tileParameters(i_grid)
         {
+            d_image =cocos2d::Sprite::create(i_picture);
+        }
+        
+        size_t getTilesetWidth()
+        {
+            return (d_image->getContentSize().width - d_tileParameters.d_offWidth) / (d_tileParameters.d_tileWidth + d_tileParameters.d_sepWidth);
+        }
+        
+        size_t getTilesetHeight()
+        {
+            return (d_image->getContentSize().height - d_tileParameters.d_offHeight) / (d_tileParameters.d_tileHeight + d_tileParameters.d_sepHeight);
+        }
+        
+        size_t getTileWidth()
+        {
+            return d_tileParameters.d_tileWidth;
+        }
+        
+        size_t getTileHeight()
+        {
+            return d_tileParameters.d_tileHeight;
+        }
+        
+        cocos2d::Sprite* createTile( size_t i_tilex, size_t i_tiley )
+        {
+            cocos2d::Rect rect(d_tileParameters.getCoordX(i_tilex), d_tileParameters.getCoordY(i_tiley), d_tileParameters.d_tileWidth, d_tileParameters.d_tileHeight);
             
+            return cocos2d::Sprite::createWithTexture(d_image->getTexture(), rect);
         }
         
     protected:
-        cocos2d::Vector<cocos2d::SpriteFrame*> d_tiles;
+        const TileGrid d_tileParameters;
+        cocos2d::Sprite* d_image;
     };
 }
 
