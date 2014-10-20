@@ -25,6 +25,7 @@ namespace MagicWars_NS {
         {
             io_layer->addChild(d_sprite);
             d_sprite->setPosition(i_position);
+            d_sprite->ignoreAnchorPointForPosition(true);
         }
         
     protected:

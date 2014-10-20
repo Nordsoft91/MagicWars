@@ -50,28 +50,18 @@ bool HelloWorld::init()
 
     /////////////////////////////
     // 3. add your codes below...
-
-    // add a label shows "Hello World"
-    // create and initialize a label
-    
-    auto label = LabelTTF::create("Hello World", "Arial", 24);
-    
-    // position the label on the center of the screen
-    label->setPosition(Vec2(origin.x + visibleSize.width/2,
-                            origin.y + visibleSize.height - label->getContentSize().height));
-
-    // add the label as a child to this layer
-    this->addChild(label, 1);
     
     //MagicWars_NS::Magican mag1;
-    MagicWars_NS::TileGrid grid{30,30,15,20,1,1,3,3};
+    MagicWars_NS::TileGrid grid{60,60,2,2,0,0,10,10};
     MagicWars_NS::Tileset tileset("Terrain1.png", grid);
-    MagicWars_NS::TerrainMap terrMap(&tileset, 10, 10);
-    terrMap.addTerrainType("grass", 1, 1);
+    MagicWars_NS::TerrainMap terrMap(&tileset, visibleSize.width / 60 + 1, visibleSize.height / 60 + 1);
+    terrMap.addTerrainType("grass", 1, 0);
     terrMap.fillMap("grass");
+    terrMap.get()->setPosition(origin);
     this->addChild(terrMap.get());
     
-    //mag1.born(this, Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y) );
+    MagicWars_NS::Magican mag1;
+    mag1.born(this, Vec2(240,240));
     /*Sprite *spr1 = tileset.createTile(1, 1);
     if(spr1)
     {

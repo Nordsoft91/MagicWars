@@ -18,7 +18,6 @@ namespace MagicWars_NS {
     {
     public:
         Grid() {}
-        Grid(size_t i_w, size_t i_h): d_w(i_w), d_h(i_h) { d_array.insert(d_w*d_h); }
         
         size_t sizex() { return d_w; }
         size_t sizey() { return d_h; }

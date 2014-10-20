@@ -73,6 +73,7 @@ namespace MagicWars_NS {
             auto i = d_pTileset->createTile( i_with.x, i_with.y );
             d_map(x,y) = i;
             i->setPosition(x*d_pTileset->getTileWidth(), y*d_pTileset->getTileHeight());
+            i->ignoreAnchorPointForPosition(true);
             d_layer->addChild(i);
         }
         
