@@ -37,6 +37,18 @@ namespace MagicWars_NS {
             return d_array.at(y*d_w+x);
         }
         
+        bool operator() (const T& i_element, size_t &o_x, size_t &o_y)
+        {
+            auto iter = d_array.find(i_element);
+            if(iter == d_array.end() )
+               return false;
+            
+            size_t pos = iter - d_array.begin();
+            o_x = pos % d_w;
+            o_y = pos / d_w;
+            return true;
+        }
+        
     private:
         std::vector<T> d_array;
         size_t d_w = 0;
