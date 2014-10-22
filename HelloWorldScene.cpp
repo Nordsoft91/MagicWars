@@ -54,8 +54,8 @@ bool HelloWorld::init()
     //MagicWars_NS::Magican mag1;
     MagicWars_NS::TileGrid grid{60,60,2,2,0,0,10,10};
     MagicWars_NS::Tileset tileset("Terrain1.png", grid);
-    MagicWars_NS::TerrainMap terrMap(&tileset, visibleSize.width / 60 + 1, visibleSize.height / 60 + 1);
-    terrMap.addTerrainType("grass", 1, 0);
+    MagicWars_NS::TileMap terrMap(&tileset, visibleSize.width / 60 + 1, visibleSize.height / 60 + 1);
+    terrMap.addTileType("grass", 1, 0);
     terrMap.fillMap("grass");
     terrMap.get()->setPosition(origin);
     this->addChild(terrMap.get());

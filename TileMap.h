@@ -1,13 +1,13 @@
 //
-//  TerrainMap.h
+//  TileMap.h
 //  MagicWars
 //
 //  Created by nordsoft on 20.10.14.
 //
 //
 
-#ifndef MagicWars_TerrainMap_h
-#define MagicWars_TerrainMap_h
+#ifndef MagicWars_TileMap_h
+#define MagicWars_TileMap_h
 
 #include "Tileset.h"
 #include "Grid.h"
@@ -21,10 +21,10 @@ namespace MagicWars_NS {
         size_t x, y;
     };
     
-    class TerrainMap
+    class TileMap
     {
     public:
-        TerrainMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTileset(i_tileset), d_mapWidth(i_width), d_mapHeight(i_height)
+        TileMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTileset(i_tileset), d_mapWidth(i_width), d_mapHeight(i_height)
         {
             if(!i_tileset)
                 throw std::runtime_error("null pointer");
@@ -33,7 +33,7 @@ namespace MagicWars_NS {
             d_map.resize(i_width, i_height);
         }
         
-        void addTerrainType(const std::string i_name, size_t tileX, size_t tileY)
+        void addTileType(const std::string i_name, size_t tileX, size_t tileY)
         {
             d_tiles[i_name] = MapCoord{tileX, tileY};
         }
@@ -60,6 +60,7 @@ namespace MagicWars_NS {
             set(c, x, y);
         }
         
+        //set tile with x,y coords on map, placed i_with on tile picture
         void set(MapCoord i_with, size_t x, size_t y)
         {
             if(!d_pTileset)
@@ -80,6 +81,11 @@ namespace MagicWars_NS {
         cocos2d::Layer* get()
         {
             return d_layer;
+        }
+        
+        void clean()
+        {
+            
         }
         
         
