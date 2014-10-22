@@ -60,6 +60,16 @@ namespace MagicWars_NS {
             set(c, x, y);
         }
         
+        size_t width()
+        {
+            return d_mapWidth;
+        }
+        
+        size_t height()
+        {
+            return d_mapHeight;
+        }
+        
         //set tile with x,y coords on map, placed i_with on tile picture
         void set(MapCoord i_with, size_t x, size_t y)
         {
@@ -85,7 +95,11 @@ namespace MagicWars_NS {
         
         void clean()
         {
-            
+            for(auto& i : d_map.raw())
+            {
+                d_layer->removeChild(i);
+                i = 0;
+            }
         }
         
         

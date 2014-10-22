@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include "Header.h"
 
 USING_NS_CC;
 
@@ -62,6 +63,14 @@ bool HelloWorld::init()
     
     MagicWars_NS::Magican mag1;
     mag1.born(this, Vec2(240,240));
+    
+    MagicWars_NS::SquareControl control1;
+    control1.toScene(this);
+    control1.createSquare(4, 4, 2, "blue");
+    
+    int a = Consts::get("const1");
+    
+    
     /*Sprite *spr1 = tileset.createTile(1, 1);
     if(spr1)
     {
