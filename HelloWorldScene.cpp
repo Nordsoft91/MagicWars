@@ -1,5 +1,5 @@
 #include "HelloWorldScene.h"
-#include "Header.h"
+#include "Consts.h"
 
 USING_NS_CC;
 
