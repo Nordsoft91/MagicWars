@@ -32,6 +32,7 @@ namespace MagicWars_NS {
             d_layer = cocos2d::Layer::create();
             d_map.resize(i_width, i_height);
         }
+    
         
         void addTileType(const std::string i_name, size_t tileX, size_t tileY)
         {

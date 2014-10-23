@@ -51,32 +51,20 @@ bool HelloWorld::init()
 
     /////////////////////////////
     // 3. add your codes below...
+    d_touchControl.initialize(this);
     
-    //MagicWars_NS::Magican mag1;
-    MagicWars_NS::TileGrid grid{60,60,2,2,0,0,10,10};
-    MagicWars_NS::Tileset tileset("Terrain1.png", grid);
-    MagicWars_NS::TileMap terrMap(&tileset, visibleSize.width / 60 + 1, visibleSize.height / 60 + 1);
-    terrMap.addTileType("grass", 1, 0);
-    terrMap.fillMap("grass");
-    terrMap.get()->setPosition(origin);
-    this->addChild(terrMap.get());
-    
-    MagicWars_NS::Magican mag1;
-    mag1.born(this, Vec2(240,240));
-    
-    MagicWars_NS::SquareControl control1;
-    control1.toScene(this);
-    control1.createSquare(4, 4, 2, "blue");
-    
-    int a = Consts::get("const1");
-    
-    
-    /*Sprite *spr1 = tileset.createTile(1, 1);
-    if(spr1)
+    auto listener = EventListenerTouchOneByOne::create();
+    listener->onTouchBegan = [&](Touch *touch, Event *event)
     {
-        spr1->setPosition(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y);
-        this->addChild( spr1 );
-    }*/
+        return true;
+    };
+    
+    listener->onTouchEnded = [&](Touch *touch, Event *event)
+    {
+        d_touchControl.touchAction(touch->getStartLocation());
+    };
+    
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(listener, 30);
     
     return true;
 }

@@ -31,6 +31,7 @@ namespace MagicWars_NS {
             size_t posy = i_tilePos / d_columns;
             return d_offHeight + posy * (d_tileHeight + d_sepHeight);
         }
+        
     };
     
     class Tileset
@@ -38,7 +39,13 @@ namespace MagicWars_NS {
     public:
         Tileset(const std::string i_picture, const TileGrid i_grid): d_tileParameters(i_grid)
         {
-            d_image =cocos2d::Sprite::create(i_picture);
+            d_image = cocos2d::Sprite::create(i_picture);
+            d_image->retain();
+        }
+        
+        ~Tileset()
+        {
+            d_image->release();
         }
         
         size_t getTilesetWidth()

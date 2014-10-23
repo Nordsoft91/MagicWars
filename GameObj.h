@@ -21,12 +21,20 @@ namespace MagicWars_NS {
             d_sprite = cocos2d::Sprite::create(i_spr);
         }
         
-        void born(cocos2d::Layer *io_layer, cocos2d::Vec2 i_position)
+        ~GameObj()
+        {
+            d_sprite->removeFromParent();
+        }
+        
+        void born(cocos2d::Layer *io_layer, cocos2d::Vec2 i_position, size_t ix, size_t iy)
         {
             io_layer->addChild(d_sprite);
             d_sprite->setPosition(i_position);
             d_sprite->ignoreAnchorPointForPosition(true);
+            x = ix; y = iy;
         }
+        
+        size_t x,y;
         
     protected:
         cocos2d::Sprite *d_sprite = nullptr;

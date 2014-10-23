@@ -51,6 +51,11 @@ namespace MagicWars_NS {
             }
         }
         
+        void deleteSquares()
+        {
+            d_pSquares->clean();
+        }
+        
         void toScene(cocos2d::Node* i_scene)
         {
             i_scene->addChild(d_pSquares->get());

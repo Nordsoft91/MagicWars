@@ -5,6 +5,7 @@
 #include "Magican.h"
 #include "TileMap.h"
 #include "SquareControl.h"
+#include "TouchControl.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -20,6 +21,8 @@ public:
     
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
+    
+    MagicWars_NS::TouchControl d_touchControl;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
