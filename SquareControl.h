@@ -11,6 +11,7 @@
 
 #include "TileMap.h"
 #include "GameObj.h"
+#include "WavePathFinder.h"
 #include <memory>
 
 namespace MagicWars_NS {
@@ -49,6 +50,24 @@ namespace MagicWars_NS {
                         d_pSquares->set(i_color, i, j);
                 }
             }
+        }
+        
+        void createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color)
+        {
+            d_pSquares->clean();
+            for( int j = -i_finder.getDistance(); j<=i_finder.getDistance(); ++j)
+            {
+                for( int i = -i_finder.getDistance(); i<=i_finder.getDistance(); ++i)
+                {
+                    if((i!=0 || j!=0) && i_finder.process(i,j)>-1)
+                        d_pSquares->set(i_color, int(x)+i, int(y)+j);
+                }
+            }
+        }
+        
+        bool isSquared(size_t x, size_t y)
+        {
+            return d_pSquares->isTiled(x,y);
         }
         
         void deleteSquares()

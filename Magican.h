@@ -17,6 +17,8 @@ namespace MagicWars_NS
     {
     public:
         Magican(): GameObj("light1.png") {}
+        
+        
     };
 }
 

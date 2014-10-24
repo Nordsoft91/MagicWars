@@ -61,6 +61,13 @@ namespace MagicWars_NS {
             set(c, x, y);
         }
         
+        bool isTiled(size_t x, size_t y)
+        {
+            if(d_map(x,y))
+                return true;
+            return false;
+        }
+        
         size_t width()
         {
             return d_mapWidth;

@@ -11,8 +11,10 @@
 
 #include <cocos2d.h>
 #include "Magican.h"
+#include "BaseWall.h"
 #include "TileMap.h"
 #include "SquareControl.h"
+#include "MovingStructure.h"
 
 namespace MagicWars_NS {
     
@@ -26,6 +28,16 @@ namespace MagicWars_NS {
             delete d_terrainMap;
             for(auto i : d_arrTerrainTilesets)
                 delete i;
+            for(auto i : d_persons)
+            {
+                i->kill();
+                delete i;
+            }
+            for(auto i : d_mapObjects)
+            {
+                i->kill();
+                delete i;
+            }
         }
         
         void initialize(cocos2d::Layer* i_layer);
@@ -45,7 +57,10 @@ namespace MagicWars_NS {
         const size_t d_sizeWidth = 60;
         const size_t d_sizeHeight = 60;
         
-        std::vector<GameObj> d_persons;
+        std::list<GameObj*> d_persons;
+        std::list<GameObj*> d_mapObjects;
+        
+        MovingStructure* d_move = nullptr;
     };
 }
 

@@ -2,9 +2,6 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
-#include "Magican.h"
-#include "TileMap.h"
-#include "SquareControl.h"
 #include "TouchControl.h"
 
 class HelloWorld : public cocos2d::Layer
