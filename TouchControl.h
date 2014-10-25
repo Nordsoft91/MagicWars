@@ -15,6 +15,7 @@
 #include "TileMap.h"
 #include "SquareControl.h"
 #include "MovingStructure.h"
+#include "TurnController.h"
 
 namespace MagicWars_NS {
     
@@ -46,6 +47,7 @@ namespace MagicWars_NS {
         
     private:
         MagicWars_NS::SquareControl d_squareControl;
+        MagicWars_NS::TurnController d_turnControl;
         
         //tilesets of terrain
         std::vector<MagicWars_NS::Tileset*> d_arrTerrainTilesets;

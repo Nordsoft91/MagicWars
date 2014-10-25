@@ -25,17 +25,17 @@ namespace MagicWars_NS {
     class TurnController
     {
     public:
-        bool insert(const GameObj* i_char, const std::string i_side)
+        bool insert(GameObj* i_char, const std::string i_side)
         {
             d_persons[i_char] = TurnInfo{i_side, true, 9};
             //add side if new
-            if(d_sides.find(i_side) == d_sides.end())
+            if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())
                 d_sides.push_back(i_side);
             
             d_iterSideTurn = d_sides.begin();
         }
         
-        bool remove(const GameObj* i_char)
+        bool remove(GameObj* i_char)
         {
             std::string hisSide = d_persons[i_char].d_side;
             d_persons.erase(i_char);
@@ -43,16 +43,16 @@ namespace MagicWars_NS {
             sideArray(hisSide);
         }
         
-        bool isTurn(const GameObj* i_char)
+        bool isTurn(GameObj* i_char)
         {
-            if(   d_persons[i_char].d_side == d_iterSideTurn
+            if(   d_persons[i_char].d_side == *d_iterSideTurn
                && d_persons[i_char].d_alive
                && d_persons[i_char].d_active > 0 )
                 return true;
             return false;
         }
         
-        bool beginTurn(const GameObj* i_char)
+        bool beginTurn(GameObj* i_char)
         {
             if(!isTurn(i_char))
                 return false;
@@ -74,9 +74,16 @@ namespace MagicWars_NS {
                 }
             }
             //change side
+            d_turn = nullptr;
             if( ++d_iterSideTurn == d_sides.end() )
                 d_iterSideTurn = d_sides.begin();
-            return i_status;
+            //make team active
+            vec = sideArray(*d_iterSideTurn);
+            for( auto i : vec )
+            {
+                d_persons[i].d_active = 9;
+            }
+            return false;
         }
         
         GameObj* getTurn()
@@ -88,16 +95,16 @@ namespace MagicWars_NS {
         std::vector<GameObj*> sideArray(const std::string i_side)
         {
             std::vector<GameObj*> res;
-            if(d_sides.find(i_side) == d_sides.end())
+            if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())
                 return res;
             
             for( auto i = d_persons.begin(); i!=d_persons.end(); ++i )
             {
                 if(i->second.d_side == i_side)
-                    res.push_back(i->first)
+                    res.push_back(i->first);
             }
             if(res.empty())
-                d_sides.erase(d_sides.find(i_side));
+                d_sides.erase(std::find(d_sides.begin(), d_sides.end(), i_side));
 
             return res;
         }

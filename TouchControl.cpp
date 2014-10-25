@@ -19,7 +19,7 @@ void TouchControl::touchAction(cocos2d::Vec2 i_touch)
     size_t clickY = i_touch.y / d_sizeHeight;
     
     GameObj* obj = ContainUtils::findObject(d_persons, clickX, clickY);
-    if( obj )
+    if( obj && d_turnControl.beginTurn(obj))
     {
         if(d_move)
             delete d_move;
@@ -28,9 +28,13 @@ void TouchControl::touchAction(cocos2d::Vec2 i_touch)
         
         for(int j = -2; j<=2; ++j)
             for(int i= -2; i <=2; ++i)
+            {
                 if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, obj->x + i, obj->y + j)) )
                     d_move->d_finder->fill(i, j);
-                                                                        
+                if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, obj->x + i, obj->y + j) )
+                    d_move->d_finder->fill(i, j);
+            }
+        
         //filling finder
         d_squareControl.createSquare(obj->x, obj->y, *d_move->d_finder, "blue");
         return;
@@ -38,6 +42,7 @@ void TouchControl::touchAction(cocos2d::Vec2 i_touch)
     if(d_move && d_squareControl.isSquared(clickX, clickY))
     {
         d_move->applyPath(clickX, clickY);
+        d_turnControl.endTurn(0);
         //d_finder->process()
     }
     d_squareControl.deleteSquares();
@@ -61,13 +66,22 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     d_terrainMap->get()->setPosition(origin);
     
     i_layer->addChild(d_terrainMap->get());
-    int tempId = 0;
     
-    tempId = ContainUtils::createObjectByType<Magican>(d_persons);
-    ContainUtils::findObjectbyId(d_persons, tempId)->born(i_layer, 240 / d_sizeWidth, 240 / d_sizeHeight);
+    GameObj* tempObject;
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject->born(i_layer, 4, 4);
+    d_turnControl.insert(tempObject, "Light");
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject->born(i_layer, 3, 7);
+    d_turnControl.insert(tempObject, "Light");
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject->born(i_layer, 9, 3);
+    d_turnControl.insert(tempObject, "Dark");
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject->born(i_layer, 11, 6);
+    d_turnControl.insert(tempObject, "Dark");
     
-    tempId = ContainUtils::createObjectByType<BaseWall>(d_mapObjects);
-    ContainUtils::findObjectbyId(d_mapObjects, tempId)->born(i_layer, 360 / d_sizeWidth, 300 / d_sizeHeight);
+    ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);
                         
     d_squareControl.toScene(i_layer);
 }
