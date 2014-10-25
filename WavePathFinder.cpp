@@ -100,7 +100,7 @@ int WavePathFinder::process(signed int rel_x, signed int rel_y, bool diags, bool
     }
     
     //there is no path
-    if(iter>d_distance*d_distance)
+    if(iter>d_distance*2)
         return -3;
     
     int dy = d_y;

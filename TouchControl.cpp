@@ -24,10 +24,11 @@ void TouchControl::touchAction(cocos2d::Vec2 i_touch)
         if(d_move)
             delete d_move;
         //we need it finder until tun overs
-        d_move = new MovingStructure(obj, clickX, clickY, 2 );
+        int moveRadius = 2;
+        d_move = new MovingStructure(obj, clickX, clickY, moveRadius );
         
-        for(int j = -2; j<=2; ++j)
-            for(int i= -2; i <=2; ++i)
+        for(int j = -moveRadius; j<=moveRadius; ++j)
+            for(int i= -moveRadius; i <=moveRadius; ++i)
             {
                 if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, obj->x + i, obj->y + j)) )
                     d_move->d_finder->fill(i, j);

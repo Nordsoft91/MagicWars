@@ -57,6 +57,9 @@ namespace MagicWars_NS {
         
         void set(const std::string i_with, size_t x, size_t y)
         {
+            if(x>=d_mapWidth || y>=d_mapHeight)
+                return;
+            
             MapCoord c = d_tiles[i_with];
             set(c, x, y);
         }
