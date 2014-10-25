@@ -8,7 +8,7 @@
 
 #include "TouchControl.h"
 #include "ContainUtils.h"
-
+#include "Effect.h"
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -83,6 +83,9 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     d_turnControl.insert(tempObject, "Dark");
     
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);
-                        
+
+    Effect *myEff = new Effect("Christmas 2.png", 25);
+    myEff->init(i_layer, Vec2(240,240));
+    
     d_squareControl.toScene(i_layer);
 }
