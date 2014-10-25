@@ -12,6 +12,7 @@
 #include "TileMap.h"
 #include "GameObj.h"
 #include "WavePathFinder.h"
+#include "Consts.h"
 #include <memory>
 
 namespace MagicWars_NS {

@@ -11,11 +11,12 @@
 
 #include <cocos2d.h>
 #include <string>
+#include "Consts.h"
 
 namespace MagicWars_NS {
     
-    const size_t globalStepX = 60;
-    const size_t globalStepY = 60;
+    const size_t globalStepX = Consts::get("mapCellWidth");
+    const size_t globalStepY = Consts::get("mapCellHeight");
     
     class GameObj
     {

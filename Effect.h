@@ -22,7 +22,7 @@ namespace MagicWars_NS {
             {
                 frames.pushBack(cocos2d::SpriteFrame::create(i_spr, cocos2d::Rect((i%5)*192, (i/5)*192, 192, 192)));
             }
-            d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, std::numeric_limits<int>::max());
+            d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, 1);
             d_sprite = cocos2d::Sprite::create();
             d_animation->retain();
             d_sprite->retain();
@@ -46,6 +46,15 @@ namespace MagicWars_NS {
             d_sprite->setPosition(i_start);
             d_sprite->runAction(cocos2d::Animate::create(d_animation));
             return true;
+        }
+        
+        virtual void update()
+        {
+            if(!d_sprite->isRunning())
+            {
+                d_sprite->release();
+                d_sprite = nullptr;
+            }
         }
         
     protected:

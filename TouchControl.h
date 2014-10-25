@@ -16,6 +16,7 @@
 #include "SquareControl.h"
 #include "MovingStructure.h"
 #include "TurnController.h"
+#include "Effect.h"
 
 namespace MagicWars_NS {
     
@@ -39,11 +40,17 @@ namespace MagicWars_NS {
                 i->kill();
                 delete i;
             }
+            for(auto i : d_effects)
+            {
+                delete i;
+            }
         }
         
         void initialize(cocos2d::Layer* i_layer);
         
         void touchAction(cocos2d::Vec2 i_touch);
+        
+        void update();
         
     private:
         MagicWars_NS::SquareControl d_squareControl;
@@ -61,6 +68,7 @@ namespace MagicWars_NS {
         
         std::list<GameObj*> d_persons;
         std::list<GameObj*> d_mapObjects;
+        std::vector<Effect*> d_effects;
         
         MovingStructure* d_move = nullptr;
     };

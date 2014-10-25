@@ -85,7 +85,15 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);
 
     Effect *myEff = new Effect("Christmas 2.png", 25);
-    myEff->init(i_layer, Vec2(240,240));
+    myEff->init(i_layer, visibleSize);
+    d_effects.push_back(myEff);
     
     d_squareControl.toScene(i_layer);
+}
+
+void TouchControl::update()
+{
+    for (auto i : d_effects) {
+        i->update();
+    }
 }

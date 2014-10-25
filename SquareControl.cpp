@@ -12,7 +12,7 @@ using namespace MagicWars_NS;
 
 SquareControl::SquareControl()
 {
-    d_pSqTileset = new Tileset(cstrSprSquares, TileGrid{60,60,5,2,0,0,0,0} );
+    d_pSqTileset = new Tileset(cstrSprSquares, TileGrid{Consts::get("mapCellWidth"),Consts::get("mapCellHeight"),5,2,0,0,0,0} );
     d_pSquares = new TileMap(d_pSqTileset, 50, 50);
     
     d_pSquares->addTileType("green", 0, 0);

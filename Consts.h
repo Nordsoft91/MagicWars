@@ -55,6 +55,11 @@ public:
     bool isBool() const
     { return (type==3 ? true : false); }
     
+    operator size_t ()
+    {
+        return (type==1 && intV>=0 ? intV : 0);
+    }
+    
     operator int ()
     {
         return (type==1 ? intV : 0);
@@ -107,6 +112,8 @@ private:
     {
         std::string key, value, equal;
         d_file >> key >> equal >> value;
+        if(key == "" && value == "")
+            return;
         if(equal != "=")
             throw std::runtime_error("Error in consts file");
         
