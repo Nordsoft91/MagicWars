@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include "Consts.h"
+#include "Interface.h"
 
 USING_NS_CC;
 
@@ -13,9 +14,26 @@ Scene* HelloWorld::createScene()
 
     // add layer as a child to scene
     scene->addChild(layer);
+    
+    layer->createInterface(scene);
 
     // return the scene
     return scene;
+}
+
+void HelloWorld::createInterface(Scene* io_scene)
+{
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    
+    auto closeItem = MenuItemImage::create(
+                                           "CloseNormal.png",
+                                           "CloseSelected.png",
+                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+    
+    MagicWars_NS::Interface* interface = new MagicWars_NS::Interface(io_scene, &d_touchControl);
+    interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
+                                         closeItem->getContentSize().height/2));
+
 }
 
 // on "init" you need to initialize your instance
@@ -28,26 +46,8 @@ bool HelloWorld::init()
         return false;
     }
     
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
-    /////////////////////////////
-    // 2. add a menu item with "X" image, which is clicked to quit the program
-    //    you may modify it.
-
-    // add a "close" icon to exit the progress. it's an autorelease object
-    auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     
-	closeItem->setPosition(Vec2(origin.x + visibleSize.width - closeItem->getContentSize().width/2 ,
-                                origin.y + closeItem->getContentSize().height/2));
-
-    // create menu, it's an autorelease object
-    auto menu = Menu::create(closeItem, NULL);
-    menu->setPosition(Vec2::ZERO);
-    this->addChild(menu, 1);
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
     // 3. add your codes below...

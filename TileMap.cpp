@@ -47,14 +47,33 @@ void TileMap::set(const std::string i_with, size_t x, size_t y)
         return;
     
     MapCoord c = d_tiles[i_with];
-    set(c, x, y);
+    if(!d_pTileset)
+        throw std::runtime_error("null pointer");
+    if(x >= d_mapWidth || y >= d_mapHeight )
+        throw std::logic_error("invalid arguments");
+    
+    if(d_map(x,y).first)
+        d_map(x,y).first->removeFromParent();
+    
+    auto i = d_pTileset->createTile( c.x, c.y );
+    d_map(x,y).first = i;
+    d_map(x,y).second = i_with;
+    i->setPosition(x*d_pTileset->getTileWidth(), y*d_pTileset->getTileHeight());
+    i->ignoreAnchorPointForPosition(true);
+    d_layer->addChild(i);
 }
 
 bool TileMap::isTiled(size_t x, size_t y)
 {
-    if(d_map(x,y))
+    if(d_map(x,y).first)
         return true;
     return false;
+}
+
+
+bool TileMap::isTiled(size_t x, size_t y, const std::string i_name)
+{
+    return isTiled(x, y) && d_map(x,y).second == i_name;
 }
 
 size_t TileMap::width()
@@ -75,11 +94,11 @@ void TileMap::set(MapCoord i_with, size_t x, size_t y)
     if(x >= d_mapWidth || y >= d_mapHeight )
         throw std::logic_error("invalid arguments");
     
-    if(d_map(x,y))
-        d_map(x,y)->removeFromParent();
+    if(d_map(x,y).first)
+        d_map(x,y).first->removeFromParent();
     
     auto i = d_pTileset->createTile( i_with.x, i_with.y );
-    d_map(x,y) = i;
+    d_map(x,y).first = i;
     i->setPosition(x*d_pTileset->getTileWidth(), y*d_pTileset->getTileHeight());
     i->ignoreAnchorPointForPosition(true);
     d_layer->addChild(i);
@@ -94,7 +113,7 @@ void TileMap::clean()
 {
     for(auto& i : d_map.raw())
     {
-        d_layer->removeChild(i);
-        i = 0;
+        d_layer->removeChild(i.first);
+        i.first = 0;
     }
 }

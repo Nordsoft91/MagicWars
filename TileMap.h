@@ -35,6 +35,7 @@ namespace MagicWars_NS {
         void set(const std::string i_with, size_t x, size_t y);
         
         bool isTiled(size_t x, size_t y);
+        bool isTiled(size_t x, size_t y, const std::string i_name);
         
         size_t width();
         size_t height();
@@ -54,7 +55,7 @@ namespace MagicWars_NS {
         size_t d_mapWidth;
         size_t d_mapHeight;
         
-        MagicWars_NS::Grid<cocos2d::Sprite*> d_map;
+        MagicWars_NS::Grid<std::pair<cocos2d::Sprite*, std::string> > d_map;
         std::map<std::string, MapCoord> d_tiles;
     };
 }

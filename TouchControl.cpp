@@ -13,6 +13,20 @@
 using namespace MagicWars_NS;
 using namespace cocos2d;
 
+void TouchControl::attackAction()
+{
+    if(GameObj* obj = d_turnControl.getTurn())
+    {
+        if(d_move)
+        {
+            delete d_move;
+            d_move = nullptr;
+        }
+        
+        d_squareControl.createSquare(obj->x, obj->y, 1, "red");
+    }
+}
+
 void TouchControl::tapAction(cocos2d::Vec2 i_touch)
 {
     Vec2 globPos = i_touch - d_mapLayer->getPosition();
@@ -41,7 +55,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
         d_squareControl.createSquare(obj->x, obj->y, *d_move->d_finder, "blue");
         return;
     }
-    if(d_move && d_squareControl.isSquared(clickX, clickY))
+    if(d_move && d_squareControl.isSquared(clickX, clickY, "blue"))
     {
         d_move->applyPath(clickX, clickY);
         d_turnControl.endTurn(0);
@@ -90,13 +104,10 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);
 
-    Effect *myEff = Effect::create("Christmas 2.png", 25, Vec2(300,300));
-    i_layer->addChild(myEff);
+    //Effect *myEff = Effect::create("Christmas 2.png", 25, Vec2(300,300));
+    //i_layer->addChild(myEff);
     //d_effects.push_back(myEff);
     
     d_squareControl.toScene(i_layer);
 }
 
-void TouchControl::update()
-{
-}

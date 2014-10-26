@@ -12,7 +12,7 @@ using namespace MagicWars_NS;
 
 SquareControl::SquareControl()
 {
-    d_pSqTileset = new Tileset(cstrSprSquares, TileGrid{Consts::get("mapCellWidth"),Consts::get("mapCellHeight"),5,2,0,0,0,0} );
+    d_pSqTileset = new Tileset(cstrSprSquares, TileGrid{Consts::get("mapCellWidth"),Consts::get("mapCellHeight"),2,5,0,0,0,0} );
     d_pSquares = new TileMap(d_pSqTileset, 50, 50);
     
     d_pSquares->addTileType("green", 0, 0);
@@ -55,9 +55,9 @@ void SquareControl::createSquare(size_t x, size_t y, WavePathFinder& i_finder, c
     }
 }
 
-bool SquareControl::isSquared(size_t x, size_t y)
+bool SquareControl::isSquared(size_t x, size_t y, const std::string i_color)
 {
-    return d_pSquares->isTiled(x,y);
+    return d_pSquares->isTiled(x,y,i_color);
 }
 
 void SquareControl::deleteSquares()
