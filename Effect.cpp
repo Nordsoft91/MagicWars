@@ -23,6 +23,7 @@ Effect::Effect(const std::string i_spr, int i_frames)
         frames.pushBack(cocos2d::SpriteFrame::create(i_spr, cocos2d::Rect((i%5)*efW, (i/5)*efH, efW, efH)));
     }
     d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, 1);
+    //ignoreAnchorPointForPosition(true);
 }
 
 Effect::~Effect()

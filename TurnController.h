@@ -15,6 +15,10 @@
 
 namespace MagicWars_NS {
     
+#define TURN_MOVE    0x00000001
+#define TURN_ATTACK  0x00000010
+#define TURN_ANY     0x11111111
+    
     struct TurnInfo
     {
         std::string d_side;
@@ -27,12 +31,13 @@ namespace MagicWars_NS {
     public:
         bool insert(GameObj* i_char, const std::string i_side)
         {
-            d_persons[i_char] = TurnInfo{i_side, true, 9};
+            d_persons[i_char] = TurnInfo{i_side, true, TURN_MOVE | TURN_ATTACK};
             //add side if new
             if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())
                 d_sides.push_back(i_side);
             
             d_iterSideTurn = d_sides.begin();
+            return true;
         }
         
         bool remove(GameObj* i_char)
@@ -41,20 +46,21 @@ namespace MagicWars_NS {
             d_persons.erase(i_char);
             //remove side if not exist
             sideArray(hisSide);
+            return true;
         }
         
-        bool isTurn(GameObj* i_char)
+        bool isTurn(GameObj* i_char, int i_status)
         {
             if(   d_persons[i_char].d_side == *d_iterSideTurn
                && d_persons[i_char].d_alive
-               && d_persons[i_char].d_active > 0 )
+               && (d_persons[i_char].d_active & i_status) )
                 return true;
             return false;
         }
         
-        bool beginTurn(GameObj* i_char)
+        bool beginTurn(GameObj* i_char, int i_status)
         {
-            if(!isTurn(i_char))
+            if(!isTurn(i_char, i_status))
                 return false;
             
             d_turn = i_char;
@@ -63,25 +69,26 @@ namespace MagicWars_NS {
         
         bool endTurn(int i_status)
         {
-            d_persons[d_turn].d_active = i_status;
+            d_persons[d_turn].d_active &= ~i_status;
             std::vector<GameObj*> vec = sideArray(d_persons[d_turn].d_side);
+            if(d_persons[d_turn].d_active == 0)
+                d_turn = nullptr;
+            
             for( auto i : vec )
             {
                 if( d_persons[i].d_active>0 )
                 {
-                    d_turn = nullptr;
                     return true;
                 }
             }
             //change side
-            d_turn = nullptr;
             if( ++d_iterSideTurn == d_sides.end() )
                 d_iterSideTurn = d_sides.begin();
             //make team active
             vec = sideArray(*d_iterSideTurn);
             for( auto i : vec )
             {
-                d_persons[i].d_active = 9;
+                d_persons[i].d_active = TURN_MOVE | TURN_ATTACK;
             }
             return false;
         }

@@ -15,7 +15,8 @@ using namespace cocos2d;
 
 void TouchControl::attackAction()
 {
-    if(GameObj* obj = d_turnControl.getTurn())
+    GameObj* obj = d_turnControl.getTurn();
+    if(obj && d_turnControl.isTurn(obj, TURN_ATTACK))
     {
         if(d_move)
         {
@@ -34,32 +35,41 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     size_t clickY = globPos.y / d_sizeHeight;
     
     GameObj* obj = ContainUtils::findObject(d_persons, clickX, clickY);
-    if( obj && d_turnControl.beginTurn(obj))
+    if( obj )
     {
-        if(d_move)
-            delete d_move;
-        //we need it finder until tun overs
-        int moveRadius = 2;
-        d_move = new MovingStructure(obj, clickX, clickY, moveRadius );
+        d_turnControl.beginTurn(obj, TURN_ANY);
+        if( d_turnControl.beginTurn(obj, TURN_MOVE))
+        {
+            if(d_move)
+                delete d_move;
+            //we need it finder until tun overs
+            int moveRadius = 2;
+            d_move = new MovingStructure(obj, clickX, clickY, moveRadius );
         
-        for(int j = -moveRadius; j<=moveRadius; ++j)
-            for(int i= -moveRadius; i <=moveRadius; ++i)
-            {
-                if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, obj->x + i, obj->y + j)) )
-                    d_move->d_finder->fill(i, j);
-                if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, obj->x + i, obj->y + j) )
-                    d_move->d_finder->fill(i, j);
-            }
+            for(int j = -moveRadius; j<=moveRadius; ++j)
+                for(int i= -moveRadius; i <=moveRadius; ++i)
+                {
+                    if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, obj->x + i, obj->y + j)) )
+                        d_move->d_finder->fill(i, j);
+                    if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, obj->x + i, obj->y + j) )
+                        d_move->d_finder->fill(i, j);
+                }
         
-        //filling finder
-        d_squareControl.createSquare(obj->x, obj->y, *d_move->d_finder, "blue");
-        return;
+            //filling finder
+            d_squareControl.createSquare(obj->x, obj->y, *d_move->d_finder, "blue");
+            return;
+        }
     }
     if(d_move && d_squareControl.isSquared(clickX, clickY, "blue"))
     {
         d_move->applyPath(clickX, clickY);
-        d_turnControl.endTurn(0);
-        //d_finder->process()
+        d_turnControl.endTurn(TURN_MOVE);
+    }
+    if(d_squareControl.isSquared(clickX, clickY, "red"))
+    {
+        Effect *myEff = Effect::create("Melee 1.png", 10, Vec2((0.5+clickX)*d_sizeWidth, (0.5+clickY)*d_sizeHeight));
+        d_mapLayer->addChild(myEff);
+        d_turnControl.endTurn(TURN_ATTACK);
     }
     d_squareControl.deleteSquares();
     delete d_move;
@@ -76,7 +86,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    MagicWars_NS::TileGrid grid{d_sizeWidth,d_sizeHeight,2,2,0,0,10,10};
+    MagicWars_NS::TileGrid grid{d_sizeWidth,d_sizeHeight,15,20,0,0,10,10};
     
     d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("Terrain1.png", grid));
     
