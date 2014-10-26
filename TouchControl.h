@@ -40,10 +40,6 @@ namespace MagicWars_NS {
                 i->kill();
                 delete i;
             }
-            for(auto i : d_effects)
-            {
-                delete i;
-            }
         }
         
         void initialize(cocos2d::Layer* i_layer);
@@ -68,7 +64,7 @@ namespace MagicWars_NS {
         
         std::list<GameObj*> d_persons;
         std::list<GameObj*> d_mapObjects;
-        std::vector<Effect*> d_effects;
+        //std::vector<Effect*> d_effects;
         
         MovingStructure* d_move = nullptr;
     };
