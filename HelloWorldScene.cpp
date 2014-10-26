@@ -59,9 +59,22 @@ bool HelloWorld::init()
         return true;
     };
     
+    listener->onTouchMoved = [&](Touch *touch, Event *event)
+    {
+        if((touch->getStartLocation() - touch->getLocation()).length() > 16.0)
+        {
+            d_touchControl.moveAction((touch->getLocation() - touch->getPreviousLocation()));
+        }
+    };
+    
     listener->onTouchEnded = [&](Touch *touch, Event *event)
     {
-        d_touchControl.touchAction(touch->getStartLocation());
+        if((touch->getStartLocation() - touch->getLocation()).length() <= 16.0)
+        {
+            Vec2 invLocation = touch->getLocationInView();
+            invLocation.y = Director::getInstance()->getVisibleSize().height - invLocation.y;
+            d_touchControl.tapAction(invLocation);
+        }
     };
     
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(listener, 30);

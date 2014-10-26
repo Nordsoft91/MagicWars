@@ -13,10 +13,11 @@
 using namespace MagicWars_NS;
 using namespace cocos2d;
 
-void TouchControl::touchAction(cocos2d::Vec2 i_touch)
+void TouchControl::tapAction(cocos2d::Vec2 i_touch)
 {
-    size_t clickX = i_touch.x / d_sizeWidth;
-    size_t clickY = i_touch.y / d_sizeHeight;
+    Vec2 globPos = i_touch - d_mapLayer->getPosition();
+    size_t clickX = globPos.x / d_sizeWidth;
+    size_t clickY = globPos.y / d_sizeHeight;
     
     GameObj* obj = ContainUtils::findObject(d_persons, clickX, clickY);
     if( obj && d_turnControl.beginTurn(obj))
@@ -51,9 +52,14 @@ void TouchControl::touchAction(cocos2d::Vec2 i_touch)
     d_move = nullptr;
 }
 
+void TouchControl::moveAction(cocos2d::Vec2 i_touch)
+{
+    d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
+}
+
 void TouchControl::initialize(cocos2d::Layer* i_layer)
 {
-    Size visibleSize = Director::getInstance()->getVisibleSize();
+    d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
     MagicWars_NS::TileGrid grid{d_sizeWidth,d_sizeHeight,2,2,0,0,10,10};

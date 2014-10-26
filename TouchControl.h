@@ -44,7 +44,8 @@ namespace MagicWars_NS {
         
         void initialize(cocos2d::Layer* i_layer);
         
-        void touchAction(cocos2d::Vec2 i_touch);
+        void tapAction(cocos2d::Vec2 i_touch);
+        void moveAction(cocos2d::Vec2 i_touch);
         
         void update();
         
@@ -57,8 +58,8 @@ namespace MagicWars_NS {
         
         MagicWars_NS::TileMap* d_terrainMap;
         
-        const size_t d_mapWidth = 20;
-        const size_t d_mapHeight = 20;
+        const size_t d_mapWidth = 30;
+        const size_t d_mapHeight = 30;
         const size_t d_sizeWidth = 60;
         const size_t d_sizeHeight = 60;
         
@@ -67,6 +68,8 @@ namespace MagicWars_NS {
         //std::vector<Effect*> d_effects;
         
         MovingStructure* d_move = nullptr;
+        
+        cocos2d::Layer* d_mapLayer;
     };
 }
 
