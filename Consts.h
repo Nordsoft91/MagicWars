@@ -92,55 +92,18 @@ private:
 class Consts
 {
 public:
-    static Param& get(const std::string i_param)
-    {
-        static Consts magicConsts;
-        return magicConsts.d_parameters[i_param];
-    }
     
-    
+    static Param& get(const std::string i_param, const std::string i_group = "common");
     
 private:
-    Consts()
-    {
-        d_file.open(cocos2d::FileUtils::getInstance()->fullPathForFilename("MagicConsts"));
-        while(d_file)
-            readParameter();
-    }
+
+    Consts();
     
-    void readParameter()
-    {
-        std::string key, value, equal;
-        d_file >> key >> equal >> value;
-        if(key == "" && value == "")
-            return;
-        if(equal != "=")
-            throw std::runtime_error("Error in consts file");
-        
-        int v1 = atoi(value.c_str());
-        double v2 = atof(value.c_str());
-        if(fabs(v2 - double(v1)) > std::numeric_limits<double>::epsilon())
-            v1 = 0;
-        if(v1!=0)
-        {
-            d_parameters[key] = Param(v1);
-            return;
-        }
-        if(v2!=0)
-        {
-            d_parameters[key] = Param(v2);
-            return;
-        }
-        if(value == "true" || value == "false")
-        {
-            d_parameters[key] = Param(value=="true");
-            return;
-        }
-        d_parameters[key] = Param(value);
-    }
+    bool readParameter(std::map<std::string, Param>& o_group);
+    void readGroup();
     
     std::ifstream d_file;
-    std::map<std::string, Param> d_parameters;
+    std::map<std::string, std::map<std::string, Param> > d_parameters;
 };
 
 #endif
