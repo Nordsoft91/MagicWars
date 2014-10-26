@@ -60,12 +60,20 @@ bool Consts::readParameter(std::map<std::string, Param>& o_group)
 
 void Consts::readGroup()
 {
-    std::string identify, group, sig;
+    std::string identify, group, sig, parent;
     d_file >> identify >> group >> sig ;
-    if(identify == "<group>" && sig == "{")
+    if(identify == "<group>")
     {
         std::map<std::string, Param>  grp;
-        while(readParameter(grp)) {}
-        d_parameters[group] = grp;
+        if(sig == "<override>")
+        {
+            d_file >> parent >> sig;
+            grp = d_parameters[parent];
+        }
+        if(sig == "{")
+        {
+            while(readParameter(grp)) {}
+            d_parameters[group] = grp;
+        }
     }
 }

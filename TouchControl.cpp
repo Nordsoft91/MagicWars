@@ -9,6 +9,8 @@
 #include "TouchControl.h"
 #include "ContainUtils.h"
 #include "Effect.h"
+#include "MagicanDark.h"
+#include "MagicanLight.h"
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -99,16 +101,16 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     i_layer->addChild(d_terrainMap->get());
     
     GameObj* tempObject;
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons));
     tempObject->born(i_layer, 4, 4);
     d_turnControl.insert(tempObject, "Light");
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons));
     tempObject->born(i_layer, 3, 7);
     d_turnControl.insert(tempObject, "Light");
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons));
     tempObject->born(i_layer, 9, 3);
     d_turnControl.insert(tempObject, "Dark");
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<Magican>(d_persons));
+    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons));
     tempObject->born(i_layer, 11, 6);
     d_turnControl.insert(tempObject, "Dark");
     
