@@ -15,6 +15,12 @@
 using namespace MagicWars_NS;
 using namespace cocos2d;
 
+TouchControl::TouchControl()
+{
+    d_sizeWidth = Consts::get("mapCellWidth");
+    d_sizeHeight = Consts::get("mapCellHeight");
+}
+
 void TouchControl::attackAction()
 {
     GameObj* obj = d_turnControl.getTurn();
@@ -62,15 +68,21 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
             return;
         }
     }
+    //move
     if(d_move && d_squareControl.isSquared(clickX, clickY, "blue"))
     {
         d_move->applyPath(clickX, clickY);
         d_turnControl.endTurn(TURN_MOVE);
     }
+    //attack
     if(d_squareControl.isSquared(clickX, clickY, "red"))
     {
         Effect *myEff = Effect::create("Melee 1.png", 10, Vec2((0.5+clickX)*d_sizeWidth, (0.5+clickY)*d_sizeHeight));
         d_mapLayer->addChild(myEff);
+        if( obj )
+        {
+            dynamic_cast<Magican*>(obj)->decreaseHealth(18);
+        }
         d_turnControl.endTurn(TURN_ATTACK);
     }
     d_squareControl.deleteSquares();
@@ -88,7 +100,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    MagicWars_NS::TileGrid grid{d_sizeWidth,d_sizeHeight,15,20,0,0,10,10};
+    MagicWars_NS::TileGrid grid{d_sizeWidth,d_sizeHeight,15,20,0,0,11,11};
     
     d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("Terrain1.png", grid));
     

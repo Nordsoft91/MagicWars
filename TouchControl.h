@@ -23,7 +23,7 @@ namespace MagicWars_NS {
     class TouchControl
     {
     public:
-        TouchControl() {}
+        TouchControl();
         
         ~TouchControl()
         {
@@ -58,10 +58,10 @@ namespace MagicWars_NS {
         
         MagicWars_NS::TileMap* d_terrainMap;
         
-        const size_t d_mapWidth = 30;
-        const size_t d_mapHeight = 30;
-        const size_t d_sizeWidth = 60;
-        const size_t d_sizeHeight = 60;
+        size_t d_mapWidth = 30;
+        size_t d_mapHeight = 30;
+        size_t d_sizeWidth = 60;
+        size_t d_sizeHeight = 60;
         
         std::list<GameObj*> d_persons;
         std::list<GameObj*> d_mapObjects;

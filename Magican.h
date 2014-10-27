@@ -15,6 +15,48 @@
 
 namespace MagicWars_NS
 {
+    class StatusUpdater: public cocos2d::DrawNode
+    {
+    public:
+        CREATE_FUNC(StatusUpdater);
+        
+        virtual void update(float delta) override
+        {
+            if(d_value>d_status)
+            {
+                setVisible(true);
+                clear();
+                for(float i=0; i<6.283 * d_value/d_maximum; i+=3.14/50)
+                {
+                    drawSolidCircle(getPosition() + cocos2d::Vec2(35*cos(i), 35*sin(i)), 3, 0.5, 6, cocos2d::Color4F(1.,0.,0.,0.2) );
+                }
+                d_value-=(d_value-d_status)/30+0.001f;
+            }
+            else
+                setVisible(true);
+        }
+    
+        virtual bool init()
+        {
+            if(!cocos2d::DrawNode::init())
+                return false;
+            
+            scheduleUpdate();
+            setVisible(false);
+            return true;
+        }
+    
+        void setStatus(float stt)
+        {
+            d_status = stt;
+        }
+    
+    protected:
+        float d_status = 1;
+        float d_value = 1;
+        float d_maximum = 1;
+    };
+    
     class Magican: public GameObj
     {
     public:
@@ -30,6 +72,18 @@ namespace MagicWars_NS
             
             d_health = d_healthMax;
             d_mana = d_mind;
+            
+            d_visualizeHealth = StatusUpdater::create();
+            d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.25);
+            d_sprite->addChild(d_visualizeHealth);
+        }
+        
+        void decreaseHealth(unsigned int i_dammage)
+        {
+            d_healthMax += 0.015 * i_dammage;
+            d_health -= i_dammage;
+            d_visualizeHealth->setStatus(float(d_health)/float(d_healthMax));
+            
         }
         
         
@@ -42,6 +96,10 @@ namespace MagicWars_NS
         int d_wisdom = 0;
         int d_speed = 0;
         std::pair<int, int> d_dammage;
+        
+        //visualize parameters
+        StatusUpdater *d_visualizeHealth;
+        
     };
 }
 
