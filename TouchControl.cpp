@@ -45,6 +45,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     GameObj* obj = ContainUtils::findObject(d_persons, clickX, clickY);
     if( obj )
     {
+        dynamic_cast<Magican*>(obj)->showStatus();
         d_turnControl.beginTurn(obj, TURN_ANY);
         if( d_turnControl.beginTurn(obj, TURN_MOVE))
         {
@@ -68,6 +69,12 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
             return;
         }
     }
+    else
+    {
+        Magican* mobj =dynamic_cast<Magican*>(d_turnControl.getTurn());
+        if(mobj)
+            mobj->showStatus(false);
+    }
     //move
     if(d_move && d_squareControl.isSquared(clickX, clickY, "blue"))
     {
@@ -81,6 +88,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
         d_mapLayer->addChild(myEff);
         if( obj )
         {
+            dynamic_cast<Magican*>(obj)->showStatus(false);
             dynamic_cast<Magican*>(obj)->decreaseHealth(18);
         }
         d_turnControl.endTurn(TURN_ATTACK);
