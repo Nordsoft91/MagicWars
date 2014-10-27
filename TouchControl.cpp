@@ -36,6 +36,26 @@ void TouchControl::attackAction()
     }
 }
 
+void TouchControl::endTurnAction()
+{
+    std::string side = d_turnControl.getTurnSide();
+    std::vector<GameObj*> _arr = d_turnControl.sideArray(d_turnControl.getTurnSide());
+    
+    d_squareControl.deleteSquares();
+    if(d_move)
+        delete d_move;
+    d_move = nullptr;
+    
+    for( auto i : _arr )
+    {
+        GameObj* obj = dynamic_cast<Magican*>(i);
+        if(d_turnControl.beginTurn(obj, TURN_ANY))
+            d_turnControl.endTurn(TURN_ANY);
+        if(d_turnControl.getTurnSide()!=side)
+            return;
+    }
+}
+
 void TouchControl::tapAction(cocos2d::Vec2 i_touch)
 {
     Vec2 globPos = i_touch - d_mapLayer->getPosition();

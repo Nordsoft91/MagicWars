@@ -48,6 +48,7 @@ namespace MagicWars_NS {
         void moveAction(cocos2d::Vec2 i_touch);
         
         void attackAction();
+        void endTurnAction();
         
     private:
         MagicWars_NS::SquareControl d_squareControl;

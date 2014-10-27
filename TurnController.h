@@ -98,7 +98,11 @@ namespace MagicWars_NS {
             return d_turn;
         }
         
-    private:
+        std::string getTurnSide()
+        {
+            return *d_iterSideTurn;
+        }
+        
         std::vector<GameObj*> sideArray(const std::string i_side)
         {
             std::vector<GameObj*> res;
@@ -115,6 +119,8 @@ namespace MagicWars_NS {
 
             return res;
         }
+        
+    private:
         
         std::map<GameObj*, TurnInfo> d_persons;
         std::vector<std::string> d_sides;
