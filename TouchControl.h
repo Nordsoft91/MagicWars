@@ -46,6 +46,8 @@ namespace MagicWars_NS {
         
         void tapAction(cocos2d::Vec2 i_touch);
         void moveAction(cocos2d::Vec2 i_touch);
+        bool pressAction(cocos2d::Vec2 i_touch);
+        void popupSpellMenu();
         
         void attackAction();
         void endTurnAction();

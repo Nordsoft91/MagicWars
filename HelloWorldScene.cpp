@@ -58,6 +58,7 @@ bool HelloWorld::init()
     {
         return true;
     };
+                                   
     
     listener->onTouchMoved = [&](Touch *touch, Event *event)
     {

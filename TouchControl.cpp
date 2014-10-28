@@ -12,6 +12,7 @@
 #include "MagicanDark.h"
 #include "MagicanLight.h"
 
+
 using namespace MagicWars_NS;
 using namespace cocos2d;
 
@@ -23,7 +24,7 @@ TouchControl::TouchControl()
 
 void TouchControl::attackAction()
 {
-    GameObj* obj = d_turnControl.getTurn();
+    Magican* obj = d_turnControl.getTurn();
     if(obj && d_turnControl.isTurn(obj, TURN_ATTACK))
     {
         if(d_move)
@@ -39,7 +40,7 @@ void TouchControl::attackAction()
 void TouchControl::endTurnAction()
 {
     std::string side = d_turnControl.getTurnSide();
-    std::vector<GameObj*> _arr = d_turnControl.sideArray(d_turnControl.getTurnSide());
+    std::vector<Magican*> _arr = d_turnControl.sideArray(d_turnControl.getTurnSide());
     
     d_squareControl.deleteSquares();
     if(d_move)
@@ -48,8 +49,7 @@ void TouchControl::endTurnAction()
     
     for( auto i : _arr )
     {
-        GameObj* obj = dynamic_cast<Magican*>(i);
-        if(d_turnControl.beginTurn(obj, TURN_ANY))
+        if(d_turnControl.beginTurn(i, TURN_ANY))
             d_turnControl.endTurn(TURN_ANY);
         if(d_turnControl.getTurnSide()!=side)
             return;
@@ -62,10 +62,11 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     size_t clickX = globPos.x / d_sizeWidth;
     size_t clickY = globPos.y / d_sizeHeight;
     
-    GameObj* obj = ContainUtils::findObject(d_persons, clickX, clickY);
+    GameObj* basobj = ContainUtils::findObject(d_persons, clickX, clickY);
+    Magican* obj = dynamic_cast<Magican*>(basobj);
     if( obj )
     {
-        dynamic_cast<Magican*>(obj)->showStatus();
+        obj->showStatus(true, 2.0);
         d_turnControl.beginTurn(obj, TURN_ANY);
         if( d_turnControl.beginTurn(obj, TURN_MOVE))
         {
@@ -91,7 +92,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     }
     else
     {
-        Magican* mobj =dynamic_cast<Magican*>(d_turnControl.getTurn());
+        Magican* mobj = d_turnControl.getTurn();
         if(mobj)
             mobj->showStatus(false);
     }
@@ -108,8 +109,8 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
         d_mapLayer->addChild(myEff);
         if( obj )
         {
-            dynamic_cast<Magican*>(obj)->showStatus(false);
-            dynamic_cast<Magican*>(obj)->decreaseHealth(18);
+            obj->showStatus(false);
+            obj->decreaseHealth(18);
         }
         d_turnControl.endTurn(TURN_ATTACK);
     }
@@ -140,22 +141,23 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     
     i_layer->addChild(d_terrainMap->get());
     
-    GameObj* tempObject;
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons));
+    Magican* tempObject;
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
     tempObject->born(i_layer, 4, 4);
     d_turnControl.insert(tempObject, "Light");
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
     tempObject->born(i_layer, 3, 7);
     d_turnControl.insert(tempObject, "Light");
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
     tempObject->born(i_layer, 9, 3);
     d_turnControl.insert(tempObject, "Dark");
-    tempObject = ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
     tempObject->born(i_layer, 11, 6);
     d_turnControl.insert(tempObject, "Dark");
     
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);
-
+    
     d_squareControl.toScene(i_layer);
+    
 }
 

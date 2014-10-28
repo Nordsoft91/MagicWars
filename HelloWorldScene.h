@@ -22,6 +22,7 @@ public:
     CREATE_FUNC(HelloWorld);
     
     MagicWars_NS::TouchControl d_touchControl;
+    
 };
 
 #endif // __HELLOWORLD_SCENE_H__

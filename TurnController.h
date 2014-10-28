@@ -9,7 +9,7 @@
 #ifndef MagicWars_TurnController_h
 #define MagicWars_TurnController_h
 
-#include "GameObj.h"
+#include "Magican.h"
 #include <map>
 #include <string>
 
@@ -29,7 +29,7 @@ namespace MagicWars_NS {
     class TurnController
     {
     public:
-        bool insert(GameObj* i_char, const std::string i_side)
+        bool insert(Magican* i_char, const std::string i_side)
         {
             d_persons[i_char] = TurnInfo{i_side, true, TURN_MOVE | TURN_ATTACK};
             //add side if new
@@ -40,7 +40,7 @@ namespace MagicWars_NS {
             return true;
         }
         
-        bool remove(GameObj* i_char)
+        bool remove(Magican* i_char)
         {
             std::string hisSide = d_persons[i_char].d_side;
             d_persons.erase(i_char);
@@ -49,7 +49,7 @@ namespace MagicWars_NS {
             return true;
         }
         
-        bool isTurn(GameObj* i_char, int i_status)
+        bool isTurn(Magican* i_char, int i_status)
         {
             if(   d_persons[i_char].d_side == *d_iterSideTurn
                && d_persons[i_char].d_alive
@@ -58,21 +58,27 @@ namespace MagicWars_NS {
             return false;
         }
         
-        bool beginTurn(GameObj* i_char, int i_status)
+        bool beginTurn(Magican* i_char, int i_status)
         {
             if(!isTurn(i_char, i_status))
                 return false;
             
+            if(d_turn)
+                d_turn->setActive(false);
             d_turn = i_char;
+            d_turn->setActive(true);
             return true;
         }
         
         bool endTurn(int i_status)
         {
             d_persons[d_turn].d_active &= ~i_status;
-            std::vector<GameObj*> vec = sideArray(d_persons[d_turn].d_side);
+            std::vector<Magican*> vec = sideArray(d_persons[d_turn].d_side);
             if(d_persons[d_turn].d_active == 0)
+            {
+                d_turn->setActive(false);
                 d_turn = nullptr;
+            }
             
             for( auto i : vec )
             {
@@ -93,7 +99,7 @@ namespace MagicWars_NS {
             return false;
         }
         
-        GameObj* getTurn()
+        Magican* getTurn()
         {
             return d_turn;
         }
@@ -103,9 +109,9 @@ namespace MagicWars_NS {
             return *d_iterSideTurn;
         }
         
-        std::vector<GameObj*> sideArray(const std::string i_side)
+        std::vector<Magican*> sideArray(const std::string i_side)
         {
-            std::vector<GameObj*> res;
+            std::vector<Magican*> res;
             if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())
                 return res;
             
@@ -122,11 +128,11 @@ namespace MagicWars_NS {
         
     private:
         
-        std::map<GameObj*, TurnInfo> d_persons;
+        std::map<Magican*, TurnInfo> d_persons;
         std::vector<std::string> d_sides;
         std::vector<std::string>::iterator d_iterSideTurn;
         
-        GameObj* d_turn = nullptr;
+        Magican* d_turn = nullptr;
     };
 }
 

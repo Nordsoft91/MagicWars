@@ -24,7 +24,10 @@ Interface::Interface(cocos2d::Scene* io_scene, TouchControl* i_controller)
     addButton(itemAttack, itemAttack->getContentSize().width/2, visibleSize.height - itemAttack->getContentSize().height/2 );
     
     auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"), [i_controller](cocos2d::Ref* pSender){i_controller->endTurnAction();});
-    addButton(itemEnd, itemEnd->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
+    addButton(itemEnd, itemEnd->getContentSize().width*2.5, visibleSize.height - itemEnd->getContentSize().height/2 );
+    
+    auto itemSpell = cocos2d::MenuItemImage::create(BUTTON_NAME("icon3"), [](cocos2d::Ref* pSender){});
+    addButton(itemSpell, itemSpell->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
 }
 
 Interface::~Interface()

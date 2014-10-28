@@ -10,6 +10,7 @@
 #define __MagicWars__StatusUpdater__
 
 #include <cocos2d.h>
+#include "Consts.h"
 
 namespace MagicWars_NS
 {
@@ -24,12 +25,16 @@ public:
 
     void setStatus(float stt);
     
-    bool d_force = false;
+    void show(bool i_force = true, double i_time = 0.0);
+    
 
 protected:
     float d_status = 1;
     float d_value = 1;
     float d_maximum = 1;
+    
+    bool d_force = false;
+    double  d_forceTime = 0;
 };
 }
 #endif /* defined(__MagicWars__StatusUpdater__) */

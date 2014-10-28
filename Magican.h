@@ -13,6 +13,7 @@
 
 #include "GameObj.h"
 #include "StatusUpdater.h"
+#include "CurrentTurnLight.h"
 
 namespace MagicWars_NS
 {
@@ -35,6 +36,11 @@ namespace MagicWars_NS
             d_visualizeHealth = StatusUpdater::create();
             d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
             d_sprite->addChild(d_visualizeHealth);
+            
+            d_currentTurnLight = CurrentTurnLight::create();
+            d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
+            d_currentTurnLight->show(false);
+            d_sprite->addChild(d_currentTurnLight);
         }
         
         void decreaseHealth(unsigned int i_dammage)
@@ -44,9 +50,14 @@ namespace MagicWars_NS
             d_visualizeHealth->setStatus(float(d_health)/float(d_healthMax));
         }
         
-        void showStatus(bool i_show = true)
+        void showStatus(bool i_show = true, double i_time = 0.0)
         {
-            d_visualizeHealth->d_force = i_show;
+            d_visualizeHealth->show(i_show, i_time);
+        }
+        
+        void setActive(bool i_act)
+        {
+            d_currentTurnLight->show(i_act);
         }
         
         
@@ -62,6 +73,7 @@ namespace MagicWars_NS
         
         //visualize parameters
         StatusUpdater *d_visualizeHealth;
+        CurrentTurnLight *d_currentTurnLight = nullptr;
         
     };
 }
