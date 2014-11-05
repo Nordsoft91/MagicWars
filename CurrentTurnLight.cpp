@@ -17,12 +17,12 @@ void CurrentTurnLight::update(float delta)
         setVisible(true);
         clear();
         
-        drawSolidCircle(cocos2d::Vec2::ZERO, 26, 0.5, 24, cocos2d::Color4F(1.,1.,1.,d_status*0.5) );
+        drawSolidCircle(cocos2d::Vec2::ZERO, 16, 0.5, 12, cocos2d::Color4F(1.,1.,1.,d_status*0.5) );
         
         if(d_status>=0.9 || d_status<=0.1)
             d_statusDir*=-1;
         
-        d_status+=d_statusDir*0.02;
+        d_status+=d_statusDir*0.03;
     }
 }
 
@@ -34,6 +34,11 @@ bool CurrentTurnLight::init()
     scheduleUpdate();
     show();
     return true;
+}
+
+bool CurrentTurnLight::isShown() const
+{
+    return d_shown;
 }
 
 

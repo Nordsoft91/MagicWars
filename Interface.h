@@ -24,8 +24,21 @@ namespace MagicWars_NS {
         void addButton(cocos2d::MenuItemImage* i_item, cocos2d::Vec2 i_pos);
         void addButton(cocos2d::MenuItemImage* i_item, float, float);
         
+        void createSpellMenu(Magican* i_mag);
+        
+        void removeSpells();
+        
+        void disableActionButtons(bool i_disable = true);
+        //call RemoveFromParent for MenuItemImage for delete button
+        
     protected:
+        TouchControl* d_controller;
         cocos2d::Menu* d_pMenu;
+        
+        cocos2d::MenuItemImage* d_pAttackItem;
+        cocos2d::MenuItemImage* d_pSpellItem;
+        
+        std::vector<cocos2d::MenuItemImage*> d_spells;
     };
 }
 

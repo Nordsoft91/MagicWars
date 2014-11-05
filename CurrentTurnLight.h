@@ -24,6 +24,7 @@ namespace MagicWars_NS
         virtual bool init();
         
         void show(bool i_show = true);
+        bool isShown() const;
         
     protected:
         

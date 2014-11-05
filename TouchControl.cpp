@@ -11,7 +11,7 @@
 #include "Effect.h"
 #include "MagicanDark.h"
 #include "MagicanLight.h"
-
+#include "Interface.h"
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -34,6 +34,29 @@ void TouchControl::attackAction()
         }
         
         d_squareControl.createSquare(obj->x, obj->y, 1, "red");
+        d_spellCurrent = "attack";
+    }
+}
+
+void TouchControl::spellAction(std::string i_spell)
+{
+    Magican* obj = d_turnControl.getTurn();
+    if(obj && d_turnControl.isTurn(obj, TURN_ATTACK))
+    {
+        if(d_move)
+        {
+            delete d_move;
+            d_move = nullptr;
+        }
+        
+        std::string squareType = Consts::get("type", i_spell);
+        if(squareType=="SQUAD")
+            d_squareControl.createSquare(obj->x, obj->y, Consts::get("radius", i_spell), "red");
+        if(squareType=="CROSS")
+            d_squareControl.createCross(obj->x, obj->y, Consts::get("radius", i_spell), "red");
+        if(squareType=="STAR")
+            d_squareControl.createStar(obj->x, obj->y, Consts::get("radius", i_spell), "red");
+        d_spellCurrent = i_spell;
     }
 }
 
@@ -66,8 +89,11 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     Magican* obj = dynamic_cast<Magican*>(basobj);
     if( obj )
     {
+        d_interface->removeSpells();
         obj->showStatus(true, 2.0);
         d_turnControl.beginTurn(obj, TURN_ANY);
+        if(d_turnControl.beginTurn(obj, TURN_ATTACK))
+            d_interface->disableActionButtons(false);
         if( d_turnControl.beginTurn(obj, TURN_MOVE))
         {
             if(d_move)
@@ -105,13 +131,25 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     //attack
     if(d_squareControl.isSquared(clickX, clickY, "red"))
     {
-        Effect *myEff = Effect::create("Melee 1.png", 10, Vec2((0.5+clickX)*d_sizeWidth, (0.5+clickY)*d_sizeHeight));
+        Effect *myEff = nullptr;
+        if(std::string(Consts::get("effectType", d_spellCurrent)) == "APPEAR")
+            myEff = Effect::create(Consts::get("sprite", d_spellCurrent), Consts::get("sprite_size", d_spellCurrent), Vec2((0.5+clickX)*d_sizeWidth, (0.5+clickY)*d_sizeHeight));
+        
+        if(std::string(Consts::get("effectType", d_spellCurrent)) == "FOLLOW")
+            myEff = Effect::create(Consts::get("sprite_fly", d_spellCurrent), Consts::get("sprite_fly_size", d_spellCurrent), Vec2((d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight),Vec2((0.5+clickX)*d_sizeWidth, (0.5+clickY)*d_sizeHeight));
+        
+        if(!myEff)
+            throw std::runtime_error("Error in effect creating");
+        
+        d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
+        
         d_mapLayer->addChild(myEff);
         if( obj )
         {
             obj->showStatus(false);
-            obj->decreaseHealth(18);
+            obj->decreaseHealth(int(Consts::get("force", d_spellCurrent)));
         }
+        d_interface->disableActionButtons(true);
         d_turnControl.endTurn(TURN_ATTACK);
     }
     d_squareControl.deleteSquares();

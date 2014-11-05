@@ -23,6 +23,7 @@ Effect::Effect(const std::string i_spr, int i_frames)
         frames.pushBack(cocos2d::SpriteFrame::create(i_spr, cocos2d::Rect((i%5)*efW, (i/5)*efH, efW, efH)));
     }
     d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, 1);
+
     //ignoreAnchorPointForPosition(true);
 }
 
@@ -34,7 +35,7 @@ Effect::~Effect()
 Effect* Effect::create(const std::string i_spr, int i_frames, cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal)
 {
     Effect *pRet = new Effect(i_spr, i_frames);
-    if (pRet && pRet->init(i_start, i_goal))
+    if (pRet && pRet->init(i_start, i_goal, double(i_frames) / 10.))
     {
         pRet->autorelease();
         return pRet;
@@ -47,13 +48,22 @@ Effect* Effect::create(const std::string i_spr, int i_frames, cocos2d::Vec2 i_st
     }
 }
 
-bool Effect::init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal)
+bool Effect::init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal, double i_time)
 {
     if(!cocos2d::Sprite::init())
         return false;
     
     setPosition(i_start);
     runAction(cocos2d::Animate::create(d_animation));
+    if(i_goal!=cocos2d::Vec2::ZERO)
+    {
+        cocos2d::Vec2 vec = i_goal - i_start;
+        cocos2d::Vec2 axis(1,0);
+        float angle = vec.y>=0 ? cocos2d::Vec2::angle(vec, axis)*180./3.1415 : 360.-cocos2d::Vec2::angle(vec, axis)*180./3.1415 ;
+        setRotation(180-angle + 90);
+        auto i_move = cocos2d::MoveTo::create(i_time, i_goal);
+        runAction(i_move);
+    }
     scheduleUpdate();
     return true;
 }

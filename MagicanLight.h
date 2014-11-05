@@ -15,7 +15,11 @@ namespace MagicWars_NS {
     class MagicanLight: public Magican
     {
     public:
-        MagicanLight(): Magican("magicanLightLevel1") {}
+        MagicanLight(): Magican("magicanLightLevel1")
+        {
+            d_spells.push_back("icon_fire.png");
+            d_spells.push_back("icon_lighting.png");
+        }
         
     protected:
         

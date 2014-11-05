@@ -51,6 +51,7 @@ namespace MagicWars_NS {
         
         bool isTurn(Magican* i_char, int i_status)
         {
+            d_persons[i_char].d_alive = i_char->isAlive();
             if(   d_persons[i_char].d_side == *d_iterSideTurn
                && d_persons[i_char].d_alive
                && (d_persons[i_char].d_active & i_status) )
@@ -72,9 +73,10 @@ namespace MagicWars_NS {
         
         bool endTurn(int i_status)
         {
+            
             d_persons[d_turn].d_active &= ~i_status;
             std::vector<Magican*> vec = sideArray(d_persons[d_turn].d_side);
-            if(d_persons[d_turn].d_active == 0)
+            if(d_persons[d_turn].d_active == 0 || !d_persons[d_turn].d_alive)
             {
                 d_turn->setActive(false);
                 d_turn = nullptr;
@@ -82,7 +84,8 @@ namespace MagicWars_NS {
             
             for( auto i : vec )
             {
-                if( d_persons[i].d_active>0 )
+                d_persons[i].d_alive = i->isAlive();
+                if( d_persons[i].d_alive && d_persons[i].d_active>0 )
                 {
                     return true;
                 }
@@ -95,6 +98,7 @@ namespace MagicWars_NS {
             for( auto i : vec )
             {
                 d_persons[i].d_active = TURN_MOVE | TURN_ATTACK;
+                i->increaseMind();
             }
             return false;
         }

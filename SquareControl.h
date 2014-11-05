@@ -25,6 +25,8 @@ namespace MagicWars_NS {
         ~SquareControl();
         
         void createSquare(size_t x, size_t y, size_t i_radius, const std::string i_color);
+        void createCross(size_t x, size_t y, size_t i_radius, const std::string i_color);
+        void createStar(size_t x, size_t y, size_t i_radius, const std::string i_color);
         void createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color);
         
         bool isSquared(size_t x, size_t y, const std::string i_color);

@@ -10,6 +10,22 @@
 
 using namespace MagicWars_NS;
 
+StatusUpdater* StatusUpdater::create(double i_cicrleRadius, cocos2d::Color4F i_color)
+{
+    StatusUpdater *pRet = new StatusUpdater(i_cicrleRadius, i_color);
+    if (pRet && pRet->init())
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = NULL;
+        return NULL;
+    }
+}
+
 void StatusUpdater::update(float delta)
 {
     if(d_value>d_status || !delta)
@@ -20,7 +36,7 @@ void StatusUpdater::update(float delta)
         double step = double(Consts::get("mathPI")) / 50;
         for(float i=0; i<dPI * d_value/d_maximum; i+=step)
         {
-            drawSolidCircle(cocos2d::Vec2(35*cos(i), 35*sin(i)), 4, 0.5, 6, cocos2d::Color4F(1.,0.,0.,0.2) );
+            drawSolidCircle(cocos2d::Vec2(d_circleRadius*cos(i), d_circleRadius*sin(i)), 4, 0.5, 6, d_color );
         }
         d_value-=(d_value-d_status)/30+0.001f;
     }

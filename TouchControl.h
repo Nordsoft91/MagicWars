@@ -20,6 +20,8 @@
 
 namespace MagicWars_NS {
     
+    class Interface;
+    
     class TouchControl
     {
     public:
@@ -50,7 +52,13 @@ namespace MagicWars_NS {
         void popupSpellMenu();
         
         void attackAction();
+        void spellAction(std::string i_spell);
         void endTurnAction();
+        
+        Magican* getTurn() {return d_turnControl.getTurn();}
+        
+        std::string d_spellCurrent;
+        Interface* d_interface;
         
     private:
         MagicWars_NS::SquareControl d_squareControl;
@@ -73,6 +81,8 @@ namespace MagicWars_NS {
         MovingStructure* d_move = nullptr;
         
         cocos2d::Layer* d_mapLayer;
+        
+        
     };
 }
 

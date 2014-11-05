@@ -42,6 +42,39 @@ void SquareControl::createSquare(size_t x, size_t y, size_t i_radius, const std:
     }
 }
 
+void SquareControl::createCross(size_t x, size_t y, size_t i_radius, const std::string i_color)
+{
+    d_pSquares->clean();
+    for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
+    {
+        for( int i = int(x)-int(i_radius); i<=x+i_radius; ++i)
+        {
+            if((i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
+            {
+                if(i==x || j==y || i-int(x)==j-int(y) || i-int(x)==int(y)-j)
+                    d_pSquares->set(i_color, i, j);
+            }
+        }
+    }
+}
+
+void SquareControl::createStar(size_t x, size_t y, size_t i_radius, const std::string i_color)
+{
+    d_pSquares->clean();
+    for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
+    {
+        for( int i = int(x)-int(i_radius); i<=x+i_radius; ++i)
+        {
+            if((i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
+            {
+                if(i==x || j==y)
+                    d_pSquares->set(i_color, i, j);
+            }
+        }
+    }
+}
+
+
 void SquareControl::createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color)
 {
     d_pSquares->clean();

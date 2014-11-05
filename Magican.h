@@ -14,54 +14,38 @@
 #include "GameObj.h"
 #include "StatusUpdater.h"
 #include "CurrentTurnLight.h"
+#include "Effect.h"
 
 namespace MagicWars_NS
 {
     class Magican: public GameObj
     {
     public:
-        Magican(const std::string i_group): GameObj(Consts::get("spriteName",i_group))
-        {
-            d_healthMax = Consts::get("health", i_group);
-            d_concentrate = Consts::get("concentrate", i_group);
-            d_mind = Consts::get("mind", i_group);
-            d_wisdom = Consts::get("wisdom", i_group);
-            d_dammage.first = Consts::get("dammageMin", i_group);
-            d_dammage.second = Consts::get("dammageMax", i_group);
-            d_speed = Consts::get("speed", i_group);
-            
-            d_health = d_healthMax;
-            d_mana = d_mind;
-            
-            d_visualizeHealth = StatusUpdater::create();
-            d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
-            d_sprite->addChild(d_visualizeHealth);
-            
-            d_currentTurnLight = CurrentTurnLight::create();
-            d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
-            d_currentTurnLight->show(false);
-            d_sprite->addChild(d_currentTurnLight);
-        }
+        Magican(const std::string i_group);
+        ~Magican() {}
         
-        void decreaseHealth(unsigned int i_dammage)
-        {
-            d_healthMax += 0.015 * i_dammage;
-            d_health -= i_dammage;
-            d_visualizeHealth->setStatus(float(d_health)/float(d_healthMax));
-        }
+        void metamorph(const std::string i_group);
         
-        void showStatus(bool i_show = true, double i_time = 0.0)
-        {
-            d_visualizeHealth->show(i_show, i_time);
-        }
+        void decreaseHealth(unsigned int i_dammage);
         
-        void setActive(bool i_act)
-        {
-            d_currentTurnLight->show(i_act);
-        }
+        void decreaseMind(unsigned int i_decr);
         
+        void increaseExperience(unsigned int i_c);
+        
+        void increaseMind(unsigned int i_c = 0);
+        
+        int getMind() const;
+        
+        bool isAlive();
+        
+        void showStatus(bool i_show = true, double i_time = 0.0);
+        
+        void setActive(bool i_act);
+        
+        std::vector<std::string> d_spells;
         
     public:
+        std::string d_group;
         int d_health = 0;
         int d_healthMax = 0;
         int d_mana = 0;
@@ -69,10 +53,13 @@ namespace MagicWars_NS
         int d_concentrate = 0;
         int d_wisdom = 0;
         int d_speed = 0;
+        int d_expirience = 0;
+        int d_nextLevel = 0;
         std::pair<int, int> d_dammage;
         
         //visualize parameters
         StatusUpdater *d_visualizeHealth;
+        StatusUpdater *d_visualizeMind;
         CurrentTurnLight *d_currentTurnLight = nullptr;
         
     };

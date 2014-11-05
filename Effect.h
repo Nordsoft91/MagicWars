@@ -25,7 +25,7 @@ namespace MagicWars_NS {
     protected:
         Effect(const std::string i_spr, int i_frames);
         
-        virtual bool init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal);
+        virtual bool init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal, double i_time = 0);
         
         cocos2d::Animation *d_animation = nullptr;
     };
