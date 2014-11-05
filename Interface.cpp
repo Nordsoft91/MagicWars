@@ -71,7 +71,14 @@ void Interface::createSpellMenu(Magican* i_mag)
             //check for enough of mind
             
             std::string str = spellstr;
-            auto spell = cocos2d::MenuItemImage::create(spellstr.c_str(), spellstr.c_str(), [&, str](cocos2d::Ref* pSender) {d_controller->spellAction(str); removeSpells(); });
+            auto spell = cocos2d::MenuItemImage::create("icon0_none.png", "icon0_select.png", "icon0_disable.png", [&, str](cocos2d::Ref* pSender) {d_controller->spellAction(str); removeSpells(); });
+            
+            if(std::string(Consts::get("icon",str))!="NONE")
+            {
+                auto icon = cocos2d::Sprite::create(Consts::get("icon",str));
+                icon->setAnchorPoint(cocos2d::Vec2::ZERO);
+                spell->addChild(icon);
+            }
             
             if(i_mag->getMind()<int(Consts::get("mind", spellstr)))
                 spell->setEnabled(false);
