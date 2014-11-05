@@ -42,7 +42,7 @@ void SquareControl::createSquare(size_t x, size_t y, size_t i_radius, const std:
     }
 }
 
-void SquareControl::createCross(size_t x, size_t y, size_t i_radius, const std::string i_color)
+void SquareControl::createStar(size_t x, size_t y, size_t i_radius, const std::string i_color)
 {
     d_pSquares->clean();
     for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
@@ -58,12 +58,12 @@ void SquareControl::createCross(size_t x, size_t y, size_t i_radius, const std::
     }
 }
 
-void SquareControl::createStar(size_t x, size_t y, size_t i_radius, const std::string i_color)
+void SquareControl::createCross(size_t x, size_t y, size_t i_radius, const std::string i_color)
 {
     d_pSquares->clean();
-    for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
+    for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
-        for( int i = int(x)-int(i_radius); i<=x+i_radius; ++i)
+        for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
             if((i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {

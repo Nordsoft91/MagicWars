@@ -24,6 +24,21 @@ namespace MagicWars_NS {
     protected:
         
     };
+    
+    class MagicanLight2: public Magican
+    {
+    public:
+        MagicanLight2(): Magican("magicanLightLevel2")
+        {
+            d_spells.push_back("spell_fireball");
+            d_spells.push_back("spell_lighting");
+            d_spells.push_back("spell_ray");
+            d_spells.push_back("spell_firewall");
+        }
+        
+    protected:
+        
+    };
 }
 
 

@@ -127,6 +127,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     {
         d_move->applyPath(clickX, clickY);
         d_turnControl.endTurn(TURN_MOVE);
+        //d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
     }
     //attack
     if(d_squareControl.isSquared(clickX, clickY, "red"))
@@ -180,17 +181,37 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     i_layer->addChild(d_terrainMap->get());
     
     Magican* tempObject;
+    
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
     tempObject->born(i_layer, 4, 4);
     d_turnControl.insert(tempObject, "Light");
+    
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
     tempObject->born(i_layer, 3, 7);
     d_turnControl.insert(tempObject, "Light");
+    
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
+    tempObject->born(i_layer, 2, 9);
+    d_turnControl.insert(tempObject, "Light");
+    
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));
+    tempObject->born(i_layer, 4, 6);
+    d_turnControl.insert(tempObject, "Light");
+    
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 9, 3);
+    tempObject->born(i_layer, 22, 14);
     d_turnControl.insert(tempObject, "Dark");
+    
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 11, 6);
+    tempObject->born(i_layer, 23, 12);
+    d_turnControl.insert(tempObject, "Dark");
+    
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
+    tempObject->born(i_layer, 25, 15);
+    d_turnControl.insert(tempObject, "Dark");
+    
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
+    tempObject->born(i_layer, 24, 13);
     d_turnControl.insert(tempObject, "Dark");
     
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);

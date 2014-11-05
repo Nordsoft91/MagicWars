@@ -17,7 +17,7 @@ void CurrentTurnLight::update(float delta)
         setVisible(true);
         clear();
         
-        drawSolidCircle(cocos2d::Vec2::ZERO, 16, 0.5, 12, cocos2d::Color4F(1.,1.,1.,d_status*0.5) );
+        drawSolidCircle(cocos2d::Vec2::ZERO, d_status*36, 0.5, 12, cocos2d::Color4F(1.,1.,1.,d_status*0.5) );
         
         if(d_status>=0.9 || d_status<=0.1)
             d_statusDir*=-1;

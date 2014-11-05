@@ -40,6 +40,9 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj(Consts::g
 
 void Magican::metamorph(const std::string i_group)
 {
+    d_spells.push_back("spell_ray");
+    d_spells.push_back("spell_firewall");
+    
     auto node = dynamic_cast<cocos2d::Layer*>(d_sprite->getParent());
     
     d_sprite->removeFromParent();
