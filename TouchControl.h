@@ -52,6 +52,7 @@ namespace MagicWars_NS {
         void popupSpellMenu();
         
         void attackAction();
+        void coverRangeAction(size_t x, size_t y);
         void spellAction(std::string i_spell);
         void endTurnAction();
         
@@ -69,14 +70,15 @@ namespace MagicWars_NS {
         
         MagicWars_NS::TileMap* d_terrainMap;
         
-        size_t d_mapWidth = 30;
-        size_t d_mapHeight = 30;
-        size_t d_sizeWidth = 60;
-        size_t d_sizeHeight = 60;
+        size_t d_mapWidth = 32;
+        size_t d_mapHeight = 32;
+        size_t d_sizeWidth = 64;
+        size_t d_sizeHeight = 64;
         
         std::list<GameObj*> d_persons;
         std::list<GameObj*> d_mapObjects;
         //std::vector<Effect*> d_effects;
+        std::pair<size_t, size_t> d_targetCursor;
         
         MovingStructure* d_move = nullptr;
         

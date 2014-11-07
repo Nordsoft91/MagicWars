@@ -86,7 +86,7 @@ void Magican::metamorph(const std::string i_group)
 
 void Magican::decreaseHealth(unsigned int i_dammage)
 {
-    increaseExperience(i_dammage*0.25);
+    //increaseExperience(i_dammage*0.25);
     //d_healthMax += 0.015 * i_dammage;
     d_health -= i_dammage;
     d_visualizeHealth->setStatus(float(d_health)/float(d_healthMax));
@@ -102,7 +102,7 @@ void Magican::decreaseHealth(unsigned int i_dammage)
 void Magican::decreaseMind(unsigned int i_decr)
 {
     d_mana -= i_decr;
-    increaseExperience(i_decr>0 ? i_decr : 20);
+    //increaseExperience(i_decr>0 ? i_decr : 20);
     d_visualizeMind->setStatus(float(d_mana)/float(d_mind));
     if(d_mana<0)
         d_mana = 0;

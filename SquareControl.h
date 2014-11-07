@@ -24,13 +24,18 @@ namespace MagicWars_NS {
         SquareControl();
         ~SquareControl();
         
-        void createSquare(size_t x, size_t y, size_t i_radius, const std::string i_color);
-        void createCross(size_t x, size_t y, size_t i_radius, const std::string i_color);
-        void createStar(size_t x, size_t y, size_t i_radius, const std::string i_color);
+        void createBorder(size_t x, size_t y, size_t i_radius, const std::string i_color);
+        void createPoint(size_t x, size_t y, const std::string i_color);
+        void createSquare(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center = false);
+        void createCross(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center = false);
+        void createStar(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center = false);
+        
         void createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color);
         
         bool isSquared(size_t x, size_t y, const std::string i_color);
+        std::vector<std::pair<size_t, size_t> > getSquared(const std::string i_color);
         
+        void deleteSquares(const std::string i_color);
         void deleteSquares();
         void toScene(cocos2d::Node* i_scene);
         

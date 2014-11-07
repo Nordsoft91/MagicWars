@@ -32,6 +32,8 @@ namespace MagicWars_NS {
         //memory leak if map is not empty
         void fillMap(const std::string i_fillWith);
         
+        void eraseFromMap(const std::string i_fillWith);
+        
         void set(const std::string i_with, size_t x, size_t y);
         
         bool isTiled(size_t x, size_t y);

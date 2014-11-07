@@ -19,6 +19,18 @@ TileMap::TileMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTilese
     d_map.resize(i_width, i_height);
 }
 
+void TileMap::eraseFromMap(const std::string i_fillWith)
+{
+    for( auto i = d_map.raw().begin(); i != d_map.raw().end(); ++i)
+    {
+        if(i->second == i_fillWith)
+        {
+            i->first->removeFromParent();
+            i->first = nullptr;
+            i->second = "";
+        }
+    }
+}
 
 void TileMap::addTileType(const std::string i_name, size_t tileX, size_t tileY)
 {
