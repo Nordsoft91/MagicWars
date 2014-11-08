@@ -29,6 +29,7 @@ namespace MagicWars_NS {
         void createSquare(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center = false);
         void createCross(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center = false);
         void createStar(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center = false);
+        void createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, const std::string i_color);
         
         void createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color);
         

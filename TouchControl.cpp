@@ -27,6 +27,7 @@ void TouchControl::attackAction()
     Magican* obj = d_turnControl.getTurn();
     if(obj && d_turnControl.isTurn(obj, TURN_ATTACK))
     {
+        d_squareControl.deleteSquares();
         if(d_move)
         {
             delete d_move;
@@ -59,6 +60,8 @@ void TouchControl::coverRangeAction(size_t x, size_t y)
             d_squareControl.createCross(x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
         if(squareType=="STAR")
             d_squareControl.createStar(x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
+        if(squareType=="LINE")
+            d_squareControl.createLine(obj->x, obj->y, x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
     }
 }
 
@@ -143,6 +146,8 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
             //filling finder
             d_squareControl.deleteSquares();
             d_squareControl.createSquare(obj->x, obj->y, *d_move->d_finder, "blue");
+            d_targetCursor.first = std::numeric_limits<size_t>::max();
+            d_targetCursor.second = std::numeric_limits<size_t>::max();
             return;
         }
     }
@@ -167,7 +172,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
         return;
     }
     //attack
-    if(d_targetCursor.first == clickX && d_targetCursor.second == clickY)
+    if(d_targetCursor.first == clickX && d_targetCursor.second == clickY && !d_squareControl.getSquared("orange").empty())
     {
         for(auto i : d_squareControl.getSquared("orange"))
         {
@@ -197,6 +202,8 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     }
     d_squareControl.deleteSquares();
     delete d_move;
+    d_targetCursor.first = std::numeric_limits<size_t>::max();
+    d_targetCursor.second = std::numeric_limits<size_t>::max();
     d_move = nullptr;
 }
 
@@ -241,19 +248,19 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 16, 14);
+    tempObject->born(i_layer, 10, 10);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 17, 12);
+    tempObject->born(i_layer, 11, 8);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 20, 15);
+    tempObject->born(i_layer, 14, 11);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
-    tempObject->born(i_layer, 19, 13);
+    tempObject->born(i_layer, 13, 9);
     d_turnControl.insert(tempObject, "Dark");
     
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);

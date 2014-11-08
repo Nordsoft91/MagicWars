@@ -34,6 +34,19 @@ void SquareControl::createPoint(size_t x, size_t y, const std::string i_color )
     d_pSquares->set(i_color, x, y);
 }
 
+void SquareControl::createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, const std::string i_color)
+{
+    int xdiff = int(xd)-int(xs);
+    int ydiff = int(yd)-int(ys);
+    for(int i = 1; i<=i_radius; ++i)
+    {
+        int xp = int(xs)+i*xdiff;
+        int yp = int(ys)+i*ydiff;
+        if(xp>=0 && yp>=0 && xp<d_pSquares->width() && yp<d_pSquares->height())
+            createPoint(xp, yp, i_color);
+    }
+}
+
 void SquareControl::createBorder(size_t x, size_t y, size_t i_radius, const std::string i_color )
 {
     for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
