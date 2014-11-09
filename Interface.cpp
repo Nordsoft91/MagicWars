@@ -34,10 +34,17 @@ Interface::Interface(cocos2d::Scene* io_scene, TouchControl* i_controller): d_co
     });
     
     addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
+    
+    d_pMessage = cocos2d::Label::create();
+    d_pMessage->setPosition(cocos2d::Director::getInstance()->getVisibleSize().width*0.5, cocos2d::Director::getInstance()->getVisibleSize().height*0.8);
+    d_pMessage->setSystemFontSize(28);
+    io_scene->addChild(d_pMessage);
+    //d_pMessage->setString("Hello world");
 }
 
 Interface::~Interface()
 {
+    d_pMessage->removeFromParent();
     d_pMenu->removeFromParent();
 }
 
@@ -45,6 +52,11 @@ void Interface::addButton(cocos2d::MenuItemImage* i_item, cocos2d::Vec2 i_pos)
 {
     i_item->setPosition(i_pos);
     d_pMenu->addChild(i_item);
+}
+
+void Interface::showMessage(const std::string i_message)
+{
+    d_pMessage->setString(i_message);
 }
 
 void Interface::addButton(cocos2d::MenuItemImage* i_item, float i_x, float i_y)

@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "TouchControl.h"
+#include "Tutorial.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -22,6 +23,7 @@ public:
     CREATE_FUNC(HelloWorld);
     
     MagicWars_NS::TouchControl d_touchControl;
+    MagicWars_NS::Tutorial* d_tutorial = nullptr;
     
 };
 

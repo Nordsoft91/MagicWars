@@ -26,6 +26,8 @@ namespace MagicWars_NS {
         
         void createSpellMenu(Magican* i_mag);
         
+        void showMessage(const std::string i_message);
+        
         void removeSpells();
         
         void disableActionButtons(bool i_disable = true);
@@ -37,6 +39,8 @@ namespace MagicWars_NS {
         
         cocos2d::MenuItemImage* d_pAttackItem;
         cocos2d::MenuItemImage* d_pSpellItem;
+        
+        cocos2d::Label* d_pMessage;
         
         std::vector<cocos2d::MenuItemImage*> d_spells;
     };
