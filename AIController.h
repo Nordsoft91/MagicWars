@@ -47,7 +47,7 @@ namespace MagicWars_NS {
         TouchControl& d_touchControl;
         std::map<std::string, AIEngine*> d_engines;
         int d_stage = 0;
-        int d_timer = 0;
+        float d_timer = 0;
     };
 }
 

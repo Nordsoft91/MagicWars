@@ -130,7 +130,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
 {
     GameObj* basobj = ContainUtils::findObject(d_persons, clickX, clickY);
     Magican* obj = dynamic_cast<Magican*>(basobj);
-    if( obj && !d_squareControl.isSquared(clickX, clickY, "red") && !d_squareControl.isSquared(clickX, clickY, "orange"))
+    if( obj && !d_squareControl.isSquared(clickX, clickY, "green") && !d_squareControl.isSquared(clickX, clickY, "red") && !d_squareControl.isSquared(clickX, clickY, "orange"))
     {
         d_interface->removeSpells();
         obj->showStatus(true, 2.0);
@@ -175,7 +175,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
         d_turnControl.endTurn(TURN_MOVE);
     }
     //show cover zone
-    if((d_targetCursor.first != clickX || d_targetCursor.second != clickY) && d_squareControl.isSquared(clickX, clickY, "red"))
+    if((d_targetCursor.first != clickX || d_targetCursor.second != clickY) && (d_squareControl.isSquared(clickX, clickY, "red") || d_squareControl.isSquared(clickX, clickY, "green")))
     {
         d_targetCursor.first = clickX;
         d_targetCursor.second = clickY;
@@ -203,8 +203,6 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             if(!myEff)
                 throw std::runtime_error("Error in effect creating");
         
-            d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
-        
             if(std::string(Consts::get("effectType", d_spellCurrent)) != "APPEAR_ONCE")
                 d_mapLayer->addChild(myEff);
             
@@ -212,10 +210,19 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             if( tgrt )
             {
                 tgrt->showStatus(false);
-                tgrt->decreaseHealth(int(Consts::get("force", d_spellCurrent)));
-                d_turnControl.getTurn()->increaseExperience(int(Consts::get("force", d_spellCurrent)));
+                if(std::string(Consts::get("type", d_spellCurrent))=="DAMMAGE")
+                {
+                    tgrt->decreaseHealth(int(Consts::get("force", d_spellCurrent)));
+                    d_turnControl.getTurn()->increaseExperience(int(Consts::get("force", d_spellCurrent)));
+                }
+                if(std::string(Consts::get("type", d_spellCurrent))=="BLESS")
+                {
+                    if(std::string(Consts::get("bressType", d_spellCurrent))=="HEAL")
+                        tgrt->increaseHealth(int(Consts::get("force", d_spellCurrent)));
+                }
             }
         }
+        d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
         d_interface->disableActionButtons(true);
         d_turnControl.endTurn(TURN_ATTACK);
     }
@@ -266,8 +273,12 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     tempObject->born(i_layer, 4, 6);
     d_turnControl.insert(tempObject, "Light");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 10, 10);
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
+    tempObject->born(i_layer, 3, 5);
+    d_turnControl.insert(tempObject, "Light");
+    
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
+    tempObject->born(i_layer, 11, 10);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
@@ -278,8 +289,12 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     tempObject->born(i_layer, 14, 11);
     d_turnControl.insert(tempObject, "Dark");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
     tempObject->born(i_layer, 13, 9);
+    d_turnControl.insert(tempObject, "Dark");
+    
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
+    tempObject->born(i_layer, 12, 7);
     d_turnControl.insert(tempObject, "Dark");
     
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);

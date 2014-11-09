@@ -35,8 +35,8 @@ namespace MagicWars_NS {
             d_spells.push_back("spell_ray");
             d_spells.push_back("spell_firewall");
             //d_spells.push_back("spell_lightingbolt");
-            //d_spells.push_back("spell_icicles");
-            //d_spells.push_back("spell_healing");
+            d_spells.push_back("spell_icicles");
+            d_spells.push_back("spell_healing");
         }
         
     protected:

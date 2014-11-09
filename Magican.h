@@ -32,6 +32,8 @@ namespace MagicWars_NS
         
         void increaseExperience(unsigned int i_c);
         
+        void increaseHealth(unsigned int i_heal);
+        
         void increaseMind(unsigned int i_c = 0);
         
         int getSpeed() const;

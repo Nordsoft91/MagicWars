@@ -31,12 +31,13 @@ void AIController::update(float d)
             }
         }
     }
-    if(d_stage && d_timer)
+    if(d_stage && d_timer>0)
     {
-        d_timer--;
+        d_timer -= d;
     }
     else
     {
+        d_timer = 0.0;
         nextStage();
     }
 }
@@ -71,7 +72,7 @@ void AIController::nextStage()
         case 1:
             if(d_engines[d_touchControl.getTurnController().getTurnSide()]->selectPerson())
             {
-                d_timer = 2;
+                d_timer = 0.2;
                 d_stage++;
             }
             else
@@ -87,12 +88,12 @@ void AIController::nextStage()
             break;
             
         case 2:
-            d_timer = 2+55*d_engines[d_touchControl.getTurnController().getTurnSide()]->movePhase();
+            d_timer = 0.2+2*d_engines[d_touchControl.getTurnController().getTurnSide()]->movePhase();
             d_stage++;
             break;
             
         case 3:
-            d_timer = 2+55*d_engines[d_touchControl.getTurnController().getTurnSide()]->attackPhase();
+            d_timer = 0.5+2.5*d_engines[d_touchControl.getTurnController().getTurnSide()]->attackPhase();
             d_stage = 1;
             break;
             

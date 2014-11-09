@@ -25,6 +25,7 @@ namespace MagicWars_NS {
         virtual bool attackPhase();
         
         bool endTurn();
+        void removeDead(std::vector<Magican*>& io_vec);
         
         TouchControl& getTouchControl();
         

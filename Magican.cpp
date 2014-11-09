@@ -105,10 +105,20 @@ void Magican::decreaseHealth(unsigned int i_dammage)
 void Magican::decreaseMind(unsigned int i_decr)
 {
     d_mana -= i_decr;
-    //increaseExperience(i_decr>0 ? i_decr : 20);
-    d_visualizeMind->setStatus(float(d_mana)/float(d_mind));
     if(d_mana<0)
         d_mana = 0;
+    //increaseExperience(i_decr>0 ? i_decr : 20);
+    d_visualizeMind->setStatus(float(d_mana)/float(d_mind));
+    
+}
+
+void Magican::increaseHealth(unsigned int i_heal)
+{
+    d_health += i_heal;
+    //increaseExperience(i_decr>0 ? i_decr : 20);
+    if(d_health>d_healthMax)
+        d_health = d_healthMax;
+    d_visualizeHealth->setStatus(float(d_health)/float(d_healthMax));
 }
 
 void Magican::increaseExperience(unsigned int i_c)
@@ -131,6 +141,7 @@ void Magican::increaseMind(unsigned int i_c)
     d_mana+=i_c;
     if(d_mana>d_mind)
         d_mana = d_mind;
+    d_visualizeMind->setStatus(float(d_mana)/float(d_mind));
 }
 
 int Magican::getSpeed() const

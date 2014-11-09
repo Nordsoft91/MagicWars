@@ -28,7 +28,7 @@ StatusUpdater* StatusUpdater::create(double i_cicrleRadius, cocos2d::Color4F i_c
 
 void StatusUpdater::update(float delta)
 {
-    if(d_value>d_status || !delta)
+    if(fabs(d_value-d_status)>0.05f || !delta)
     {
         setVisible(true);
         clear();

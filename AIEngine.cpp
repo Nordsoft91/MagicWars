@@ -10,6 +10,18 @@
 
 using namespace MagicWars_NS;
 
+void AIEngine::removeDead(std::vector<Magican*>& io_vec)
+{
+    for(auto i = io_vec.begin(); i!=io_vec.end(); ++i)
+    {
+        if(!(*i)->isAlive())
+        {
+            io_vec.erase(i);
+            i = io_vec.begin();
+        }
+    }
+}
+
 bool AIEngine::endTurn()
 {
     if(d_possibleAttack.empty() && d_possibleMove.empty())

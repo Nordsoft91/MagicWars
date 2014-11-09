@@ -29,6 +29,8 @@ void AIUsingAttack::startTurn()
 
 bool AIUsingAttack::selectPerson()
 {
+    removeDead(d_possibleAttack);
+    removeDead(d_possibleMove);
     if(!d_possibleMove.empty())
     {
         d_touchControl.pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
@@ -69,7 +71,18 @@ bool AIUsingAttack::attackPhase()
     if(k=="spell_ray") useRay(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);
     if(k=="spell_firewall") useFirewall(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);
     
+    for(auto i = d_enemies.begin(); i!=d_enemies.end(); ++i)
+    {
+        if(!(*i)->isAlive())
+        {
+            d_goals.erase(*i);
+            d_enemies.erase(i);
+            i = d_enemies.begin();
+        }
+    }
     d_possibleAttack.erase(d_possibleAttack.begin());
+    
+    
     if(k=="")
         return false;
     return true;
@@ -233,9 +246,9 @@ double AIUsingAttack::useRay(int x, int y, bool i_action)
                     int xp = x+il*xdiff;
                     int yp = y+il*ydiff;
                     Magican* p = ContainUtils::findMagican(d_enemies, xp, yp);
-                    if(std::find(v.begin(),v.end(),p)!=v.end())
+                    if(Magican* pMy = ContainUtils::findMagican(v, i, j))
                     {
-                        wt-=10000;
+                        wt-=5000;
                     }
                     if(p && d_goals[p]>0)
                     {
@@ -284,9 +297,9 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
             if((abs(i-x)==coverRadius || abs(j-y)==coverRadius))
             {
                 Magican* p = ContainUtils::findMagican(d_enemies, i, j);
-                if(std::find(v.begin(),v.end(),p)!=v.end())
+                if(Magican* pMy = ContainUtils::findMagican(v, i, j))
                 {
-                    w-=10000;
+                    w -= force * 5000 / pMy->getHealth();
                 }
                 if(p)
                 {
