@@ -42,6 +42,9 @@ void Magican::metamorph(const std::string i_group)
 {
     d_spells.push_back("spell_ray");
     d_spells.push_back("spell_firewall");
+    d_spells.push_back("spell_lightingbolt");
+    d_spells.push_back("spell_icicles");
+    d_spells.push_back("spell_healing");
     
     auto node = dynamic_cast<cocos2d::Layer*>(d_sprite->getParent());
     

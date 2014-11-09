@@ -49,17 +49,18 @@ void TouchControl::coverRangeAction(size_t x, size_t y)
     spellAction(d_spellCurrent);
     if(obj && d_turnControl.isTurn(obj, TURN_ATTACK))
     {
+        bool center = !(obj->x==x && obj->y==y);
         std::string squareType = Consts::get("coverType", d_spellCurrent);
         if(squareType=="POINT")
             d_squareControl.createPoint(x, y, "orange");
         if(squareType=="BORDER")
             d_squareControl.createBorder(x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
         if(squareType=="SQUAD")
-            d_squareControl.createSquare(x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
+            d_squareControl.createSquare(x, y, Consts::get("coverRadius", d_spellCurrent), "orange", center);
         if(squareType=="CROSS")
-            d_squareControl.createCross(x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
+            d_squareControl.createCross(x, y, Consts::get("coverRadius", d_spellCurrent), "orange", center);
         if(squareType=="STAR")
-            d_squareControl.createStar(x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
+            d_squareControl.createStar(x, y, Consts::get("coverRadius", d_spellCurrent), "orange", center);
         if(squareType=="LINE")
             d_squareControl.createLine(obj->x, obj->y, x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
     }
@@ -77,17 +78,23 @@ void TouchControl::spellAction(std::string i_spell)
         }
         
         std::string squareType = Consts::get("gridType", i_spell);
+        std::string spellType = Consts::get("type", i_spell);
+        std::string color = "red";
+        bool forme = false;
+        if(spellType=="DAMMAGE") color = "red";
+        if(spellType=="BLESS") { color = "green"; forme=true; }
+        
         d_squareControl.deleteSquares();
         if(squareType=="POINT")
-            d_squareControl.createPoint(obj->x, obj->y, "red");
+            d_squareControl.createPoint(obj->x, obj->y, color);
         if(squareType=="BORDER")
-            d_squareControl.createBorder(obj->x, obj->y, Consts::get("radius", i_spell), "red");
+            d_squareControl.createBorder(obj->x, obj->y, Consts::get("radius", i_spell), color);
         if(squareType=="SQUAD")
-            d_squareControl.createSquare(obj->x, obj->y, Consts::get("radius", i_spell), "red");
+            d_squareControl.createSquare(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
         if(squareType=="CROSS")
-            d_squareControl.createCross(obj->x, obj->y, Consts::get("radius", i_spell), "red");
+            d_squareControl.createCross(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
         if(squareType=="STAR")
-            d_squareControl.createStar(obj->x, obj->y, Consts::get("radius", i_spell), "red");
+            d_squareControl.createStar(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
         d_spellCurrent = i_spell;
     }
 }
@@ -178,9 +185,15 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     //attack
     if(d_targetCursor.first == clickX && d_targetCursor.second == clickY && !d_squareControl.getSquared("orange").empty())
     {
+        Effect *myEff = nullptr;
+        if(std::string(Consts::get("effectType", d_spellCurrent)) == "APPEAR_ONCE")
+        {
+            myEff = Effect::create(Consts::get("sprite", d_spellCurrent), Consts::get("sprite_size", d_spellCurrent), Vec2((0.5+clickX)*d_sizeWidth, (0.5+clickY)*d_sizeHeight));
+            d_mapLayer->addChild(myEff);
+        }
         for(auto i : d_squareControl.getSquared("orange"))
         {
-            Effect *myEff = nullptr;
+            
             if(std::string(Consts::get("effectType", d_spellCurrent)) == "APPEAR")
                 myEff = Effect::create(Consts::get("sprite", d_spellCurrent), Consts::get("sprite_size", d_spellCurrent), Vec2((0.5+i.first)*d_sizeWidth, (0.5+i.second)*d_sizeHeight));
         
@@ -192,7 +205,8 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
         
             d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
         
-            d_mapLayer->addChild(myEff);
+            if(std::string(Consts::get("effectType", d_spellCurrent)) != "APPEAR_ONCE")
+                d_mapLayer->addChild(myEff);
             
             Magican* tgrt = dynamic_cast<Magican*>(ContainUtils::findObject(d_persons, i.first, i.second));
             if( tgrt )
@@ -244,7 +258,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     tempObject->born(i_layer, 3, 7);
     d_turnControl.insert(tempObject, "Light");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));
     tempObject->born(i_layer, 2, 9);
     d_turnControl.insert(tempObject, "Light");
     
