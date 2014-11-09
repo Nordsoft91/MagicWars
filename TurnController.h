@@ -121,7 +121,7 @@ namespace MagicWars_NS {
             
             for( auto i = d_persons.begin(); i!=d_persons.end(); ++i )
             {
-                if(i->second.d_side == i_side)
+                if(i->first->isAlive() && i->second.d_side == i_side)
                     res.push_back(i->first);
             }
             if(res.empty())
