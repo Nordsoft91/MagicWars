@@ -113,6 +113,7 @@ void Magican::increaseExperience(unsigned int i_c)
     d_expirience += i_c;
     if(d_expirience>=d_nextLevel)
     {
+        d_expirience-=d_nextLevel;
         auto eff = Effect::create("Christmas 2.png", 25, d_sprite->getPosition()+d_sprite->getContentSize()*0.5);
         d_sprite->getParent()->addChild(eff);
         d_group = std::string(Consts::get("promotionGroup", d_group));
@@ -129,14 +130,40 @@ void Magican::increaseMind(unsigned int i_c)
         d_mana = d_mind;
 }
 
+int Magican::getSpeed() const
+{
+    return d_speed;
+}
+
+
 int Magican::getMind() const
 {
     return d_mana;
 }
 
+int Magican::getHealth() const
+{
+    return d_health;
+}
+
+float Magican::getPercentMind() const
+{
+    return float(d_mana) / float(d_mind);
+}
+
+float Magican::getPercentHealth() const
+{
+    return float(d_health) / float(d_healthMax);
+}
+
 bool Magican::isAlive()
 {
     return d_health>0;
+}
+
+bool Magican::isHaveSpell(const std::string i_spell) const
+{
+    return std::find(d_spells.begin(), d_spells.end(), i_spell)!=d_spells.end();
 }
 
 void Magican::showStatus(bool i_show, double i_time)

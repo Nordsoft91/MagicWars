@@ -72,7 +72,7 @@ public:
     
     operator double ()
     {
-        return (type==2 ? doubleV : 0.);
+        return (type==2 ? doubleV : (type==1 ? double(intV) : 0));
     }
     
     operator bool ()

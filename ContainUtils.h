@@ -9,7 +9,7 @@
 #ifndef MagicWars_ContainUtils_h
 #define MagicWars_ContainUtils_h
 
-#include "GameObj.h"
+#include "Magican.h"
 #include <list>
 #include <map>
 
@@ -21,6 +21,10 @@ namespace MagicWars_NS {
         static GameObj* findObjectbyId(const std::list<GameObj*>& i_list, int i_uid);
         
         static GameObj* findObject(const std::list<GameObj*>& i_list, size_t i_x, size_t i_y);
+        
+        static GameObj* findObject(const std::vector<GameObj*>& i_arr, size_t i_x, size_t i_y);
+        
+        static Magican* findMagican(const std::vector<Magican*>& i_arr, size_t i_x, size_t i_y);
     
         template<class T>
         static T* findFirstObjectByType(const std::list<GameObj*>& i_list)

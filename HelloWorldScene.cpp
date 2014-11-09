@@ -1,6 +1,8 @@
 #include "HelloWorldScene.h"
 #include "Consts.h"
 #include "Interface.h"
+#include "AIController.h"
+#include "AIMovable.h"
 
 USING_NS_CC;
 
@@ -53,6 +55,10 @@ bool HelloWorld::init()
     // 3. add your codes below...
     d_touchControl.initialize(this);
     
+    MagicWars_NS::AIController* controller = MagicWars_NS::AIController::create(d_touchControl);
+    controller->setSideAI("Dark", new MagicWars_NS::AIMovable(d_touchControl));
+    addChild(controller);
+    
     auto listener = EventListenerTouchOneByOne::create();
     listener->onTouchBegan = [&](Touch *touch, Event *event)
     {
@@ -72,9 +78,12 @@ bool HelloWorld::init()
     {
         if((touch->getStartLocation() - touch->getLocation()).length() <= 16.0)
         {
-            Vec2 invLocation = touch->getLocationInView();
-            invLocation.y = Director::getInstance()->getVisibleSize().height - invLocation.y;
-            d_touchControl.tapAction(invLocation);
+            if(d_touchControl.getTurnController().getTurnSide()!="Dark")
+            {
+                Vec2 invLocation = touch->getLocationInView();
+                invLocation.y = Director::getInstance()->getVisibleSize().height - invLocation.y;
+                d_touchControl.tapAction(invLocation);
+            }
         }
     };
     

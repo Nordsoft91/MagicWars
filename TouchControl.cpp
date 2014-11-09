@@ -116,7 +116,11 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     Vec2 globPos = i_touch - d_mapLayer->getPosition();
     size_t clickX = globPos.x / d_sizeWidth;
     size_t clickY = globPos.y / d_sizeHeight;
-    
+    pressAction(clickX, clickY);
+}
+
+void TouchControl::pressAction(size_t clickX, size_t clickY)
+{
     GameObj* basobj = ContainUtils::findObject(d_persons, clickX, clickY);
     Magican* obj = dynamic_cast<Magican*>(basobj);
     if( obj && !d_squareControl.isSquared(clickX, clickY, "red") && !d_squareControl.isSquared(clickX, clickY, "orange"))
@@ -131,7 +135,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
             if(d_move)
                 delete d_move;
             //we need it finder until tun overs
-            int moveRadius = 2;
+            int moveRadius = obj->getSpeed();
             d_move = new MovingStructure(obj, clickX, clickY, moveRadius );
         
             for(int j = -moveRadius; j<=moveRadius; ++j)
@@ -195,6 +199,7 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
             {
                 tgrt->showStatus(false);
                 tgrt->decreaseHealth(int(Consts::get("force", d_spellCurrent)));
+                d_turnControl.getTurn()->increaseExperience(int(Consts::get("force", d_spellCurrent)));
             }
         }
         d_interface->disableActionButtons(true);
@@ -251,7 +256,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     tempObject->born(i_layer, 10, 10);
     d_turnControl.insert(tempObject, "Dark");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
     tempObject->born(i_layer, 11, 8);
     d_turnControl.insert(tempObject, "Dark");
     

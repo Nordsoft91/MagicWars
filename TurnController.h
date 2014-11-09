@@ -130,6 +130,21 @@ namespace MagicWars_NS {
             return res;
         }
         
+        std::vector<Magican*> otherSidesArray(const std::string i_side)
+        {
+            std::vector<Magican*> res;
+            if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())
+                return res;
+            
+            for( auto i = d_persons.begin(); i!=d_persons.end(); ++i )
+            {
+                if(i->second.d_side != i_side)
+                    res.push_back(i->first);
+            }
+            
+            return res;
+        }
+        
     private:
         
         std::map<Magican*, TurnInfo> d_persons;

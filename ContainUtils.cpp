@@ -29,3 +29,23 @@ GameObj* ContainUtils::findObject(const std::list<GameObj*>& i_list, size_t i_x,
     }
     return nullptr;
 }
+
+GameObj* ContainUtils::findObject(const std::vector<GameObj*>& i_arr, size_t i_x, size_t i_y)
+{
+    for(auto i : i_arr)
+    {
+        if(i->x == i_x && i->y == i_y)
+            return i;
+    }
+    return nullptr;
+}
+
+Magican* ContainUtils::findMagican(const std::vector<Magican*>& i_arr, size_t i_x, size_t i_y)
+{
+    for(auto i : i_arr)
+    {
+        if(i->x == i_x && i->y == i_y)
+            return i;
+    }
+    return nullptr;
+}

@@ -34,7 +34,12 @@ namespace MagicWars_NS
         
         void increaseMind(unsigned int i_c = 0);
         
+        int getSpeed() const;
         int getMind() const;
+        int getHealth() const;
+        float getPercentMind() const;
+        float getPercentHealth() const;
+        bool isHaveSpell(const std::string i_spell) const;
         
         bool isAlive();
         

@@ -48,7 +48,7 @@ namespace MagicWars_NS {
         
         void tapAction(cocos2d::Vec2 i_touch);
         void moveAction(cocos2d::Vec2 i_touch);
-        bool pressAction(cocos2d::Vec2 i_touch);
+        void pressAction(size_t clickX, size_t clickY);
         void popupSpellMenu();
         
         void attackAction();
@@ -56,7 +56,10 @@ namespace MagicWars_NS {
         void spellAction(std::string i_spell);
         void endTurnAction();
         
+        TurnController& getTurnController() {return d_turnControl;}
+        
         Magican* getTurn() {return d_turnControl.getTurn();}
+        MovingStructure* getMove() {return d_move;}
         
         std::string d_spellCurrent;
         Interface* d_interface;
