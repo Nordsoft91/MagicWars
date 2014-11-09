@@ -45,6 +45,7 @@ namespace MagicWars_NS {
         }
         
         void initialize(cocos2d::Layer* i_layer);
+        void centralizeOn(cocos2d::Vec2 i_center);
         
         void tapAction(cocos2d::Vec2 i_touch);
         void moveAction(cocos2d::Vec2 i_touch);

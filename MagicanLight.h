@@ -17,8 +17,8 @@ namespace MagicWars_NS {
     public:
         MagicanLight(): Magican("magicanLightLevel1")
         {
-            d_spells.push_back("spell_fireball");
-            d_spells.push_back("spell_lighting");
+            //d_spells.push_back("spell_fireball");
+            //d_spells.push_back("spell_lighting");
         }
         
     protected:
@@ -30,17 +30,29 @@ namespace MagicWars_NS {
     public:
         MagicanLight2(): Magican("magicanLightLevel2")
         {
-            d_spells.push_back("spell_fireball");
-            d_spells.push_back("spell_lighting");
-            d_spells.push_back("spell_ray");
-            d_spells.push_back("spell_firewall");
+            //d_spells.push_back("spell_fireball");
+            //d_spells.push_back("spell_lighting");
+            //d_spells.push_back("spell_ray");
+            //d_spells.push_back("spell_firewall");
             //d_spells.push_back("spell_lightingbolt");
-            d_spells.push_back("spell_icicles");
-            d_spells.push_back("spell_healing");
+            //d_spells.push_back("spell_icicles");
+            //d_spells.push_back("spell_healing");
         }
-        
-    protected:
-        
+    };
+    
+    class MagicanLight3: public Magican
+    {
+    public:
+        MagicanLight3(): Magican("magicanLightLevel3")
+        {
+            //d_spells.push_back("spell_fireball");
+            //d_spells.push_back("spell_lighting");
+            //d_spells.push_back("spell_ray");
+            //d_spells.push_back("spell_firewall");
+            //d_spells.push_back("spell_lightingbolt");
+            //d_spells.push_back("spell_icicles");
+            //d_spells.push_back("spell_healing");
+        }
     };
 }
 

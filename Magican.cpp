@@ -21,6 +21,12 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj(Consts::g
     d_speed = Consts::get("speed", i_group);
     d_nextLevel = Consts::get("expirience", i_group);
     
+    std::vector<Param> sv = Consts::get("spellBook", i_group);
+    for( Param& i : sv )
+    {
+        d_spells.push_back(std::string(i));
+    }
+    
     d_health = d_healthMax;
     d_mana = d_mind;
     
@@ -40,12 +46,6 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj(Consts::g
 
 void Magican::metamorph(const std::string i_group)
 {
-    d_spells.push_back("spell_ray");
-    d_spells.push_back("spell_firewall");
-    d_spells.push_back("spell_lightingbolt");
-    d_spells.push_back("spell_icicles");
-    d_spells.push_back("spell_healing");
-    
     auto node = dynamic_cast<cocos2d::Layer*>(d_sprite->getParent());
     
     d_sprite->removeFromParent();
@@ -63,6 +63,13 @@ void Magican::metamorph(const std::string i_group)
     d_dammage.second = Consts::get("dammageMax", i_group);
     d_speed = Consts::get("speed", i_group);
     d_nextLevel = Consts::get("expirience", i_group);
+    
+    d_spells.clear();
+    std::vector<Param> sv = Consts::get("spellBook", i_group);
+    for( Param& i : sv )
+    {
+        d_spells.push_back(std::string(i));
+    }
     
     //fix parameters
     d_health += d_healthMax - currHealth;

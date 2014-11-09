@@ -124,6 +124,7 @@ double AIUsingAttack::useAttack(int x, int y, bool i_action)
         return w;
     
     //attack
+    d_touchControl.centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
     d_touchControl.attackAction();
     d_touchControl.pressAction(pGoal->x, pGoal->y);
     d_touchControl.pressAction(pGoal->x, pGoal->y);
@@ -166,6 +167,7 @@ double AIUsingAttack::useLighting(int x, int y, bool i_action)
     
     //attack
     d_touchControl.spellAction(spellStr);
+    d_touchControl.centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
     d_touchControl.pressAction(pGoal->x, pGoal->y);
     d_touchControl.pressAction(pGoal->x, pGoal->y);
     return w;
@@ -210,6 +212,7 @@ double AIUsingAttack::useFireball(int x, int y, bool i_action)
         return w;
     
     //attack
+    d_touchControl.centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
     d_touchControl.spellAction(spellStr);
     d_touchControl.pressAction(pGoal->x, pGoal->y);
     d_touchControl.pressAction(pGoal->x, pGoal->y);
@@ -270,6 +273,7 @@ double AIUsingAttack::useRay(int x, int y, bool i_action)
         return w;
     
     //attack
+    d_touchControl.centralizeOn(cocos2d::Vec2(xGoal * size_t(Consts::get("mapCellWidth")), yGoal * size_t(Consts::get("mapCellHeight"))));
     d_touchControl.spellAction(spellStr);
     d_touchControl.pressAction(xGoal, yGoal);
     d_touchControl.pressAction(xGoal, yGoal);
@@ -314,6 +318,7 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
         return w;
     
     //attack
+    d_touchControl.centralizeOn(cocos2d::Vec2(x * size_t(Consts::get("mapCellWidth")), y * size_t(Consts::get("mapCellHeight"))));
     d_touchControl.spellAction(spellStr);
     d_touchControl.pressAction(x, y);
     d_touchControl.pressAction(x, y);

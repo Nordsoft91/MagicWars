@@ -17,8 +17,8 @@ namespace MagicWars_NS {
     public:
         MagicanDark(): Magican("magicanDarkLevel1")
         {
-            d_spells.push_back("spell_fireball");
-            d_spells.push_back("spell_lighting");
+            //d_spells.push_back("spell_fireball");
+            //d_spells.push_back("spell_lighting");
         }
         
     protected:
@@ -30,10 +30,10 @@ namespace MagicWars_NS {
     public:
         MagicanDark2(): Magican("magicanDarkLevel2")
         {
-            d_spells.push_back("spell_fireball");
-            d_spells.push_back("spell_lighting");
-            d_spells.push_back("spell_ray");
-            d_spells.push_back("spell_firewall");
+            //d_spells.push_back("spell_fireball");
+            //d_spells.push_back("spell_lighting");
+            //d_spells.push_back("spell_ray");
+            //d_spells.push_back("spell_firewall");
         }
         
     protected:

@@ -139,6 +139,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             d_interface->disableActionButtons(false);
         if( d_turnControl.beginTurn(obj, TURN_MOVE))
         {
+            //centralizeOn(cocos2d::Vec2(obj->x*d_sizeWidth, obj->y*d_sizeHeight));
             if(d_move)
                 delete d_move;
             //we need it finder until tun overs
@@ -238,6 +239,14 @@ void TouchControl::moveAction(cocos2d::Vec2 i_touch)
     d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
 }
 
+void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
+{
+    cocos2d::Vec2 sz = Director::getInstance()->getVisibleSize()*0.5;
+    sz.x -= d_sizeWidth;
+    sz.y -= d_sizeHeight;
+    d_mapLayer->setPosition(sz - i_center);
+}
+
 void TouchControl::initialize(cocos2d::Layer* i_layer)
 {
     d_mapLayer = i_layer;
@@ -262,39 +271,39 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
-    tempObject->born(i_layer, 3, 7);
+    tempObject->born(i_layer, 3, 6);
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));
-    tempObject->born(i_layer, 2, 9);
+    tempObject->born(i_layer, 6, 7);
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));
-    tempObject->born(i_layer, 4, 6);
+    tempObject->born(i_layer, 4, 8);
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
-    tempObject->born(i_layer, 3, 5);
+    tempObject->born(i_layer, 7, 3);
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
-    tempObject->born(i_layer, 11, 10);
+    tempObject->born(i_layer, 14, 10);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
-    tempObject->born(i_layer, 11, 8);
+    tempObject->born(i_layer, 14, 8);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 14, 11);
+    tempObject->born(i_layer, 17, 11);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 13, 9);
+    tempObject->born(i_layer, 16, 9);
     d_turnControl.insert(tempObject, "Dark");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
-    tempObject->born(i_layer, 12, 7);
+    tempObject->born(i_layer, 15, 7);
     d_turnControl.insert(tempObject, "Dark");
     
     ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);

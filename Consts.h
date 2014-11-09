@@ -38,6 +38,13 @@ public:
         type = 3;
         boolV = v;
     }
+    
+    explicit Param(std::vector<Param>& v)
+    {
+        type = 4;
+        arrayV = v;
+    }
+    
     Param()
     {
         type = 9;
@@ -54,6 +61,9 @@ public:
     
     bool isBool() const
     { return (type==3 ? true : false); }
+    
+    bool isArray() const
+    { return (type==4 ? true : false); }
     
     operator size_t ()
     {
@@ -80,6 +90,11 @@ public:
         return (type==3 ? boolV : false);
     }
     
+    operator std::vector<Param> ()
+    {
+        return arrayV;
+    }
+    
 private:
     size_t type;
     
@@ -87,6 +102,7 @@ private:
     int         intV = 0;
     double      doubleV = 0.0;
     bool        boolV = false;
+    std::vector<Param> arrayV;
 };
 
 class Consts

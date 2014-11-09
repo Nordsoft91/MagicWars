@@ -35,6 +35,38 @@ bool Consts::readParameter(std::map<std::string, Param>& o_group)
     if(equal != "=")
         throw std::runtime_error("Error in consts file");
     
+    if(value=="{")
+    {
+        std::vector<Param> vv;
+        d_file >> value;
+        while(value!="}")
+        {
+            int v1 = atoi(value.c_str());
+            double v2 = atof(value.c_str());
+            if(fabs(v2 - double(v1)) > std::numeric_limits<double>::epsilon())
+                v1 = 0;
+            if(v1!=0)
+            {
+                vv.push_back(Param(v1));
+                continue;
+            }
+            if(v2!=0)
+            {
+                vv.push_back(Param(v2));
+                continue;
+            }
+            if(value == "true" || value == "false")
+            {
+                vv.push_back(Param(value=="true"));
+                continue;
+            }
+            vv.push_back(Param(value));
+            d_file >> value;
+        }
+        o_group[key] = Param(vv);
+        return true;
+    }
+    
     int v1 = atoi(value.c_str());
     double v2 = atof(value.c_str());
     if(fabs(v2 - double(v1)) > std::numeric_limits<double>::epsilon())
