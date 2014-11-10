@@ -81,7 +81,7 @@ bool HelloWorld::init()
     {
         if((touch->getStartLocation() - touch->getLocation()).length() <= 16.0)
         {
-            if(d_tutorial && (d_tutorial->isScriptTouchOnScreen(touch->getLocationInView()) || d_tutorial->isScriptTouchOnMap(touch->getLocation())))
+            if(d_tutorial && (d_tutorial->isScriptTouchOnScreen(touch->getLocation()) || d_tutorial->isScriptTouchOnMap(touch->getLocation()-d_touchControl.getMapLayer()->getPosition())))
             if(d_touchControl.getTurnController().getTurnSide()=="Light")
             {
                 Vec2 invLocation = touch->getLocationInView();

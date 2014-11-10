@@ -11,10 +11,12 @@
 
 #include <cocos2d.h>
 #include "TouchControl.h"
+#include "ScriptRectangle.h"
 
 #define BUTTON_NAME(T) T"_none.png", T"_select.png"
 
 namespace MagicWars_NS {
+    
     class Interface
     {
     public:
@@ -32,6 +34,8 @@ namespace MagicWars_NS {
         
         void disableActionButtons(bool i_disable = true);
         //call RemoveFromParent for MenuItemImage for delete button
+        
+        ScriptRectangle *d_pRectScreen, *d_pRectMap;
         
     protected:
         TouchControl* d_controller;

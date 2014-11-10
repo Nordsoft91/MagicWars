@@ -62,8 +62,12 @@ namespace MagicWars_NS {
         Magican* getTurn() {return d_turnControl.getTurn();}
         MovingStructure* getMove() {return d_move;}
         
+        cocos2d::Layer* getMapLayer() {return d_mapLayer;}
+        
         std::string d_spellCurrent;
         Interface* d_interface;
+        
+        
         
     private:
         MagicWars_NS::SquareControl d_squareControl;

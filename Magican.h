@@ -49,6 +49,7 @@ namespace MagicWars_NS
         
         void setActive(bool i_act);
         
+        
         std::vector<std::string> d_spells;
         
     public:

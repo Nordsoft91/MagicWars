@@ -28,7 +28,7 @@ namespace MagicWars_NS {
         bool isScriptTouchOnMap(cocos2d::Vec2 i_touch);
         bool isScriptTouchOnScreen(cocos2d::Vec2 i_touch);
         
-        void addZone(Zone& i_zone);
+        void addZone(Zone i_zone);
         void addMessage(const std::string i_str);
         
     protected:

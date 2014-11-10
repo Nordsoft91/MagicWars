@@ -36,9 +36,15 @@ Interface::Interface(cocos2d::Scene* io_scene, TouchControl* i_controller): d_co
     addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
     
     d_pMessage = cocos2d::Label::create();
-    d_pMessage->setPosition(cocos2d::Director::getInstance()->getVisibleSize().width*0.5, cocos2d::Director::getInstance()->getVisibleSize().height*0.8);
+    d_pMessage->setPosition(cocos2d::Director::getInstance()->getVisibleSize().width*0.5, cocos2d::Director::getInstance()->getVisibleSize().height*0.7);
     d_pMessage->setSystemFontSize(28);
     io_scene->addChild(d_pMessage);
+    
+    d_pRectMap = ScriptRectangle::create();
+    d_pRectScreen = ScriptRectangle::create();
+    io_scene->addChild(d_pRectScreen);
+    i_controller->getMapLayer()->addChild(d_pRectMap);
+    
     //d_pMessage->setString("Hello world");
 }
 

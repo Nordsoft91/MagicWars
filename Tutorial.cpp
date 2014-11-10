@@ -17,13 +17,12 @@ Tutorial::Tutorial(Interface* i_inter): d_inter(i_inter)
 В этом обучении ты познакомишься с основами игры\n \
 Нажми в любом месте карты чтобы продолжить");
     
-    addMessage("");
- /*   addMessage(
-"Сейчас ты играешь за сторону света. \n \
-Для начала активируй своего воина света\n \
-Для этого просто нажми на него");
+    addZone(Zone{true, cocos2d::Vec2(100,100), cocos2d::Size(100,100), ""} );
+//"Сейчас ты играешь за сторону света. \n \
+//Для начала активируй своего воина света\n \
+//Для этого просто нажми на него"});
     
-     addMessage(
+     /*addMessage(
 "Синие поля показывают клетки, на которые твой \n \
 персонаж может переместиться \n \
 Нажми на любую клетку для перемещения");
@@ -39,7 +38,7 @@ Tutorial::Tutorial(Interface* i_inter): d_inter(i_inter)
         d_inter->showMessage(d_queue.front().d_message);
 }
 
-void Tutorial::addZone(MagicWars_NS::Tutorial::Zone &i_zone)
+void Tutorial::addZone(MagicWars_NS::Tutorial::Zone i_zone)
 {
     d_queue.push(i_zone);
 }
@@ -66,7 +65,21 @@ bool Tutorial::isScriptTouchOnMap(cocos2d::Vec2 i_touch)
     
     d_queue.pop();
     if(!d_queue.empty())
+    {
         d_inter->showMessage(d_queue.front().d_message);
+        if(d_queue.front().d_onMap)
+        {
+            d_inter->d_pRectScreen->d_size = cocos2d::Size::ZERO;
+            d_inter->d_pRectMap->d_start = d_queue.front().d_pos;
+            d_inter->d_pRectMap->d_size = d_queue.front().d_size;
+        }
+        else
+        {
+            d_inter->d_pRectMap->d_size = cocos2d::Size::ZERO;
+            d_inter->d_pRectScreen->d_start = d_queue.front().d_pos;
+            d_inter->d_pRectScreen->d_size = d_queue.front().d_size;
+        }
+    }
     return true;
 }
 
@@ -88,6 +101,20 @@ bool Tutorial::isScriptTouchOnScreen(cocos2d::Vec2 i_touch)
     
     d_queue.pop();
     if(!d_queue.empty())
+    {
         d_inter->showMessage(d_queue.front().d_message);
+        if(d_queue.front().d_onMap)
+        {
+            d_inter->d_pRectScreen->d_size = cocos2d::Size::ZERO;
+            d_inter->d_pRectMap->d_start = d_queue.front().d_pos;
+            d_inter->d_pRectMap->d_size = d_queue.front().d_size;
+        }
+        else
+        {
+            d_inter->d_pRectMap->d_size = cocos2d::Size::ZERO;
+            d_inter->d_pRectScreen->d_start = d_queue.front().d_pos;
+            d_inter->d_pRectScreen->d_size = d_queue.front().d_size;
+        }
+    }
     return true;
 }
