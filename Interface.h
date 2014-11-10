@@ -11,12 +11,10 @@
 
 #include <cocos2d.h>
 #include "TouchControl.h"
-#include "ScriptRectangle.h"
 
 #define BUTTON_NAME(T) T"_none.png", T"_select.png"
 
 namespace MagicWars_NS {
-    
     class Interface
     {
     public:
@@ -28,14 +26,10 @@ namespace MagicWars_NS {
         
         void createSpellMenu(Magican* i_mag);
         
-        void showMessage(const std::string i_message);
-        
         void removeSpells();
         
         void disableActionButtons(bool i_disable = true);
         //call RemoveFromParent for MenuItemImage for delete button
-        
-        ScriptRectangle *d_pRectScreen, *d_pRectMap;
         
     protected:
         TouchControl* d_controller;
@@ -43,8 +37,6 @@ namespace MagicWars_NS {
         
         cocos2d::MenuItemImage* d_pAttackItem;
         cocos2d::MenuItemImage* d_pSpellItem;
-        
-        cocos2d::Label* d_pMessage;
         
         std::vector<cocos2d::MenuItemImage*> d_spells;
     };

@@ -1,10 +1,8 @@
 #include "HelloWorldScene.h"
 #include "Consts.h"
 #include "Interface.h"
-#include "Tutorial.h"
 #include "AIController.h"
 #include "AIMovable.h"
-#include "AIMoveSafe.h"
 
 USING_NS_CC;
 
@@ -37,8 +35,7 @@ void HelloWorld::createInterface(Scene* io_scene)
     MagicWars_NS::Interface* interface = new MagicWars_NS::Interface(io_scene, &d_touchControl);
     interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
                                          closeItem->getContentSize().height/2));
-    
-    d_tutorial = new MagicWars_NS::Tutorial(interface);
+
 }
 
 // on "init" you need to initialize your instance
@@ -81,8 +78,7 @@ bool HelloWorld::init()
     {
         if((touch->getStartLocation() - touch->getLocation()).length() <= 16.0)
         {
-            if(d_tutorial && (d_tutorial->isScriptTouchOnScreen(touch->getLocation()) || d_tutorial->isScriptTouchOnMap(touch->getLocation()-d_touchControl.getMapLayer()->getPosition())))
-            if(d_touchControl.getTurnController().getTurnSide()=="Light")
+            if(d_touchControl.getTurnController().getTurnSide()!="Dark")
             {
                 Vec2 invLocation = touch->getLocationInView();
                 invLocation.y = Director::getInstance()->getVisibleSize().height - invLocation.y;
