@@ -38,7 +38,7 @@ void SquareControl::createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_
 {
     int xdiff = int(xd)-int(xs);
     int ydiff = int(yd)-int(ys);
-    for(int i = 1; i<=i_radius; ++i)
+    for(int i = 1; i<=int(i_radius); ++i)
     {
         int xp = int(xs)+i*xdiff;
         int yp = int(ys)+i*ydiff;
@@ -49,9 +49,9 @@ void SquareControl::createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_
 
 void SquareControl::createBorder(size_t x, size_t y, size_t i_radius, const std::string i_color )
 {
-    for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
+    for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
-        for( int i = int(x)-int(i_radius); i<=x+i_radius; ++i)
+        for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
             if((abs(i-int(x))==i_radius || abs(j-int(y))==i_radius) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
                 createPoint(i, j, i_color);
@@ -61,9 +61,9 @@ void SquareControl::createBorder(size_t x, size_t y, size_t i_radius, const std:
 
 void SquareControl::createSquare(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center )
 {
-    for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
+    for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
-        for( int i = int(x)-int(i_radius); i<=x+i_radius; ++i)
+        for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
                 createPoint(i, j, i_color);
@@ -73,9 +73,9 @@ void SquareControl::createSquare(size_t x, size_t y, size_t i_radius, const std:
 
 void SquareControl::createStar(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center )
 {
-    for( int j = int(y)-int(i_radius); j<=y+i_radius; ++j)
+    for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
-        for( int i = int(x)-int(i_radius); i<=x+i_radius; ++i)
+        for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {
