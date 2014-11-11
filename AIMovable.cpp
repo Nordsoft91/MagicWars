@@ -23,7 +23,7 @@ bool AIMovable::movePhase()
         for( int i = -pFinder->getDistance(); i<=pFinder->getDistance(); ++i)
         {
             weightGrid(i+pFinder->getDistance(), j+pFinder->getDistance()) = 0.0;
-            if((i!=0 || j!=0) && pFinder->process(i,j)>-1)
+            if((i==0 && j==0) || pFinder->process(i,j)>-1)
             {
                 double w;
                 findBestSpell(int(pMag->x)+i, int(pMag->y)+j, w);
@@ -47,6 +47,12 @@ bool AIMovable::movePhase()
     
     size_t rawx, rawy;
     weightGrid(k, rawx, rawy);
+    
+    if(rawx==pMag->getSpeed() && rawy==rawx)
+    {
+        d_possibleMove.erase(d_possibleMove.begin());
+        return false;
+    }
     
     d_touchControl.pressAction(pMag->x + rawx - pMag->getSpeed(), pMag->y + rawy - pMag->getSpeed());
     d_possibleMove.erase(d_possibleMove.begin());
