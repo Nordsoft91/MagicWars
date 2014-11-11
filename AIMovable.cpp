@@ -15,6 +15,8 @@ bool AIMovable::movePhase()
     Magican* pMag = d_touchControl.getTurnController().getTurn();
     WavePathFinder* pFinder = d_touchControl.getMove()->d_finder;
     
+    
+    
     Grid<double> weightGrid;
     weightGrid.resize(pMag->getSpeed()*2+1, pMag->getSpeed()*2+1);
     
@@ -26,11 +28,22 @@ bool AIMovable::movePhase()
             if((i==0 && j==0) || pFinder->process(i,j)>-1)
             {
                 double w;
-                findBestSpell(int(pMag->x)+i, int(pMag->y)+j, w);
+                int _x = int(pMag->x)+i;
+                int _y = int(pMag->y)+j;
+                findBestSpell(_x, _y, w);
+                
+                //calc distance to goals
+                MovingStructure movStruct(pMag, _x, _y, pMag->getSpeed()*4 );
+                d_touchControl.prepareMovingStructure(movStruct);
                 
                 for(auto goal : d_goals)
                 {
-                    double distance = (int(goal.first->x) - (int(pMag->x)+i))*(int(goal.first->x) - (int(pMag->x)+i)) + (int(goal.first->y) - (int(pMag->y)+j))*(int(goal.first->y) - (int(pMag->y)+j));
+                    double distance = (int(goal.first->x) - _x)*(int(goal.first->x) - _x) + (int(goal.first->y) - _y)*(int(goal.first->y) - _y);
+                    
+                    int d = movStruct.d_finder->process(int(goal.first->x) - _x, int(goal.first->y) - _y);
+                    if(d>0)
+                        distance = d;
+                    
                     w += goal.second / distance;
                 }
                 weightGrid(i+pFinder->getDistance(), j+pFinder->getDistance()) = w;
@@ -50,6 +63,7 @@ bool AIMovable::movePhase()
     
     if(rawx==pMag->getSpeed() && rawy==rawx)
     {
+        //d_possibleMove.push_back(*d_possibleMove.begin());
         d_possibleMove.erase(d_possibleMove.begin());
         return false;
     }

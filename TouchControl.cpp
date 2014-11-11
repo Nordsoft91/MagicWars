@@ -126,6 +126,27 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     pressAction(clickX, clickY);
 }
 
+void TouchControl::prepareMovingStructure(MagicWars_NS::MovingStructure& io_struct)
+{
+    int moveRadius = io_struct.d_finder->getDistance();
+    
+    for(int j = -moveRadius; j<=moveRadius; ++j)
+        for(int i= -moveRadius; i <=moveRadius; ++i)
+        {
+            int _x = int(io_struct.d_pObject->x) + i;
+            int _y = int(io_struct.d_pObject->y) + j;
+            if(_x<0 || _y<0 || _x>=d_mapWidth || _y>=d_mapHeight)
+            {
+                io_struct.d_finder->fill(i, j);
+                continue;
+            }
+            if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, _x, _y)) )
+                io_struct.d_finder->fill(i, j);
+            if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, _x, _y) )
+                io_struct.d_finder->fill(i, j);
+        }
+}
+
 void TouchControl::pressAction(size_t clickX, size_t clickY)
 {
     GameObj* basobj = ContainUtils::findObject(d_persons, clickX, clickY);
@@ -143,24 +164,8 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             if(d_move)
                 delete d_move;
             //we need it finder until tun overs
-            int moveRadius = obj->getSpeed();
-            d_move = new MovingStructure(obj, clickX, clickY, moveRadius );
-        
-            for(int j = -moveRadius; j<=moveRadius; ++j)
-                for(int i= -moveRadius; i <=moveRadius; ++i)
-                {
-                    int _x = int(obj->x) + i;
-                    int _y = int(obj->y) + j;
-                    if(_x<0 || _y<0 || _x>=d_mapWidth || _y>=d_mapHeight)
-                    {
-                        d_move->d_finder->fill(i, j);
-                        continue;
-                    }
-                    if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, _x, _y)) )
-                        d_move->d_finder->fill(i, j);
-                    if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, _x, _y) )
-                        d_move->d_finder->fill(i, j);
-                }
+            d_move = new MovingStructure(obj, clickX, clickY, obj->getSpeed() );
+            prepareMovingStructure(*d_move);
         
             //filling finder
             d_squareControl.deleteSquares();

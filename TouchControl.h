@@ -65,6 +65,8 @@ namespace MagicWars_NS {
         Magican* getTurn() {return d_turnControl.getTurn();}
         MovingStructure* getMove() {return d_move;}
         
+        void prepareMovingStructure(MovingStructure &io_struct);
+        
         std::string d_spellCurrent;
         Interface* d_interface;
         
