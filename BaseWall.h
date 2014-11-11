@@ -17,6 +17,7 @@ namespace MagicWars_NS {
     {
     public:
         BaseWall(): GameObj("basewall.png") {}
+        BaseWall(const std::string i_str): GameObj(i_str) {}
     };
 }
 

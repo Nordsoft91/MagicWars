@@ -25,7 +25,7 @@ namespace MagicWars_NS {
     {
     public:
         TileMap(Tileset* i_tileset, size_t i_width, size_t i_height);
-    
+        ~TileMap();
         
         void addTileType(const std::string i_name, size_t tileX, size_t tileY);
         

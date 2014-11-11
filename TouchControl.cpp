@@ -12,6 +12,7 @@
 #include "MagicanDark.h"
 #include "MagicanLight.h"
 #include "Interface.h"
+#include "MapReader.h"
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -249,6 +250,9 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
 
 void TouchControl::initialize(cocos2d::Layer* i_layer)
 {
+    MapReader reader;
+    reader.read("map_XS_demo01.txt");
+    
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
@@ -310,5 +314,17 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     
     d_squareControl.toScene(i_layer);
     
+}
+
+void TouchControl::destroy()
+{
+    for( auto i : d_mapObjects )
+        i->kill();
+    for( auto i : d_persons )
+        i->kill();
+    for( auto i : d_arrTerrainTilesets)
+        delete i;
+    
+    delete d_terrainMap;
 }
 

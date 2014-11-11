@@ -16,7 +16,14 @@ TileMap::TileMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTilese
         throw std::runtime_error("null pointer");
     
     d_layer = cocos2d::Layer::create();
+    d_layer->retain();
     d_map.resize(i_width, i_height);
+}
+
+TileMap::~TileMap()
+{
+    clean();
+    d_layer->release();
 }
 
 void TileMap::eraseFromMap(const std::string i_fillWith)
