@@ -12,7 +12,6 @@
 #include "MagicanDark.h"
 #include "MagicanLight.h"
 #include "Interface.h"
-#include "MapReader.h"
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -150,9 +149,16 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             for(int j = -moveRadius; j<=moveRadius; ++j)
                 for(int i= -moveRadius; i <=moveRadius; ++i)
                 {
-                    if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, obj->x + i, obj->y + j)) )
+                    int _x = int(obj->x) + i;
+                    int _y = int(obj->y) + j;
+                    if(_x<0 || _y<0 || _x>=d_mapWidth || _y>=d_mapHeight)
+                    {
                         d_move->d_finder->fill(i, j);
-                    if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, obj->x + i, obj->y + j) )
+                        continue;
+                    }
+                    if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, _x, _y)) )
+                        d_move->d_finder->fill(i, j);
+                    if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, _x, _y) )
                         d_move->d_finder->fill(i, j);
                 }
         
@@ -251,9 +257,12 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
 void TouchControl::initialize(cocos2d::Layer* i_layer)
 {
     MapReader reader;
-    Map* map = reader.read("map_XS_demo01.txt");
-    map->put(i_layer);
-    d_mapObjects = map->get();
+    d_map = reader.read("map_XS_demo01.txt");
+    d_map->put(i_layer);
+    d_mapObjects = d_map->get();
+    
+    d_mapWidth = d_map->getWidth();
+    d_mapHeight = d_map->getHeight();
     
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -327,6 +336,8 @@ void TouchControl::destroy()
         i->kill();
     for( auto i : d_arrTerrainTilesets)
         delete i;
+    
+    delete d_map;
     
     delete d_terrainMap;
 }

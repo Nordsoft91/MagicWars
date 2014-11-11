@@ -27,6 +27,9 @@ namespace MagicWars_NS {
         
         std::list<GameObj*>& get() { return d_mapObjects; }
         
+        size_t getWidth() const {return d_mapWidth; }
+        size_t getHeight() const {return d_mapHeight; }
+        
     protected:
         size_t d_mapWidth, d_mapHeight, d_tileWidth, d_tileHeight;
         

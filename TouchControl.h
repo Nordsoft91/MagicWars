@@ -17,6 +17,7 @@
 #include "MovingStructure.h"
 #include "TurnController.h"
 #include "Effect.h"
+#include "MapReader.h"
 
 namespace MagicWars_NS {
     
@@ -68,6 +69,8 @@ namespace MagicWars_NS {
         Interface* d_interface;
         
     private:
+        Map *d_map;
+        
         MagicWars_NS::SquareControl d_squareControl;
         MagicWars_NS::TurnController d_turnControl;
         
