@@ -63,6 +63,9 @@ std::string AIUsingAttack::findBestSpell(int x, int y, double& o_w)
 
 bool AIUsingAttack::attackPhase()
 {
+    if(!d_possibleAttack.empty() || *d_possibleAttack.begin()!=d_touchControl.getTurnController().getTurn())
+        return false;
+        
     double w;
     std::string k = findBestSpell(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, w);
     if(k=="attack") useAttack(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);

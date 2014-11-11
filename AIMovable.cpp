@@ -15,7 +15,8 @@ bool AIMovable::movePhase()
     Magican* pMag = d_touchControl.getTurnController().getTurn();
     WavePathFinder* pFinder = d_touchControl.getMove()->d_finder;
     
-    
+    if(!d_possibleMove.empty() || *d_possibleMove.begin()!=pMag)
+        return false;
     
     Grid<double> weightGrid;
     weightGrid.resize(pMag->getSpeed()*2+1, pMag->getSpeed()*2+1);
@@ -63,7 +64,7 @@ bool AIMovable::movePhase()
     
     if(rawx==pMag->getSpeed() && rawy==rawx)
     {
-        //d_possibleMove.push_back(*d_possibleMove.begin());
+        d_possibleMove.push_back(*d_possibleMove.begin());
         d_possibleMove.erase(d_possibleMove.begin());
         return false;
     }
