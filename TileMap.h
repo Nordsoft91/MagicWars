@@ -42,6 +42,8 @@ namespace MagicWars_NS {
         size_t width();
         size_t height();
         
+        void set(size_t i_wx, size_t i_wy, size_t x, size_t y);
+        
         //set tile with x,y coords on map, placed i_with on tile picture
         void set(MapCoord i_with, size_t x, size_t y);
         

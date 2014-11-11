@@ -16,14 +16,14 @@ TileMap::TileMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTilese
         throw std::runtime_error("null pointer");
     
     d_layer = cocos2d::Layer::create();
-    d_layer->retain();
+    //d_layer->retain();
     d_map.resize(i_width, i_height);
 }
 
 TileMap::~TileMap()
 {
     clean();
-    d_layer->release();
+    //d_layer->release();
 }
 
 void TileMap::eraseFromMap(const std::string i_fillWith)
@@ -117,6 +117,23 @@ void TileMap::set(MapCoord i_with, size_t x, size_t y)
         d_map(x,y).first->removeFromParent();
     
     auto i = d_pTileset->createTile( i_with.x, i_with.y );
+    d_map(x,y).first = i;
+    i->setPosition(x*d_pTileset->getTileWidth(), y*d_pTileset->getTileHeight());
+    i->ignoreAnchorPointForPosition(true);
+    d_layer->addChild(i);
+}
+
+void TileMap::set(size_t i_wx, size_t i_wy, size_t x, size_t y)
+{
+    if(!d_pTileset)
+        throw std::runtime_error("null pointer");
+    if(x >= d_mapWidth || y >= d_mapHeight )
+        throw std::logic_error("invalid arguments");
+    
+    if(d_map(x,y).first)
+        d_map(x,y).first->removeFromParent();
+    
+    auto i = d_pTileset->createTile( i_wx, i_wy );
     d_map(x,y).first = i;
     i->setPosition(x*d_pTileset->getTileWidth(), y*d_pTileset->getTileHeight());
     i->ignoreAnchorPointForPosition(true);

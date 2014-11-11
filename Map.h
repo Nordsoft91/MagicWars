@@ -21,9 +21,11 @@ namespace MagicWars_NS {
         Map(size_t i_w, size_t i_h);
         ~Map();
         
-        void set(int num, size_t x, size_t y);
-        void setSolid(int num, size_t x, size_t y);
+        bool set(int num, size_t x, size_t y);
+        bool setSolid(int num, size_t x, size_t y);
         void put(cocos2d::Layer *i_layer);
+        
+        std::list<GameObj*>& get() { return d_mapObjects; }
         
     protected:
         size_t d_mapWidth, d_mapHeight, d_tileWidth, d_tileHeight;

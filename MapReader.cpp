@@ -7,6 +7,7 @@
 //
 
 #include "MapReader.h"
+#include <sstream>
 
 using namespace MagicWars_NS;
 
@@ -24,7 +25,7 @@ std::string MapReader::parseParameter(const std::string &i_string, std::string &
     return i_string.substr(pos+1,i_string.length()-pos-1);
 }
 
-std::map<std::string, std::string> MapReader::parseGroup(std::ifstream &io_stream, std::string &o_group, int i_params, int i_lastparam)
+std::map<std::string, std::string> MapReader::parseGroup(std::ifstream &io_stream, std::string &o_group, int i_params)
 {
     std::map<std::string, std::string> result;
     while(1)
@@ -46,37 +47,99 @@ std::map<std::string, std::string> MapReader::parseGroup(std::ifstream &io_strea
         io_stream >> str;
         
         val = parseParameter(str, key);
-        if(!key.empty())
+        if(!key.empty() && !val.empty())
         {
-            if(val.empty())
-            {
-                std::string s;
-                char ch;
-                for(int j = 0; j<i_lastparam; ++j)
-                {
-                    io_stream >> ch >> s;
-                    val += ch;
-                    val += s;
-                }
-            }
             result[key]=val;
         }
     }
     return result;
 }
 
-void MapReader::read(const std::string i_fname)
+bool MapReader::parseLayer(std::ifstream &io_stream, MagicWars_NS::Map &io_map, size_t i_w, size_t i_h)
+{
+    std::string grp;
+    while(1)
+    {
+        if(!io_stream)
+            return false;
+        
+        io_stream >> grp;
+        if(isHeader(grp))
+        {
+            grp = grp.substr(1,grp.length()-2);
+            break;
+        }
+    }
+    if(grp!="layer")
+        return false;
+    
+    std::string str, key, val;
+    io_stream >> str;
+    
+    val = parseParameter(str, key);
+    if(key!="type" || val.empty())
+        return false;
+    
+    bool solid = (val=="layerSolid");
+    
+    io_stream >> str;
+    val = parseParameter(str, key);
+    if(key!="data" || !val.empty())
+        return false;
+    
+    for(size_t j = 0; j<i_h; ++j)
+    {
+        std::stringstream sstream;
+        io_stream >> val;
+        sstream << val;
+        int n;
+        char c;
+        for(size_t i = 0; i<i_w; ++i)
+        {
+            sstream >> n >> c;
+            if(solid)
+                io_map.setSolid(n, i, i_h-j-1);
+            else
+            //if(!solid)
+                io_map.set(n, i, i_h-j-1);
+            
+        }
+        
+    }
+    
+    return true;
+}
+
+
+
+Map* MapReader::read(const std::string i_fname)
 {
     std::ifstream file(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_fname));
     
     std::string grpName;
     auto group = parseGroup(file, grpName, 5);
     
-    group = parseGroup(file, grpName, 4);
+    if(grpName!="header")
+        throw std::runtime_error("unsupport format");
     
-    group = parseGroup(file, grpName, 2, 12);
+    size_t w, h;
+    std::stringstream sstream;
+    sstream << group["width"];
+    sstream >> w;
+    sstream.clear();
+    sstream << group["height"];
+    sstream >> h;
+    sstream.clear();
+    Map* map = new Map(w,h);
     
-    group = parseGroup(file, grpName, 2, 12);
+    group = parseGroup(file, grpName, 2);
+    if(grpName!="tilesets")
+        throw std::runtime_error("unsupport format");
     
-    group = parseGroup(file, grpName, 2, 12);
+    while(parseLayer(file, *map, w, h))
+    {}
+    
+    int a = 0;
+    a++;
+    return map;
 }

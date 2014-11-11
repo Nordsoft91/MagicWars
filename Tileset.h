@@ -23,12 +23,12 @@ namespace MagicWars_NS {
         
         size_t getCoordX(size_t i_tilePos) const
         {
-            size_t posx = i_tilePos % d_columns;
+            size_t posx = i_tilePos /*% d_columns*/;
             return d_offWidth + posx * (d_tileWidth + d_sepWidth);
         }
         size_t getCoordY(size_t i_tilePos) const
         {
-            size_t posy = i_tilePos / d_columns;
+            size_t posy = i_tilePos/* / d_columns*/;
             return d_offHeight + posy * (d_tileHeight + d_sepHeight);
         }
         

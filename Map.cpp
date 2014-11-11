@@ -19,9 +19,9 @@ Map::Map(size_t i_w, size_t i_h): d_mapWidth(i_w), d_mapHeight(i_h)
     MagicWars_NS::TileGrid gridWater{d_tileWidth,d_tileHeight,9,8,0,0,0,0};
     MagicWars_NS::TileGrid gridMisc{d_tileWidth,d_tileHeight,16,8,0,0,0,0};
     
-    d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("tileGround.png", gridGround));
+    d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("tilesGround.png", gridGround));
     d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("sheetMisc.png", gridMisc));
-    d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("tileWater.png", gridWater));
+    d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("tilesWater.png", gridWater));
     d_arrTilesetSizes.push_back(11*8);
     d_arrTilesetSizes.push_back(16*8);
     d_arrTilesetSizes.push_back(9*8);
@@ -42,13 +42,13 @@ Map::~Map()
     delete d_terrainMap[2];
 }
 
-void Map::set(int num, size_t x, size_t y)
+bool Map::set(int num, size_t x, size_t y)
 {
     if(num<=0)
-        return;
+        return false;
     
     if(x>=d_mapWidth || y>=d_mapHeight)
-        return;
+        return false;
     
     size_t tilesetIdx = 0;
     for(size_t tlSize : d_arrTilesetSizes)
@@ -58,19 +58,22 @@ void Map::set(int num, size_t x, size_t y)
         num-=tlSize;
         ++tilesetIdx;
     }
-    
+    num-=1;
     size_t ty = num / d_arrTerrainTilesets[tilesetIdx]->getTilesetWidth();
     size_t tx = num % d_arrTerrainTilesets[tilesetIdx]->getTilesetWidth();
-    MapCoord c{tx,ty};
     
-    d_terrainMap[tilesetIdx]->set(c, x, y);
+    d_terrainMap[tilesetIdx]->set(tx, ty, x, y);
+    return true;
 }
 
-void Map::setSolid(int num, size_t x, size_t y)
+bool Map::setSolid(int num, size_t x, size_t y)
 {
-    set(num, x, y);
-    
-    ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(d_terrainMap[1]->get(), x, y);
+    if(set(num, x, y))
+    {
+       ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(d_terrainMap[1]->get(), x, y);
+        return true;
+    }
+    return false;
 }
 
 void Map::put(cocos2d::Layer *i_layer)
