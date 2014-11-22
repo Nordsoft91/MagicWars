@@ -10,8 +10,18 @@
 
 using namespace MagicWars_NS;
 
-Magican::Magican(const std::string i_group): d_group(i_group), GameObj(Consts::get("spriteName",i_group))
+Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
 {
+    if(std::string(Consts::get("spriteType", i_group)) == "STATIC")
+    {
+        setSprite(Consts::get("spriteName", i_group));
+    }
+    else
+    {
+        d_sprite = cocos2d::Sprite::create();
+        d_sprite->retain();
+    }
+    
     d_healthMax = Consts::get("health", i_group);
     d_concentrate = Consts::get("concentrate", i_group);
     d_mind = Consts::get("mind", i_group);
@@ -30,26 +40,33 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj(Consts::g
     d_health = d_healthMax;
     d_mana = d_mind;
     
-    d_visualizeMind = StatusUpdater::create(28, cocos2d::Color4F(0.,0.,1.,0.2));
-    d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
-    d_sprite->addChild(d_visualizeMind);
+    if(d_sprite)
+    {
+        d_visualizeMind = StatusUpdater::create(28, cocos2d::Color4F(0.,0.,1.,0.2));
+        d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
+        d_sprite->addChild(d_visualizeMind);
     
-    d_visualizeHealth = StatusUpdater::create(34, cocos2d::Color4F(1.,0.,0.,0.2));
-    d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
-    d_sprite->addChild(d_visualizeHealth);
+        d_visualizeHealth = StatusUpdater::create(34, cocos2d::Color4F(1.,0.,0.,0.2));
+        d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
+        d_sprite->addChild(d_visualizeHealth);
     
-    d_currentTurnLight = CurrentTurnLight::create();
-    d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
-    d_currentTurnLight->show(false);
-    d_sprite->addChild(d_currentTurnLight);
+        d_currentTurnLight = CurrentTurnLight::create();
+        d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
+        d_currentTurnLight->show(false);
+        d_sprite->addChild(d_currentTurnLight);
+    }
 }
 
 void Magican::metamorph(const std::string i_group)
 {
     auto node = dynamic_cast<cocos2d::Layer*>(d_sprite->getParent());
     
-    d_sprite->removeFromParent();
-    d_sprite->release();
+    if(d_sprite)
+    {
+        d_sprite->removeFromParent();
+        d_sprite->release();
+        d_sprite = nullptr;
+    }
     
     //saving old params
     int currHealth = d_healthMax;
@@ -75,23 +92,33 @@ void Magican::metamorph(const std::string i_group)
     d_health += d_healthMax - currHealth;
     d_mana += d_mind - currMind;
     
-    d_sprite = cocos2d::Sprite::create(Consts::get("spriteName", i_group));
-    d_sprite->retain();
+    if(std::string(Consts::get("spriteType", i_group)) == "STATIC")
+    {
+        setSprite(Consts::get("spriteName", i_group));
+    }
+    else
+    {
+        d_sprite = cocos2d::Sprite::create();
+        d_sprite->retain();
+    }
     
-    d_visualizeMind = StatusUpdater::create(28, cocos2d::Color4F(0.,0.,1.,0.2));
-    d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
-    d_sprite->addChild(d_visualizeMind);
+    if(d_sprite)
+    {
+        d_visualizeMind = StatusUpdater::create(28, cocos2d::Color4F(0.,0.,1.,0.2));
+        d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
+        d_sprite->addChild(d_visualizeMind);
     
-    d_visualizeHealth = StatusUpdater::create(34, cocos2d::Color4F(1.,0.,0.,0.2));
-    d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
-    d_sprite->addChild(d_visualizeHealth);
+        d_visualizeHealth = StatusUpdater::create(34, cocos2d::Color4F(1.,0.,0.,0.2));
+        d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
+        d_sprite->addChild(d_visualizeHealth);
     
-    d_currentTurnLight = CurrentTurnLight::create();
-    d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
-    d_currentTurnLight->show(false);
-    d_sprite->addChild(d_currentTurnLight);
-    
-    born(node, x, y);
+        d_currentTurnLight = CurrentTurnLight::create();
+        d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
+        d_currentTurnLight->show(false);
+        d_sprite->addChild(d_currentTurnLight);
+        
+        born(node, x, y);
+    }
 }
 
 void Magican::decreaseHealth(unsigned int i_dammage)

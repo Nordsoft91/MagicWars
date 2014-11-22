@@ -117,6 +117,7 @@ private:
     
     bool readParameter(std::map<std::string, Param>& o_group);
     void readGroup();
+    void readFile(std::string i_file);
     
     std::ifstream d_file;
     std::map<std::string, std::map<std::string, Param> > d_parameters;

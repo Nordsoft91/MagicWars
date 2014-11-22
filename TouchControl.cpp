@@ -262,7 +262,7 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
 void TouchControl::initialize(cocos2d::Layer* i_layer)
 {
     MapReader reader;
-    d_map = reader.read("map_XS_demo01.txt");
+    d_map = reader.read("mapW_M_myDemoMap01.txt");
     d_map->put(i_layer);
     d_mapObjects = d_map->get();
     
@@ -288,11 +288,11 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     Magican* tempObject;
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
-    tempObject->born(i_layer, 2, 0);
+    tempObject->born(i_layer, 12, 0);
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));
-    tempObject->born(i_layer, 4, 1);
+    tempObject->born(i_layer, 14, 1);
     d_turnControl.insert(tempObject, "Light");
     
     /*tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));

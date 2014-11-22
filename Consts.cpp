@@ -16,7 +16,12 @@ Param& Consts::get(const std::string i_param, const std::string i_group)
 
 Consts::Consts()
 {
-    d_file.open(cocos2d::FileUtils::getInstance()->fullPathForFilename("MagicConsts"));
+    readFile("MagicConsts");
+}
+
+void Consts::readFile(std::string i_file)
+{
+    d_file.open(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_file));
     while(d_file)
         readGroup();
 }
@@ -93,9 +98,10 @@ bool Consts::readParameter(std::map<std::string, Param>& o_group)
 void Consts::readGroup()
 {
     std::string identify, group, sig, parent;
-    d_file >> identify >> group >> sig ;
+    d_file >> identify >> group;
     if(identify == "<group>")
     {
+        d_file >> sig;
         std::map<std::string, Param>  grp;
         if(sig == "<override>")
         {
@@ -107,5 +113,9 @@ void Consts::readGroup()
             while(readParameter(grp)) {}
             d_parameters[group] = grp;
         }
+    }
+    if(identify == "<include>")
+    {
+        readFile(group);
     }
 }

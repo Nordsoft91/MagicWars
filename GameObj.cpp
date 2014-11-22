@@ -10,18 +10,33 @@
 
 using namespace MagicWars_NS;
 
-GameObj::GameObj(const std::string i_spr)
+GameObj::GameObj()
 {
     static int uniqueId = 0;
+    d_sprite = nullptr;
+    d_id = ++uniqueId;
+}
+
+GameObj::GameObj(const std::string i_spr): GameObj()
+{
     d_sprite = cocos2d::Sprite::create(i_spr);
     d_sprite->retain();
-    d_id = ++uniqueId;
-    
 }
 
 GameObj::~GameObj()
 {
     d_sprite->release();
+}
+
+void GameObj::setSprite(const std::string i_spr)
+{
+    if(d_sprite)
+    {
+        kill();
+        d_sprite->release();
+    }
+    d_sprite = cocos2d::Sprite::create(i_spr);
+    d_sprite->retain();
 }
 
 void GameObj::born(cocos2d::Layer *io_layer, size_t ix, size_t iy)
