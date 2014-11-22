@@ -287,12 +287,12 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     
     Magican* tempObject;
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "basicAnimatedPerson")));
-    tempObject->born(i_layer, 12, 0);
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero01_level01")));
+    tempObject->born(i_layer, 12, 2);
     d_turnControl.insert(tempObject, "Light");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "basicAnimatedPerson")));
-    tempObject->born(i_layer, 14, 1);
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero02_level01")));
+    tempObject->born(i_layer, 14, 4);
     d_turnControl.insert(tempObject, "Light");
     
     /*tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));
@@ -307,11 +307,11 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     tempObject->born(i_layer, 7, 3);
     d_turnControl.insert(tempObject, "Light");*/
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
     tempObject->born(i_layer, 10, 11);
     d_turnControl.insert(tempObject, "Dark");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark2>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
     tempObject->born(i_layer, 7, 10);
     d_turnControl.insert(tempObject, "Dark");
     

@@ -15,7 +15,7 @@ bool AIMovable::movePhase()
     Magican* pMag = d_touchControl.getTurnController().getTurn();
     WavePathFinder* pFinder = d_touchControl.getMove()->d_finder;
     
-    if(!d_possibleMove.empty() || *d_possibleMove.begin()!=pMag)
+    if(d_possibleMove.empty() || *d_possibleMove.begin()!=pMag)
         return false;
     
     Grid<double> weightGrid;

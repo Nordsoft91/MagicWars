@@ -63,7 +63,7 @@ std::string AIUsingAttack::findBestSpell(int x, int y, double& o_w)
 
 bool AIUsingAttack::attackPhase()
 {
-    if(!d_possibleAttack.empty() || *d_possibleAttack.begin()!=d_touchControl.getTurnController().getTurn())
+    if(d_possibleAttack.empty() || *d_possibleAttack.begin()!=d_touchControl.getTurnController().getTurn())
         return false;
         
     double w;
