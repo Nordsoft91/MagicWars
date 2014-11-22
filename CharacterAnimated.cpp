@@ -15,7 +15,13 @@ CharacterAnimated::CharacterAnimated(std::string i_group): Magican(i_group), d_g
     if(std::string(Consts::get("spriteType", i_group)) != "ANIMATED")
         throw std::runtime_error("not animated object!");
     
-    anim = Animated::create(Consts::get("animationName", d_group), Consts::get("animationParams", d_group), 0, 1);
+    std::string prms = Consts::get("animationParams", d_group);
+    seqDown = std::vector<int>(Consts::get("goDown", prms));
+    seqLeft = std::vector<int>(Consts::get("goLeft", prms));
+    seqRight = std::vector<int>(Consts::get("goRight", prms));
+    seqUp = std::vector<int>(Consts::get("goUp", prms));
+    
+    anim = Animated::create(Consts::get("animationName", d_group), prms, 0, 1);
     d_sprite->addChild(anim, 2);
 }
 
@@ -23,15 +29,16 @@ void CharacterAnimated::move(const std::list<int>& i_list)
 {
     cocos2d::Vector<cocos2d::FiniteTimeAction*> seq;
     std::vector<int> animSeq;
+
     for(int i : i_list)
     {
         int tx = 0, ty = 0;
         switch (i)
         {
-            case 0: tx = 1; animSeq.insert(animSeq.end(), {6,7,8,7}); break;
-            case 1: ty = 1; animSeq.insert(animSeq.end(), {9,10,11,10}); break;
-            case 2: tx = -1; animSeq.insert(animSeq.end(), {3,4,5,4}); break;
-            case 3: ty = -1; animSeq.insert(animSeq.end(), {0,1,2,1}); break;
+            case 0: tx = 1; animSeq.insert(animSeq.end(), seqRight.begin(), seqRight.end() ); break;
+            case 1: ty = 1; animSeq.insert(animSeq.end(), seqDown.begin(), seqDown.end()); break;
+            case 2: tx = -1; animSeq.insert(animSeq.end(), seqLeft.begin(), seqLeft.end()); break;
+            case 3: ty = -1; animSeq.insert(animSeq.end(), seqUp.begin(), seqUp.end()); break;
         }
         x += tx; y += ty;
         

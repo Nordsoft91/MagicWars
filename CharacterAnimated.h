@@ -25,6 +25,7 @@ namespace MagicWars_NS {
         
     protected:
         Animated *anim;
+        std::vector<int> seqDown, seqLeft, seqRight, seqUp;
         std::string d_group;
     };
 }
