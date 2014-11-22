@@ -21,21 +21,23 @@ Consts::Consts()
 
 void Consts::readFile(std::string i_file)
 {
-    d_file.open(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_file));
-    while(d_file)
-        readGroup();
+    std::ifstream file;
+    file.open(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_file));
+    while(file)
+        readGroup(file);
+    file.close();
 }
 
-bool Consts::readParameter(std::map<std::string, Param>& o_group)
+bool Consts::readParameter(std::ifstream& io_file, std::map<std::string, Param>& o_group)
 {
     std::string key, value, equal;
     while(key=="")
-        d_file >> key;
+        io_file >> key;
     
     if(key == "}")
         return false;
     
-    d_file >> equal >> value;
+    io_file >> equal >> value;
     
     if(equal != "=")
         throw std::runtime_error("Error in consts file");
@@ -43,7 +45,7 @@ bool Consts::readParameter(std::map<std::string, Param>& o_group)
     if(value=="{")
     {
         std::vector<Param> vv;
-        d_file >> value;
+        io_file >> value;
         while(value!="}")
         {
             int v1 = atoi(value.c_str());
@@ -66,7 +68,7 @@ bool Consts::readParameter(std::map<std::string, Param>& o_group)
                 continue;
             }
             vv.push_back(Param(value));
-            d_file >> value;
+            io_file >> value;
         }
         o_group[key] = Param(vv);
         return true;
@@ -95,22 +97,22 @@ bool Consts::readParameter(std::map<std::string, Param>& o_group)
     return true;
 }
 
-void Consts::readGroup()
+void Consts::readGroup(std::ifstream& io_file)
 {
     std::string identify, group, sig, parent;
-    d_file >> identify >> group;
+    io_file >> identify >> group;
     if(identify == "<group>")
     {
-        d_file >> sig;
+        io_file >> sig;
         std::map<std::string, Param>  grp;
         if(sig == "<override>")
         {
-            d_file >> parent >> sig;
+            io_file >> parent >> sig;
             grp = d_parameters[parent];
         }
         if(sig == "{")
         {
-            while(readParameter(grp)) {}
+            while(readParameter(io_file, grp)) {}
             d_parameters[group] = grp;
         }
     }

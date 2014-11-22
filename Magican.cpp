@@ -12,15 +12,7 @@ using namespace MagicWars_NS;
 
 Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
 {
-    if(std::string(Consts::get("spriteType", i_group)) == "STATIC")
-    {
-        setSprite(Consts::get("spriteName", i_group));
-    }
-    else
-    {
-        d_sprite = cocos2d::Sprite::create();
-        d_sprite->retain();
-    }
+    setSprite(Consts::get("spriteName", i_group));
     
     d_healthMax = Consts::get("health", i_group);
     d_concentrate = Consts::get("concentrate", i_group);
@@ -44,16 +36,16 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
     {
         d_visualizeMind = StatusUpdater::create(28, cocos2d::Color4F(0.,0.,1.,0.2));
         d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
-        d_sprite->addChild(d_visualizeMind);
+        d_sprite->addChild(d_visualizeMind, 7);
     
         d_visualizeHealth = StatusUpdater::create(34, cocos2d::Color4F(1.,0.,0.,0.2));
         d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
-        d_sprite->addChild(d_visualizeHealth);
+        d_sprite->addChild(d_visualizeHealth, 8);
     
         d_currentTurnLight = CurrentTurnLight::create();
         d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
         d_currentTurnLight->show(false);
-        d_sprite->addChild(d_currentTurnLight);
+        d_sprite->addChild(d_currentTurnLight, 10);
     }
 }
 
@@ -92,15 +84,7 @@ void Magican::metamorph(const std::string i_group)
     d_health += d_healthMax - currHealth;
     d_mana += d_mind - currMind;
     
-    if(std::string(Consts::get("spriteType", i_group)) == "STATIC")
-    {
-        setSprite(Consts::get("spriteName", i_group));
-    }
-    else
-    {
-        d_sprite = cocos2d::Sprite::create();
-        d_sprite->retain();
-    }
+    setSprite(Consts::get("spriteName", i_group));
     
     if(d_sprite)
     {

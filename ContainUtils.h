@@ -49,6 +49,19 @@ namespace MagicWars_NS {
             io_list.push_back(dynamic_cast<GameObj*>(obj));
             return dynamic_cast<GameObj*>(obj)->getId();
         }
+        
+        template<class T>
+        static int createObjectWithName(std::list<GameObj*>& io_list, std::string i_name)
+        {
+            T* obj = new T(i_name);
+            if(!dynamic_cast<GameObj*>(obj))
+            {
+                delete obj;
+                return 0;
+            }
+            io_list.push_back(dynamic_cast<GameObj*>(obj));
+            return dynamic_cast<GameObj*>(obj)->getId();
+        }
     };
 }
 #endif

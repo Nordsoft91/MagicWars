@@ -10,11 +10,22 @@
 #define __MagicWars__CharacterAnimated__
 
 #include "Magican.h"
+#include "Animated.h"
 
 namespace MagicWars_NS {
     class CharacterAnimated: public Magican
     {
+    public:
+        CharacterAnimated(std::string i_group);
+        ~CharacterAnimated() {};
         
+        virtual void move(const std::list<int>& i_list);
+        //virtual void born(cocos2d::Layer *io_layer, size_t ix, size_t iy);
+        //virtual void kill();
+        
+    protected:
+        Animated *anim;
+        std::string d_group;
     };
 }
 

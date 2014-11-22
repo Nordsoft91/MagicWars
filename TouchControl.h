@@ -10,7 +10,7 @@
 #define MagicWars_TouchControl_h
 
 #include <cocos2d.h>
-#include "Magican.h"
+#include "CharacterAnimated.h"
 #include "BaseWall.h"
 #include "TileMap.h"
 #include "SquareControl.h"

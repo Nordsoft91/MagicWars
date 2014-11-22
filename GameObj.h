@@ -24,17 +24,17 @@ namespace MagicWars_NS {
         GameObj();
         GameObj(const std::string i_spr);
         virtual ~GameObj();
-        void born(cocos2d::Layer *io_layer, size_t ix, size_t iy);
-        void kill();
+        virtual void born(cocos2d::Layer *io_layer, size_t ix, size_t iy);
+        virtual void kill();
         int getId() const;
         
         void setSprite(const std::string i_spr);
         
         void jump(size_t ix, size_t iy);
         
-        void move(char i_direction);
+        virtual void move(char i_direction);
         
-        void move(const std::list<int>& i_list);
+        virtual void move(const std::list<int>& i_list);
         
         size_t x,y;
         
