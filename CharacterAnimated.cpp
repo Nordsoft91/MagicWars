@@ -16,10 +16,11 @@ CharacterAnimated::CharacterAnimated(std::string i_group): Magican(i_group), d_g
         throw std::runtime_error("not animated object!");
     
     std::string prms = Consts::get("animationParams", d_group);
-    seqDown = std::vector<int>(Consts::get("goDown", prms));
-    seqLeft = std::vector<int>(Consts::get("goLeft", prms));
-    seqRight = std::vector<int>(Consts::get("goRight", prms));
-    seqUp = std::vector<int>(Consts::get("goUp", prms));
+    std::vector<Param> __seq;
+    seqDown = Consts::get("goDown", prms).toVector<int>();
+    seqLeft = Consts::get("goLeft", prms).toVector<int>();
+    seqRight = Consts::get("goRight", prms).toVector<int>();
+    seqUp = Consts::get("goUp", prms).toVector<int>();
     
     anim = Animated::create(Consts::get("animationName", d_group), prms, 0, 1);
     d_sprite->addChild(anim, 2);
@@ -36,9 +37,9 @@ void CharacterAnimated::move(const std::list<int>& i_list)
         switch (i)
         {
             case 0: tx = 1; animSeq.insert(animSeq.end(), seqRight.begin(), seqRight.end() ); break;
-            case 1: ty = 1; animSeq.insert(animSeq.end(), seqDown.begin(), seqDown.end()); break;
+            case 1: ty = 1; animSeq.insert(animSeq.end(), seqUp.begin(), seqUp.end()); break;
             case 2: tx = -1; animSeq.insert(animSeq.end(), seqLeft.begin(), seqLeft.end()); break;
-            case 3: ty = -1; animSeq.insert(animSeq.end(), seqUp.begin(), seqUp.end()); break;
+            case 3: ty = -1; animSeq.insert(animSeq.end(), seqDown.begin(), seqDown.end()); break;
         }
         x += tx; y += ty;
         

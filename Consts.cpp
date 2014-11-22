@@ -55,16 +55,19 @@ bool Consts::readParameter(std::ifstream& io_file, std::map<std::string, Param>&
             if(v1!=0)
             {
                 vv.push_back(Param(v1));
+                io_file >> value;
                 continue;
             }
             if(v2!=0)
             {
                 vv.push_back(Param(v2));
+                io_file >> value;
                 continue;
             }
             if(value == "true" || value == "false")
             {
                 vv.push_back(Param(value=="true"));
+                io_file >> value;
                 continue;
             }
             vv.push_back(Param(value));

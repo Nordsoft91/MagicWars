@@ -65,6 +65,20 @@ public:
     bool isArray() const
     { return (type==4 ? true : false); }
     
+    template<class T>
+    std::vector<T> toVector()
+    {
+        std::vector<T> _r;
+        if(!isArray())
+            return _r;
+        
+        for(auto& i : arrayV)
+        {
+            _r.push_back(T(i));
+        }
+        return _r;
+    }
+    
     operator size_t ()
     {
         return (type==1 && intV>=0 ? intV : 0);
