@@ -33,10 +33,10 @@ void StatusUpdater::update(float delta)
         setVisible(true);
         clear();
         double dPI = Consts::get("math2PI");
-        double step = double(Consts::get("mathPI")) / 50;
+        double step = double(Consts::get("mathPI")) / 30;
         for(float i=0; i<dPI * d_value/d_maximum; i+=step)
         {
-            drawSolidCircle(cocos2d::Vec2(d_circleRadius*cos(i), d_circleRadius*sin(i)), 4, 0.5, 6, d_color );
+            drawSolidCircle(cocos2d::Vec2(d_circleRadius*cos(i), d_circleRadius*sin(i)), 4, 0.6, 6, d_color );
         }
         d_value-=(d_value-d_status)/30+0.001f;
     }

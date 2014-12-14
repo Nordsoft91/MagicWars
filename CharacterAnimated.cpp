@@ -46,6 +46,7 @@ void CharacterAnimated::move(const std::list<int>& i_list)
         seq.pushBack(cocos2d::MoveTo::create(0.4, cocos2d::Point(x*globalStepX,y*globalStepY)));
         
     }
+    d_sprite->setZOrder(1000-y);
     auto action = cocos2d::Sequence::create(seq);
     d_sprite->runAction(action);
     

@@ -315,17 +315,17 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     tempObject->born(i_layer, 7, 10);
     d_turnControl.insert(tempObject, "Dark");
     
-    /*tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
     tempObject->born(i_layer, 17, 11);
     d_turnControl.insert(tempObject, "Dark");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
     tempObject->born(i_layer, 16, 9);
     d_turnControl.insert(tempObject, "Dark");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanDark>(d_persons)));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
     tempObject->born(i_layer, 15, 7);
-    d_turnControl.insert(tempObject, "Dark");*/
+    d_turnControl.insert(tempObject, "Dark");
     
     //ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);
     //Animated* anim = Animated::create("hero01.png", "charAnimation3", 0, 6);
