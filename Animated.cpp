@@ -14,10 +14,8 @@ using namespace MagicWars_NS;
 Animated::Animated(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count)
 {
     cocos2d::Vector<cocos2d::SpriteFrame*> frames;
-    for(int i=0; i<i_sizex*i_sizey; ++i)
+    for(int i=i_start; i<i_sizex*i_sizey; ++i)
     {
-        if(i<i_start)
-            continue;
         if(i>=i_start+i_count)
             break;
         

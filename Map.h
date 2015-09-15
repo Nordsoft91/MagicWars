@@ -9,6 +9,7 @@
 #ifndef __MagicWars__Map__
 #define __MagicWars__Map__
 
+#include <memory>
 #include "TileMap.h"
 #include "Consts.h"
 #include "BaseWall.h"
@@ -25,7 +26,7 @@ namespace MagicWars_NS {
         bool setSolid(int num, size_t x, size_t y);
         void put(cocos2d::Layer *i_layer);
         
-        std::list<GameObj*>& get() { return d_mapObjects; }
+        std::list<std::unique_ptr<GameObj>>& get() { return d_mapObjects; }
         
         size_t getWidth() const {return d_mapWidth; }
         size_t getHeight() const {return d_mapHeight; }
@@ -34,12 +35,12 @@ namespace MagicWars_NS {
         size_t d_mapWidth, d_mapHeight, d_tileWidth, d_tileHeight;
         
         //tilesets of terrain
-        std::vector<MagicWars_NS::Tileset*> d_arrTerrainTilesets;
+        std::vector<std::unique_ptr<MagicWars_NS::Tileset>> d_arrTerrainTilesets;
         std::vector<size_t> d_arrTilesetSizes;
         
-        MagicWars_NS::TileMap* d_terrainMap[3];
+        std::unique_ptr<MagicWars_NS::TileMap> d_terrainMap[3];
         
-        std::list<GameObj*> d_mapObjects;
+        std::list<std::unique_ptr<GameObj>> d_mapObjects;
     };
 }
 
