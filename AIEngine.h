@@ -13,12 +13,11 @@
 
 namespace MagicWars_NS {
     
-    //basic class, skip all turns
+    //abstarct class, skip all turns
     class AIEngine
     {
     public:
         AIEngine(TouchControl& i_touchControl): d_touchControl(i_touchControl) {}
-        virtual ~AIEngine() {}
         
         virtual void startTurn();
         virtual bool selectPerson();

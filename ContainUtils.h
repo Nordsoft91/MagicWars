@@ -15,7 +15,6 @@
 
 namespace MagicWars_NS {
     
-    //TODO: change c-pointers with smart pointers
     class ContainUtils
     {
     public:

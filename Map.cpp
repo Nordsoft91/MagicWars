@@ -19,20 +19,27 @@ Map::Map(size_t i_w, size_t i_h): d_mapWidth(i_w), d_mapHeight(i_h)
     MagicWars_NS::TileGrid gridWater{d_tileWidth,d_tileHeight,9,8,0,0,0,0};
     MagicWars_NS::TileGrid gridMisc{d_tileWidth,d_tileHeight,16,8,0,0,0,0};
     
-    d_arrTerrainTilesets.push_back(std::make_unique<MagicWars_NS::Tileset>("tilesGround.png", gridGround));
-    d_arrTerrainTilesets.push_back(std::make_unique<MagicWars_NS::Tileset>("sheetMisc.png", gridMisc));
-    d_arrTerrainTilesets.push_back(std::make_unique<MagicWars_NS::Tileset>("tilesWater.png", gridWater));
+    d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("tilesGround.png", gridGround));
+    d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("sheetMisc.png", gridMisc));
+    d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("tilesWater.png", gridWater));
     d_arrTilesetSizes.push_back(11*8);
     d_arrTilesetSizes.push_back(16*8);
     d_arrTilesetSizes.push_back(9*8);
     
-    d_terrainMap[0] = std::make_unique<MagicWars_NS::TileMap>(d_arrTerrainTilesets[0], d_mapWidth, d_mapHeight);
-    d_terrainMap[1] = std::make_unique<MagicWars_NS::TileMap>(d_arrTerrainTilesets[1], d_mapWidth, d_mapHeight);
-    d_terrainMap[2] = std::make_unique<MagicWars_NS::TileMap>(d_arrTerrainTilesets[2], d_mapWidth, d_mapHeight);
+    d_terrainMap[0] = new MagicWars_NS::TileMap(d_arrTerrainTilesets[0], d_mapWidth, d_mapHeight);
+    d_terrainMap[1] = new MagicWars_NS::TileMap(d_arrTerrainTilesets[1], d_mapWidth, d_mapHeight);
+    d_terrainMap[2] = new MagicWars_NS::TileMap(d_arrTerrainTilesets[2], d_mapWidth, d_mapHeight);
 }
 
 Map::~Map()
 {
+    for(auto i : d_arrTerrainTilesets)
+        delete i;
+    for(auto i : d_mapObjects)
+        delete i;
+    delete d_terrainMap[0];
+    delete d_terrainMap[1];
+    delete d_terrainMap[2];
 }
 
 bool Map::set(int num, size_t x, size_t y)

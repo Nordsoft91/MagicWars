@@ -22,7 +22,7 @@ namespace MagicWars_NS
     {
     public:
         Magican(const std::string i_group);
-        virtual ~Magican() {}
+        ~Magican() {}
         
         void metamorph(const std::string i_group);
         
