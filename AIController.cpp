@@ -42,7 +42,7 @@ void AIController::update(float d)
     }
 }
 
-void AIController::setSideAI(const std::string i_side, MagicWars_NS::AIEngine *i_engine)
+void AIController::setSideAI(const std::string& i_side, AIEngine* i_engine)
 {
     d_engines[i_side] = i_engine;
 }

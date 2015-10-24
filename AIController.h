@@ -35,7 +35,7 @@ namespace MagicWars_NS {
         
         void update(float d);
         
-        void setSideAI(const std::string i_side, AIEngine* i_engine);
+        void setSideAI(const std::string& i_side, AIEngine* i_engine);
         
         void startTurn();
         

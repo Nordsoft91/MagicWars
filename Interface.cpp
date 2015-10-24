@@ -83,7 +83,11 @@ void Interface::createSpellMenu(Magican* i_mag)
             if(i_mag->getMind()<int(Consts::get("mind", spellstr)))
                 spell->setEnabled(false);
             
-            addButton(spell, spell->getContentSize().width*(4+d_spells.size()), visibleSize.height - spell->getContentSize().height/2 );
+            int maxSpellsInString = visibleSize.width / spell->getContentSize().width - 4;
+            int xSpellPosition = d_spells.size() % maxSpellsInString;
+            int ySpellPosition = d_spells.size() / maxSpellsInString;
+            
+            addButton(spell, spell->getContentSize().width*(4+xSpellPosition), visibleSize.height - spell->getContentSize().height/2 - spell->getContentSize().height * ySpellPosition );
             d_spells.push_back(spell);
         }
     }
