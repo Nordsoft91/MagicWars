@@ -31,7 +31,6 @@ SquareControl::SquareControl()
 
 SquareControl::~SquareControl()
 {
-    d_pSquares->clean();
     delete d_pSquares;
     delete d_pSqTileset;
 }

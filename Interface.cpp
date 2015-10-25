@@ -21,16 +21,16 @@ Interface::Interface(cocos2d::Scene* io_scene, TouchControl* i_controller): d_co
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     ////////////CREATE INTERFACE RIGHT NOW///////////////
     
-    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon1"), "icon1_disable.png", [&,i_controller](cocos2d::Ref* pSender){removeSpells(); i_controller->attackAction();});
+    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon1"), "icon1_disable.png", [&](cocos2d::Ref* pSender){removeSpells(); d_controller->attackAction();});
     addButton(d_pAttackItem, d_pAttackItem->getContentSize().width/2, visibleSize.height - d_pAttackItem->getContentSize().height/2 );
     
-    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"), [&,i_controller](cocos2d::Ref* pSender){ removeSpells(); i_controller->endTurnAction();});
+    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"), [&](cocos2d::Ref* pSender){ removeSpells(); d_controller->endTurnAction();});
     addButton(itemEnd, itemEnd->getContentSize().width*2.5, visibleSize.height - itemEnd->getContentSize().height/2 );
 
-    d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon3"), "icon3_disable.png", [&,i_controller](cocos2d::Ref* pSender)
+    d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon3"), "icon3_disable.png", [&](cocos2d::Ref* pSender)
     {
         removeSpells();
-        createSpellMenu(i_controller->getTurn());
+        createSpellMenu(d_controller->getTurn());
     });
     
     addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
