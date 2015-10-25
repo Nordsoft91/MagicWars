@@ -27,7 +27,7 @@ namespace MagicWars_NS {
         static Magican* findMagican(const std::vector<Magican*>& i_arr, size_t i_x, size_t i_y);
     
         template<class T>
-        static T* findFirstObjectByType(const std::list<GameObj*>& i_list)
+        static T* findFirstObjectByType(const std::list<GameObj*>& i_list) 
         {
             for(auto i : i_list)
             {

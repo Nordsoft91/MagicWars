@@ -37,7 +37,12 @@ namespace MagicWars_NS {
             return d_array.at(y*d_w+x);
         }
         
-        bool operator() (const T& i_element, size_t &o_x, size_t &o_y)
+        const T& operator() (size_t x, size_t y) const
+        {
+            return d_array.at(y*d_w+x);
+        }
+        
+        bool operator() (const T& i_element, size_t &o_x, size_t &o_y) const
         {
             auto iter = d_array.find(i_element);
             if(iter == d_array.end() )
@@ -49,7 +54,7 @@ namespace MagicWars_NS {
             return true;
         }
         
-        bool operator() (typename std::vector<T>::iterator iter, size_t &o_x, size_t &o_y)
+        bool operator() (typename std::vector<T>::iterator iter, size_t &o_x, size_t &o_y) const
         {
             if(iter == d_array.end() )
                 return false;

@@ -48,22 +48,22 @@ namespace MagicWars_NS {
             d_image->release();
         }
         
-        size_t getTilesetWidth()
+        size_t getTilesetWidth() const
         {
             return (d_image->getContentSize().width - d_tileParameters.d_offWidth) / (d_tileParameters.d_tileWidth + d_tileParameters.d_sepWidth);
         }
         
-        size_t getTilesetHeight()
+        size_t getTilesetHeight() const
         {
             return (d_image->getContentSize().height - d_tileParameters.d_offHeight) / (d_tileParameters.d_tileHeight + d_tileParameters.d_sepHeight);
         }
         
-        size_t getTileWidth()
+        size_t getTileWidth() const
         {
             return d_tileParameters.d_tileWidth;
         }
         
-        size_t getTileHeight()
+        size_t getTileHeight() const
         {
             return d_tileParameters.d_tileHeight;
         }

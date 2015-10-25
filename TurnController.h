@@ -108,12 +108,12 @@ namespace MagicWars_NS {
             return false;
         }
         
-        Magican* getTurn()
+        Magican* getTurn() const
         {
             return d_turn;
         }
         
-        std::string getTurnSide()
+        std::string getTurnSide() const
         {
             return d_sides[d_iterSideTurn];
         }
@@ -135,7 +135,7 @@ namespace MagicWars_NS {
             return res;
         }
         
-        std::vector<Magican*> otherSidesArray(const std::string i_side)
+        std::vector<Magican*> otherSidesArray(const std::string i_side) const
         {
             std::vector<Magican*> res;
             if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())

@@ -17,7 +17,7 @@ public:
     WavePathFinder(int i_maxdistance);
     void fill(signed int rel_x, signed int rel_y);
     
-    int getDistance();
+    int getDistance() const;
     
     //return -1 if imposiible
     //else distance in points

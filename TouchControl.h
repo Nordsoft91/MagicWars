@@ -26,8 +26,8 @@ namespace MagicWars_NS {
     class TouchControl
     {
     public:
-        TouchControl();
         
+        TouchControl();
         ~TouchControl()
         {
             delete d_terrainMap;
@@ -73,7 +73,6 @@ namespace MagicWars_NS {
     private:
         Map *d_map;
         
-        MagicWars_NS::SquareControl d_squareControl;
         MagicWars_NS::TurnController d_turnControl;
         
         //tilesets of terrain

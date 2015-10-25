@@ -11,21 +11,21 @@
 
 using namespace MagicWars_NS;
 
-bool MapReader::isHeader(const std::string &i_string)
+bool MapReader::isHeader(const std::string &i_string) const
 {
     if(i_string.front()=='[' && i_string.back()==']')
         return true;
     return false;
 }
 
-std::string MapReader::parseParameter(const std::string &i_string, std::string &o_key)
+std::string MapReader::parseParameter(const std::string &i_string, std::string &o_key) const
 {
     size_t pos = i_string.find('=');
     o_key = i_string.substr(0,pos);
     return i_string.substr(pos+1,i_string.length()-pos-1);
 }
 
-std::map<std::string, std::string> MapReader::parseGroup(std::ifstream &io_stream, std::string &o_group, int i_params)
+std::map<std::string, std::string> MapReader::parseGroup(std::ifstream &io_stream, std::string &o_group, int i_params) const
 {
     std::map<std::string, std::string> result;
     while(1)
@@ -55,7 +55,7 @@ std::map<std::string, std::string> MapReader::parseGroup(std::ifstream &io_strea
     return result;
 }
 
-bool MapReader::parseLayer(std::ifstream &io_stream, MagicWars_NS::Map &io_map, size_t i_w, size_t i_h)
+bool MapReader::parseLayer(std::ifstream &io_stream, MagicWars_NS::Map &io_map, size_t i_w, size_t i_h) const
 {
     std::string grp;
     while(1)

@@ -43,7 +43,7 @@ namespace MagicWars_NS
         float getPercentHealth() const;
         bool isHaveSpell(const std::string i_spell) const;
         
-        bool isAlive();
+        bool isAlive() const;
         
         void showStatus(bool i_show = true, double i_time = 0.0);
         

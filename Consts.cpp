@@ -8,7 +8,7 @@
 
 #include "Consts.h"
 
-Param& Consts::get(const std::string i_param, const std::string i_group)
+const Param& Consts::get(const std::string i_param, const std::string i_group)
 {
     static Consts instance;
     return instance.d_parameters[i_group][i_param];

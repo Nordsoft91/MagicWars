@@ -188,7 +188,7 @@ float Magican::getPercentHealth() const
     return float(d_health) / float(d_healthMax);
 }
 
-bool Magican::isAlive()
+bool Magican::isAlive() const
 {
     return d_health>0;
 }

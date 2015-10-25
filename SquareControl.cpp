@@ -10,6 +10,12 @@
 
 using namespace MagicWars_NS;
 
+SquareControl& SquareControl::instance()
+{
+    static SquareControl squareControl;
+    return squareControl;
+}
+
 SquareControl::SquareControl()
 {
     d_pSqTileset = new Tileset(cstrSprSquares, TileGrid{Consts::get("mapCellWidth"),Consts::get("mapCellHeight"),2,5,0,0,0,0} );
@@ -25,6 +31,7 @@ SquareControl::SquareControl()
 
 SquareControl::~SquareControl()
 {
+    d_pSquares->clean();
     delete d_pSquares;
     delete d_pSqTileset;
 }

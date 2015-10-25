@@ -18,11 +18,18 @@
 namespace MagicWars_NS {
     const std::string cstrSprSquares = "Squares.png";
     
+    struct SquareShape
+    {
+        
+    };
+    
     class SquareControl
     {
-    public:
         SquareControl();
         ~SquareControl();
+        
+    public:
+        static SquareControl& instance();
         
         void createBorder(size_t x, size_t y, size_t i_radius, const std::string i_color);
         void createPoint(size_t x, size_t y, const std::string i_color);

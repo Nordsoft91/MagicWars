@@ -65,8 +65,11 @@ public:
     bool isArray() const
     { return (type==4 ? true : false); }
     
+    bool isValid() const
+    { return (type==9 ? false : true); }
+    
     template<class T>
-    std::vector<T> toVector()
+    std::vector<T> toVector() const
     {
         std::vector<T> _r;
         if(!isArray())
@@ -79,32 +82,32 @@ public:
         return _r;
     }
     
-    operator size_t ()
+    operator size_t () const
     {
         return (type==1 && intV>=0 ? intV : 0);
     }
     
-    operator int ()
+    operator int () const
     {
         return (type==1 ? intV : 0);
     }
     
-    operator std::string ()
+    operator std::string () const
     {
         return (type==0 ? stringV : "");
     }
     
-    operator double ()
+    operator double () const
     {
         return (type==2 ? doubleV : (type==1 ? double(intV) : 0));
     }
     
-    operator bool ()
+    operator bool () const
     {
         return (type==3 ? boolV : false);
     }
     
-    operator std::vector<Param> ()
+    operator std::vector<Param> () const
     {
         return arrayV;
     }
@@ -123,7 +126,7 @@ class Consts
 {
 public:
     
-    static Param& get(const std::string i_param, const std::string i_group = "common");
+    static const Param& get(const std::string i_param, const std::string i_group = "common");
     
 private:
 

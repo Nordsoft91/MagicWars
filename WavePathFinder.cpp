@@ -134,7 +134,7 @@ int WavePathFinder::process(signed int rel_x, signed int rel_y, bool diags, bool
     return iter;
 }
 
-int WavePathFinder::getDistance()
+int WavePathFinder::getDistance() const
 {
     return d_distance;
 }
