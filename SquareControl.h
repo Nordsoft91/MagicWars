@@ -13,6 +13,7 @@
 #include "GameObj.h"
 #include "WavePathFinder.h"
 #include "Consts.h"
+#include "Uncopyble.h"
 #include <memory>
 
 namespace MagicWars_NS {
@@ -23,7 +24,7 @@ namespace MagicWars_NS {
         
     };
     
-    class SquareControl
+    class SquareControl: public Uncopyble
     {
         SquareControl();
         ~SquareControl();

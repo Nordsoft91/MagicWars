@@ -10,6 +10,7 @@
 #define MagicWars_TurnController_h
 
 #include "Magican.h"
+#include "Uncopyble.h"
 #include <map>
 #include <string>
 
@@ -26,9 +27,11 @@ namespace MagicWars_NS {
         int d_active;
     };
     
-    class TurnController
+    class TurnController: public Uncopyble
     {
     public:
+        TurnController() = default;
+        
         ~TurnController()
         {
             int a = 0;
@@ -99,7 +102,7 @@ namespace MagicWars_NS {
             if( ++d_iterSideTurn == d_sides.size() )
                 d_iterSideTurn = 0;
             //make team active
-            vec = sideArray(d_sides[d_iterSideTurn]);
+            vec = sideArray(d_sides.at(d_iterSideTurn));
             for( auto i : vec )
             {
                 d_persons[i].d_active = TURN_MOVE | TURN_ATTACK;
@@ -115,7 +118,7 @@ namespace MagicWars_NS {
         
         std::string getTurnSide() const
         {
-            return d_sides[d_iterSideTurn];
+            return d_sides.at(d_iterSideTurn);
         }
         
         std::vector<Magican*> sideArray(const std::string i_side)

@@ -18,12 +18,13 @@
 #include "TurnController.h"
 #include "Effect.h"
 #include "MapReader.h"
+#include "Uncopyble.h"
 
 namespace MagicWars_NS {
     
     class Interface;
     
-    class TouchControl
+    class TouchControl: public Uncopyble
     {
     public:
         
