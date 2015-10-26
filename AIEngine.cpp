@@ -26,7 +26,7 @@ bool AIEngine::endTurn()
 {
     if(d_possibleAttack.empty() && d_possibleMove.empty())
     {
-        d_touchControl.endTurnAction();
+        TouchControl::instance().endTurnAction();
         return true;
     }
     return false;
@@ -34,15 +34,15 @@ bool AIEngine::endTurn()
 
 void AIEngine::startTurn()
 {
-    d_possibleMove = d_touchControl.getTurnController().sideArray(d_touchControl.getTurnController().getTurnSide());
-    d_possibleAttack = d_touchControl.getTurnController().sideArray(d_touchControl.getTurnController().getTurnSide());
+    d_possibleMove = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
+    d_possibleAttack = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
 }
 
 bool AIEngine::selectPerson()
 {
     if(!d_possibleMove.empty())
     {
-        d_touchControl.pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
+        TouchControl::instance().pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
         return true;
     }
     return false;
@@ -50,17 +50,22 @@ bool AIEngine::selectPerson()
 
 bool AIEngine::movePhase()
 {
-    d_possibleMove.erase(d_possibleMove.begin());
-    return false;
+    return skipMovePhase();
 }
 
 bool AIEngine::attackPhase()
 {
-    d_possibleAttack.erase(d_possibleAttack.begin());
+    return skipAttackPhase();
+}
+
+bool AIEngine::skipMovePhase()
+{
+    d_possibleMove.erase(d_possibleMove.begin());
     return false;
 }
 
-TouchControl& AIEngine::getTouchControl()
+bool AIEngine::skipAttackPhase()
 {
-    return d_touchControl;
+    d_possibleAttack.erase(d_possibleAttack.begin());
+    return false;
 }

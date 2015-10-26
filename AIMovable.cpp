@@ -12,8 +12,8 @@ using namespace MagicWars_NS;
 
 bool AIMovable::movePhase()
 {
-    Magican* pMag = d_touchControl.getTurnController().getTurn();
-    WavePathFinder* pFinder = d_touchControl.getMove()->d_finder;
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
+    WavePathFinder* pFinder = TouchControl::instance().getMove()->d_finder;
     
     if(d_possibleMove.empty() || *d_possibleMove.begin()!=pMag)
         return false;
@@ -35,7 +35,7 @@ bool AIMovable::movePhase()
                 
                 //calc distance to goals
                 MovingStructure movStruct(pMag, _x, _y, pMag->getSpeed()*4 );
-                d_touchControl.prepareMovingStructure(movStruct);
+                TouchControl::instance().prepareMovingStructure(movStruct);
                 
                 for(auto goal : d_goals)
                 {
@@ -69,7 +69,7 @@ bool AIMovable::movePhase()
         return false;
     }
     
-    d_touchControl.pressAction(pMag->x + rawx - pMag->getSpeed(), pMag->y + rawy - pMag->getSpeed());
+    TouchControl::instance().pressAction(pMag->x + rawx - pMag->getSpeed(), pMag->y + rawy - pMag->getSpeed());
     d_possibleMove.erase(d_possibleMove.begin());
     return true;
 }

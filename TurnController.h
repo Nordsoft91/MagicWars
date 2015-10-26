@@ -32,11 +32,8 @@ namespace MagicWars_NS {
     public:
         TurnController() = default;
         
-        ~TurnController()
-        {
-            int a = 0;
-            a++;
-        }
+        ~TurnController() = default;
+        
         bool insert(Magican* i_char, const std::string i_side)
         {
             d_persons[i_char] = TurnInfo{i_side, true, TURN_MOVE | TURN_ATTACK};

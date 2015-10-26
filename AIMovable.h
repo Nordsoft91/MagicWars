@@ -15,7 +15,7 @@ namespace MagicWars_NS {
     class AIMovable: public AIUsingAttack
     {
     public:
-        AIMovable(TouchControl& i_touchControl): AIUsingAttack(i_touchControl) {}
+        AIMovable() = default;
         
         virtual bool movePhase() override;
     };

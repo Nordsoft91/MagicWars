@@ -16,7 +16,7 @@ namespace MagicWars_NS {
     class AIUsingAttack: public AIEngine
     {
     public:
-        AIUsingAttack(TouchControl& i_touchControl): AIEngine(i_touchControl) {}
+        AIUsingAttack() = default;
         
         virtual void startTurn() override;
         virtual bool selectPerson() override;

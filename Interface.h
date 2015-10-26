@@ -18,7 +18,8 @@ namespace MagicWars_NS {
     class Interface
     {
     public:
-        Interface(cocos2d::Scene* io_scene, TouchControl* i_controller);
+        Interface() = default;
+        Interface(cocos2d::Scene* io_scene);
         ~Interface();
         
         void addButton(cocos2d::MenuItemImage* i_item, cocos2d::Vec2 i_pos);
@@ -32,11 +33,10 @@ namespace MagicWars_NS {
         //call RemoveFromParent for MenuItemImage for delete button
         
     protected:
-        TouchControl* d_controller;
-        cocos2d::Menu* d_pMenu;
+        cocos2d::Menu* d_pMenu = nullptr;
         
-        cocos2d::MenuItemImage* d_pAttackItem;
-        cocos2d::MenuItemImage* d_pSpellItem;
+        cocos2d::MenuItemImage* d_pAttackItem = nullptr;
+        cocos2d::MenuItemImage* d_pSpellItem = nullptr;
         
         std::vector<cocos2d::MenuItemImage*> d_spells;
     };

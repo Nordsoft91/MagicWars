@@ -13,11 +13,11 @@ using namespace MagicWars_NS;
 
 void AIUsingAttack::startTurn()
 {
-    d_possibleMove = d_touchControl.getTurnController().sideArray(d_touchControl.getTurnController().getTurnSide());
-    d_possibleAttack = d_touchControl.getTurnController().sideArray(d_touchControl.getTurnController().getTurnSide());
+    d_possibleMove = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
+    d_possibleAttack = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
     
     //prepare goals
-    d_enemies = d_touchControl.getTurnController().otherSidesArray(d_touchControl.getTurnController().getTurnSide());
+    d_enemies = TouchControl::instance().getTurnController().otherSidesArray(TouchControl::instance().getTurnController().getTurnSide());
     
     for(auto i : d_enemies)
     {
@@ -33,7 +33,7 @@ bool AIUsingAttack::selectPerson()
     removeDead(d_possibleMove);
     if(!d_possibleMove.empty())
     {
-        d_touchControl.pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
+        TouchControl::instance().pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
         return true;
     }
     return false;
@@ -50,10 +50,10 @@ std::string AIUsingAttack::findBestSpell(int x, int y, double& o_w)
 {
     std::map<std::string, double> spell;
     spell["attack"] = useAttack(x,y);
-    if(d_touchControl.getTurn()->isHaveSpell("spell_fireball")) spell["spell_fireball"]=useFireball(x,y);
-    if(d_touchControl.getTurn()->isHaveSpell("spell_lighting")) spell["spell_lighting"]=useLighting(x,y);
-    if(d_touchControl.getTurn()->isHaveSpell("spell_ray"))      spell["spell_ray"]=useRay(x,y);
-    if(d_touchControl.getTurn()->isHaveSpell("spell_firewall")) spell["spell_firewall"]=useFirewall(x,y);
+    if(TouchControl::instance().getTurn()->isHaveSpell("spell_fireball")) spell["spell_fireball"]=useFireball(x,y);
+    if(TouchControl::instance().getTurn()->isHaveSpell("spell_lighting")) spell["spell_lighting"]=useLighting(x,y);
+    if(TouchControl::instance().getTurn()->isHaveSpell("spell_ray"))      spell["spell_ray"]=useRay(x,y);
+    if(TouchControl::instance().getTurn()->isHaveSpell("spell_firewall")) spell["spell_firewall"]=useFirewall(x,y);
     auto k = std::max_element(spell.begin(), spell.end(), [](std::pair<std::string, double> l, std::pair<std::string, double> r){return l.second<r.second;});
     o_w = k->second;
     if(o_w <= std::numeric_limits<double>::epsilon())
@@ -63,16 +63,16 @@ std::string AIUsingAttack::findBestSpell(int x, int y, double& o_w)
 
 bool AIUsingAttack::attackPhase()
 {
-    if(d_possibleAttack.empty() || *d_possibleAttack.begin()!=d_touchControl.getTurnController().getTurn())
+    if(d_possibleAttack.empty() || *d_possibleAttack.begin()!=TouchControl::instance().getTurnController().getTurn())
         return false;
         
     double w;
-    std::string k = findBestSpell(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, w);
-    if(k=="attack") useAttack(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);
-    if(k=="spell_fireball") useFireball(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);
-    if(k=="spell_lighting") useLighting(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);
-    if(k=="spell_ray") useRay(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);
-    if(k=="spell_firewall") useFirewall(d_touchControl.getTurnController().getTurn()->x, d_touchControl.getTurnController().getTurn()->y, true);
+    std::string k = findBestSpell(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, w);
+    if(k=="attack") useAttack(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    if(k=="spell_fireball") useFireball(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    if(k=="spell_lighting") useLighting(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    if(k=="spell_ray") useRay(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    if(k=="spell_firewall") useFirewall(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
     
     for(auto i = d_enemies.begin(); i!=d_enemies.end(); ++i)
     {
@@ -95,7 +95,7 @@ bool AIUsingAttack::attackPhase()
 double AIUsingAttack::useAttack(int x, int y, bool i_action)
 {
     std::string spellStr = "attack";
-    Magican* pMag = d_touchControl.getTurnController().getTurn();
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
     Magican* pGoal = nullptr;
     double w = 0.0;
     //spell params
@@ -127,17 +127,17 @@ double AIUsingAttack::useAttack(int x, int y, bool i_action)
         return w;
     
     //attack
-    d_touchControl.centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
-    d_touchControl.attackAction();
-    d_touchControl.pressAction(pGoal->x, pGoal->y);
-    d_touchControl.pressAction(pGoal->x, pGoal->y);
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().attackAction();
+    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
+    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
     return w;
 }
 
 double AIUsingAttack::useLighting(int x, int y, bool i_action)
 {
     std::string spellStr = "spell_lighting";
-    Magican* pMag = d_touchControl.getTurnController().getTurn();
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
     Magican* pGoal = nullptr;
     double w = 0.0;
     //spell params
@@ -169,17 +169,17 @@ double AIUsingAttack::useLighting(int x, int y, bool i_action)
         return w;
     
     //attack
-    d_touchControl.spellAction(spellStr);
-    d_touchControl.centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
-    d_touchControl.pressAction(pGoal->x, pGoal->y);
-    d_touchControl.pressAction(pGoal->x, pGoal->y);
+    TouchControl::instance().spellAction(spellStr);
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
+    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
     return w;
 }
 
 double AIUsingAttack::useFireball(int x, int y, bool i_action)
 {
     std::string spellStr = "spell_fireball";
-    Magican* pMag = d_touchControl.getTurnController().getTurn();
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
     Magican* pGoal = nullptr;
     double w = 0.0;
     //spell params
@@ -215,17 +215,17 @@ double AIUsingAttack::useFireball(int x, int y, bool i_action)
         return w;
     
     //attack
-    d_touchControl.centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
-    d_touchControl.spellAction(spellStr);
-    d_touchControl.pressAction(pGoal->x, pGoal->y);
-    d_touchControl.pressAction(pGoal->x, pGoal->y);
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().spellAction(spellStr);
+    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
+    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
     return w;
 }
 
 double AIUsingAttack::useRay(int x, int y, bool i_action)
 {
     std::string spellStr = "spell_ray";
-    Magican* pMag = d_touchControl.getTurnController().getTurn();
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
     int xGoal, yGoal;
     double w = 0.0;
     //spell params
@@ -237,7 +237,7 @@ double AIUsingAttack::useRay(int x, int y, bool i_action)
     if(pMag->getMind()<mind)
         return 0.0;
     
-    std::vector<Magican*> v = d_touchControl.getTurnController().sideArray(d_touchControl.getTurnController().getTurnSide());
+    std::vector<Magican*> v = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
     for( int j = y-radius; j<=y+radius; ++j)
     {
         for( int i = x-radius; i<=x+radius; ++i)
@@ -276,17 +276,17 @@ double AIUsingAttack::useRay(int x, int y, bool i_action)
         return w;
     
     //attack
-    d_touchControl.centralizeOn(cocos2d::Vec2(xGoal * size_t(Consts::get("mapCellWidth")), yGoal * size_t(Consts::get("mapCellHeight"))));
-    d_touchControl.spellAction(spellStr);
-    d_touchControl.pressAction(xGoal, yGoal);
-    d_touchControl.pressAction(xGoal, yGoal);
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(xGoal * size_t(Consts::get("mapCellWidth")), yGoal * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().spellAction(spellStr);
+    TouchControl::instance().pressAction(xGoal, yGoal);
+    TouchControl::instance().pressAction(xGoal, yGoal);
     return w;
 }
 
 double AIUsingAttack::useFirewall(int x, int y, bool i_action)
 {
     std::string spellStr = "spell_firewall";
-    Magican* pMag = d_touchControl.getTurnController().getTurn();
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
     double w = 0.0;
     //spell params
     double force = Consts::get("force", spellStr);
@@ -296,7 +296,7 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
     if(pMag->getMind()<mind)
         return 0.0;
     
-    std::vector<Magican*> v = d_touchControl.getTurnController().sideArray(d_touchControl.getTurnController().getTurnSide());
+    std::vector<Magican*> v = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
     for( int j = y-coverRadius; j<=y+coverRadius; ++j)
     {
         for( int i = x-coverRadius; i<=x+coverRadius; ++i)
@@ -321,9 +321,9 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
         return w;
     
     //attack
-    d_touchControl.centralizeOn(cocos2d::Vec2(x * size_t(Consts::get("mapCellWidth")), y * size_t(Consts::get("mapCellHeight"))));
-    d_touchControl.spellAction(spellStr);
-    d_touchControl.pressAction(x, y);
-    d_touchControl.pressAction(x, y);
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(x * size_t(Consts::get("mapCellWidth")), y * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().spellAction(spellStr);
+    TouchControl::instance().pressAction(x, y);
+    TouchControl::instance().pressAction(x, y);
     return w;
 }

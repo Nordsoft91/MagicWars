@@ -10,9 +10,8 @@
 
 using namespace MagicWars_NS;
 
-Interface::Interface(cocos2d::Scene* io_scene, TouchControl* i_controller): d_controller(i_controller)
+Interface::Interface(cocos2d::Scene* io_scene)
 {
-    d_controller->d_interface = this;
     // create menu, it's an autorelease object
     d_pMenu = cocos2d::Menu::create();
     d_pMenu->setPosition(cocos2d::Vec2::ZERO);
@@ -21,16 +20,16 @@ Interface::Interface(cocos2d::Scene* io_scene, TouchControl* i_controller): d_co
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     ////////////CREATE INTERFACE RIGHT NOW///////////////
     
-    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon1"), "icon1_disable.png", [&](cocos2d::Ref* pSender){removeSpells(); d_controller->attackAction();});
+    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon1"), "icon1_disable.png", [&](cocos2d::Ref* pSender){removeSpells(); TouchControl::instance().attackAction();});
     addButton(d_pAttackItem, d_pAttackItem->getContentSize().width/2, visibleSize.height - d_pAttackItem->getContentSize().height/2 );
     
-    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"), [&](cocos2d::Ref* pSender){ removeSpells(); d_controller->endTurnAction();});
+    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"), [&](cocos2d::Ref* pSender){ removeSpells(); TouchControl::instance().endTurnAction();});
     addButton(itemEnd, itemEnd->getContentSize().width*2.5, visibleSize.height - itemEnd->getContentSize().height/2 );
 
     d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon3"), "icon3_disable.png", [&](cocos2d::Ref* pSender)
     {
         removeSpells();
-        createSpellMenu(d_controller->getTurn());
+        createSpellMenu(TouchControl::instance().getTurn());
     });
     
     addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
@@ -71,7 +70,7 @@ void Interface::createSpellMenu(Magican* i_mag)
             //check for enough of mind
             
             std::string str = spellstr;
-            auto spell = cocos2d::MenuItemImage::create("icon0_none.png", "icon0_select.png", "icon0_disable.png", [&, str](cocos2d::Ref* pSender) {d_controller->spellAction(str); removeSpells(); });
+            auto spell = cocos2d::MenuItemImage::create("icon0_none.png", "icon0_select.png", "icon0_disable.png", [&, str](cocos2d::Ref* pSender) {TouchControl::instance().spellAction(str); removeSpells(); });
             
             if(std::string(Consts::get("icon",str))!="NONE")
             {

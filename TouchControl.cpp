@@ -22,6 +22,12 @@ TouchControl::TouchControl()
     d_sizeHeight = Consts::get("mapCellHeight");
 }
 
+TouchControl& TouchControl::instance()
+{
+    static TouchControl control;
+    return control;
+}
+
 void TouchControl::attackAction()
 {
     Magican* obj = d_turnControl.getTurn();
@@ -260,8 +266,10 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
     d_mapLayer->setPosition(sz - i_center);
 }
 
-void TouchControl::initialize(cocos2d::Layer* i_layer)
+void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 {
+    d_interface = &i_interface;
+    
     MapReader reader;
     d_map = reader.read("mapW_M_myDemoMap01.txt");
     d_map->put(i_layer);
@@ -296,11 +304,11 @@ void TouchControl::initialize(cocos2d::Layer* i_layer)
     tempObject->born(i_layer, 14, 4);
     d_turnControl.insert(tempObject, "Light");
     
-    /*tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight2>(d_persons)));
-    tempObject->born(i_layer, 4, 8);
-    d_turnControl.insert(tempObject, "Light");
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero03_level01")));
+    tempObject->born(i_layer, 10, 16);
+    d_turnControl.insert(tempObject, "Neutral");
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
+    /*tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectByType<MagicanLight>(d_persons)));
     tempObject->born(i_layer, 7, 3);
     d_turnControl.insert(tempObject, "Light");*/
     

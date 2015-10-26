@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "TouchControl.h"
+#include "Interface.h"
 
 class HelloWorld : public cocos2d::Layer
 {
@@ -13,7 +14,7 @@ public:
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
     
-    void createInterface(cocos2d::Scene*);
+    MagicWars_NS::Interface& createInterface(cocos2d::Scene*);
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
@@ -21,8 +22,8 @@ public:
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
     
-    MagicWars_NS::TouchControl d_touchControl;
-    
+private:
+    std::unique_ptr<MagicWars_NS::Interface> d_interface;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

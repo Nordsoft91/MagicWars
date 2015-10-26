@@ -15,9 +15,9 @@ namespace MagicWars_NS {
     class AIController: public cocos2d::Node
     {
     public:
-        static AIController* create(TouchControl& i_touchControl)
+        static AIController* create()
         {
-            AIController *pRet = new AIController(i_touchControl);
+            AIController *pRet = new AIController;
             if (pRet && pRet->init())
             {
                 pRet->autorelease();
@@ -41,10 +41,9 @@ namespace MagicWars_NS {
         
         void nextStage();
         
-        AIController(TouchControl& i_touchControl): d_touchControl(i_touchControl) {}
+        AIController() = default;
         
     protected:
-        TouchControl& d_touchControl;
         std::map<std::string, AIEngine*> d_engines;
         int d_stage = 0;
         float d_timer = 0;

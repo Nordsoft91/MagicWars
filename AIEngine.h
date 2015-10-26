@@ -17,20 +17,20 @@ namespace MagicWars_NS {
     class AIEngine
     {
     public:
-        AIEngine(TouchControl& i_touchControl): d_touchControl(i_touchControl) {}
+        AIEngine() = default;
         
         virtual void startTurn();
         virtual bool selectPerson();
         virtual bool movePhase();
         virtual bool attackPhase();
         
+        bool skipMovePhase();
+        bool skipAttackPhase();
+        
         bool endTurn();
         void removeDead(std::vector<Magican*>& io_vec);
         
-        TouchControl& getTouchControl();
-        
     protected:
-        TouchControl& d_touchControl;
         std::vector<Magican*> d_possibleMove, d_possibleAttack;
     };
 }

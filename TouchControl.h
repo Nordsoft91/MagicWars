@@ -26,9 +26,13 @@ namespace MagicWars_NS {
     
     class TouchControl: public Uncopyble
     {
-    public:
+    private:
         
         TouchControl();
+        
+    public:
+        static TouchControl& instance();
+        
         ~TouchControl()
         {
             delete d_terrainMap;
@@ -46,7 +50,7 @@ namespace MagicWars_NS {
             }
         }
         
-        void initialize(cocos2d::Layer* i_layer);
+        void initialize(cocos2d::Layer* i_layer, Interface& i_interaface);
         void destroy();
         
         void centralizeOn(cocos2d::Vec2 i_center);
@@ -69,9 +73,10 @@ namespace MagicWars_NS {
         void prepareMovingStructure(MovingStructure &io_struct);
         
         std::string d_spellCurrent;
-        Interface* d_interface;
         
     private:
+        Interface* d_interface = nullptr;
+        
         Map *d_map;
         
         MagicWars_NS::TurnController d_turnControl;

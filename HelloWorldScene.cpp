@@ -3,6 +3,7 @@
 #include "Interface.h"
 #include "AIController.h"
 #include "AIMovable.h"
+#include <memory>
 
 USING_NS_CC;
 
@@ -17,13 +18,13 @@ Scene* HelloWorld::createScene()
     // add layer as a child to scene
     scene->addChild(layer);
     
-    layer->createInterface(scene);
+    MagicWars_NS::TouchControl::instance().initialize(layer, layer->createInterface(scene));
 
     // return the scene
     return scene;
 }
 
-void HelloWorld::createInterface(Scene* io_scene)
+MagicWars_NS::Interface& HelloWorld::createInterface(Scene* io_scene)
 {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
@@ -32,10 +33,11 @@ void HelloWorld::createInterface(Scene* io_scene)
                                            "CloseSelected.png",
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     
-    MagicWars_NS::Interface* interface = new MagicWars_NS::Interface(io_scene, &d_touchControl);
-    interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
+    d_interface.reset( new MagicWars_NS::Interface(io_scene) );
+    d_interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
                                          closeItem->getContentSize().height/2));
-
+    
+    return *d_interface;
 }
 
 // on "init" you need to initialize your instance
@@ -53,10 +55,11 @@ bool HelloWorld::init()
 
     /////////////////////////////
     // 3. add your codes below...
-    d_touchControl.initialize(this);
     
-    MagicWars_NS::AIController* controller = MagicWars_NS::AIController::create(d_touchControl);
-    controller->setSideAI("Dark", new MagicWars_NS::AIMovable(d_touchControl));
+    MagicWars_NS::AIController* controller = MagicWars_NS::AIController::create();
+    
+    controller->setSideAI("Dark", new MagicWars_NS::AIMovable);
+    controller->setSideAI("Neutral", new MagicWars_NS::AIMovable);
     addChild(controller);
     
     auto listener = EventListenerTouchOneByOne::create();
@@ -70,7 +73,7 @@ bool HelloWorld::init()
     {
         if((touch->getStartLocation() - touch->getLocation()).length() > 16.0)
         {
-            d_touchControl.moveAction((touch->getLocation() - touch->getPreviousLocation()));
+            MagicWars_NS::TouchControl::instance().moveAction((touch->getLocation() - touch->getPreviousLocation()));
         }
     };
     
@@ -78,11 +81,11 @@ bool HelloWorld::init()
     {
         if((touch->getStartLocation() - touch->getLocation()).length() <= 16.0)
         {
-            if(d_touchControl.getTurnController().getTurnSide()!="Dark")
+            if(MagicWars_NS::TouchControl::instance().getTurnController().getTurnSide()!="Dark")
             {
                 Vec2 invLocation = touch->getLocationInView();
                 invLocation.y = Director::getInstance()->getVisibleSize().height - invLocation.y;
-                d_touchControl.tapAction(invLocation);
+                MagicWars_NS::TouchControl::instance().tapAction(invLocation);
             }
         }
     };

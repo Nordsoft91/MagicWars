@@ -24,7 +24,7 @@ void AIController::update(float d)
     {
         for(auto engine : d_engines)
         {
-            if(d_touchControl.getTurnController().getTurnSide() == engine.first)
+            if(TouchControl::instance().getTurnController().getTurnSide() == engine.first)
             {
                 startTurn();
                 return;
@@ -50,7 +50,7 @@ void AIController::setSideAI(const std::string& i_side, AIEngine* i_engine)
 void AIController::startTurn()
 {
     d_stage = 1;
-    d_engines[d_touchControl.getTurnController().getTurnSide()]->startTurn();
+    d_engines[TouchControl::instance().getTurnController().getTurnSide()]->startTurn();
 }
 
 void AIController::nextStage()
@@ -58,7 +58,7 @@ void AIController::nextStage()
     bool justChanged = true;
     for( auto i : d_engines)
     {
-        if(i.first == d_touchControl.getTurnController().getTurnSide())
+        if(i.first == TouchControl::instance().getTurnController().getTurnSide())
             justChanged = false;
     }
     if(justChanged)
@@ -70,15 +70,15 @@ void AIController::nextStage()
     
     switch (d_stage) {
         case 1:
-            if(d_engines[d_touchControl.getTurnController().getTurnSide()]->selectPerson())
+            if(d_engines[TouchControl::instance().getTurnController().getTurnSide()]->selectPerson())
             {
-                d_touchControl.centralizeOn(cocos2d::Vec2(d_touchControl.getTurn()->x * size_t(Consts::get("mapCellWidth")), d_touchControl.getTurn()->y * size_t(Consts::get("mapCellHeight"))));
+                TouchControl::instance().centralizeOn(cocos2d::Vec2(TouchControl::instance().getTurn()->x * size_t(Consts::get("mapCellWidth")), TouchControl::instance().getTurn()->y * size_t(Consts::get("mapCellHeight"))));
                 d_timer = 0.2;
                 d_stage++;
             }
             else
             {
-                if(d_engines[d_touchControl.getTurnController().getTurnSide()]->endTurn())
+                if(d_engines[TouchControl::instance().getTurnController().getTurnSide()]->endTurn())
                 {
                     d_stage = 0;
                     d_timer = 0;
@@ -89,12 +89,15 @@ void AIController::nextStage()
             break;
             
         case 2:
-            d_timer = 0.2+2*d_engines[d_touchControl.getTurnController().getTurnSide()]->movePhase();
+            d_timer = 0.2+2*d_engines[TouchControl::instance().getTurnController().getTurnSide()]->movePhase();
+            if(!TouchControl::instance().getTurnController().isTurn(TouchControl::instance().getTurnController().getTurn(),TURN_ATTACK))
+                d_engines[TouchControl::instance().getTurnController().getTurnSide()]->skipMovePhase();
+                
             d_stage++;
             break;
             
         case 3:
-            d_timer = 0.5+2.5*d_engines[d_touchControl.getTurnController().getTurnSide()]->attackPhase();
+            d_timer = 0.5+2.5*d_engines[TouchControl::instance().getTurnController().getTurnSide()]->attackPhase();
             d_stage = 1;
             break;
             
