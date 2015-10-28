@@ -15,6 +15,7 @@
 
 namespace MagicWars_NS {
     
+    //TODO: replave std::list with smart structure
     class ContainUtils
     {
     public:

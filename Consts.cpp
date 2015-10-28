@@ -14,6 +14,11 @@ const Param& Consts::get(const std::string i_param, const std::string i_group)
     return instance.d_parameters[i_group][i_param];
 }
 
+const bool Consts::isExist(const std::string i_param, const std::string i_group)
+{
+    return get(i_param, i_group).isValid();
+}
+
 Consts::Consts()
 {
     readFile("MagicConsts");

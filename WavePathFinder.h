@@ -14,9 +14,12 @@
 class WavePathFinder
 {
 public:
+    //need to allocate memory
     WavePathFinder(int i_maxdistance);
-    void fill(signed int rel_x, signed int rel_y);
     
+    //make cell as solid
+    void fill(signed int rel_x, signed int rel_y);
+
     int getDistance() const;
     
     //return -1 if imposiible

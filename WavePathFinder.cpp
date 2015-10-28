@@ -14,7 +14,7 @@ WavePathFinder::WavePathFinder(int i_maxdistance)
 {
     d_distance = i_maxdistance;
     d_size = int(d_distance)*2+1;
-    d_map.insert(d_map.begin(), d_size*d_size, false);
+    d_map.assign(d_size*d_size, false);
 }
 
 void WavePathFinder::fill(signed int rel_x, signed int rel_y)

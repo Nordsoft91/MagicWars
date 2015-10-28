@@ -27,7 +27,7 @@ namespace MagicWars_NS {
         bool skipMovePhase();
         bool skipAttackPhase();
         
-        bool endTurn();
+        bool endTurn( const std::string& i_team);
         void removeDead(std::vector<Magican*>& io_vec);
         
     protected:

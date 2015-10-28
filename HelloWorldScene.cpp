@@ -60,6 +60,7 @@ bool HelloWorld::init()
     
     controller->setSideAI("Dark", new MagicWars_NS::AIMovable);
     controller->setSideAI("Neutral", new MagicWars_NS::AIMovable);
+    controller->setSideAI("Light", new MagicWars_NS::AIMovable);
     addChild(controller);
     
     auto listener = EventListenerTouchOneByOne::create();

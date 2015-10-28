@@ -22,11 +22,12 @@ void AIEngine::removeDead(std::vector<Magican*>& io_vec)
     }
 }
 
-bool AIEngine::endTurn()
+bool AIEngine::endTurn(const std::string& i_team)
 {
     if(d_possibleAttack.empty() && d_possibleMove.empty())
     {
-        TouchControl::instance().endTurnAction();
+        if(TouchControl::instance().getTurnController().getTurnSide() == i_team)
+            TouchControl::instance().endTurnAction();
         return true;
     }
     return false;
@@ -34,8 +35,8 @@ bool AIEngine::endTurn()
 
 void AIEngine::startTurn()
 {
-    d_possibleMove = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
-    d_possibleAttack = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
+    d_possibleMove = TouchControl::instance().getTurnController().sideArrayActive(TouchControl::instance().getTurnController().getTurnSide(), TURN_MOVE);
+    d_possibleAttack = TouchControl::instance().getTurnController().sideArrayActive(TouchControl::instance().getTurnController().getTurnSide(), TURN_ATTACK);
 }
 
 bool AIEngine::selectPerson()
@@ -60,12 +61,14 @@ bool AIEngine::attackPhase()
 
 bool AIEngine::skipMovePhase()
 {
-    d_possibleMove.erase(d_possibleMove.begin());
+    if(!d_possibleMove.empty())
+        d_possibleMove.erase(d_possibleMove.begin());
     return false;
 }
 
 bool AIEngine::skipAttackPhase()
 {
-    d_possibleAttack.erase(d_possibleAttack.begin());
+    if(!d_possibleAttack.empty())
+        d_possibleAttack.erase(d_possibleAttack.begin());
     return false;
 }

@@ -17,10 +17,11 @@ namespace MagicWars_NS {
     class Grid
     {
     public:
-        Grid() {}
+        Grid() = default;
         
         size_t sizex() { return d_w; }
         size_t sizey() { return d_h; }
+        
         void resize(size_t i_w, size_t i_h)
         {
             d_w = i_w; d_h = i_h;
@@ -42,7 +43,8 @@ namespace MagicWars_NS {
             return d_array.at(y*d_w+x);
         }
         
-        bool operator() (const T& i_element, size_t &o_x, size_t &o_y) const
+        //TODO: C-style output values
+        bool findElement(const T& i_element, size_t &o_x, size_t &o_y) const
         {
             auto iter = d_array.find(i_element);
             if(iter == d_array.end() )
@@ -54,7 +56,7 @@ namespace MagicWars_NS {
             return true;
         }
         
-        bool operator() (typename std::vector<T>::iterator iter, size_t &o_x, size_t &o_y) const
+        bool getIteratorPosition(typename std::vector<T>::iterator iter, size_t &o_x, size_t &o_y) const
         {
             if(iter == d_array.end() )
                 return false;

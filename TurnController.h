@@ -64,6 +64,11 @@ namespace MagicWars_NS {
             return false;
         }
         
+        bool isTurn(int i_status)
+        {
+            return isTurn(d_turn, i_status);
+        }
+        
         bool beginTurn(Magican* i_char, int i_status)
         {
             if(!isTurn(i_char, i_status))
@@ -118,6 +123,26 @@ namespace MagicWars_NS {
             return d_sides.at(d_iterSideTurn);
         }
         
+        std::vector<Magican*> sideArrayActive(const std::string i_side, int i_status = TURN_ANY)
+        {
+            std::vector<Magican*> res;
+            if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())
+                return res;
+            
+            for( auto i = d_persons.begin(); i!=d_persons.end(); ++i )
+            {
+                if(i->first->isAlive() && i->second.d_side == i_side)
+                {
+                    if(i->second.d_active | i_status)
+                        res.push_back(i->first);
+                }
+            }
+            if(res.empty())
+                d_sides.erase(std::find(d_sides.begin(), d_sides.end(), i_side));
+            
+            return res;
+        }
+        
         std::vector<Magican*> sideArray(const std::string i_side)
         {
             std::vector<Magican*> res;
@@ -127,7 +152,9 @@ namespace MagicWars_NS {
             for( auto i = d_persons.begin(); i!=d_persons.end(); ++i )
             {
                 if(i->first->isAlive() && i->second.d_side == i_side)
+                {
                     res.push_back(i->first);
+                }
             }
             if(res.empty())
                 d_sides.erase(std::find(d_sides.begin(), d_sides.end(), i_side));

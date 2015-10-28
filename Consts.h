@@ -128,6 +128,8 @@ public:
     
     static const Param& get(const std::string i_param, const std::string i_group = "common");
     
+    static const bool isExist(const std::string i_param, const std::string i_group = "common");
+    
 private:
 
     Consts();

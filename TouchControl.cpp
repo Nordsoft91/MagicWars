@@ -296,7 +296,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     Magican* tempObject;
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "superhero")));
+    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero01_level01")));
     tempObject->born(i_layer, 12, 2);
     d_turnControl.insert(tempObject, "Light");
     

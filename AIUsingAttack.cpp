@@ -13,8 +13,7 @@ using namespace MagicWars_NS;
 
 void AIUsingAttack::startTurn()
 {
-    d_possibleMove = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
-    d_possibleAttack = TouchControl::instance().getTurnController().sideArray(TouchControl::instance().getTurnController().getTurnSide());
+    AIEngine::startTurn();
     
     //prepare goals
     d_enemies = TouchControl::instance().getTurnController().otherSidesArray(TouchControl::instance().getTurnController().getTurnSide());

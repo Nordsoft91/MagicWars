@@ -13,6 +13,9 @@ using namespace MagicWars_NS;
 bool AIMovable::movePhase()
 {
     Magican* pMag = TouchControl::instance().getTurnController().getTurn();
+    if(!TouchControl::instance().getMove())
+        return false;
+    
     WavePathFinder* pFinder = TouchControl::instance().getMove()->d_finder;
     
     if(d_possibleMove.empty() || *d_possibleMove.begin()!=pMag)
@@ -60,11 +63,12 @@ bool AIMovable::movePhase()
     }
     
     size_t rawx, rawy;
-    weightGrid(k, rawx, rawy);
+    weightGrid.getIteratorPosition(k, rawx, rawy);
     
     if(rawx==pMag->getSpeed() && rawy==rawx)
     {
-        d_possibleMove.push_back(*d_possibleMove.begin());
+        if(!d_possibleAttack.empty())
+            d_possibleMove.push_back(*d_possibleMove.begin());
         d_possibleMove.erase(d_possibleMove.begin());
         return false;
     }

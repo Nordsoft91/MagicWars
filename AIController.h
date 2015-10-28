@@ -47,6 +47,7 @@ namespace MagicWars_NS {
         std::map<std::string, AIEngine*> d_engines;
         int d_stage = 0;
         float d_timer = 0;
+        std::string d_team;
     };
 }
 
