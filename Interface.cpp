@@ -20,17 +20,39 @@ Interface::Interface(cocos2d::Scene* io_scene)
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     ////////////CREATE INTERFACE RIGHT NOW///////////////
     
-    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon1"), "icon1_disable.png", [&](cocos2d::Ref* pSender){removeSpells(); TouchControl::instance().attackAction();});
+    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon1"), "icon1_disable.png",
+                                                   [&](cocos2d::Ref* pSender)
+                                                   {
+                                                       if( !Blocker::state() )
+                                                       {
+                                                           removeSpells();
+                                                           TouchControl::instance().attackAction();
+                                                       }
+                                                   });
+    
     addButton(d_pAttackItem, d_pAttackItem->getContentSize().width/2, visibleSize.height - d_pAttackItem->getContentSize().height/2 );
     
-    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"), [&](cocos2d::Ref* pSender){ removeSpells(); TouchControl::instance().endTurnAction();});
+    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"),
+                                                  [&](cocos2d::Ref* pSender)
+                                                  {
+                                                      if( !Blocker::state() )
+                                                      {
+                                                          removeSpells();
+                                                          TouchControl::instance().endTurnAction();
+                                                      }
+                                                  });
+    
     addButton(itemEnd, itemEnd->getContentSize().width*2.5, visibleSize.height - itemEnd->getContentSize().height/2 );
 
-    d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon3"), "icon3_disable.png", [&](cocos2d::Ref* pSender)
-    {
-        removeSpells();
-        createSpellMenu(TouchControl::instance().getTurn());
-    });
+    d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon3"), "icon3_disable.png",
+                                                  [&](cocos2d::Ref* pSender)
+                                                  {
+                                                      if( !Blocker::state() )
+                                                      {
+                                                          removeSpells();
+                                                          createSpellMenu(TouchControl::instance().getTurn());
+                                                      }
+                                                  });
     
     addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
 }
@@ -70,7 +92,15 @@ void Interface::createSpellMenu(Magican* i_mag)
             //check for enough of mind
             
             std::string str = spellstr;
-            auto spell = cocos2d::MenuItemImage::create("icon0_none.png", "icon0_select.png", "icon0_disable.png", [&, str](cocos2d::Ref* pSender) {TouchControl::instance().spellAction(str); removeSpells(); });
+            auto spell = cocos2d::MenuItemImage::create("icon0_none.png", "icon0_select.png", "icon0_disable.png",
+                                                        [&, str](cocos2d::Ref* pSender)
+                                                        {
+                                                            if( !Blocker::state() )
+                                                            {
+                                                                TouchControl::instance().spellAction(str);
+                                                                removeSpells();
+                                                            }
+                                                        });
             
             if(std::string(Consts::get("icon",str))!="NONE")
             {

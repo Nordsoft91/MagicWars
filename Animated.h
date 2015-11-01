@@ -11,6 +11,7 @@
 
 #include <cocos2d.h>
 #include "Consts.h"
+#include "Blocker.h"
 
 namespace MagicWars_NS {
     class Animated: public cocos2d::Sprite

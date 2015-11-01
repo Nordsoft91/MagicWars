@@ -11,6 +11,7 @@
 
 #include <cocos2d.h>
 #include "TouchControl.h"
+#include "Blocker.h"
 
 #define BUTTON_NAME(T) T"_none.png", T"_select.png"
 

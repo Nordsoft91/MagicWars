@@ -127,10 +127,13 @@ void TouchControl::endTurnAction()
 
 void TouchControl::tapAction(cocos2d::Vec2 i_touch)
 {
-    Vec2 globPos = i_touch - d_mapLayer->getPosition();
-    size_t clickX = globPos.x / d_sizeWidth;
-    size_t clickY = globPos.y / d_sizeHeight;
-    pressAction(clickX, clickY);
+    if(!Blocker::state())
+    {
+        Vec2 globPos = i_touch - d_mapLayer->getPosition();
+        size_t clickX = globPos.x / d_sizeWidth;
+        size_t clickY = globPos.y / d_sizeHeight;
+        pressAction(clickX, clickY);
+    }
 }
 
 void TouchControl::prepareMovingStructure(MagicWars_NS::MovingStructure& io_struct)

@@ -30,7 +30,9 @@ void CharacterAnimated::move(const std::list<int>& i_list)
 {
     cocos2d::Vector<cocos2d::FiniteTimeAction*> seq;
     std::vector<int> animSeq;
-
+    
+    Blocker::block(Pause::Animation, 0.4*i_list.size());
+    
     for(int i : i_list)
     {
         int tx = 0, ty = 0;

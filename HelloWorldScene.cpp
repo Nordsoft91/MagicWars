@@ -3,6 +3,7 @@
 #include "Interface.h"
 #include "AIController.h"
 #include "AIMovable.h"
+#include "Blocker.h"
 #include <memory>
 
 USING_NS_CC;
@@ -60,7 +61,7 @@ bool HelloWorld::init()
     
     controller->setSideAI("Dark", new MagicWars_NS::AIMovable);
     controller->setSideAI("Neutral", new MagicWars_NS::AIMovable);
-    controller->setSideAI("Light", new MagicWars_NS::AIMovable);
+    //controller->setSideAI("Light", new MagicWars_NS::AIMovable);
     addChild(controller);
     
     auto listener = EventListenerTouchOneByOne::create();
@@ -93,7 +94,14 @@ bool HelloWorld::init()
     
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(listener, 30);
     
+    scheduleUpdate();
+    
     return true;
+}
+
+void HelloWorld::update(float d_time)
+{
+    MagicWars_NS::Blocker::timer(d_time);
 }
 
 
