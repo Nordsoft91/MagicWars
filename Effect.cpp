@@ -8,6 +8,7 @@
 
 #include "Effect.h"
 #include "Consts.h"
+#include "Blocker.h"
 
 using namespace MagicWars_NS;
 
@@ -23,7 +24,7 @@ Effect::Effect(const std::string i_spr, int i_frames)
         frames.pushBack(cocos2d::SpriteFrame::create(i_spr, cocos2d::Rect((i%5)*efW, (i/5)*efH, efW, efH)));
     }
     d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, 1);
-
+    Blocker::block(Pause::Animation);
     //ignoreAnchorPointForPosition(true);
 }
 
@@ -71,5 +72,8 @@ bool Effect::init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal, double i_time)
 void Effect::update(float delta)
 {
     if(!getNumberOfRunningActions())
+    {
         removeFromParent();
+        Blocker::release(Pause::Animation);
+    }
 }

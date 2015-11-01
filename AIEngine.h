@@ -23,6 +23,9 @@ namespace MagicWars_NS {
         virtual bool selectPerson();
         virtual bool movePhase();
         virtual bool attackPhase();
+        virtual void confirmPhase();
+        
+        void setGoal(size_t x, size_t y) { d_goal = true; d_xGoal=x; d_yGoal=y; }
         
         bool skipMovePhase();
         bool skipAttackPhase();
@@ -32,6 +35,8 @@ namespace MagicWars_NS {
         
     protected:
         std::vector<Magican*> d_possibleMove, d_possibleAttack;
+        size_t d_xGoal, d_yGoal;
+        bool d_goal = false;
     };
 }
 

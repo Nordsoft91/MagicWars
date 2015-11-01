@@ -7,6 +7,7 @@
 //
 
 #include "AIController.h"
+#include "Blocker.h"
 
 using namespace MagicWars_NS;
 
@@ -32,7 +33,7 @@ void AIController::update(float d)
             }
         }
     }
-    if(d_stage && d_timer>0)
+    if((d_stage && d_timer>0) || Blocker::state())
     {
         d_timer -= d;
     }
@@ -90,13 +91,23 @@ void AIController::nextStage()
             break;
             
         case 2:
-            d_timer = 0.2+2.0*d_engines[d_team]->movePhase();
+            d_timer = 0.5;
+            d_engines[d_team]->movePhase();
                 
             d_stage++;
             break;
             
         case 3:
-            d_timer = 0.5+2.5*d_engines[d_team]->attackPhase();
+            d_timer = 1.5;
+            d_engines[d_team]->attackPhase();
+            Blocker::block(Pause::Intellect, 1.5);
+            d_stage = 4;
+            break;
+            
+        case 4:
+            d_timer = 0.5;
+            d_engines[d_team]->confirmPhase();
+            Blocker::release(Pause::Intellect);
             d_stage = 1;
             break;
             

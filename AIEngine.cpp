@@ -72,3 +72,12 @@ bool AIEngine::skipAttackPhase()
         d_possibleAttack.erase(d_possibleAttack.begin());
     return false;
 }
+
+void AIEngine::confirmPhase()
+{
+    if(d_goal)
+    {
+        TouchControl::instance().pressAction(d_xGoal, d_yGoal);
+        d_goal = false;
+    }
+}

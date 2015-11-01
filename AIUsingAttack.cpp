@@ -53,7 +53,11 @@ std::string AIUsingAttack::findBestSpell(int x, int y, double& o_w)
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_lighting")) spell["spell_lighting"]=useLighting(x,y);
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_ray"))      spell["spell_ray"]=useRay(x,y);
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_firewall")) spell["spell_firewall"]=useFirewall(x,y);
-    auto k = std::max_element(spell.begin(), spell.end(), [](std::pair<std::string, double> l, std::pair<std::string, double> r){return l.second<r.second;});
+    auto k = std::max_element(spell.begin(), spell.end(),
+                              [](std::pair<std::string, double> l, std::pair<std::string, double> r)
+                              {
+                                  return l.second<r.second;
+                              });
     o_w = k->second;
     if(o_w <= std::numeric_limits<double>::epsilon())
         return "";
@@ -129,7 +133,7 @@ double AIUsingAttack::useAttack(int x, int y, bool i_action)
     TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
     TouchControl::instance().attackAction();
     TouchControl::instance().pressAction(pGoal->x, pGoal->y);
-    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
+    setGoal(pGoal->x, pGoal->y);
     return w;
 }
 
@@ -171,7 +175,7 @@ double AIUsingAttack::useLighting(int x, int y, bool i_action)
     TouchControl::instance().spellAction(spellStr);
     TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
     TouchControl::instance().pressAction(pGoal->x, pGoal->y);
-    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
+    setGoal(pGoal->x, pGoal->y);
     return w;
 }
 
@@ -217,7 +221,7 @@ double AIUsingAttack::useFireball(int x, int y, bool i_action)
     TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
     TouchControl::instance().spellAction(spellStr);
     TouchControl::instance().pressAction(pGoal->x, pGoal->y);
-    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
+    setGoal(pGoal->x, pGoal->y);
     return w;
 }
 
@@ -278,7 +282,7 @@ double AIUsingAttack::useRay(int x, int y, bool i_action)
     TouchControl::instance().centralizeOn(cocos2d::Vec2(xGoal * size_t(Consts::get("mapCellWidth")), yGoal * size_t(Consts::get("mapCellHeight"))));
     TouchControl::instance().spellAction(spellStr);
     TouchControl::instance().pressAction(xGoal, yGoal);
-    TouchControl::instance().pressAction(xGoal, yGoal);
+    setGoal(xGoal, yGoal);
     return w;
 }
 
@@ -323,6 +327,6 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
     TouchControl::instance().centralizeOn(cocos2d::Vec2(x * size_t(Consts::get("mapCellWidth")), y * size_t(Consts::get("mapCellHeight"))));
     TouchControl::instance().spellAction(spellStr);
     TouchControl::instance().pressAction(x, y);
-    TouchControl::instance().pressAction(x, y);
+    setGoal(x, y);
     return w;
 }
