@@ -13,6 +13,8 @@
 #include "MagicanLight.h"
 #include "Interface.h"
 
+#include "FlaredMap/FlaredParser.h"
+
 using namespace MagicWars_NS;
 using namespace cocos2d;
 
@@ -295,6 +297,8 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     //d_terrainMap->get()->setPosition(origin);
     
     //i_layer->addChild(d_terrainMap->get());
+    
+    Flared_NS::Parser parser("mapW_M_myDemoMap01.txt");
     
     
     Magican* tempObject;

@@ -12,12 +12,18 @@
 #include <string>
 #include <list>
 
+#include <cocos2d.h>
+
 namespace Flared_NS {
     
     class Tileset
     {
     public:
-        Tileset( const std::string& i_path, size_t i_width, size_t i_height, size_t i_tW, size_t i_tH);
+        Tileset( const std::string& i_path, size_t i_tW, size_t i_tH);
+        ~Tileset()
+        {
+            d_img->release();
+        }
         
         const size_t getCount() const {return d_count;}
         
@@ -29,6 +35,8 @@ namespace Flared_NS {
         
         const std::string getPath() const {return d_path;}
         
+        cocos2d::Sprite* create( size_t x, size_t y, size_t w, size_t h );
+        
     private:
         std::string parsePath( const std::string& i_path );
         
@@ -36,9 +44,12 @@ namespace Flared_NS {
         std::string d_name;
         const std::string d_path;
         size_t d_count;
-        const size_t d_countX, d_countY;
+        size_t d_countX, d_countY;
         const size_t d_tileWidth, d_tileHeight;
         const size_t d_tileSepX, d_tileSepY;
+        
+    private:
+        cocos2d::Sprite* d_img;
     };
     
     using TilesetList = std::list<Tileset*>;

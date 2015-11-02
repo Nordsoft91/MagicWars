@@ -8,3 +8,62 @@
 
 #include "FlaredMap.h"
 
+//works only if tileset list empty
+bool Flared_NS::Map::setTileSize(size_t w, size_t h)
+{
+    if(!d_tilesetList.empty())
+        return false;
+    
+    d_tileWidth = w;
+    d_tileHeight = h;
+    return true;
+}
+
+//works only if layer list empty
+bool Flared_NS::Map::resize(size_t w, size_t h)
+{
+    if(!d_tilesetList.empty())
+        return false;
+    
+    d_width = w;
+    d_height = h;
+    return true;
+}
+
+//works only if layer list empty
+bool Flared_NS::Map::addTileset( const std::string& i_path )
+{
+    if(!d_layerMap.empty())
+        return false;
+    
+    d_tilesetList.push_back( Flared_NS::Tileset(i_path, d_tileWidth, d_tileHeight) );
+    return true;
+}
+
+//blocks initialization
+void Flared_NS::Map::addLayer(const std::string& i_layerName)
+{
+    TilesetList tlist;
+    for(Tileset& i : d_tilesetList)
+        tlist.push_back(&i);
+    
+    d_layerMap[i_layerName] = Flared_NS::Layer(tlist, d_width, d_height);
+}
+
+Flared_NS::Layer& Flared_NS::Map::getLayer(const std::string& i_layerName)
+{
+    return d_layerMap[i_layerName];
+}
+
+cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
+{
+    if(d_layerMap.empty())
+        return nullptr;
+    
+    for(Tileset& i : d_tilesetList)
+    {
+        if(i.getPath() == i_tile.info().path)
+            return i.create(i_tile.info().x, i_tile.info().y, i_tile.info().w, i_tile.info().h);
+    }
+    return nullptr;
+}

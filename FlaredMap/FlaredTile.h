@@ -22,15 +22,17 @@ namespace Flared_NS {
     {
     public:
         Tile(size_t x, size_t y);
+        Tile& operator= (const Tile&) = default;
         
         TileInfo& info() { return d_info; }
+        const TileInfo& info() const { return d_info; }
         const size_t getGridX() const { return d_gridX; }
         const size_t getGridY() const { return d_gridY; }
         
     private:
         TileInfo d_info;
         
-        const size_t d_gridX, d_gridY;
+        size_t d_gridX, d_gridY;
     };
 }
 

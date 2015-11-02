@@ -17,6 +17,9 @@ namespace Flared_NS {
     class Layer
     {
     public:
+        Layer& operator= (const Layer&) = default;
+        Layer() = default;
+        
         Layer(const TilesetList& i_list, size_t w, size_t h);
         
         const Tile& operator() ( size_t x, size_t y ) const;
@@ -27,10 +30,12 @@ namespace Flared_NS {
         operator std::vector<Tile> ();
     
     private:
-        const TilesetList& d_list;
-        const size_t d_width, d_height;
+        TilesetList d_list;
+        size_t d_width, d_height;
         
         std::vector<Tile> d_layer;
+        
+        friend class Layer;
     };
 }
 

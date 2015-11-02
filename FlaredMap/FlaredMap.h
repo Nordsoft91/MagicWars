@@ -7,11 +7,37 @@
 //
 #pragma once
 
+#include "FlaredTileset.h"
+#include "FlaredLayer.h"
+#include <vector>
 
 namespace Flared_NS {
     class Map
     {
-    private:
+    public:
+        Map() = default;
+        ~Map() = default;
         
+        //works only if tileset list empty
+        bool setTileSize(size_t w, size_t h);
+        
+        //works only if layer list empty
+        bool resize(size_t w, size_t h);
+        
+        //works only if layer list empty
+        bool addTileset( const std::string& i_path );
+        
+        //blocks initialization
+        void addLayer(const std::string& i_layerName);
+        
+        Layer& getLayer(const std::string& i_layerName);
+        
+        cocos2d::Sprite* getTileImg(const Flared_NS::Tile& i_tile);
+        
+    private:
+        std::list<Tileset> d_tilesetList;
+        std::map<std::string, Layer> d_layerMap;
+        size_t d_width, d_height;
+        size_t d_tileWidth, d_tileHeight;
     };
 }

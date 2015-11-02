@@ -51,7 +51,6 @@ bool HelloWorld::init()
         return false;
     }
     
-    
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
     /////////////////////////////
