@@ -30,6 +30,12 @@ namespace Flared_NS {
     class Parser
     {
     private:
+        size_t toSizeT(const std::string& n)
+        {
+            size_t t = atoi(n.c_str());
+            return t;
+        }
+        
         using Parameter = value<std::string>;
         using Section = value<Parameter>;
         
@@ -41,7 +47,7 @@ namespace Flared_NS {
     public:
         Parser(const std::string& i_filename);
         
-        //void construct( Flared_NS::Map& o_map );
+        void construct( Flared_NS::Map& o_map );
     };
     
     

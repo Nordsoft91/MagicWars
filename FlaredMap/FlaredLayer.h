@@ -26,6 +26,7 @@ namespace Flared_NS {
         Tile& operator() (size_t x, size_t y);
         
         void set(size_t x, size_t y, size_t index);
+        void set(size_t n, size_t index);
         
         operator std::vector<Tile> ();
     

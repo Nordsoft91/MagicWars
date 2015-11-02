@@ -299,7 +299,8 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     //i_layer->addChild(d_terrainMap->get());
     
     Flared_NS::Parser parser("mapW_M_myDemoMap01.txt");
-    
+    Flared_NS::Map flaredMap;
+    parser.construct(flaredMap);
     
     Magican* tempObject;
     

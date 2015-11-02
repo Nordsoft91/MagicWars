@@ -89,3 +89,77 @@ Flared_NS::Parser::Parser(const std::string& i_filename)
         str.push_back(symbol);
     }
 }
+
+void Flared_NS::Parser::construct(Flared_NS::Map &o_map)
+{
+    size_t w = 0,h = 0,tw = 0,th = 0;
+    for(auto& section : d_structure)
+    {
+        //load basic map parameters
+        if(section.name=="header")
+        {
+            for(auto& parameter : section.data)
+            {
+                if(parameter.name=="width")
+                {
+                    assert(parameter.data.size()==1);
+                    w = toSizeT(parameter.data.front());
+                }
+                if(parameter.name=="height")
+                {
+                    assert(parameter.data.size()==1);
+                    h = toSizeT(parameter.data.front());
+                }
+                if(parameter.name=="tilewidth")
+                {
+                    assert(parameter.data.size()==1);
+                    tw = toSizeT(parameter.data.front());
+                }
+                if(parameter.name=="tileheight")
+                {
+                    assert(parameter.data.size()==1);
+                    th = toSizeT(parameter.data.front());
+                }
+            }
+            o_map.setTileSize(tw, th);
+            o_map.resize(w, h);
+        }
+        
+        //load tilesets
+        if(section.name=="tilesets")
+        {
+            for(auto& parameter : section.data)
+            {
+                if(parameter.name=="tileset")
+                {
+                    assert(parameter.data.size()==5);
+                    o_map.addTileset(parameter.data.front());
+                }
+            }
+        }
+        
+        //add layers
+        if(section.name=="layer")
+        {
+            std::string name;
+            for(auto& parameter : section.data)
+            {
+                if(parameter.name=="type")
+                {
+                    assert(parameter.data.size()==1);
+                    name=parameter.data.front();
+                    o_map.addLayer(parameter.data.front());
+                }
+                
+                if(parameter.name=="data")
+                {
+                    assert(parameter.data.size()==w*h);
+                    for(size_t i=0; i<w*h; ++i)
+                    {
+                        o_map.getLayer(name).set(i, toSizeT(parameter.data[i]));
+                    }
+                }
+            }
+        }
+    }
+}

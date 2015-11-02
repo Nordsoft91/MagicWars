@@ -10,20 +10,22 @@
 
 std::string Flared_NS::Tileset::parsePath( const std::string& i_path )
 {
-    return i_path.substr(i_path.find_last_of("\\"), i_path.find_last_of("."));
+    size_t start = i_path.find_last_of("/");
+    size_t end = i_path.find_last_of(".");
+    return i_path.substr(start+1, end);
 }
 
 Flared_NS::Tileset::Tileset( const std::string& i_path, size_t i_tW, size_t i_tH):
     d_path(i_path), d_tileWidth(i_tW), d_tileHeight(i_tH), d_tileSepX(0), d_tileSepY(0)
 {
-    d_img = cocos2d::Sprite::create(i_path);
+    d_name = parsePath(d_path);
+    d_img = cocos2d::Sprite::create(d_name);
     d_img->retain();
     
     d_countX = d_img->getContentSize().width / i_tW;
     d_countY = d_img->getContentSize().height / i_tH;
     
     d_count = d_countX * d_countY;
-    d_name = parsePath(d_path);
 }
 
 const size_t Flared_NS::Tileset::getPositionX( size_t index) const
