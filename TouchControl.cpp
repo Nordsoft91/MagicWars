@@ -275,13 +275,18 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 {
     d_interface = &i_interface;
     
+    Flared_NS::Parser parser("mapT_M_template.txt");
+    Flared_NS::Map flaredMap;
+    parser.construct(flaredMap);
+    i_layer->addChild(flaredMap.getMapTree());
+    
     MapReader reader;
     d_map = reader.read("mapW_M_myDemoMap01.txt");
-    d_map->put(i_layer);
-    d_mapObjects = d_map->get();
+    //d_map->put(i_layer);
+    //d_mapObjects = d_map->get();
     
-    d_mapWidth = d_map->getWidth();
-    d_mapHeight = d_map->getHeight();
+    d_mapWidth = flaredMap.getWidth();
+    d_mapHeight = flaredMap.getHeight();
     
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -298,9 +303,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     //i_layer->addChild(d_terrainMap->get());
     
-    Flared_NS::Parser parser("mapW_M_myDemoMap01.txt");
-    Flared_NS::Map flaredMap;
-    parser.construct(flaredMap);
+    
     
     Magican* tempObject;
     

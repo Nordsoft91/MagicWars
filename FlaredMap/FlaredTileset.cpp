@@ -30,16 +30,16 @@ Flared_NS::Tileset::Tileset( const std::string& i_path, size_t i_tW, size_t i_tH
 
 const size_t Flared_NS::Tileset::getPositionX( size_t index) const
 {
-    return index % d_countX;
+    return (index-1) % d_countX;
 }
 const size_t Flared_NS::Tileset::getPositionY( size_t index) const
 {
-    return index / d_countX;
+    return (index-1) / d_countX;
 }
 
 cocos2d::Sprite* Flared_NS::Tileset::create( size_t x, size_t y, size_t w, size_t h )
 {
-    cocos2d::Rect rect(x,y,w,h);
+    cocos2d::Rect rect(x*w,y*h,w,h);
     
     return cocos2d::Sprite::createWithTexture(d_img->getTexture(), rect);
 }

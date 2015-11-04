@@ -25,7 +25,7 @@ namespace MagicWars_NS {
         bool setSolid(int num, size_t x, size_t y);
         void put(cocos2d::Layer *i_layer);
         
-        std::list<GameObj*>& get() { return d_mapObjects; }
+        //std::list<GameObj*>& get() { return d_mapObjects; }
         
         size_t getWidth() const {return d_mapWidth; }
         size_t getHeight() const {return d_mapHeight; }

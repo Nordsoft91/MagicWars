@@ -22,7 +22,7 @@ namespace Flared_NS {
         Tileset( const std::string& i_path, size_t i_tW, size_t i_tH);
         ~Tileset()
         {
-            d_img->release();
+            //d_img->autorelease();
         }
         
         const size_t getCount() const {return d_count;}

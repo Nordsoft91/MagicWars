@@ -18,6 +18,9 @@ namespace Flared_NS {
         Map() = default;
         ~Map() = default;
         
+        size_t getWidth() {return d_width;}
+        size_t getHeight() {return d_height;}
+        
         //works only if tileset list empty
         bool setTileSize(size_t w, size_t h);
         
@@ -33,6 +36,9 @@ namespace Flared_NS {
         Layer& getLayer(const std::string& i_layerName);
         
         cocos2d::Sprite* getTileImg(const Flared_NS::Tile& i_tile);
+        
+        //convert map to cocos nodes tree
+        cocos2d::Node* getMapTree();
         
     private:
         std::list<Tileset> d_tilesetList;
