@@ -20,6 +20,8 @@ namespace Flared_NS {
         
         size_t getWidth() {return d_width;}
         size_t getHeight() {return d_height;}
+        size_t getTileWidth() {return d_tileWidth;}
+        size_t getTileHeight() {return d_tileHeight;}
         
         //works only if tileset list empty
         bool setTileSize(size_t w, size_t h);

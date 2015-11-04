@@ -75,12 +75,12 @@ cocos2d::Node* Flared_NS::Map::getMapTree()
     
     cocos2d::Node* m = cocos2d::Node::create();
     
-    int zOrder = 0;
+    int zOrder = 1000;
     
     for( auto& i : d_layerMap )
     {
         cocos2d::Layer* l = cocos2d::Layer::create();
-        m->addChild(l, zOrder++);
+        m->addChild(l, zOrder--);
         
         for(size_t y = 0; y<d_height; ++y)
         {
@@ -88,11 +88,10 @@ cocos2d::Node* Flared_NS::Map::getMapTree()
             {
                 if(cocos2d::Sprite* t = getTileImg(i.second(x,y)))
                 {
-                    t->setPosition(x*d_tileWidth, y*d_tileHeight);
+                    //should be inverted by Y axis
+                    t->setPosition(x*d_tileWidth, (d_height - 1 - y)*d_tileHeight);
                     l->addChild(t);
                 }
-                else
-                    return nullptr;
             }
         }
     }

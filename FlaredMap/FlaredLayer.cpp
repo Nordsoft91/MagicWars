@@ -34,6 +34,9 @@ Flared_NS::Layer::operator std::vector<Tile> ()
 
 void Flared_NS::Layer::set(size_t x, size_t y, size_t index)
 {
+    if(!index)
+        return;
+        
     Tileset* curtile = nullptr;
     for( auto i : d_list)
     {
@@ -57,6 +60,9 @@ void Flared_NS::Layer::set(size_t x, size_t y, size_t index)
 
 void Flared_NS::Layer::set(size_t n, size_t index)
 {
+    if(!index)
+        return;
+    
     Tileset* curtile = nullptr;
     for( auto i : d_list)
     {
