@@ -35,6 +35,8 @@ namespace Flared_NS {
         //blocks initialization
         void addLayer(const std::string& i_layerName);
         
+        bool isLayerExist(const std::string& i_layerName);
+        
         Layer& getLayer(const std::string& i_layerName);
         
         cocos2d::Sprite* getTileImg(const Flared_NS::Tile& i_tile);

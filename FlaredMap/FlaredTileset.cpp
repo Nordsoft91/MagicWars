@@ -10,9 +10,11 @@
 
 std::string Flared_NS::Tileset::parsePath( const std::string& i_path )
 {
-    size_t start = i_path.find_last_of("/");
-    size_t end = i_path.find_last_of(".");
-    return i_path.substr(start+1, end);
+    size_t start = i_path.rfind("/");
+    if(start>i_path.length())
+        return i_path;
+    
+    return i_path.substr(start+1, i_path.length() - start);
 }
 
 Flared_NS::Tileset::Tileset( const std::string& i_path, size_t i_tW, size_t i_tH):
@@ -26,6 +28,11 @@ Flared_NS::Tileset::Tileset( const std::string& i_path, size_t i_tW, size_t i_tH
     d_countY = d_img->getContentSize().height / i_tH;
     
     d_count = d_countX * d_countY;
+}
+
+bool Flared_NS::operator== (const Flared_NS::Tileset& l, const Flared_NS::Tileset& r)
+{
+    return l.d_name == r.d_name;
 }
 
 const size_t Flared_NS::Tileset::getPositionX( size_t index) const

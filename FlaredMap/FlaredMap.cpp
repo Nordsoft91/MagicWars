@@ -36,7 +36,8 @@ bool Flared_NS::Map::addTileset( const std::string& i_path )
     if(!d_layerMap.empty())
         return false;
     
-    d_tilesetList.push_back( Flared_NS::Tileset(i_path, d_tileWidth, d_tileHeight) );
+    if( std::find(d_tilesetList.begin(), d_tilesetList.end(), Flared_NS::Tileset(i_path, d_tileWidth, d_tileHeight))==d_tilesetList.end())
+       d_tilesetList.push_back( Flared_NS::Tileset(i_path, d_tileWidth, d_tileHeight) );
     return true;
 }
 
@@ -48,6 +49,11 @@ void Flared_NS::Map::addLayer(const std::string& i_layerName)
         tlist.push_back(&i);
     
     d_layerMap[i_layerName] = Flared_NS::Layer(tlist, d_width, d_height);
+}
+
+bool Flared_NS::Map::isLayerExist(const std::string& i_layerName)
+{
+    return d_layerMap.find(i_layerName)!=d_layerMap.end();
 }
 
 Flared_NS::Layer& Flared_NS::Map::getLayer(const std::string& i_layerName)
@@ -62,7 +68,7 @@ cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
     
     for(Tileset& i : d_tilesetList)
     {
-        if(i.getPath() == i_tile.info().path)
+        if(i.getPath() == i_tile.info().name())
             return i.create(i_tile.info().x, i_tile.info().y, i_tile.info().w, i_tile.info().h);
     }
     return nullptr;

@@ -51,7 +51,7 @@ void Flared_NS::Layer::set(size_t x, size_t y, size_t index)
     if(!curtile)
         throw std::runtime_error("Tilesets don't contain index");
     
-    (*this)(x,y).info().path =  curtile->getPath();
+    (*this)(x,y).info().path =  curtile->getName();
     (*this)(x,y).info().w = curtile->getTileWidth();
     (*this)(x,y).info().h = curtile->getTileHeight();
     (*this)(x,y).info().x = curtile->getPositionX(index);
@@ -77,7 +77,7 @@ void Flared_NS::Layer::set(size_t n, size_t index)
     if(!curtile)
         throw std::runtime_error("Tilesets don't contain index");
     
-    d_layer.at(n).info().path =  curtile->getPath();
+    d_layer.at(n).info().path =  curtile->getName();
     d_layer.at(n).info().w = curtile->getTileWidth();
     d_layer.at(n).info().h = curtile->getTileHeight();
     d_layer.at(n).info().x = curtile->getPositionX(index);

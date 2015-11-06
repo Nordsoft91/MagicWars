@@ -33,75 +33,67 @@ void Consts::readFile(std::string i_file)
     file.close();
 }
 
+Param Consts::readParameter(std::ifstream &io_file)
+{
+    std::string value;
+    io_file >> value;
+    
+    
+    if(value=="{")
+    {
+        std::vector<Param> vv;
+        for(Param v = readParameter(io_file); (std::string)v != "}"; v = readParameter(io_file))
+        {
+            vv.push_back(v);
+        }
+        return Param(vv);
+    }
+    
+    int v1 = atoi(value.c_str());
+    double v2 = atof(value.c_str());
+    
+    if(v2!=0)
+    for(char i : value)
+    {
+        if(i!='.' && (i<'0' || i>'9'))
+        {
+            v1 = 0;
+            v2 = 0;
+        }
+    }
+    
+    if(fabs(v2 - double(v1)) > std::numeric_limits<double>::epsilon())
+        v1 = 0;
+    if(v1!=0)
+    {
+        return Param(v1);
+    }
+    if(v2!=0)
+    {
+        return Param(v2);
+    }
+    if(value == "true" || value == "false")
+    {
+        return Param(value=="true");
+    }
+    return Param(value);
+}
+
 bool Consts::readParameter(std::ifstream& io_file, std::map<std::string, Param>& o_group)
 {
-    std::string key, value, equal;
+    std::string key, equal;
     while(key=="")
         io_file >> key;
     
     if(key == "}")
         return false;
     
-    io_file >> equal >> value;
+    io_file >> equal;
     
     if(equal != "=")
         throw std::runtime_error("Error in consts file");
     
-    if(value=="{")
-    {
-        std::vector<Param> vv;
-        io_file >> value;
-        while(value!="}")
-        {
-            int v1 = atoi(value.c_str());
-            double v2 = atof(value.c_str());
-            if(fabs(v2 - double(v1)) > std::numeric_limits<double>::epsilon())
-                v1 = 0;
-            if(v1!=0)
-            {
-                vv.push_back(Param(v1));
-                io_file >> value;
-                continue;
-            }
-            if(v2!=0)
-            {
-                vv.push_back(Param(v2));
-                io_file >> value;
-                continue;
-            }
-            if(value == "true" || value == "false")
-            {
-                vv.push_back(Param(value=="true"));
-                io_file >> value;
-                continue;
-            }
-            vv.push_back(Param(value));
-            io_file >> value;
-        }
-        o_group[key] = Param(vv);
-        return true;
-    }
-    
-    int v1 = atoi(value.c_str());
-    double v2 = atof(value.c_str());
-    if(fabs(v2 - double(v1)) > std::numeric_limits<double>::epsilon())
-        v1 = 0;
-    if(v1!=0)
-    {
-        o_group[key] = Param(v1);
-        return true;
-    }
-    if(v2!=0)
-    {
-        o_group[key] = Param(v2);
-        return true;
-    }
-    if(value == "true" || value == "false")
-    {
-        o_group[key] = Param(value=="true");
-        return true;
-    }
-    o_group[key] = Param(value);
+    o_group[key] = readParameter(io_file);
     return true;
 }
 

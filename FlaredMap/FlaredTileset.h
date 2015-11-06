@@ -34,8 +34,11 @@ namespace Flared_NS {
         const size_t getPositionY( size_t index) const;
         
         const std::string getPath() const {return d_path;}
+        const std::string getName() const {return d_name;}
         
         cocos2d::Sprite* create( size_t x, size_t y, size_t w, size_t h );
+        
+        friend bool operator== (const Tileset&, const Tileset&);
         
     private:
         std::string parsePath( const std::string& i_path );

@@ -134,6 +134,7 @@ private:
 
     Consts();
     
+    Param readParameter(std::ifstream& io_file);
     bool readParameter(std::ifstream& io_file, std::map<std::string, Param>& o_group);
     void readGroup(std::ifstream& io_file);
     void readFile(std::string i_file);

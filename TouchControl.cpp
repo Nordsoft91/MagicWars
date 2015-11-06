@@ -14,6 +14,8 @@
 #include "Interface.h"
 
 #include "FlaredMap/FlaredParser.h"
+#include "FlaredAutomapRules.h"
+#include "FlaredAutomap.h"
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -276,15 +278,42 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     d_interface = &i_interface;
     
     Flared_NS::Parser parser("mapT_M_template.txt");
-    Flared_NS::Map flaredMap;
-    parser.construct(flaredMap);
-    i_layer->addChild(flaredMap.getMapTree());
+    Flared_NS::Map flaredSet, flaredMap;
+    parser.construct(flaredSet);
     
     MapReader reader;
-    d_map = reader.read("mapW_M_myDemoMap01.txt");
+    //d_map = reader.read("mapW_M_myDemoMap01.txt");
+    
+    Flared_NS::Automap automap;
+    
+    Flared_NS::RuleSimpleChange ruleMakerSimpleChange;
+    Flared_NS::RuleTerrainCenter ruleMakerTerrainCenter;
+    Flared_NS::RuleTerrainEdge ruleMakerTerrainEdge;
+    
+    automap.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts("rule_grass_center"));
+    automap.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts("rule_water_center"));
+    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_right"));
+    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_left"));
+    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_top"));
+    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_bottom"));
+    
+    //if((std::string)Consts::get("type", "rule_water")=="RuleTerrainEdge") automap.registerRule(ruleMaker_terrainEdge.makeRuleFromConsts("rule_water"));
+    
+    //if((std::string)Consts::get("type", "rule_grass")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_grass"));
+    //if((std::string)Consts::get("type", "rule_ground")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_ground"));
+    //if((std::string)Consts::get("type", "rule_ground2")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_ground2"));
+    //if((std::string)Consts::get("type", "rule_water")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_water"));
+    
+    automap.process(flaredSet, flaredMap);
+    
+    for(std::string& s : Flared_NS::AutomapLog::log())
+        cocos2d::log(s.c_str());
+    
     //d_map->put(i_layer);
     //d_mapObjects = d_map->get();
     
+    i_layer->addChild(flaredMap.getMapTree());
+
     d_mapWidth = flaredMap.getWidth();
     d_mapHeight = flaredMap.getHeight();
     
