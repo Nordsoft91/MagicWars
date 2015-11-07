@@ -174,4 +174,31 @@ namespace Flared_NS {
         io_info.setTileInfoInterface(new ISubtile(io_info.x % 64, 32 - io_info.y % 64, io_info));
         return 7;
     }
+    
+    RuleI* RuleTerrainInsideCorner::makeRule(size_t i_rotations)
+    {
+        RuleI* rule = new RuleI;
+        
+        Pattern pIn(2,2), pOut(2,2);
+        pIn(0,0) = 1;
+        pIn(1,0) = 1;
+        pIn(0,1) = 2;
+        pIn(1,1) = 1;
+        
+        pOut(0,0) = 3;
+        pOut(1,0) = 3;
+        pOut(0,1) = 4;
+        pOut(1,1) = 3;
+        
+        for(size_t i=0;i<i_rotations;++i)
+        {
+            pIn = pIn.rotate();
+            pOut = pOut.rotate();
+        }
+        
+        rule->d_input = pIn;
+        rule->addOutputPattern( pOut );
+        
+        return rule;
+    }
 }
