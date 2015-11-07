@@ -16,6 +16,7 @@
 #include "FlaredMap/FlaredParser.h"
 #include "FlaredAutomapRules.h"
 #include "FlaredAutomap.h"
+#include "FlaredAutomapTerrainRuleRecorder.h"
 #include "FlaredEnum.h"
 
 using namespace MagicWars_NS;
@@ -287,11 +288,13 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     Flared_NS::Automap automap;
     
+    Flared_NS::AutomapTerrainRuleRecorder::record();
+    
     RULE_MAKER_TERRAIN;
     
-    automap.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts("rule_grass_center"));
-
-    RULE_MAKER_REGISTER(automap,"water");
+    RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "grass");
+    
+    RULE_MAKER_TERRAIN_REGISTER(automap,"water");
     
     automap.process(flaredSet, flaredMap);
     

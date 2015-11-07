@@ -147,9 +147,11 @@ cocos2d::Layer* TileMap::get()
 
 void TileMap::clean()
 {
-    for(auto& i : d_map.raw())
+   // if(d_layer)
+     //   d_layer->removeAllChildren();
+    /*for(auto& i : d_map.raw())
     {
         d_layer->removeChild(i.first);
         i.first = 0;
-    }
+    }*/
 }

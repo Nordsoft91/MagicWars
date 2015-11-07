@@ -8,15 +8,25 @@
 
 #include "Consts.h"
 
-const Param& Consts::get(const std::string i_param, const std::string i_group)
+Consts& Consts::instance()
 {
     static Consts instance;
-    return instance.d_parameters[i_group][i_param];
+    return instance;
 }
 
-const bool Consts::isExist(const std::string i_param, const std::string i_group)
+const Param& Consts::get(const std::string& i_param, const std::string& i_group)
+{
+    return Consts::instance().d_parameters[i_group][i_param];
+}
+
+const bool Consts::isExist(const std::string& i_param, const std::string& i_group)
 {
     return get(i_param, i_group).isValid();
+}
+
+void Consts::loadAdditionalConsts(const std::string &i_filename)
+{
+    Consts::instance().readFile(i_filename);
 }
 
 Consts::Consts()
@@ -24,7 +34,7 @@ Consts::Consts()
     readFile("MagicConsts");
 }
 
-void Consts::readFile(std::string i_file)
+void Consts::readFile(const std::string& i_file)
 {
     std::ifstream file;
     file.open(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_file));

@@ -126,18 +126,22 @@ class Consts
 {
 public:
     
-    static const Param& get(const std::string i_param, const std::string i_group = "common");
+    static const Param& get(const std::string& i_param, const std::string& i_group = "common");
     
-    static const bool isExist(const std::string i_param, const std::string i_group = "common");
+    static const bool isExist(const std::string& i_param, const std::string& i_group = "common");
     
+    static void loadAdditionalConsts(const std::string& i_filename);
+
 private:
+    
+    static Consts& instance();
 
     Consts();
     
     Param readParameter(std::ifstream& io_file);
     bool readParameter(std::ifstream& io_file, std::map<std::string, Param>& o_group);
     void readGroup(std::ifstream& io_file);
-    void readFile(std::string i_file);
+    void readFile(const std::string& i_file);
     
     std::map<std::string, std::map<std::string, Param> > d_parameters;
 };

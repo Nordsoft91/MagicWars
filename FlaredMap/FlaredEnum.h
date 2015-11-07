@@ -12,6 +12,7 @@
 #include <string>
 
 #define RULE_MAKER_STR(x,y,z) std::string(x) + std::string(y) + std::string(z)
+#define RULE_MAKER_STR4(x,y,z,w) std::string(x) + std::string(y) + std::string(z) + std::string(w)
 
 #define RULE_MAKER_TERRAIN  Flared_NS::RuleSimpleChange ruleMakerSimpleChange; \
                             Flared_NS::RuleTerrainCenter ruleMakerTerrainCenter; \
@@ -19,7 +20,9 @@
                             Flared_NS::RuleTerrainCorner ruleMakerTerrainCorner; \
                             Flared_NS::RuleTerrainInsideCorner ruleMakerTerrainInsideCorner;
 
-#define RULE_MAKER_REGISTER(class, x)   class.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts( RULE_MAKER_STR("rule_",x,"_center") )); \
+#define RULE_MAKER_TERRAIN_CENTER_REGISTER(class, x) class.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts( RULE_MAKER_STR("rule_",x,"_center") ));
+
+#define RULE_MAKER_TERRAIN_REGISTER(class, x)   class.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts( RULE_MAKER_STR("rule_",x,"_center") )); \
                                         class.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts( RULE_MAKER_STR("rule_",x,"_edge_right") )); \
                                         class.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts( RULE_MAKER_STR("rule_",x,"_edge_left") )); \
                                         class.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts( RULE_MAKER_STR("rule_",x,"_edge_top") )); \
