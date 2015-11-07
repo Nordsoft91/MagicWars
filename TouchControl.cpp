@@ -289,6 +289,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     Flared_NS::RuleSimpleChange ruleMakerSimpleChange;
     Flared_NS::RuleTerrainCenter ruleMakerTerrainCenter;
     Flared_NS::RuleTerrainEdge ruleMakerTerrainEdge;
+    Flared_NS::RuleTerrainCorner ruleMakerTerrainCorner;
     
     automap.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts("rule_grass_center"));
     automap.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts("rule_water_center"));
@@ -296,13 +297,10 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_left"));
     automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_top"));
     automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_bottom"));
-    
-    //if((std::string)Consts::get("type", "rule_water")=="RuleTerrainEdge") automap.registerRule(ruleMaker_terrainEdge.makeRuleFromConsts("rule_water"));
-    
-    //if((std::string)Consts::get("type", "rule_grass")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_grass"));
-    //if((std::string)Consts::get("type", "rule_ground")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_ground"));
-    //if((std::string)Consts::get("type", "rule_ground2")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_ground2"));
-    //if((std::string)Consts::get("type", "rule_water")=="RuleSimpleChange") automap.registerRule(ruleMaker_simpleChange.makeRuleFromConsts("rule_water"));
+    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_right"));
+    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_left"));
+    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_top"));
+    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_bottom"));
     
     automap.process(flaredSet, flaredMap);
     

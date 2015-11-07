@@ -20,6 +20,7 @@ namespace Flared_NS {
     class RuleSimpleChange;
     class RuleTerrainEdge;
     class RuleTerrainCenter;
+    class RuleTerrainCorner;
     
     class RuleI: public Rule
     {
@@ -30,6 +31,7 @@ namespace Flared_NS {
         friend class RuleSimpleChange;
         friend class RuleTerrainEdge;
         friend class RuleTerrainCenter;
+        friend class RuleTerrainCorner;
     };
     
     class RuleMaker
@@ -51,14 +53,18 @@ namespace Flared_NS {
     {
     public:
         virtual RuleI* makeRule(size_t i_rotations = 0) override;
-        
     };
     
     class RuleTerrainCenter: public RuleMaker
     {
     public:
         virtual RuleI* makeRule(size_t i_rotations = 0) override;
-        
+    };
+    
+    class RuleTerrainCorner: public RuleMaker
+    {
+    public:
+        virtual RuleI* makeRule(size_t i_rotations = 0) override;
     };
 }
 

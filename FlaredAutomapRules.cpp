@@ -121,4 +121,31 @@ namespace Flared_NS {
         
         return rule;
     }
+    
+    RuleI* RuleTerrainCorner::makeRule(size_t i_rotations)
+    {
+        RuleI* rule = new RuleI;
+        
+        Pattern pIn(2,2), pOut(2,2);
+        pIn(0,0) = 2;
+        pIn(1,0) = 2;
+        pIn(0,1) = 1;
+        pIn(1,1) = 2;
+        
+        pOut(0,0) = 5;
+        pOut(1,0) = 4;
+        pOut(0,1) = 3;
+        pOut(1,1) = 6;
+        
+        for(size_t i=0;i<i_rotations;++i)
+        {
+            pIn = pIn.rotate();
+            pOut = pOut.rotate();
+        }
+        
+        rule->d_input = pIn;
+        rule->addOutputPattern( pOut );
+        
+        return rule;
+    }
 }
