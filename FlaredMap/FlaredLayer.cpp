@@ -32,7 +32,7 @@ Flared_NS::Layer::operator std::vector<Tile> ()
     return d_layer;
 }
 
-void Flared_NS::Layer::set(size_t x, size_t y, size_t index)
+void Flared_NS::Layer::set(size_t x, size_t y, size_t index, ITileInfo* interface)
 {
     if(!index)
         return;
@@ -56,9 +56,10 @@ void Flared_NS::Layer::set(size_t x, size_t y, size_t index)
     (*this)(x,y).info().h = curtile->getTileHeight();
     (*this)(x,y).info().x = curtile->getPositionX(index);
     (*this)(x,y).info().y = curtile->getPositionY(index);
+    (*this)(x,y).info().setTileInfoInterface(interface);
 }
 
-void Flared_NS::Layer::set(size_t n, size_t index)
+void Flared_NS::Layer::set(size_t n, size_t index, ITileInfo* interface)
 {
     if(!index)
         return;
@@ -82,4 +83,5 @@ void Flared_NS::Layer::set(size_t n, size_t index)
     d_layer.at(n).info().h = curtile->getTileHeight();
     d_layer.at(n).info().x = curtile->getPositionX(index);
     d_layer.at(n).info().y = curtile->getPositionY(index);
+    d_layer.at(n).info().setTileInfoInterface(interface);
 }

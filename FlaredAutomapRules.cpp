@@ -31,14 +31,31 @@ namespace Flared_NS {
         
         for( size_t i =0; i<ruleIndexes.size(); ++i )
         {
-            std::vector<Param> tinfo = ruleIndexes[i];
+            std::vector<Param> tinfo = ruleIndexes.at(i);
+            if(tinfo.size()!=5)
+            {
+                AutomapLog::report("Cannot create TileInfo from Consts"+i_group, AutomapLog::Type::Error);
+                continue;
+            }
+            
+            TileInfo info(tinfo[0],tinfo[1],tinfo[2],tinfo[3],tinfo[4]);
+            size_t ind = makeInfoGetIndex(i+1, info);
+            
+            tinfo = ruleIndexes.at(ind-1);
         	if(tinfo.size()!=5)
             {
                 AutomapLog::report("Cannot create TileInfo from Consts"+i_group, AutomapLog::Type::Error);
                 continue;
             }
             
-            TileInfo info(tinfo[0], tinfo[1], tinfo[2], tinfo[3], tinfo[4]);
+            info.path = (std::string)tinfo[0];
+            info.x = (size_t)tinfo[1];
+            info.y = (size_t)tinfo[2];
+            info.w = (size_t)tinfo[3];
+            info.h = (size_t)tinfo[4];
+            
+            //TileInfo info(tinfo[0], tinfo[1], tinfo[2], tinfo[3], tinfo[4]);
+            
             if(info.name()=="")
                 AutomapLog::report("Empty name for tileset from Consts: "+i_group, AutomapLog::Type::Error);
             rule->assignIndex(i+1, info);
@@ -147,5 +164,14 @@ namespace Flared_NS {
         rule->addOutputPattern( pOut );
         
         return rule;
+    }
+    
+    size_t RuleTerrainCorner::makeInfoGetIndex(size_t i_index, TileInfo& io_info)
+    {
+        if(i_index!=4)
+            return i_index;
+        
+        io_info.setTileInfoInterface(new ISubtile(io_info.x % 64, 32 - io_info.y % 64, io_info));
+        return 7;
     }
 }

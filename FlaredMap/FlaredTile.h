@@ -10,21 +10,66 @@
 #define __MagicWars__FlaredTile__
 
 #include <string>
+#include <memory>
 
 namespace Flared_NS {
-    struct TileInfo
+    
+    class TileInfo;
+    
+    class ITileInfo
     {
+    public:
+        virtual TileInfo info() const = 0;
+        virtual ~ITileInfo() = default;
+    };
+    
+    class TileInfo
+    {
+    public:
         std::string name() const;
         
         std::string path = "";
         size_t x = 0, y = 0, w = 0, h = 0;
         
         TileInfo() = default;
+        TileInfo( const TileInfo& i_info): path(i_info.path), x(i_info.x), y(i_info.y), w(i_info.w), h(i_info.h)
+        {
+            setTileInfoInterface(const_cast<ITileInfo*>(i_info.getTileInfoInterface()));
+        }
+        
+        ~TileInfo() { /*setTileInfoInterface(nullptr);*/ }
         TileInfo(const std::string& i_path, size_t ix, size_t iy, size_t iw, size_t ih): path(i_path), x(ix), y(iy), w(iw), h(ih) {};
       
         friend bool operator== (const TileInfo& l, const TileInfo& r);
         
         friend bool operator!= (const TileInfo& l, const TileInfo& r);
+        
+        const ITileInfo* getTileInfoInterface() const { return d_interface; }
+        
+        void setTileInfoInterface( ITileInfo* i_info )
+        {
+            d_interface = i_info;
+        }
+        
+    private:
+        ITileInfo* d_interface = nullptr;
+    };
+    
+    class ISubtile: public ITileInfo
+    {
+    public:
+        ~ISubtile() = default;
+        ISubtile(int i_relX, int i_relY, TileInfo i_info): d_relX(i_relX), d_relY(i_relY) { d_info = i_info; }
+        
+        TileInfo info() const override {return d_info;}
+        
+        const int getRelX() const {return d_relX;}
+        const int getRelY() const {return d_relY;}
+        
+    private:
+        TileInfo d_info;
+        
+        int d_relX, d_relY;
     };
     
     class Tile

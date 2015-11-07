@@ -38,6 +38,7 @@ namespace Flared_NS {
     {
     public:
         virtual RuleI* makeRule(size_t i_rotations = 0) = 0;
+        virtual size_t makeInfoGetIndex(size_t i_index, TileInfo& io_info) { return i_index; }
         
         RuleI* makeRuleFromConsts(const std::string& i_group);
     };
@@ -65,6 +66,7 @@ namespace Flared_NS {
     {
     public:
         virtual RuleI* makeRule(size_t i_rotations = 0) override;
+        virtual size_t makeInfoGetIndex(size_t i_index, TileInfo& io_info) override;
     };
 }
 

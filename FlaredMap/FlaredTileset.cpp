@@ -7,6 +7,7 @@
 //
 
 #include "FlaredTileset.h"
+#include "FlaredTile.h"
 
 std::string Flared_NS::Tileset::parsePath( const std::string& i_path )
 {
@@ -37,16 +38,16 @@ bool Flared_NS::operator== (const Flared_NS::Tileset& l, const Flared_NS::Tilese
 
 const size_t Flared_NS::Tileset::getPositionX( size_t index) const
 {
-    return (index-1) % d_countX;
+    return (index-1) % d_countX * d_tileWidth;
 }
 const size_t Flared_NS::Tileset::getPositionY( size_t index) const
 {
-    return (index-1) / d_countX;
+    return (index-1) / d_countX * d_tileHeight;
 }
 
 cocos2d::Sprite* Flared_NS::Tileset::create( size_t x, size_t y, size_t w, size_t h )
 {
-    cocos2d::Rect rect(x*w,y*h,w,h);
+    cocos2d::Rect rect(x, y, w, h);
     auto i = cocos2d::Sprite::createWithTexture(d_img->getTexture(), rect);
     i->setAnchorPoint({0,0});
     return i;

@@ -68,8 +68,37 @@ cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
     
     for(Tileset& i : d_tilesetList)
     {
-        if(i.getPath() == i_tile.info().name())
-            return i.create(i_tile.info().x, i_tile.info().y, i_tile.info().w, i_tile.info().h);
+        if(i.getName() == i_tile.info().name())
+        {
+            cocos2d::Sprite* spr = i.create( i_tile.info().x, i_tile.info().y, i_tile.info().w, i_tile.info().h );
+            if(i_tile.info().getTileInfoInterface())
+            {
+                if(const auto* interface = dynamic_cast<const Flared_NS::ISubtile*>(i_tile.info().getTileInfoInterface()))
+                {
+                    if( auto* subspr = getSubtileImg(interface) )
+                    {
+                        subspr->setPosition(interface->getRelX(), interface->getRelY());
+                        spr->addChild(subspr);
+                    }
+                }
+            }
+            return spr;
+        }
+    }
+    return nullptr;
+}
+
+cocos2d::Sprite* Flared_NS::Map::getSubtileImg(const Flared_NS::ISubtile *i_interface)
+{
+    if(d_layerMap.empty() || !i_interface)
+        return nullptr;
+    
+    for(Tileset& i : d_tilesetList)
+    {
+        if(i.getName() == i_interface->info().name())
+        {
+            return i.create( i_interface->info().x, i_interface->info().y, i_interface->info().w, i_interface->info().h );
+        }
     }
     return nullptr;
 }

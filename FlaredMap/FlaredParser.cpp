@@ -156,6 +156,8 @@ void Flared_NS::Parser::construct(Flared_NS::Map &o_map)
                     assert(parameter.data.size()==w*h);
                     for(size_t i=0; i<w*h; ++i)
                     {
+                        //Flared_NS::ISubtile* subtile = new Flared_NS::ISubtile(16,16,Flared_NS::TileInfo{"Solid.png", 16,16,32,32});
+                        
                         o_map.getLayer(name).set(i, toSizeT(parameter.data[i]));
                     }
                 }

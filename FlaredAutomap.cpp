@@ -152,7 +152,14 @@ namespace Flared_NS {
         for(auto& i : d_indexMap)
         {
             if(!i.second.name().empty())
+            {
                 res.push_back(i.second.name());
+                if(const auto* interface = i.second.getTileInfoInterface())
+                {
+                    if(!interface->info().name().empty())
+                        res.push_back(interface->info().name());
+                }
+            }
         }
         return res;
     }

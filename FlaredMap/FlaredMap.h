@@ -45,6 +45,8 @@ namespace Flared_NS {
         cocos2d::Node* getMapTree();
         
     private:
+        cocos2d::Sprite* getSubtileImg(const Flared_NS::ISubtile* i_interface);
+        
         std::list<Tileset> d_tilesetList;
         std::map<std::string, Layer> d_layerMap;
         size_t d_width, d_height;
