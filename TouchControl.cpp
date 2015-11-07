@@ -16,6 +16,7 @@
 #include "FlaredMap/FlaredParser.h"
 #include "FlaredAutomapRules.h"
 #include "FlaredAutomap.h"
+#include "FlaredEnum.h"
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -286,26 +287,11 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     Flared_NS::Automap automap;
     
-    Flared_NS::RuleSimpleChange ruleMakerSimpleChange;
-    Flared_NS::RuleTerrainCenter ruleMakerTerrainCenter;
-    Flared_NS::RuleTerrainEdge ruleMakerTerrainEdge;
-    Flared_NS::RuleTerrainCorner ruleMakerTerrainCorner;
-    Flared_NS::RuleTerrainInsideCorner ruleMakerTerrainInsideCorner;
+    RULE_MAKER_TERRAIN;
     
     automap.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts("rule_grass_center"));
-    automap.registerRule(ruleMakerTerrainCenter.makeRuleFromConsts("rule_water_center"));
-    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_right"));
-    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_left"));
-    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_top"));
-    automap.registerRule(ruleMakerTerrainEdge.makeRuleFromConsts("rule_water_edge_bottom"));
-    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_right"));
-    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_left"));
-    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_top"));
-    automap.registerRule(ruleMakerTerrainCorner.makeRuleFromConsts("rule_water_corner_bottom"));
-    automap.registerRule(ruleMakerTerrainInsideCorner.makeRuleFromConsts("rule_water_insidecorner_right"));
-    automap.registerRule(ruleMakerTerrainInsideCorner.makeRuleFromConsts("rule_water_insidecorner_left"));
-    automap.registerRule(ruleMakerTerrainInsideCorner.makeRuleFromConsts("rule_water_insidecorner_top"));
-    automap.registerRule(ruleMakerTerrainInsideCorner.makeRuleFromConsts("rule_water_insidecorner_bottom"));
+
+    RULE_MAKER_REGISTER(automap,"water");
     
     automap.process(flaredSet, flaredMap);
     
