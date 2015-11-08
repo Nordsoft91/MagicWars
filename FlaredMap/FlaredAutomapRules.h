@@ -18,6 +18,7 @@ namespace Flared_NS {
     
     //place #1
     class RuleSimpleChange;
+    class RuleCopyAndChange;
     class RuleTerrainEdge;
     class RuleTerrainCenter;
     class RuleTerrainCorner;
@@ -34,6 +35,7 @@ namespace Flared_NS {
         friend class RuleTerrainCenter;
         friend class RuleTerrainCorner;
         friend class RuleTerrainInsideCorner;
+        friend class RuleCopyAndChange;
     };
     
     class RuleMaker
@@ -47,6 +49,12 @@ namespace Flared_NS {
     
     //place #3
     class RuleSimpleChange: public RuleMaker
+    {
+    public:
+        virtual RuleI* makeRule(size_t i_rotations = 0) override;
+    };
+    
+    class RuleCopyAndChange: public RuleMaker
     {
     public:
         virtual RuleI* makeRule(size_t i_rotations = 0) override;
@@ -76,6 +84,8 @@ namespace Flared_NS {
         virtual RuleI* makeRule(size_t i_rotations = 0) override;
         virtual size_t makeInfoGetIndex(size_t i_index, TileInfo& io_info) override;
     };
+    
+    void registerMapRules( Map& i_map, const std::string& i_inputLayer, const std::string& i_outputLayer, Automap& io_automap );
 }
 
 #endif /* defined(__MagicWars__FlaredAutomapRules__) */

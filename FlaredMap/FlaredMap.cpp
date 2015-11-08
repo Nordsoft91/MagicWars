@@ -53,7 +53,20 @@ void Flared_NS::Map::addLayer(const std::string& i_layerName)
 
 bool Flared_NS::Map::isLayerExist(const std::string& i_layerName)
 {
-    return d_layerMap.find(i_layerName)!=d_layerMap.end();
+    for(auto& i : d_layerMap)
+    {
+        if(i.first == i_layerName)
+            return true;
+    }
+    return false;
+}
+
+std::list<std::string> Flared_NS::Map::getListOfLayers() const
+{
+    std::list<std::string> res;
+    for( const auto& i : d_layerMap)
+        res.push_back(i.first);
+    return res;
 }
 
 Flared_NS::Layer& Flared_NS::Map::getLayer(const std::string& i_layerName)

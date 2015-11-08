@@ -77,6 +77,22 @@ namespace Flared_NS {
         return rule;
     }
     
+    RuleI* RuleCopyAndChange::makeRule(size_t)
+    {
+        RuleI* rule = new RuleI;
+        
+        Pattern pIn(1,1), pOut(1,1), pCopy(1,1);
+        pIn(0,0) = 1;
+        pCopy(0,0) = 1;
+        pOut(0,0) = 2;
+        
+        rule->d_input = pIn;
+        rule->addOutputPattern( pCopy );
+        rule->addOutputPattern( pOut );
+        
+        return rule;
+    }
+    
     RuleI* RuleTerrainEdge::makeRule(size_t i_rotations)
     {
         RuleI* rule = new RuleI;
@@ -200,5 +216,55 @@ namespace Flared_NS {
         rule->addOutputPattern( pOut );
         
         return rule;
+    }
+    
+    void registerMapRules( Map& i_map, const std::string& i_inputLayer, const std::string& i_outputLayer, Automap& io_automap )
+    {
+        if(!i_map.isLayerExist(i_inputLayer))
+        {
+            AutomapLog::report("No input layer in map", AutomapLog::Type::Warning);
+            return;
+        }
+        
+        if(!i_map.isLayerExist(i_outputLayer))
+        {
+            AutomapLog::report("No output layer in map", AutomapLog::Type::Warning);
+            return;
+        }
+        
+        Layer& inputLayer = i_map.getLayer(i_inputLayer);
+        Layer& outputLayer = i_map.getLayer(i_outputLayer);
+        
+        RuleSimpleChange rulemakerSimple;
+        RuleCopyAndChange rulemaker;
+        
+        for( size_t y = 0; y<i_map.getHeight(); ++y)
+        {
+            for( size_t x = 0; x<i_map.getWidth(); ++x)
+            {
+                if(inputLayer(x,y).info().path.empty())
+                    continue;
+                
+                if(outputLayer(x,y).info().path.empty())
+                {
+                    auto* rule = rulemakerSimple.makeRule();
+                    rule->setInputLayerName(i_inputLayer);
+                    rule->assignIndex(0, i_inputLayer);
+                    rule->assignIndex(1, inputLayer(x,y).info());
+                    rule->assignIndex(2, inputLayer(x,y).info());
+                    io_automap.registerRule(rule);
+                }
+                else
+                {
+                    auto* rule = rulemaker.makeRule();
+                    rule->setInputLayerName(i_inputLayer);
+                    rule->assignIndex(0, i_inputLayer);
+                    rule->assignIndex(1, i_outputLayer);
+                    rule->assignIndex(1, inputLayer(x,y).info());
+                    rule->assignIndex(2, outputLayer(x,y).info());
+                    io_automap.registerRule(rule);
+                }
+            }
+        }
     }
 }

@@ -73,7 +73,12 @@ namespace Flared_NS {
         
         std::list<std::string> getOutputTilesetNames();
         
+        const std::string& getInputLayerName() const { return d_inputLayer; }
+        void setInputLayerName(const std::string& i_name) {d_inputLayer = i_name;}
+        
     protected:
+        
+        std::string d_inputLayer;
         
         void addOutputPattern(const Pattern& i_pattern);
         

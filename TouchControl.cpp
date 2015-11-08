@@ -299,6 +299,11 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
         RULE_MAKER_TERRAIN_REGISTER(automap, i);
     }
     
+    Flared_NS::Parser ruleParse("mapRule_Grassland01.txt");
+    Flared_NS::Map mapRule;
+    ruleParse.construct(mapRule);
+    Flared_NS::registerMapRules(mapRule, "layerObjects", "layerSolid", automap);
+    
     automap.process(flaredSet, flaredMap);
     
     for(std::string& s : Flared_NS::AutomapLog::log())

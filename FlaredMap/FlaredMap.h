@@ -39,6 +39,8 @@ namespace Flared_NS {
         
         Layer& getLayer(const std::string& i_layerName);
         
+        std::list<std::string> getListOfLayers() const;
+        
         cocos2d::Sprite* getTileImg(const Flared_NS::Tile& i_tile);
         
         //convert map to cocos nodes tree

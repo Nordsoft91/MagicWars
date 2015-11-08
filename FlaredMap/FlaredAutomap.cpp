@@ -185,9 +185,11 @@ namespace Flared_NS {
         
         for( auto* rule : d_rules)
         {
-            rule->processInputLayer( i_map.getLayer("layerSet"), o_map );
+            rule->processInputLayer( i_map.getLayer(rule->getInputLayerName().empty() ? "layerSet" : rule->getInputLayerName()), o_map );
         }
     }
+    
+    
     
     Automap::~Automap()
     {
