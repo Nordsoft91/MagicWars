@@ -294,7 +294,10 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "grass");
     
-    RULE_MAKER_TERRAIN_REGISTER(automap,"water");
+    for( auto& i : Consts::get("terrainTypes", "Flared").toVector<std::string>() )
+    {
+        RULE_MAKER_TERRAIN_REGISTER(automap, i);
+    }
     
     automap.process(flaredSet, flaredMap);
     
