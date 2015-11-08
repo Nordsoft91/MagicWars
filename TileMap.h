@@ -54,7 +54,7 @@ namespace MagicWars_NS {
         
     protected:
         Tileset *d_pTileset = nullptr;
-        cocos2d::Layer *d_layer;
+        cocos2d::Layer *d_layer = nullptr;
         
         size_t d_mapWidth;
         size_t d_mapHeight;

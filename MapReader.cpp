@@ -98,11 +98,7 @@ bool MapReader::parseLayer(std::ifstream &io_stream, MagicWars_NS::Map &io_map, 
         {
             sstream >> n >> c;
             if(solid)
-                io_map.setSolid(n, i, i_h-j-1);
-            else
-            //if(!solid)
-                io_map.set(n, i, i_h-j-1);
-            
+                io_map.setSolid(i, i_h-j-1);
         }
         
     }

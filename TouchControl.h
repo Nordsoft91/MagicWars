@@ -77,14 +77,14 @@ namespace MagicWars_NS {
     private:
         Interface* d_interface = nullptr;
         
-        Map *d_map;
+        Map *d_map = nullptr;
         
         MagicWars_NS::TurnController d_turnControl;
         
         //tilesets of terrain
         std::vector<MagicWars_NS::Tileset*> d_arrTerrainTilesets;
         
-        MagicWars_NS::TileMap* d_terrainMap;
+        MagicWars_NS::TileMap* d_terrainMap = nullptr;
         
         size_t d_mapWidth = 32;
         size_t d_mapHeight = 32;
@@ -98,7 +98,7 @@ namespace MagicWars_NS {
         
         MovingStructure* d_move = nullptr;
         
-        cocos2d::Layer* d_mapLayer;
+        cocos2d::Layer* d_mapLayer = nullptr;
         
         
     };

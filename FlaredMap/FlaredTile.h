@@ -31,6 +31,8 @@ namespace Flared_NS {
         std::string path = "";
         size_t x = 0, y = 0, w = 0, h = 0;
         
+        bool visible = true;
+        
         TileInfo() = default;
         TileInfo( const TileInfo& i_info): path(i_info.path), x(i_info.x), y(i_info.y), w(i_info.w), h(i_info.h)
         {

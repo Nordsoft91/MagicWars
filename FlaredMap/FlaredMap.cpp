@@ -84,6 +84,7 @@ cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
         if(i.getName() == i_tile.info().name())
         {
             cocos2d::Sprite* spr = i.create( i_tile.info().x, i_tile.info().y, i_tile.info().w, i_tile.info().h );
+            spr->setVisible(i_tile.info().visible);
             if(i_tile.info().getTileInfoInterface())
             {
                 if(const auto* interface = dynamic_cast<const Flared_NS::ISubtile*>(i_tile.info().getTileInfoInterface()))
@@ -128,6 +129,7 @@ cocos2d::Node* Flared_NS::Map::getMapTree()
     for( auto& i : d_layerMap )
     {
         cocos2d::Layer* l = cocos2d::Layer::create();
+        l->setName(i.first);
         m->addChild(l, zOrder--);
         
         for(size_t y = 0; y<d_height; ++y)

@@ -16,7 +16,7 @@ TileMap::TileMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTilese
         throw std::runtime_error("null pointer");
     
     d_layer = cocos2d::Layer::create();
-    //d_layer->retain();
+    d_layer->retain();
     d_map.resize(i_width, i_height);
 }
 
@@ -147,11 +147,11 @@ cocos2d::Layer* TileMap::get()
 
 void TileMap::clean()
 {
-   // if(d_layer)
-     //   d_layer->removeAllChildren();
-    /*for(auto& i : d_map.raw())
+    if(d_layer)
+        d_layer->removeAllChildren();
+    for(auto& i : d_map.raw())
     {
-        d_layer->removeChild(i.first);
+        //d_layer->removeChild(i.first);
         i.first = 0;
-    }*/
+    }
 }

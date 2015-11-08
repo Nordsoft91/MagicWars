@@ -151,12 +151,7 @@ void TouchControl::prepareMovingStructure(MagicWars_NS::MovingStructure& io_stru
         {
             int _x = int(io_struct.d_pObject->x) + i;
             int _y = int(io_struct.d_pObject->y) + j;
-            if(_x<0 || _y<0 || _x>=d_mapWidth || _y>=d_mapHeight)
-            {
-                io_struct.d_finder->fill(i, j);
-                continue;
-            }
-            if( dynamic_cast<SolidObject*>(ContainUtils::findObject(d_mapObjects, _x, _y)) )
+            if( d_map->isSolid(_x, _y) )
                 io_struct.d_finder->fill(i, j);
             if( (i!=0 || j!=0) && ContainUtils::findObject(d_persons, _x, _y) )
                 io_struct.d_finder->fill(i, j);
@@ -283,7 +278,8 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
     
-    MapReader reader;
+    
+    //MapReader reader;
     //d_map = reader.read("mapW_M_myDemoMap01.txt");
     
     Flared_NS::Automap automap;
@@ -308,36 +304,21 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     for(std::string& s : Flared_NS::AutomapLog::log())
         cocos2d::log(s.c_str());
-    
-    //d_map->put(i_layer);
-    //d_mapObjects = d_map->get();
-    
-    i_layer->addChild(flaredMap.getMapTree());
 
     d_mapWidth = flaredMap.getWidth();
     d_mapHeight = flaredMap.getHeight();
     
+    d_map = new MagicWars_NS::Map(d_mapWidth, d_mapHeight);
+    d_map->setSolid(flaredMap);
+    
+    i_layer->addChild(flaredMap.getMapTree());
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    //MagicWars_NS::TileGrid grid{d_sizeWidth,d_sizeHeight,15,20,0,0,11,11};
-    
-    //d_arrTerrainTilesets.push_back(new MagicWars_NS::Tileset("Terrain1.png", grid));
-    
-    //d_terrainMap = new MagicWars_NS::TileMap(d_arrTerrainTilesets[0], d_mapWidth, d_mapHeight);
-    
-    //d_terrainMap->addTileType("grass", 1, 0);
-    //d_terrainMap->fillMap("grass");
-    //d_terrainMap->get()->setPosition(origin);
-    
-    //i_layer->addChild(d_terrainMap->get());
-    
-    
     
     Magican* tempObject;
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero01_level01")));
-    tempObject->born(i_layer, 12, 2);
+    tempObject->born(i_layer, 15, 2);
     d_turnControl.insert(tempObject, "Light");
     
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero02_level01")));
@@ -389,8 +370,10 @@ void TouchControl::destroy()
     for( auto i : d_arrTerrainTilesets)
         delete i;
     
-    delete d_map;
+    if(d_map)
+        delete d_map;
     
-    delete d_terrainMap;
+    if(d_terrainMap)
+        delete d_terrainMap;
 }
 

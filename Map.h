@@ -14,6 +14,8 @@
 #include "BaseWall.h"
 #include "ContainUtils.h"
 
+#include "FlaredMap/FlaredMap.h"
+
 namespace MagicWars_NS {
     class Map
     {
@@ -21,23 +23,21 @@ namespace MagicWars_NS {
         Map(size_t i_w, size_t i_h);
         ~Map();
         
-        bool set(int num, size_t x, size_t y);
-        bool setSolid(int num, size_t x, size_t y);
-        void put(cocos2d::Layer *i_layer);
+        bool isInside(size_t x, size_t y) const;
+        bool setSolid(size_t x, size_t y);
+        void setSolid(Flared_NS::Map& i_map);
         
+        bool isSolid(size_t x, size_t y) const;
+      
         //std::list<GameObj*>& get() { return d_mapObjects; }
         
         size_t getWidth() const {return d_mapWidth; }
         size_t getHeight() const {return d_mapHeight; }
         
     protected:
-        size_t d_mapWidth, d_mapHeight, d_tileWidth, d_tileHeight;
+        size_t d_mapWidth, d_mapHeight;
         
-        //tilesets of terrain
-        std::vector<MagicWars_NS::Tileset*> d_arrTerrainTilesets;
-        std::vector<size_t> d_arrTilesetSizes;
-        
-        MagicWars_NS::TileMap* d_terrainMap[3];
+        std::vector<std::vector<GameObj*>> d_map;
         
         std::list<GameObj*> d_mapObjects;
     };
