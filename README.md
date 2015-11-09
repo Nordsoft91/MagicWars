@@ -8,3 +8,8 @@ Turn-based tactical RPG in fantasy style.
 - View: top down
 - Story: linear, different campaigns, different sides
 
+# How to contribute
+
+This project really need any help from C++ developers, SQA, level designers, painter.
+If you want to participate in this project or just to take a look on game screenshots
+Plase contact me via email nordsoft@rambler.ru
