@@ -13,7 +13,7 @@
 #include "MagicanLight.h"
 #include "Interface.h"
 
-#include "FlaredMap/FlaredParser.h"
+#include "FlaredParser.h"
 #include "FlaredAutomapRules.h"
 #include "FlaredAutomap.h"
 #include "FlaredAutomapTerrainRuleRecorder.h"

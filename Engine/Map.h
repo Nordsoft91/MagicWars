@@ -14,7 +14,7 @@
 #include "BaseWall.h"
 #include "ContainUtils.h"
 
-#include "FlaredMap/FlaredMap.h"
+#include "FlaredMap.h"
 
 namespace MagicWars_NS {
     class Map
