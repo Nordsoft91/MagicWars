@@ -134,7 +134,7 @@ namespace MagicWars_NS {
         return res;
     }
     
-    std::vector<Magican*> TurnController::otherSidesArray(const std::string& i_side) const
+    std::vector<Magican*> TurnController::otherSidesArray(const std::string& i_side, Relationships::Type i_type) const
     {
         std::vector<Magican*> res;
         if(std::find(d_sides.begin(), d_sides.end(), i_side) == d_sides.end())
@@ -143,7 +143,10 @@ namespace MagicWars_NS {
         for( auto i = d_persons.begin(); i!=d_persons.end(); ++i )
         {
             if(i->second.d_side != i_side)
-                res.push_back(i->first);
+            {
+                if(i_type == Relationships::Type::Unknown || relationships.get(i_side, i->second.d_side)==i_type)
+                    res.push_back(i->first);
+            }
         }
         return res;
     }

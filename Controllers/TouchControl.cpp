@@ -317,6 +317,10 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     Magican* tempObject;
     
+    d_turnControl.relationships.set("Light", "Neutral", Relationships::Type::Neutral);
+    d_turnControl.relationships.set("Light", "Dark", Relationships::Type::Enemies);
+    d_turnControl.relationships.set("Neutral", "Dark", Relationships::Type::Enemies);
+    
     tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero01_level01")));
     tempObject->born(i_layer, 15, 2);
     d_turnControl.insert(tempObject, "Light");

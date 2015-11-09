@@ -11,6 +11,7 @@
 
 #include "Magican.h"
 #include "Uncopyble.h"
+#include "TeamRelationships.h"
 #include <map>
 #include <string>
 
@@ -54,7 +55,9 @@ namespace MagicWars_NS {
         
         std::vector<Magican*> sideArray(const std::string& i_side);
         
-        std::vector<Magican*> otherSidesArray(const std::string& i_side) const;
+        std::vector<Magican*> otherSidesArray(const std::string& i_side, Relationships::Type i_type = Relationships::Type::Unknown) const;
+        
+        TeamRelationships relationships;
         
     private:
         

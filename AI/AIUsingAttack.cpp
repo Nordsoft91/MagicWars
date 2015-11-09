@@ -16,7 +16,7 @@ void AIUsingAttack::startTurn()
     AIEngine::startTurn();
     
     //prepare goals
-    d_enemies = TouchControl::instance().getTurnController().otherSidesArray(TouchControl::instance().getTurnController().getTurnSide());
+    d_enemies = TouchControl::instance().getTurnController().otherSidesArray2(TouchControl::instance().getTurnController().getTurnSide(), Relationships::Type::Unknown);
     
     for(auto i : d_enemies)
     {
