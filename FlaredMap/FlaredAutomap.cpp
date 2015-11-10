@@ -69,39 +69,24 @@ namespace Flared_NS {
     
     void Rule::processInputLayer(const Layer& i_layer, Map& o_map)
     {
-        for( size_t y = 0; y<o_map.getHeight()-d_input.getHeight()+1; ++y )
+        for( int y = -1; y<=int(o_map.getHeight()-d_input.getHeight()+1); ++y )
         {
-            for( size_t x = 0; x<o_map.getWidth()-d_input.getWidth()+1; ++x )
+            for( int x = -1; x<=int(o_map.getWidth()-d_input.getWidth()+1); ++x )
             {
                 bool isInputPattern = true;
-                for( size_t j = 0; j<d_input.getHeight(); ++j )
+                for( int j = 0; j<d_input.getHeight(); ++j )
                 {
-                    for( size_t i = 0; i<d_input.getWidth(); ++i )
+                    for( int i = 0; i<d_input.getWidth(); ++i )
                     {
                         if(!d_input(i,j))
                             continue;
-                        if(d_indexMap[d_input(i,j)].path.empty())
-                            AutomapLog::report("Unexpected index in input pattern", AutomapLog::Type::Warning);
                         
-                        if(i_layer(x+i, y+j).info() != d_indexMap[d_input(i,j)])
-                            isInputPattern = false;
-                    }
-                }
-                
-                size_t rotations = 0;
-                for(Pattern p = d_input; rotationInvariant && !isInputPattern && rotations<4; ++rotations, p=p.rotate())
-                {
-                    isInputPattern = true;
-                    for( size_t j = 0; j<p.getHeight(); ++j )
-                    {
-                        for( size_t i = 0; i<p.getWidth(); ++i )
+                        if(x+i>=0 && x+i<o_map.getWidth() && y+j>=0 && y+j<o_map.getHeight())
                         {
-                            if(!p(i,j))
-                                continue;
-                            if(d_indexMap[p(i,j)].path.empty())
+                            if(d_indexMap[d_input(i,j)].path.empty())
                                 AutomapLog::report("Unexpected index in input pattern", AutomapLog::Type::Warning);
-                            
-                            if(i_layer(x+i, y+j).info() != d_indexMap[p(i,j)])
+                    
+                            if(i_layer(x+i, y+j).info() != d_indexMap[d_input(i,j)])
                                 isInputPattern = false;
                         }
                     }
@@ -122,17 +107,20 @@ namespace Flared_NS {
                             o_map.addLayer(output.first);
                         }
                         auto& layer = o_map.getLayer(output.first);
-                        for( size_t j = 0; j<d_input.getHeight(); ++j )
+                        for( int j = 0; j<d_input.getHeight(); ++j )
                         {
-                            for( size_t i = 0; i<d_input.getWidth(); ++i )
+                            for( int i = 0; i<d_input.getWidth(); ++i )
                             {
                                 if(!output.second(i,j))
                                     continue;
                                 
-                                if(d_indexMap[output.second(i,j)].path.empty())
-                                    AutomapLog::report("Unexpected index in output pattern", AutomapLog::Type::Warning);
+                                if(x+i>=0 && x+i<o_map.getWidth() && y+j>=0 && y+j<o_map.getHeight())
+                                {
+                                    if(d_indexMap[output.second(i,j)].path.empty())
+                                        AutomapLog::report("Unexpected index in output pattern", AutomapLog::Type::Warning);
                                 
-                                layer(x+i, y+j).info() = d_indexMap[output.second(i,j)];
+                                    layer(x+i, y+j).info() = d_indexMap[output.second(i,j)];
+                                }
                             }
                         }
                     }
