@@ -259,7 +259,8 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
 
 void TouchControl::moveAction(cocos2d::Vec2 i_touch)
 {
-    d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
+    if(!Blocker::state())
+        d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
 }
 
 void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
