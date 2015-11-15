@@ -82,12 +82,9 @@ bool HelloWorld::init()
     {
         if((touch->getStartLocation() - touch->getLocation()).length() <= 16.0)
         {
-            if(MagicWars_NS::TouchControl::instance().getTurnController().getTurnSide()!="Dark")
-            {
-                Vec2 invLocation = touch->getLocationInView();
-                invLocation.y = Director::getInstance()->getVisibleSize().height - invLocation.y;
-                MagicWars_NS::TouchControl::instance().tapAction(invLocation);
-            }
+            Vec2 invLocation = touch->getLocationInView();
+            invLocation.y = Director::getInstance()->getVisibleSize().height - invLocation.y;
+            MagicWars_NS::TouchControl::instance().tapAction(invLocation);
         }
     };
     
