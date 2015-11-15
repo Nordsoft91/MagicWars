@@ -27,6 +27,8 @@ namespace MagicWars_NS {
         bool setSolid(size_t x, size_t y);
         void setSolid(Flared_NS::Map& i_map);
         
+        
+        
         bool isSolid(size_t x, size_t y) const;
       
         //std::list<GameObj*>& get() { return d_mapObjects; }

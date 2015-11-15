@@ -163,5 +163,18 @@ void Flared_NS::Parser::construct(Flared_NS::Map &o_map)
                 }
             }
         }
+        
+        //add characters
+        if(section.name=="characters")
+        {
+            for(auto& parameter : section.data)
+            {
+                if(parameter.name=="character")
+                {
+                    assert(parameter.data.size()==4);
+                    o_map.addCharacter({parameter.data[0], parameter.data[1], toSizeT(parameter.data[2]), toSizeT(parameter.data[3])});
+                }
+            }
+        }
     }
 }

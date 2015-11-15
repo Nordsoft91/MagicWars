@@ -147,3 +147,13 @@ cocos2d::Node* Flared_NS::Map::getMapTree()
     }
     return m;
 }
+
+std::vector<Flared_NS::Map::Character> Flared_NS::Map::getCharacters() const
+{
+    return d_characters;
+}
+
+void Flared_NS::Map::addCharacter(Flared_NS::Map::Character i_ch)
+{
+    d_characters.push_back(i_ch);
+}

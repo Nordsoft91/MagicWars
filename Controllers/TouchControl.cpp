@@ -275,7 +275,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 {
     d_interface = &i_interface;
     
-    Flared_NS::Parser parser("mapT_M_template.txt");
+    Flared_NS::Parser parser("mapT_S_tutorial01.txt");
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
     
@@ -316,51 +316,16 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    Magican* tempObject;
-    
     d_turnControl.relationships.set("Light", "Neutral", Relationships::Type::Neutral);
     d_turnControl.relationships.set("Light", "Dark", Relationships::Type::Enemies);
     d_turnControl.relationships.set("Neutral", "Dark", Relationships::Type::Enemies);
     
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero01_level01")));
-    tempObject->born(i_layer, 15, 2);
-    d_turnControl.insert(tempObject, "Light");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero02_level01")));
-    tempObject->born(i_layer, 14, 4);
-    d_turnControl.insert(tempObject, "Light");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "hero03_level01")));
-    tempObject->born(i_layer, 10, 16);
-    d_turnControl.insert(tempObject, "Neutral");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "girl_level01")));
-    tempObject->born(i_layer, 13, 1);
-    d_turnControl.insert(tempObject, "Light");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
-    tempObject->born(i_layer, 10, 11);
-    d_turnControl.insert(tempObject, "Dark");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
-    tempObject->born(i_layer, 7, 10);
-    d_turnControl.insert(tempObject, "Dark");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
-    tempObject->born(i_layer, 17, 11);
-    d_turnControl.insert(tempObject, "Dark");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
-    tempObject->born(i_layer, 16, 9);
-    d_turnControl.insert(tempObject, "Dark");
-    
-    tempObject = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, "wolf01")));
-    tempObject->born(i_layer, 15, 7);
-    d_turnControl.insert(tempObject, "Dark");
-    
-    //ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects))->born(i_layer, 6, 5);
-    //Animated* anim = Animated::create("hero01.png", "charAnimation3", 0, 6);
-    //i_layer->addChild(anim);
+    for(auto& i : flaredSet.getCharacters())
+    {
+        Magican* object = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.name)));
+        object->born(i_layer, i.x, i.y);
+        d_turnControl.insert(object, i.team);
+    }
     
     SquareControl::instance().toScene(i_layer);
     

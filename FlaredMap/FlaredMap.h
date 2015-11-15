@@ -15,6 +15,12 @@ namespace Flared_NS {
     class Map
     {
     public:
+        struct Character
+        {
+            std::string team, name;
+            size_t x,y;
+        };
+        
         Map() = default;
         ~Map() = default;
         
@@ -43,6 +49,10 @@ namespace Flared_NS {
         
         cocos2d::Sprite* getTileImg(const Flared_NS::Tile& i_tile);
         
+        std::vector<Character> getCharacters() const;
+        
+        void addCharacter(Character i_ch);
+        
         //convert map to cocos nodes tree
         cocos2d::Node* getMapTree();
         
@@ -51,6 +61,7 @@ namespace Flared_NS {
         
         std::list<Tileset> d_tilesetList;
         std::map<std::string, Layer> d_layerMap;
+        std::vector<Character> d_characters;
         size_t d_width, d_height;
         size_t d_tileWidth, d_tileHeight;
     };
