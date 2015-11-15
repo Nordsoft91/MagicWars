@@ -136,9 +136,9 @@ void TouchControl::tapAction(cocos2d::Vec2 i_touch)
     if(!Blocker::state())
     {
         Vec2 globPos = i_touch - d_mapLayer->getPosition();
-        size_t clickX = globPos.x / d_sizeWidth;
-        size_t clickY = globPos.y / d_sizeHeight;
-        pressAction(clickX, clickY);
+        tapLastCellX = globPos.x / d_sizeWidth;
+        tapLastCellY = globPos.y / d_sizeHeight;
+        pressAction(tapLastCellX, tapLastCellY);
     }
 }
 

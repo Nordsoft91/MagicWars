@@ -13,8 +13,6 @@
 #include "TouchControl.h"
 #include "Blocker.h"
 
-#include "UIMessageSequence.h"
-
 #define BUTTON_NAME(T) T"_none.png", T"_select.png"
 
 namespace MagicWars_NS {

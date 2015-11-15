@@ -14,7 +14,7 @@
 namespace MagicWars_NS {
     enum class Pause
     {
-        Animation, Interface, Intellect
+        Animation, Interface, Intellect, Message
     };
     
     class Blocker

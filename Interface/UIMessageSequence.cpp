@@ -38,6 +38,7 @@ namespace UI_NS {
             d_sequence.push_back(msg);
         }
         d_sequence.front()->setVisible(true);
+        MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Message);
         
         d_listener = cocos2d::EventListenerTouchOneByOne::create();
         d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
@@ -51,6 +52,7 @@ namespace UI_NS {
             if(d_sequence.empty())
             {
                 cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
+                MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Message);
                 removeFromParent();
             }
             else
@@ -61,5 +63,15 @@ namespace UI_NS {
         
         
         return true;
+    }
+    
+    void MessageSequence::blockLast()
+    {
+        d_sequence.back()->block(true);
+    }
+    
+    void MessageSequence::releaseLast()
+    {
+        d_sequence.back()->block(false);
     }
 }

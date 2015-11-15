@@ -10,12 +10,17 @@
 #define __MagicWars__UIMessageSequence__
 
 #include "UIMessage.h"
+#include "Blocker.h"
 
 namespace UI_NS {
     class MessageSequence: public cocos2d::ui::Widget
     {
     public:
         static MessageSequence* create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message);
+        
+        void blockLast();
+        
+        void releaseLast();
         
     protected:
         MessageSequence() = default;

@@ -46,6 +46,28 @@ namespace UI_NS {
         }
     }
     
+    void Message::block(bool i_block)
+    {
+        d_block = i_block;
+    }
+    
+    void Message::drawBackground(cocos2d::Vec2 i_pos1, cocos2d::Vec2 i_pos2, cocos2d::Color4F i_background)
+    {
+        d_background = cocos2d::DrawNode::create();
+        d_background->drawSolidRect(i_pos1, i_pos2, i_background);
+        d_background->drawRect(i_pos1, i_pos2, cocos2d::Color4F::WHITE);
+        addChild(d_background);
+    }
+    
+    void Message::drawText(cocos2d::Vec2 i_pos, const std::string& i_message)
+    {
+        auto t = cocos2d::ui::Text::create(i_message, "Courier", 16);
+        t->setPosition(i_pos);
+        t->setColor(cocos2d::Color3B::WHITE);
+        d_text.push_back(t);
+        addChild(t);
+    }
+    
     bool Message::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
     {
         if(!cocos2d::ui::Widget::init())
@@ -56,18 +78,11 @@ namespace UI_NS {
         cocos2d::Vec2 stringSize(stringWidth(list.front(), 16), stringHeight(1, 16));
         cocos2d::Vec2 stringh(0, stringSize.y);
         
-        d_background = cocos2d::DrawNode::create();
-        d_background->drawSolidRect(i_pos + textSize/1.9 + stringh/2, i_pos - textSize/1.9 + stringh/2, i_background);
-        d_background->drawRect(i_pos + textSize/1.9 + stringh/2, i_pos - textSize/1.9 + stringh/2, cocos2d::Color4F::WHITE);
-        addChild(d_background);
+        drawBackground(i_pos + textSize/1.9 + stringh/2, i_pos - textSize/1.9 + stringh/2, i_background);
     
         for(size_t i=0; i<list.size(); ++i)
         {
-            auto t = cocos2d::ui::Text::create(list[i], "Courier", 16);
-            t->setPosition(i_pos+cocos2d::Vec2(0, textSize.y/2 - i*stringSize.y));
-            t->setColor(cocos2d::Color3B::WHITE);
-            d_text.push_back(t);
-            addChild(t);
+            drawText(i_pos+cocos2d::Vec2(0, textSize.y/2 - i*stringSize.y), list[i]);
         }
         
         d_listener = cocos2d::EventListenerTouchOneByOne::create();
@@ -88,7 +103,7 @@ namespace UI_NS {
     
     void Message::callback(cocos2d::Touch *touch)
     {
-        if(isVisible())
+        if(isVisible() && !d_block)
         {
             cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
             removeFromParent();

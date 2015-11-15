@@ -100,6 +100,9 @@ namespace MagicWars_NS {
         
         cocos2d::Layer* d_mapLayer = nullptr;
         
+    public:
+        
+        size_t tapLastCellX = -1, tapLastCellY = -1;
         
     };
 }

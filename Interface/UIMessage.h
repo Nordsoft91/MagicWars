@@ -19,6 +19,8 @@ namespace UI_NS {
     
     std::vector<std::string> stringSplit(const std::string& i_str, int i_limit);
     
+    
+    
     class Message: public cocos2d::ui::Widget
     {
     public:
@@ -32,7 +34,14 @@ namespace UI_NS {
     public:
         virtual void callback(cocos2d::Touch *touch);
         
+        void block( bool i_block );
+        
     protected:
+        bool d_block = false;
+        
+        virtual void drawBackground(cocos2d::Vec2 i_pos1, cocos2d::Vec2 i_pos2, cocos2d::Color4F i_background);
+        virtual void drawText(cocos2d::Vec2 i_pos, const std::string& i_message);
+        
         std::list<cocos2d::ui::Text*> d_text;
         cocos2d::DrawNode* d_background = nullptr;
         cocos2d::EventListenerTouchOneByOne* d_listener;
