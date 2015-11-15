@@ -21,6 +21,30 @@ namespace UI_NS {
         virtual void throwEvent() = 0;
     };
     
+    
+    //EventSequence
+    class EventSequence: public Event
+    {
+    public:
+        EventSequence(std::list<Event*> i_events): d_events(i_events) {}
+        
+        virtual void throwEvent() override
+        {
+            for(auto* i : d_events)
+                i->throwEvent();
+        }
+        
+        virtual ~EventSequence()
+        {
+            for(auto* i : d_events)
+                delete i;
+        }
+        
+    private:
+        std::list<Event*> d_events;
+    };
+    
+    //EventMessage
     class EventMessage: public Event
     {
     public:
@@ -37,6 +61,25 @@ namespace UI_NS {
     protected:
         cocos2d::Scene* d_scene = nullptr;
         const std::list<std::string> d_message;
+    };
+    
+    //EventCondition
+    class EventCondition: public Event, public Condition
+    {
+    public:
+        
+        virtual bool get() const override
+        {
+            return d_active;
+        }
+        
+        virtual void throwEvent() override
+        {
+            d_active = true;
+        }
+        
+    protected:
+        bool d_active = false;
     };
 }
 
