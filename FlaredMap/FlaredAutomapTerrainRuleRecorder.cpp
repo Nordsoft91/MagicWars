@@ -53,7 +53,9 @@ namespace Flared_NS
             std::vector<size_t> to = Consts::get("to", "flared_" + d_terrainTypeName).toVector<size_t>();
             d_tilesetToName = (std::string)Consts::get("file", "flared_" + d_terrainTypeName);
             
-            std::ofstream F(d_terrainTypeName + ".automap");
+            cocos2d::FileUtils::getInstance()->getWritablePath();
+            const std::string fname = cocos2d::FileUtils::getInstance()->getWritablePath() + d_terrainTypeName + ".automap";
+            std::ofstream F(fname);
             //center
             writeGroupHeader(F, RULE_MAKER_STR(crName, d_terrainTypeName, crCenterName));
             writeIndex(F, d_inputTilesetName, to );
@@ -161,7 +163,7 @@ namespace Flared_NS
             
             F.close();
 
-            Consts::loadAdditionalConsts(d_terrainTypeName + ".automap");
+            Consts::loadAdditionalConsts(fname);
         }
     }
 }
