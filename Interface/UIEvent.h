@@ -11,6 +11,7 @@
 
 #include "UICondition.h"
 #include "UIMessageSequence.h"
+#include "TouchControl.h"
 
 namespace UI_NS {
     class Event
@@ -60,6 +61,23 @@ namespace UI_NS {
         
     protected:
         cocos2d::Scene* d_scene = nullptr;
+        const std::list<std::string> d_message;
+    };
+    
+    class EventDialog: public Event
+    {
+    public:
+        EventDialog(cocos2d::Node* io_character, const std::list<std::string>& i_message): d_owner(io_character), d_message(i_message)
+        {}
+        
+        virtual void throwEvent() override
+        {
+            MagicWars_NS::TouchControl::instance().centralizeOn(d_owner->getPosition());
+            d_owner->addChild(UI_NS::MessageSequence::create(d_owner->getPosition(), cocos2d::Color4F{1,1,1,0.5}, d_message));
+        }
+        
+    protected:
+        cocos2d::Node* d_owner = nullptr;
         const std::list<std::string> d_message;
     };
     

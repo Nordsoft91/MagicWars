@@ -53,17 +53,18 @@ namespace UI_NS {
     
     void Message::drawBackground(cocos2d::Vec2 i_pos1, cocos2d::Vec2 i_pos2, cocos2d::Color4F i_background)
     {
+        cocos2d::Color4F framecolor(1-i_background.r,1-i_background.g,1-i_background.b,1);
         d_background = cocos2d::DrawNode::create();
         d_background->drawSolidRect(i_pos1, i_pos2, i_background);
-        d_background->drawRect(i_pos1, i_pos2, cocos2d::Color4F::WHITE);
+        d_background->drawRect(i_pos1, i_pos2, framecolor);
         addChild(d_background);
     }
     
-    void Message::drawText(cocos2d::Vec2 i_pos, const std::string& i_message)
+    void Message::drawText(cocos2d::Vec2 i_pos, const std::string& i_message, cocos2d::Color3B i_color)
     {
         auto t = cocos2d::ui::Text::create(i_message, "Courier", 16);
         t->setPosition(i_pos);
-        t->setColor(cocos2d::Color3B::WHITE);
+        t->setColor(i_color);
         d_text.push_back(t);
         addChild(t);
     }
@@ -82,7 +83,8 @@ namespace UI_NS {
     
         for(size_t i=0; i<list.size(); ++i)
         {
-            drawText(i_pos+cocos2d::Vec2(0, textSize.y/2 - i*stringSize.y), list[i]);
+            cocos2d::Color3B textcolor(255-255*i_background.r,255-255*i_background.g,255-255*i_background.b);
+            drawText(i_pos+cocos2d::Vec2(0, textSize.y/2 - i*stringSize.y), list[i], textcolor);
         }
         
         d_listener = cocos2d::EventListenerTouchOneByOne::create();
