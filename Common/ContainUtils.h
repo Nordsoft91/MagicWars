@@ -21,6 +21,8 @@ namespace MagicWars_NS {
     public:
         static GameObj* findObjectbyId(const std::list<GameObj*>& i_list, int i_uid);
         
+        static GameObj* findObjectByName(const std::list<GameObj*>& i_list, const std::string& i_name);
+        
         static GameObj* findObject(const std::list<GameObj*>& i_list, size_t i_x, size_t i_y);
         
         static GameObj* findObject(const std::vector<GameObj*>& i_arr, size_t i_x, size_t i_y);
@@ -52,7 +54,7 @@ namespace MagicWars_NS {
         }
         
         template<class T>
-        static int createObjectWithName(std::list<GameObj*>& io_list, std::string i_name)
+        static int createObjectWithName(std::list<GameObj*>& io_list, const std::string& i_name)
         {
             T* obj = new T(i_name);
             if(!dynamic_cast<GameObj*>(obj))
@@ -60,6 +62,21 @@ namespace MagicWars_NS {
                 delete obj;
                 return 0;
             }
+            dynamic_cast<GameObj*>(obj)->setName(i_name);
+            io_list.push_back(dynamic_cast<GameObj*>(obj));
+            return dynamic_cast<GameObj*>(obj)->getId();
+        }
+        
+        template<class T>
+        static int createObjectWithName(std::list<GameObj*>& io_list, const std::string& i_name, const std::string& i_arg)
+        {
+            T* obj = new T(i_arg);
+            if(!dynamic_cast<GameObj*>(obj))
+            {
+                delete obj;
+                return 0;
+            }
+            dynamic_cast<GameObj*>(obj)->setName(i_name);
             io_list.push_back(dynamic_cast<GameObj*>(obj));
             return dynamic_cast<GameObj*>(obj)->getId();
         }

@@ -20,6 +20,16 @@ GameObj* ContainUtils::findObjectbyId(const std::list<GameObj*>& i_list, int i_u
     return nullptr;
 }
 
+GameObj* findObjectByName(const std::list<GameObj*>& i_list, const std::string& i_name)
+{
+    for(auto i : i_list)
+    {
+        if(i->getName() == i_name)
+            return i;
+    }
+    return nullptr;
+}
+
 GameObj* ContainUtils::findObject(const std::list<GameObj*>& i_list, size_t i_x, size_t i_y)
 {
     for(auto i : i_list)

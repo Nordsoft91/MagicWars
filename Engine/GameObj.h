@@ -36,10 +36,14 @@ namespace MagicWars_NS {
         
         virtual void move(const std::list<int>& i_list);
         
+        void setName(const std::string& i_name) {d_name=i_name;}
+        const std::string& getName() const {return d_name;}
+        
         size_t x,y;
         
     protected:
         cocos2d::Sprite *d_sprite = nullptr;
+        std::string d_name;
         int d_id;
     };
 
