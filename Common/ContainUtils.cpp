@@ -10,7 +10,7 @@
 
 using namespace MagicWars_NS;
 
-GameObj* ContainUtils::findObjectbyId(const std::list<GameObj*>& i_list, int i_uid)
+GameObj* ContainUtils::findObjectById(const std::list<GameObj*>& i_list, int i_uid)
 {
     for(auto i : i_list)
     {
@@ -20,7 +20,7 @@ GameObj* ContainUtils::findObjectbyId(const std::list<GameObj*>& i_list, int i_u
     return nullptr;
 }
 
-GameObj* findObjectByName(const std::list<GameObj*>& i_list, const std::string& i_name)
+GameObj* ContainUtils::findObjectByName(const std::list<GameObj*>& i_list, const std::string& i_name)
 {
     for(auto i : i_list)
     {

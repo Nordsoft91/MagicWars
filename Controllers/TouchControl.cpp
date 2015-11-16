@@ -19,6 +19,8 @@
 #include "FlaredAutomapTerrainRuleRecorder.h"
 #include "FlaredEnum.h"
 
+#include "UITrigger.h"
+
 using namespace MagicWars_NS;
 using namespace cocos2d;
 
@@ -322,9 +324,20 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     
     for(auto& i : flaredSet.getCharacters())
     {
-        Magican* object = dynamic_cast<Magican*>(ContainUtils::findObjectbyId(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.name)));
+        Magican* object = i.name.empty() ? dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group))) : dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group, i.name)));
         object->born(i_layer, i.x, i.y);
         d_turnControl.insert(object, i.team);
+    }
+    
+    if( auto* pers = ContainUtils::findObjectByName(d_persons, "Braves"))
+    {
+        cocos2d::log("Braves is found");
+        
+        auto trigger = UI_NS::Trigger::create();
+        trigger->setActivationCondition(new UI_NS::ConditionTapCellOnMap(pers->x, pers->y));
+        trigger->setThrowEvent(new UI_NS::EventSequence( {new UI_NS::EventDialog(pers->getSprite(), {"Hi! this i my first phrase.", "And this is second"}), new UI_NS::EventMessage(i_layer, {"This is author message"})} ));
+        trigger->activate();
+        i_layer->addChild(trigger);
     }
     
     SquareControl::instance().toScene(i_layer);

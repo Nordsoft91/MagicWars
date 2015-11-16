@@ -19,7 +19,7 @@ namespace MagicWars_NS {
     class ContainUtils
     {
     public:
-        static GameObj* findObjectbyId(const std::list<GameObj*>& i_list, int i_uid);
+        static GameObj* findObjectById(const std::list<GameObj*>& i_list, int i_uid);
         
         static GameObj* findObjectByName(const std::list<GameObj*>& i_list, const std::string& i_name);
         
@@ -68,15 +68,15 @@ namespace MagicWars_NS {
         }
         
         template<class T>
-        static int createObjectWithName(std::list<GameObj*>& io_list, const std::string& i_name, const std::string& i_arg)
+        static int createObjectWithName(std::list<GameObj*>& io_list, const std::string& i_name, const std::string& i_uniquename)
         {
-            T* obj = new T(i_arg);
+            T* obj = new T(i_name);
             if(!dynamic_cast<GameObj*>(obj))
             {
                 delete obj;
                 return 0;
             }
-            dynamic_cast<GameObj*>(obj)->setName(i_name);
+            dynamic_cast<GameObj*>(obj)->setName(i_uniquename);
             io_list.push_back(dynamic_cast<GameObj*>(obj));
             return dynamic_cast<GameObj*>(obj)->getId();
         }

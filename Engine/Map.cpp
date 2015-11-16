@@ -36,7 +36,7 @@ bool Map::setSolid(size_t x, size_t y)
 {
     if(isInside(x, y))
     {
-        if(GameObj* obj = ContainUtils::findObjectbyId(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects)))
+        if(GameObj* obj = ContainUtils::findObjectById(d_mapObjects, ContainUtils::createObjectByType<BaseWall>(d_mapObjects)))
         {
             d_map.at(y*d_mapWidth+x).push_back(obj);
             return true;

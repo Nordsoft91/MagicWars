@@ -17,8 +17,9 @@ namespace Flared_NS {
     public:
         struct Character
         {
-            std::string team, name;
+            std::string team, group;
             size_t x,y;
+            std::string name;
         };
         
         Map() = default;

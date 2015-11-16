@@ -49,7 +49,7 @@ namespace UI_NS {
     class EventMessage: public Event
     {
     public:
-        EventMessage(cocos2d::Scene* io_scene, const std::list<std::string>& i_message): d_scene(io_scene), d_message(i_message)
+        EventMessage(cocos2d::Node* io_scene, const std::list<std::string>& i_message): d_scene(io_scene), d_message(i_message)
         {}
         
         virtual void throwEvent() override
@@ -60,7 +60,7 @@ namespace UI_NS {
         }
         
     protected:
-        cocos2d::Scene* d_scene = nullptr;
+        cocos2d::Node* d_scene = nullptr;
         const std::list<std::string> d_message;
     };
     

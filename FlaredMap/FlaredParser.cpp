@@ -171,8 +171,8 @@ void Flared_NS::Parser::construct(Flared_NS::Map &o_map)
             {
                 if(parameter.name=="character")
                 {
-                    assert(parameter.data.size()==4);
-                    o_map.addCharacter({parameter.data[0], parameter.data[1], toSizeT(parameter.data[2]), toSizeT(parameter.data[3])});
+                    assert(parameter.data.size()==4 || parameter.data.size()==5);
+                    o_map.addCharacter({parameter.data[0], parameter.data[1], toSizeT(parameter.data[2]), toSizeT(parameter.data[3]), parameter.data.size()==5 ? parameter.data[4] : ""});
                 }
             }
         }

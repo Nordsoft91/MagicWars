@@ -29,6 +29,7 @@ namespace MagicWars_NS {
         int getId() const;
         
         void setSprite(const std::string i_spr);
+        cocos2d::Sprite* getSprite() { return d_sprite;}
         
         void jump(size_t ix, size_t iy);
         
