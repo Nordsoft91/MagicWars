@@ -22,7 +22,7 @@ namespace UI_NS {
     void Trigger::activate()
     {
         d_active = true;
-        scheduleUpdate();
+        scheduleUpdateWithPriority(1);
     }
     
     void Trigger::deactivate()
@@ -32,13 +32,13 @@ namespace UI_NS {
     
     void Trigger::update(float i_delta)
     {
-        if(MagicWars_NS::Blocker::state() || !d_active || !d_condition || !d_event)
+        if(MagicWars_NS::Blocker::state() || !d_active || !d_event)
             return;
         
         if(d_thrown)
             return;
         
-        if(d_condition->get())
+        if(!d_condition || d_condition->get())
         {
             d_event->throwEvent();
             removeFromParent();

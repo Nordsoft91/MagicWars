@@ -46,6 +46,7 @@ namespace UI_NS {
         cocos2d::DrawNode* d_background = nullptr;
         cocos2d::EventListenerTouchOneByOne* d_listener;
     };
+    
 }
 
 #endif /* defined(__MagicWars__UIMessage__) */

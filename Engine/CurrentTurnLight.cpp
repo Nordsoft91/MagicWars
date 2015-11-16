@@ -31,7 +31,7 @@ bool CurrentTurnLight::init()
     if(!cocos2d::DrawNode::init())
         return false;
     
-    scheduleUpdate();
+    scheduleUpdateWithPriority(9);
     show();
     return true;
 }

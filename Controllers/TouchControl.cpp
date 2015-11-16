@@ -333,11 +333,22 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     {
         cocos2d::log("Braves is found");
         
-        auto trigger = UI_NS::Trigger::create();
-        trigger->setActivationCondition(new UI_NS::ConditionTapCellOnMap(pers->x, pers->y));
-        trigger->setThrowEvent(new UI_NS::EventSequence( {new UI_NS::EventDialog(pers->getSprite(), {"Hi! this i my first phrase.", "And this is second"}), new UI_NS::EventMessage(i_layer, {"This is author message"})} ));
-        trigger->activate();
-        i_layer->addChild(trigger);
+        auto trigger1 = UI_NS::Trigger::create();
+        auto trigger2 = UI_NS::Trigger::create();
+        trigger1->setActivationCondition(new UI_NS::ConditionTapCellOnMap(pers->x, pers->y));
+        
+        auto cond1 = new UI_NS::EventCondition();
+        trigger2->setActivationCondition(cond1);
+        
+        auto event1 = new UI_NS::EventHeap( {new UI_NS::EventDialog(pers->getSprite(), {"Hello world!", "Let s go", "I'm talking!"}), cond1} );
+        event1->releaseResourceControl(cond1);
+        
+        trigger1->setThrowEvent(event1);
+        trigger2->setThrowEvent(new UI_NS::EventMessage(d_interface->getScreenNode(), {"This is prologue from autor", "Enjoy"}));
+        trigger1->activate();
+        trigger2->activate();
+        i_layer->addChild(trigger1);
+        i_layer->addChild(trigger2);
     }
     
     SquareControl::instance().toScene(i_layer);

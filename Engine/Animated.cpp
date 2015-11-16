@@ -98,7 +98,7 @@ bool Animated::init()
         return false;
     
     runAction(cocos2d::Animate::create(d_animation));
-    scheduleUpdate();
+    scheduleUpdateWithPriority(10);
     return true;
 }
 

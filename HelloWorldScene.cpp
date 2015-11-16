@@ -90,7 +90,7 @@ bool HelloWorld::init()
     
     Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(listener, 30);
     
-    scheduleUpdate();
+    scheduleUpdateWithPriority(2);
     
     return true;
 }

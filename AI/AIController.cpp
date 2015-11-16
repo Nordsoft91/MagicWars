@@ -15,7 +15,7 @@ bool AIController::init()
 {
     if(!cocos2d::Node::init())
         return false;
-    scheduleUpdate();
+    scheduleUpdateWithPriority(3);
     return true;
 }
 

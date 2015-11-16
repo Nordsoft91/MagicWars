@@ -7,3 +7,4 @@
 //
 
 #include "UIEvent.h"
+#include "UITrigger.h"

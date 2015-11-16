@@ -65,7 +65,7 @@ bool Effect::init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal, double i_time)
         auto i_move = cocos2d::MoveTo::create(i_time, i_goal);
         runAction(i_move);
     }
-    scheduleUpdate();
+    scheduleUpdateWithPriority(10);
     return true;
 }
 

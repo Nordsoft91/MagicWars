@@ -55,7 +55,7 @@ bool StatusUpdater::init()
     if(!cocos2d::DrawNode::init())
         return false;
     
-    scheduleUpdate();
+    scheduleUpdateWithPriority(10);
     update(0);
     setVisible(false);
     return true;

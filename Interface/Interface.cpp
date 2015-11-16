@@ -19,6 +19,9 @@ Interface::Interface(cocos2d::Scene* io_scene)
     d_pMenu->setPosition(cocos2d::Vec2::ZERO);
     io_scene->addChild(d_pMenu, 1);
     
+    d_pScreen = cocos2d::ui::Widget::create();
+    io_scene->cocos2d::Node::addChild(d_pScreen, 1);
+    
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     cocos2d::Vec2 screenCenter(visibleSize.width/2, visibleSize.height/2);
     
@@ -138,4 +141,9 @@ void Interface::disableActionButtons(bool i_disable)
 {
     d_pAttackItem->setEnabled(!i_disable);
     d_pSpellItem->setEnabled(!i_disable);
+}
+
+cocos2d::ui::Widget* Interface::getScreenNode() const
+{
+    return d_pScreen;
 }

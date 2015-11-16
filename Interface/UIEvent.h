@@ -13,7 +13,9 @@
 #include "UIMessageSequence.h"
 #include "TouchControl.h"
 
+
 namespace UI_NS {
+
     class Event
     {
     public:
@@ -23,11 +25,13 @@ namespace UI_NS {
     };
     
     
-    //EventSequence
-    class EventSequence: public Event
+    //EventHeap
+    class EventHeap: public Event
     {
     public:
-        EventSequence(std::list<Event*> i_events): d_events(i_events) {}
+        EventHeap(std::list<Event*> i_events): d_events(i_events) {}
+        
+        void releaseResourceControl(Event* i_event) {d_preventRelease.push_back(i_event);}
         
         virtual void throwEvent() override
         {
@@ -35,14 +39,18 @@ namespace UI_NS {
                 i->throwEvent();
         }
         
-        virtual ~EventSequence()
+        virtual ~EventHeap()
         {
             for(auto* i : d_events)
-                delete i;
+            {
+                if(std::find(d_preventRelease.begin(), d_preventRelease.end(), i)==d_preventRelease.end())
+                    delete i;
+            }
         }
         
     private:
         std::list<Event*> d_events;
+        std::list<Event*> d_preventRelease;
     };
     
     //EventMessage
@@ -73,13 +81,27 @@ namespace UI_NS {
         virtual void throwEvent() override
         {
             MagicWars_NS::TouchControl::instance().centralizeOn(d_owner->getPosition());
-            d_owner->addChild(UI_NS::MessageSequence::create(d_owner->getPosition(), cocos2d::Color4F{1,1,1,0.5}, d_message));
+            d_owner->addChild(UI_NS::MessageSequence::create(cocos2d::Vec2(64,128), cocos2d::Color4F{1,1,1,0.5}, d_message));
         }
         
     protected:
-        cocos2d::Node* d_owner = nullptr;
+        cocos2d::Node *d_owner = nullptr, *d_scene = nullptr;
         const std::list<std::string> d_message;
     };
+    
+    /*class EventActivateTrigger: public Event
+    {
+    public:
+        EventActivateTrigger(Trigger* i_trigger): d_trigger(i_trigger) {}
+        
+        virtual void throwEvent() override
+        {
+            d_trigger->activate();
+        }
+        
+    protected:
+        Trigger* d_trigger = nullptr;
+    };*/
     
     //EventCondition
     class EventCondition: public Event, public Condition
@@ -99,6 +121,7 @@ namespace UI_NS {
     protected:
         bool d_active = false;
     };
+
 }
 
 #endif /* defined(__MagicWars__UIEvent__) */
