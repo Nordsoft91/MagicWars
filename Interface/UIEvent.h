@@ -15,6 +15,8 @@
 
 
 namespace UI_NS {
+    
+    class Trigger;
 
     class Event
     {
@@ -89,19 +91,17 @@ namespace UI_NS {
         const std::list<std::string> d_message;
     };
     
-    /*class EventActivateTrigger: public Event
+    //trigger activation
+    class EventActivateTrigger: public Event
     {
     public:
         EventActivateTrigger(Trigger* i_trigger): d_trigger(i_trigger) {}
         
-        virtual void throwEvent() override
-        {
-            d_trigger->activate();
-        }
+        virtual void throwEvent() override;
         
     protected:
         Trigger* d_trigger = nullptr;
-    };*/
+    };
     
     //EventCondition
     class EventCondition: public Event, public Condition

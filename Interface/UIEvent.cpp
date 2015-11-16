@@ -8,3 +8,10 @@
 
 #include "UIEvent.h"
 #include "UITrigger.h"
+
+namespace UI_NS {
+    void EventActivateTrigger::throwEvent()
+    {
+        d_trigger->activate();
+    }
+}
