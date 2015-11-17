@@ -54,6 +54,7 @@ namespace UI_NS {
         const std::list<std::string> d_message;
     };
     
+    //EventDialog
     class EventDialog: public Event
     {
     public:
@@ -63,8 +64,21 @@ namespace UI_NS {
         virtual void throwEvent() override;
         
     protected:
-        cocos2d::Node *d_owner = nullptr, *d_scene = nullptr;
+        cocos2d::Node *d_owner = nullptr
         const std::list<std::string> d_message;
+    };
+    
+    //EventDialogChain
+    class EventDialogChain: public Event
+    {
+    public:
+        EventDialogChain(cocos2d::Node* io_scene, const std::list<EventDialog>& i_chain);
+        
+        virtual void throwEvent() override;
+        
+    protected:
+        cocos2d::Node* d_scene = nullptr;
+        const std::list<EventDialog> d_chain;
     };
     
     //trigger activation
