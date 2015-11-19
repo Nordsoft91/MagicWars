@@ -10,6 +10,31 @@
 #include "UITrigger.h"
 
 namespace UI_NS {
+    
+    EventChain::EventChain(cocos2d::Node* io_scene, const std::list<Event*>& i_chain): d_chain(i_chain)
+    {
+        d_trigger = UI_NS::Trigger::create();
+        io_scene->addChild(d_trigger);
+        
+        auto selfTrigger = d_trigger;
+        
+        for( Event* link : i_chain )
+        {
+            auto trigger = UI_NS::Trigger::create();
+            io_scene->addChild(trigger);
+            selfTrigger->setThrowEvent(new UI_NS::EventHeap( {link, new UI_NS::EventActivateTrigger(trigger)} ));
+            selfTrigger = trigger;
+        }
+    }
+    
+    void EventChain::throwEvent()
+    {
+        if(d_trigger)
+            d_trigger->activate();
+    }
+    
+    EventActivateTrigger::EventActivateTrigger(Trigger* i_trigger): d_trigger(i_trigger) {}
+    
     void EventActivateTrigger::throwEvent()
     {
         d_trigger->activate();
@@ -23,6 +48,8 @@ namespace UI_NS {
     
     EventHeap::~EventHeap()
     {
+        cocos2d::log("Heap destructor");
+        
         for(auto* i : d_events)
         {
             if(std::find(d_preventRelease.begin(), d_preventRelease.end(), i)==d_preventRelease.end())

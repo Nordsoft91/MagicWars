@@ -52,6 +52,8 @@ namespace UI_NS {
     
     Trigger::~Trigger()
     {
+        cocos2d::log("Trigger destructor");
+        
         if(d_controlRes)
         {
             if(d_condition) delete d_condition;

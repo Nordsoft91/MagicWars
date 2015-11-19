@@ -334,21 +334,16 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
         auto* fr = ContainUtils::findObjectByName(d_persons, "Friend");
         cocos2d::log("Braves is found");
         
-        auto trigger1 = UI_NS::Trigger::create();
-        auto trigger2 = UI_NS::Trigger::create();
-        auto trigger3 = UI_NS::Trigger::create();
-        trigger1->setActivationCondition(new UI_NS::ConditionTapCellOnMap(pers->x, pers->y));
-        trigger1->setThrowEvent(new UI_NS::EventHeap( {new UI_NS::EventDialog(pers->getSprite(), {"Hello world!", "Let s go", "I'm talking!", "How are you today? Do you want do fight with this wolf?"}), new UI_NS::EventActivateTrigger(trigger2)} ));
-        
-        trigger2->setThrowEvent(new UI_NS::EventHeap( {new UI_NS::EventDialog(fr->getSprite(), {"Yes!", "I really want do do it!"}), new UI_NS::EventActivateTrigger(trigger3)} ));
-        
-        trigger3->setThrowEvent(new UI_NS::EventMessage(d_interface->getScreenNode(), {"Play", "Fight", "Use magic"}) );
-        
-        trigger1->activate();
-        
-        i_layer->addChild(trigger1);
-        i_layer->addChild(trigger2);
-        i_layer->addChild(trigger3);
+        auto trigger = UI_NS::Trigger::create();
+        trigger->setActivationCondition(new UI_NS::ConditionTapCellOnMap(pers->x, pers->y));
+        trigger->setThrowEvent(new UI_NS::EventChain( i_layer,
+                                                     {
+                                                         new UI_NS::EventDialog(pers->getSprite(), {"Hello world!", "Let s go", "I'm talking!", "How are you today? Do you want do fight with this wolf?"}),
+                                                         new UI_NS::EventDialog(fr->getSprite(), {"Yes!", "I really want do do it!"}),
+                                                         new UI_NS::EventMessage(d_interface->getScreenNode(), {"Play", "Fight", "Use magic"})
+                                                     } ) );
+        trigger->activate();
+        i_layer->addChild(trigger);
     }
     
     SquareControl::instance().toScene(i_layer);

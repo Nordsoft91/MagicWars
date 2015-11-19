@@ -21,7 +21,10 @@ namespace UI_NS {
     class Event
     {
     public:
-        virtual ~Event() = default;
+        Event() { cocos2d::log("Constructor"); };
+        
+        virtual ~Event() { cocos2d::log("Destructor"); }
+        
         virtual void throwEvent() = 0;
     };
     
@@ -30,7 +33,7 @@ namespace UI_NS {
     class EventHeap: public Event
     {
     public:
-        EventHeap(std::list<Event*> i_events): d_events(i_events) {}
+        EventHeap(std::list<Event*> i_events): d_events(i_events) { cocos2d::log("Heap constructor"); }
         void releaseResourceControl(Event* i_event) {d_preventRelease.push_back(i_event);}
         virtual void throwEvent() override;
         virtual ~EventHeap();
@@ -68,24 +71,24 @@ namespace UI_NS {
         const std::list<std::string> d_message;
     };
     
-    //EventDialogChain
-    class EventDialogChain: public Event
+    //EventChain
+    class EventChain: public Event
     {
     public:
-        EventDialogChain(cocos2d::Node* io_scene, const std::list<EventDialog>& i_chain);
+        EventChain(cocos2d::Node* io_scene, const std::list<Event*>& i_chain);
         
         virtual void throwEvent() override;
         
     protected:
-        cocos2d::Node* d_scene = nullptr;
-        const std::list<EventDialog> d_chain;
+        Trigger* d_trigger = nullptr;
+        const std::list<Event*> d_chain;
     };
     
     //trigger activation
     class EventActivateTrigger: public Event
     {
     public:
-        EventActivateTrigger(Trigger* i_trigger): d_trigger(i_trigger) {}
+        EventActivateTrigger(Trigger* i_trigger);
         virtual void throwEvent() override;
         
     protected:
