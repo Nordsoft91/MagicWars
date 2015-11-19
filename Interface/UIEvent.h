@@ -64,7 +64,7 @@ namespace UI_NS {
         virtual void throwEvent() override;
         
     protected:
-        cocos2d::Node *d_owner = nullptr
+        cocos2d::Node *d_owner = nullptr;
         const std::list<std::string> d_message;
     };
     
