@@ -10,7 +10,7 @@
 #define __MagicWars__CurrentTurnLight__
 
 #include <cocos2d.h>
-#include "Consts.h"
+#include <Common/Consts.h>
 
 namespace MagicWars_NS
 {

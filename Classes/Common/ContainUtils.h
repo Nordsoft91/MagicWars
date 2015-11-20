@@ -9,7 +9,7 @@
 #ifndef MagicWars_ContainUtils_h
 #define MagicWars_ContainUtils_h
 
-#include "Magican.h"
+#include <Engine/Magican.h>
 #include <list>
 #include <map>
 

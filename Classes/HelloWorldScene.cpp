@@ -1,9 +1,9 @@
 #include "HelloWorldScene.h"
-#include "Consts.h"
-#include "Interface.h"
-#include "AIController.h"
-#include "AIMovable.h"
-#include "Blocker.h"
+#include <Common/Consts.h>
+#include <Interface/Interface.h>
+#include <AI/AIController.h>
+#include <AI/AIMovable.h>
+#include <Engine/Blocker.h>
 #include <memory>
 
 USING_NS_CC;

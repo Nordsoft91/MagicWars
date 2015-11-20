@@ -7,7 +7,7 @@
 //
 
 #include "AIController.h"
-#include "Blocker.h"
+#include <Engine/Blocker.h>
 
 using namespace MagicWars_NS;
 

@@ -9,8 +9,8 @@
 #ifndef MagicWars_TileMap_h
 #define MagicWars_TileMap_h
 
-#include "Tileset.h"
-#include "Grid.h"
+#include <Common/Tileset.h>
+#include <Common/Grid.h>
 #include <map>
 #include <vector>
 #include <exception>

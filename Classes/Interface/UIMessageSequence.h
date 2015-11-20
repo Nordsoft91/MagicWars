@@ -10,7 +10,7 @@
 #define __MagicWars__UIMessageSequence__
 
 #include "UIMessage.h"
-#include "Blocker.h"
+#include <Engine/Blocker.h>
 
 namespace UI_NS {
     class MessageSequence: public cocos2d::ui::Widget

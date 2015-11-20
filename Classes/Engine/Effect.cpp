@@ -7,7 +7,7 @@
 //
 
 #include "Effect.h"
-#include "Consts.h"
+#include <Common/Consts.h>
 #include "Blocker.h"
 
 using namespace MagicWars_NS;

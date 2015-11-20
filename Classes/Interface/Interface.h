@@ -10,8 +10,8 @@
 #define __MagicWars__Interface__
 
 #include <cocos2d.h>
-#include "TouchControl.h"
-#include "Blocker.h"
+#include <Controllers/TouchControl.h>
+#include <Engine/Blocker.h>
 
 #define BUTTON_NAME(T) T"_none.png", T"_select.png"
 

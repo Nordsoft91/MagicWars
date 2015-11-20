@@ -9,11 +9,11 @@
 #ifndef MagicWars_SquareControl_h
 #define MagicWars_SquareControl_h
 
-#include "TileMap.h"
-#include "GameObj.h"
-#include "WavePathFinder.h"
-#include "Consts.h"
-#include "Uncopyble.h"
+#include <Engine/TileMap.h>
+#include <Engine/GameObj.h>
+#include <Common/WavePathFinder.h>
+#include <Common/Consts.h>
+#include <SDK/Uncopyble.h>
 #include <memory>
 
 namespace MagicWars_NS {

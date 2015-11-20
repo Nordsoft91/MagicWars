@@ -10,7 +10,7 @@
 #define __MagicWars__FlaredAutomapRules__
 
 #include "FlaredAutomap.h"
-#include "Consts.h"
+#include <Common/Consts.h>
 
 namespace Flared_NS {
     

@@ -10,15 +10,15 @@
 #define MagicWars_TouchControl_h
 
 #include <cocos2d.h>
-#include "CharacterAnimated.h"
-#include "BaseWall.h"
-#include "TileMap.h"
-#include "SquareControl.h"
-#include "MovingStructure.h"
-#include "TurnController.h"
-#include "Effect.h"
-#include "MapReader.h"
-#include "Uncopyble.h"
+#include <Engine/CharacterAnimated.h>
+#include <Engine/BaseWall.h>
+#include <Engine/TileMap.h>
+#include <Controllers/SquareControl.h>
+#include <Common/MovingStructure.h>
+#include <Controllers/TurnController.h>
+#include <Engine/Effect.h>
+#include <Common/MapReader.h>
+#include <SDK/Uncopyble.h>
 
 namespace MagicWars_NS {
     

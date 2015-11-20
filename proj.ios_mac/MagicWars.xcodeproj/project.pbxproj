@@ -12,10 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
-		46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8419C43A87006E1F66 /* AppDelegate.cpp */; };
-		46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
-		46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */; };
 		503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 503AE0F617EB97AB00D1A890 /* Icon.icns */; };
 		503AE10017EB989F00D1A890 /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FB17EB989F00D1A890 /* AppController.mm */; };
 		503AE10117EB989F00D1A890 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
@@ -49,86 +45,86 @@
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6219F0C34300D177D7 /* Default-667h@2x.png */; };
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
-		8407ED7E1BE1693700CE54B6 /* FlaredMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED7C1BE1693700CE54B6 /* FlaredMap.cpp */; };
-		8407ED7F1BE1693700CE54B6 /* FlaredMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED7C1BE1693700CE54B6 /* FlaredMap.cpp */; };
-		8407ED821BE1696A00CE54B6 /* FlaredTileset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED801BE1696A00CE54B6 /* FlaredTileset.cpp */; };
-		8407ED831BE1696A00CE54B6 /* FlaredTileset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED801BE1696A00CE54B6 /* FlaredTileset.cpp */; };
-		8407ED861BE1699200CE54B6 /* FlaredLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED841BE1699200CE54B6 /* FlaredLayer.cpp */; };
-		8407ED871BE1699200CE54B6 /* FlaredLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED841BE1699200CE54B6 /* FlaredLayer.cpp */; };
-		8407ED8E1BE16D2400CE54B6 /* FlaredTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED8C1BE16D2400CE54B6 /* FlaredTile.cpp */; };
-		8407ED8F1BE16D2400CE54B6 /* FlaredTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8407ED8C1BE16D2400CE54B6 /* FlaredTile.cpp */; };
-		84176DAA1BE80DA10015D791 /* FlaredParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84176DA81BE80DA10015D791 /* FlaredParser.cpp */; };
-		84176DAB1BE80DA10015D791 /* FlaredParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84176DA81BE80DA10015D791 /* FlaredParser.cpp */; };
-		84B51C3E1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C3C1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */; };
-		84B51C3F1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C3C1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */; };
-		84B51C471BEECAD0004A6CA0 /* FlaredAutomap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C431BEECAD0004A6CA0 /* FlaredAutomap.cpp */; };
-		84B51C481BEECAD0004A6CA0 /* FlaredAutomap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C431BEECAD0004A6CA0 /* FlaredAutomap.cpp */; };
-		84B51C491BEECAD0004A6CA0 /* FlaredAutomapRules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C451BEECAD0004A6CA0 /* FlaredAutomapRules.cpp */; };
-		84B51C4A1BEECAD0004A6CA0 /* FlaredAutomapRules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C451BEECAD0004A6CA0 /* FlaredAutomapRules.cpp */; };
-		84B51C581BF13988004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C501BF13988004A6CA0 /* AIController.cpp */; };
-		84B51C591BF13988004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C501BF13988004A6CA0 /* AIController.cpp */; };
-		84B51C5A1BF13988004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C521BF13988004A6CA0 /* AIEngine.cpp */; };
-		84B51C5B1BF13988004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C521BF13988004A6CA0 /* AIEngine.cpp */; };
-		84B51C5C1BF13988004A6CA0 /* AIMovable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C541BF13988004A6CA0 /* AIMovable.cpp */; };
-		84B51C5D1BF13988004A6CA0 /* AIMovable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C541BF13988004A6CA0 /* AIMovable.cpp */; };
-		84B51C5E1BF13988004A6CA0 /* AIUsingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C561BF13988004A6CA0 /* AIUsingAttack.cpp */; };
-		84B51C5F1BF13988004A6CA0 /* AIUsingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C561BF13988004A6CA0 /* AIUsingAttack.cpp */; };
-		84B51C651BF13995004A6CA0 /* SquareControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C601BF13995004A6CA0 /* SquareControl.cpp */; };
-		84B51C661BF13995004A6CA0 /* SquareControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C601BF13995004A6CA0 /* SquareControl.cpp */; };
-		84B51C671BF13995004A6CA0 /* TouchControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C621BF13995004A6CA0 /* TouchControl.cpp */; };
-		84B51C681BF13995004A6CA0 /* TouchControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C621BF13995004A6CA0 /* TouchControl.cpp */; };
-		84B51C6D1BF139A2004A6CA0 /* MagicanDark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C691BF139A2004A6CA0 /* MagicanDark.cpp */; };
-		84B51C6E1BF139A2004A6CA0 /* MagicanDark.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C691BF139A2004A6CA0 /* MagicanDark.cpp */; };
-		84B51C6F1BF139A2004A6CA0 /* MagicanLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C6B1BF139A2004A6CA0 /* MagicanLight.cpp */; };
-		84B51C701BF139A2004A6CA0 /* MagicanLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C6B1BF139A2004A6CA0 /* MagicanLight.cpp */; };
-		84B51C731BF139AD004A6CA0 /* Interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C711BF139AD004A6CA0 /* Interface.cpp */; };
-		84B51C741BF139AD004A6CA0 /* Interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C711BF139AD004A6CA0 /* Interface.cpp */; };
-		84B51C801BF139BE004A6CA0 /* Consts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C751BF139BE004A6CA0 /* Consts.cpp */; };
-		84B51C811BF139BE004A6CA0 /* Consts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C751BF139BE004A6CA0 /* Consts.cpp */; };
-		84B51C821BF139BE004A6CA0 /* ContainUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C771BF139BE004A6CA0 /* ContainUtils.cpp */; };
-		84B51C831BF139BE004A6CA0 /* ContainUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C771BF139BE004A6CA0 /* ContainUtils.cpp */; };
-		84B51C841BF139BE004A6CA0 /* MapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C7A1BF139BE004A6CA0 /* MapReader.cpp */; };
-		84B51C851BF139BE004A6CA0 /* MapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C7A1BF139BE004A6CA0 /* MapReader.cpp */; };
-		84B51C861BF139BE004A6CA0 /* WavePathFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C7E1BF139BE004A6CA0 /* WavePathFinder.cpp */; };
-		84B51C871BF139BE004A6CA0 /* WavePathFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C7E1BF139BE004A6CA0 /* WavePathFinder.cpp */; };
-		84B51C9D1BF139D4004A6CA0 /* Animated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C881BF139D4004A6CA0 /* Animated.cpp */; };
-		84B51C9E1BF139D4004A6CA0 /* Animated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C881BF139D4004A6CA0 /* Animated.cpp */; };
-		84B51C9F1BF139D4004A6CA0 /* CharacterAnimated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C8C1BF139D4004A6CA0 /* CharacterAnimated.cpp */; };
-		84B51CA01BF139D4004A6CA0 /* CharacterAnimated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C8C1BF139D4004A6CA0 /* CharacterAnimated.cpp */; };
-		84B51CA11BF139D4004A6CA0 /* CurrentTurnLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C8E1BF139D4004A6CA0 /* CurrentTurnLight.cpp */; };
-		84B51CA21BF139D4004A6CA0 /* CurrentTurnLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C8E1BF139D4004A6CA0 /* CurrentTurnLight.cpp */; };
-		84B51CA31BF139D4004A6CA0 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C901BF139D4004A6CA0 /* Effect.cpp */; };
-		84B51CA41BF139D4004A6CA0 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C901BF139D4004A6CA0 /* Effect.cpp */; };
-		84B51CA51BF139D4004A6CA0 /* GameObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C921BF139D4004A6CA0 /* GameObj.cpp */; };
-		84B51CA61BF139D4004A6CA0 /* GameObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C921BF139D4004A6CA0 /* GameObj.cpp */; };
-		84B51CA71BF139D4004A6CA0 /* Magican.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C941BF139D4004A6CA0 /* Magican.cpp */; };
-		84B51CA81BF139D4004A6CA0 /* Magican.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C941BF139D4004A6CA0 /* Magican.cpp */; };
-		84B51CA91BF139D4004A6CA0 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C961BF139D4004A6CA0 /* Map.cpp */; };
-		84B51CAA1BF139D4004A6CA0 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C961BF139D4004A6CA0 /* Map.cpp */; };
-		84B51CAB1BF139D4004A6CA0 /* StatusUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C991BF139D4004A6CA0 /* StatusUpdater.cpp */; };
-		84B51CAC1BF139D4004A6CA0 /* StatusUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C991BF139D4004A6CA0 /* StatusUpdater.cpp */; };
-		84B51CAD1BF139D4004A6CA0 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C9B1BF139D4004A6CA0 /* TileMap.cpp */; };
-		84B51CAE1BF139D4004A6CA0 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51C9B1BF139D4004A6CA0 /* TileMap.cpp */; };
-		84B51CB01BF13BAC004A6CA0 /* TurnController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CAF1BF13BAC004A6CA0 /* TurnController.cpp */; };
-		84B51CB11BF13BAC004A6CA0 /* TurnController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CAF1BF13BAC004A6CA0 /* TurnController.cpp */; };
-		84B51CB71BF14D92004A6CA0 /* TeamRelationships.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CB51BF14D92004A6CA0 /* TeamRelationships.cpp */; };
-		84B51CB81BF14D92004A6CA0 /* TeamRelationships.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CB51BF14D92004A6CA0 /* TeamRelationships.cpp */; };
-		84B51CBC1BF3DD17004A6CA0 /* UIMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CBA1BF3DD17004A6CA0 /* UIMessage.cpp */; };
-		84B51CBD1BF3DD17004A6CA0 /* UIMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CBA1BF3DD17004A6CA0 /* UIMessage.cpp */; };
-		84B51CC21BF3F1F7004A6CA0 /* UIMessageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CC01BF3F1F7004A6CA0 /* UIMessageSequence.cpp */; };
-		84B51CC31BF3F1F7004A6CA0 /* UIMessageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CC01BF3F1F7004A6CA0 /* UIMessageSequence.cpp */; };
-		84B51CCB1BF68806004A6CA0 /* UICondition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CC91BF68806004A6CA0 /* UICondition.cpp */; };
-		84B51CCC1BF68806004A6CA0 /* UICondition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CC91BF68806004A6CA0 /* UICondition.cpp */; };
-		84B51CCF1BF68880004A6CA0 /* UITrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CCD1BF68880004A6CA0 /* UITrigger.cpp */; };
-		84B51CD01BF68880004A6CA0 /* UITrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CCD1BF68880004A6CA0 /* UITrigger.cpp */; };
-		84B51CD31BF68A49004A6CA0 /* UIEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CD11BF68A49004A6CA0 /* UIEvent.cpp */; };
-		84B51CD41BF68A49004A6CA0 /* UIEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CD11BF68A49004A6CA0 /* UIEvent.cpp */; };
-		84B51CD81BF92AA0004A6CA0 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CD61BF92AA0004A6CA0 /* MenuScene.cpp */; };
-		84B51CD91BF92AA0004A6CA0 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51CD61BF92AA0004A6CA0 /* MenuScene.cpp */; };
 		84B51ED81BFFB409004A6CA0 /* base in Resources */ = {isa = PBXBuildFile; fileRef = 84B51ED61BFFB409004A6CA0 /* base */; };
 		84B51ED91BFFB409004A6CA0 /* base in Resources */ = {isa = PBXBuildFile; fileRef = 84B51ED61BFFB409004A6CA0 /* base */; };
 		84B51EDA1BFFB409004A6CA0 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 84B51ED71BFFB409004A6CA0 /* data */; };
 		84B51EDB1BFFB409004A6CA0 /* data in Resources */ = {isa = PBXBuildFile; fileRef = 84B51ED71BFFB409004A6CA0 /* data */; };
+		84B51F6A1BFFBB95004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F621BFFBB95004A6CA0 /* AIController.cpp */; };
+		84B51F6B1BFFBB95004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F621BFFBB95004A6CA0 /* AIController.cpp */; };
+		84B51F6C1BFFBB95004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F641BFFBB95004A6CA0 /* AIEngine.cpp */; };
+		84B51F6D1BFFBB95004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F641BFFBB95004A6CA0 /* AIEngine.cpp */; };
+		84B51F6E1BFFBB95004A6CA0 /* AIMovable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F661BFFBB95004A6CA0 /* AIMovable.cpp */; };
+		84B51F6F1BFFBB95004A6CA0 /* AIMovable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F661BFFBB95004A6CA0 /* AIMovable.cpp */; };
+		84B51F701BFFBB95004A6CA0 /* AIUsingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F681BFFBB95004A6CA0 /* AIUsingAttack.cpp */; };
+		84B51F711BFFBB95004A6CA0 /* AIUsingAttack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F681BFFBB95004A6CA0 /* AIUsingAttack.cpp */; };
+		84B51F841BFFBBAD004A6CA0 /* FlaredAutomap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F731BFFBBAD004A6CA0 /* FlaredAutomap.cpp */; };
+		84B51F851BFFBBAD004A6CA0 /* FlaredAutomap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F731BFFBBAD004A6CA0 /* FlaredAutomap.cpp */; };
+		84B51F861BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F751BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp */; };
+		84B51F871BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F751BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp */; };
+		84B51F881BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F771BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */; };
+		84B51F891BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F771BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */; };
+		84B51F8A1BFFBBAD004A6CA0 /* FlaredLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F7A1BFFBBAD004A6CA0 /* FlaredLayer.cpp */; };
+		84B51F8B1BFFBBAD004A6CA0 /* FlaredLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F7A1BFFBBAD004A6CA0 /* FlaredLayer.cpp */; };
+		84B51F8C1BFFBBAD004A6CA0 /* FlaredMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F7C1BFFBBAD004A6CA0 /* FlaredMap.cpp */; };
+		84B51F8D1BFFBBAD004A6CA0 /* FlaredMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F7C1BFFBBAD004A6CA0 /* FlaredMap.cpp */; };
+		84B51F8E1BFFBBAD004A6CA0 /* FlaredParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F7E1BFFBBAD004A6CA0 /* FlaredParser.cpp */; };
+		84B51F8F1BFFBBAD004A6CA0 /* FlaredParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F7E1BFFBBAD004A6CA0 /* FlaredParser.cpp */; };
+		84B51F901BFFBBAD004A6CA0 /* FlaredTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F801BFFBBAD004A6CA0 /* FlaredTile.cpp */; };
+		84B51F911BFFBBAD004A6CA0 /* FlaredTile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F801BFFBBAD004A6CA0 /* FlaredTile.cpp */; };
+		84B51F921BFFBBAD004A6CA0 /* FlaredTileset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F821BFFBBAD004A6CA0 /* FlaredTileset.cpp */; };
+		84B51F931BFFBBAD004A6CA0 /* FlaredTileset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F821BFFBBAD004A6CA0 /* FlaredTileset.cpp */; };
+		84B51FA01BFFBBBF004A6CA0 /* Consts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F951BFFBBBF004A6CA0 /* Consts.cpp */; };
+		84B51FA11BFFBBBF004A6CA0 /* Consts.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F951BFFBBBF004A6CA0 /* Consts.cpp */; };
+		84B51FA21BFFBBBF004A6CA0 /* ContainUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F971BFFBBBF004A6CA0 /* ContainUtils.cpp */; };
+		84B51FA31BFFBBBF004A6CA0 /* ContainUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F971BFFBBBF004A6CA0 /* ContainUtils.cpp */; };
+		84B51FA41BFFBBBF004A6CA0 /* MapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F9A1BFFBBBF004A6CA0 /* MapReader.cpp */; };
+		84B51FA51BFFBBBF004A6CA0 /* MapReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F9A1BFFBBBF004A6CA0 /* MapReader.cpp */; };
+		84B51FA61BFFBBBF004A6CA0 /* WavePathFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F9E1BFFBBBF004A6CA0 /* WavePathFinder.cpp */; };
+		84B51FA71BFFBBBF004A6CA0 /* WavePathFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51F9E1BFFBBBF004A6CA0 /* WavePathFinder.cpp */; };
+		84B51FB11BFFBBEF004A6CA0 /* SquareControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FA91BFFBBEF004A6CA0 /* SquareControl.cpp */; };
+		84B51FB21BFFBBEF004A6CA0 /* SquareControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FA91BFFBBEF004A6CA0 /* SquareControl.cpp */; };
+		84B51FB31BFFBBEF004A6CA0 /* TeamRelationships.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FAB1BFFBBEF004A6CA0 /* TeamRelationships.cpp */; };
+		84B51FB41BFFBBEF004A6CA0 /* TeamRelationships.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FAB1BFFBBEF004A6CA0 /* TeamRelationships.cpp */; };
+		84B51FB51BFFBBEF004A6CA0 /* TouchControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FAD1BFFBBEF004A6CA0 /* TouchControl.cpp */; };
+		84B51FB61BFFBBEF004A6CA0 /* TouchControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FAD1BFFBBEF004A6CA0 /* TouchControl.cpp */; };
+		84B51FB71BFFBBEF004A6CA0 /* TurnController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FAF1BFFBBEF004A6CA0 /* TurnController.cpp */; };
+		84B51FB81BFFBBEF004A6CA0 /* TurnController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FAF1BFFBBEF004A6CA0 /* TurnController.cpp */; };
+		84B51FCF1BFFBC02004A6CA0 /* Animated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FBA1BFFBC02004A6CA0 /* Animated.cpp */; };
+		84B51FD01BFFBC02004A6CA0 /* Animated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FBA1BFFBC02004A6CA0 /* Animated.cpp */; };
+		84B51FD11BFFBC02004A6CA0 /* CharacterAnimated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FBE1BFFBC02004A6CA0 /* CharacterAnimated.cpp */; };
+		84B51FD21BFFBC02004A6CA0 /* CharacterAnimated.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FBE1BFFBC02004A6CA0 /* CharacterAnimated.cpp */; };
+		84B51FD31BFFBC02004A6CA0 /* CurrentTurnLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC01BFFBC02004A6CA0 /* CurrentTurnLight.cpp */; };
+		84B51FD41BFFBC02004A6CA0 /* CurrentTurnLight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC01BFFBC02004A6CA0 /* CurrentTurnLight.cpp */; };
+		84B51FD51BFFBC02004A6CA0 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC21BFFBC02004A6CA0 /* Effect.cpp */; };
+		84B51FD61BFFBC02004A6CA0 /* Effect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC21BFFBC02004A6CA0 /* Effect.cpp */; };
+		84B51FD71BFFBC02004A6CA0 /* GameObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC41BFFBC02004A6CA0 /* GameObj.cpp */; };
+		84B51FD81BFFBC02004A6CA0 /* GameObj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC41BFFBC02004A6CA0 /* GameObj.cpp */; };
+		84B51FD91BFFBC02004A6CA0 /* Magican.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC61BFFBC02004A6CA0 /* Magican.cpp */; };
+		84B51FDA1BFFBC02004A6CA0 /* Magican.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC61BFFBC02004A6CA0 /* Magican.cpp */; };
+		84B51FDB1BFFBC02004A6CA0 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC81BFFBC02004A6CA0 /* Map.cpp */; };
+		84B51FDC1BFFBC02004A6CA0 /* Map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FC81BFFBC02004A6CA0 /* Map.cpp */; };
+		84B51FDD1BFFBC02004A6CA0 /* StatusUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FCB1BFFBC02004A6CA0 /* StatusUpdater.cpp */; };
+		84B51FDE1BFFBC02004A6CA0 /* StatusUpdater.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FCB1BFFBC02004A6CA0 /* StatusUpdater.cpp */; };
+		84B51FDF1BFFBC02004A6CA0 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FCD1BFFBC02004A6CA0 /* TileMap.cpp */; };
+		84B51FE01BFFBC02004A6CA0 /* TileMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FCD1BFFBC02004A6CA0 /* TileMap.cpp */; };
+		84B51FEE1BFFBC16004A6CA0 /* Interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE21BFFBC16004A6CA0 /* Interface.cpp */; };
+		84B51FEF1BFFBC16004A6CA0 /* Interface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE21BFFBC16004A6CA0 /* Interface.cpp */; };
+		84B51FF01BFFBC16004A6CA0 /* UICondition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE41BFFBC16004A6CA0 /* UICondition.cpp */; };
+		84B51FF11BFFBC16004A6CA0 /* UICondition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE41BFFBC16004A6CA0 /* UICondition.cpp */; };
+		84B51FF21BFFBC16004A6CA0 /* UIEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE61BFFBC16004A6CA0 /* UIEvent.cpp */; };
+		84B51FF31BFFBC16004A6CA0 /* UIEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE61BFFBC16004A6CA0 /* UIEvent.cpp */; };
+		84B51FF41BFFBC16004A6CA0 /* UIMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE81BFFBC16004A6CA0 /* UIMessage.cpp */; };
+		84B51FF51BFFBC16004A6CA0 /* UIMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FE81BFFBC16004A6CA0 /* UIMessage.cpp */; };
+		84B51FF61BFFBC16004A6CA0 /* UIMessageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FEA1BFFBC16004A6CA0 /* UIMessageSequence.cpp */; };
+		84B51FF71BFFBC16004A6CA0 /* UIMessageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FEA1BFFBC16004A6CA0 /* UIMessageSequence.cpp */; };
+		84B51FF81BFFBC16004A6CA0 /* UITrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FEC1BFFBC16004A6CA0 /* UITrigger.cpp */; };
+		84B51FF91BFFBC16004A6CA0 /* UITrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FEC1BFFBC16004A6CA0 /* UITrigger.cpp */; };
+		84B51FFF1BFFBC38004A6CA0 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FFD1BFFBC38004A6CA0 /* MenuScene.cpp */; };
+		84B520001BFFBC38004A6CA0 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B51FFD1BFFBC38004A6CA0 /* MenuScene.cpp */; };
+		84B520051BFFBC60004A6CA0 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520011BFFBC60004A6CA0 /* AppDelegate.cpp */; };
+		84B520061BFFBC60004A6CA0 /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520011BFFBC60004A6CA0 /* AppDelegate.cpp */; };
+		84B520071BFFBC60004A6CA0 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520031BFFBC60004A6CA0 /* HelloWorldScene.cpp */; };
+		84B520081BFFBC60004A6CA0 /* HelloWorldScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520031BFFBC60004A6CA0 /* HelloWorldScene.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -176,10 +172,6 @@
 		1D6058910D05DD3D006BFB54 /* MagicWars iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MagicWars iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		46880B8419C43A87006E1F66 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
-		46880B8519C43A87006E1F66 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
-		46880B8719C43A87006E1F66 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		503AE0F617EB97AB00D1A890 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
 		503AE0F717EB97AB00D1A890 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503AE0FA17EB989F00D1A890 /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppController.h; path = ios/AppController.h; sourceTree = SOURCE_ROOT; };
@@ -214,92 +206,92 @@
 		50EF62A117ECD613001EB2F8 /* Icon-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-50.png"; sourceTree = "<group>"; };
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
-		8407ED7C1BE1693700CE54B6 /* FlaredMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredMap.cpp; path = FlaredMap/FlaredMap.cpp; sourceTree = "<group>"; };
-		8407ED7D1BE1693700CE54B6 /* FlaredMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredMap.h; path = FlaredMap/FlaredMap.h; sourceTree = "<group>"; };
-		8407ED801BE1696A00CE54B6 /* FlaredTileset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredTileset.cpp; path = FlaredMap/FlaredTileset.cpp; sourceTree = "<group>"; };
-		8407ED811BE1696A00CE54B6 /* FlaredTileset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredTileset.h; path = FlaredMap/FlaredTileset.h; sourceTree = "<group>"; };
-		8407ED841BE1699200CE54B6 /* FlaredLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredLayer.cpp; path = FlaredMap/FlaredLayer.cpp; sourceTree = "<group>"; };
-		8407ED851BE1699200CE54B6 /* FlaredLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredLayer.h; path = FlaredMap/FlaredLayer.h; sourceTree = "<group>"; };
-		8407ED891BE169D600CE54B6 /* FlaredEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredEnum.h; path = FlaredMap/FlaredEnum.h; sourceTree = "<group>"; };
-		8407ED8C1BE16D2400CE54B6 /* FlaredTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredTile.cpp; path = FlaredMap/FlaredTile.cpp; sourceTree = "<group>"; };
-		8407ED8D1BE16D2400CE54B6 /* FlaredTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredTile.h; path = FlaredMap/FlaredTile.h; sourceTree = "<group>"; };
-		84176DA81BE80DA10015D791 /* FlaredParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredParser.cpp; path = FlaredMap/FlaredParser.cpp; sourceTree = "<group>"; };
-		84176DA91BE80DA10015D791 /* FlaredParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredParser.h; path = FlaredMap/FlaredParser.h; sourceTree = "<group>"; };
-		84B51C3C1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredAutomapTerrainRuleRecorder.cpp; path = FlaredMap/FlaredAutomapTerrainRuleRecorder.cpp; sourceTree = "<group>"; };
-		84B51C3D1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredAutomapTerrainRuleRecorder.h; path = FlaredMap/FlaredAutomapTerrainRuleRecorder.h; sourceTree = "<group>"; };
-		84B51C431BEECAD0004A6CA0 /* FlaredAutomap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredAutomap.cpp; path = FlaredMap/FlaredAutomap.cpp; sourceTree = "<group>"; };
-		84B51C441BEECAD0004A6CA0 /* FlaredAutomap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredAutomap.h; path = FlaredMap/FlaredAutomap.h; sourceTree = "<group>"; };
-		84B51C451BEECAD0004A6CA0 /* FlaredAutomapRules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredAutomapRules.cpp; path = FlaredMap/FlaredAutomapRules.cpp; sourceTree = "<group>"; };
-		84B51C461BEECAD0004A6CA0 /* FlaredAutomapRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredAutomapRules.h; path = FlaredMap/FlaredAutomapRules.h; sourceTree = "<group>"; };
-		84B51C4F1BF1397B004A6CA0 /* Uncopyble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Uncopyble.h; path = SDK/Uncopyble.h; sourceTree = "<group>"; };
-		84B51C501BF13988004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIController.cpp; path = AI/AIController.cpp; sourceTree = "<group>"; };
-		84B51C511BF13988004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIController.h; path = AI/AIController.h; sourceTree = "<group>"; };
-		84B51C521BF13988004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIEngine.cpp; path = AI/AIEngine.cpp; sourceTree = "<group>"; };
-		84B51C531BF13988004A6CA0 /* AIEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIEngine.h; path = AI/AIEngine.h; sourceTree = "<group>"; };
-		84B51C541BF13988004A6CA0 /* AIMovable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIMovable.cpp; path = AI/AIMovable.cpp; sourceTree = "<group>"; };
-		84B51C551BF13988004A6CA0 /* AIMovable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMovable.h; path = AI/AIMovable.h; sourceTree = "<group>"; };
-		84B51C561BF13988004A6CA0 /* AIUsingAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIUsingAttack.cpp; path = AI/AIUsingAttack.cpp; sourceTree = "<group>"; };
-		84B51C571BF13988004A6CA0 /* AIUsingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIUsingAttack.h; path = AI/AIUsingAttack.h; sourceTree = "<group>"; };
-		84B51C601BF13995004A6CA0 /* SquareControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SquareControl.cpp; path = Controllers/SquareControl.cpp; sourceTree = "<group>"; };
-		84B51C611BF13995004A6CA0 /* SquareControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareControl.h; path = Controllers/SquareControl.h; sourceTree = "<group>"; };
-		84B51C621BF13995004A6CA0 /* TouchControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TouchControl.cpp; path = Controllers/TouchControl.cpp; sourceTree = "<group>"; };
-		84B51C631BF13995004A6CA0 /* TouchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchControl.h; path = Controllers/TouchControl.h; sourceTree = "<group>"; };
-		84B51C641BF13995004A6CA0 /* TurnController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurnController.h; path = Controllers/TurnController.h; sourceTree = "<group>"; };
-		84B51C691BF139A2004A6CA0 /* MagicanDark.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MagicanDark.cpp; path = Library/MagicanDark.cpp; sourceTree = "<group>"; };
-		84B51C6A1BF139A2004A6CA0 /* MagicanDark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MagicanDark.h; path = Library/MagicanDark.h; sourceTree = "<group>"; };
-		84B51C6B1BF139A2004A6CA0 /* MagicanLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MagicanLight.cpp; path = Library/MagicanLight.cpp; sourceTree = "<group>"; };
-		84B51C6C1BF139A2004A6CA0 /* MagicanLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MagicanLight.h; path = Library/MagicanLight.h; sourceTree = "<group>"; };
-		84B51C711BF139AD004A6CA0 /* Interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Interface.cpp; path = Interface/Interface.cpp; sourceTree = "<group>"; };
-		84B51C721BF139AD004A6CA0 /* Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Interface.h; path = Interface/Interface.h; sourceTree = "<group>"; };
-		84B51C751BF139BE004A6CA0 /* Consts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Consts.cpp; path = Common/Consts.cpp; sourceTree = "<group>"; };
-		84B51C761BF139BE004A6CA0 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consts.h; path = Common/Consts.h; sourceTree = "<group>"; };
-		84B51C771BF139BE004A6CA0 /* ContainUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContainUtils.cpp; path = Common/ContainUtils.cpp; sourceTree = "<group>"; };
-		84B51C781BF139BE004A6CA0 /* ContainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainUtils.h; path = Common/ContainUtils.h; sourceTree = "<group>"; };
-		84B51C791BF139BE004A6CA0 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = Common/Grid.h; sourceTree = "<group>"; };
-		84B51C7A1BF139BE004A6CA0 /* MapReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapReader.cpp; path = Common/MapReader.cpp; sourceTree = "<group>"; };
-		84B51C7B1BF139BE004A6CA0 /* MapReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapReader.h; path = Common/MapReader.h; sourceTree = "<group>"; };
-		84B51C7C1BF139BE004A6CA0 /* MovingStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovingStructure.h; path = Common/MovingStructure.h; sourceTree = "<group>"; };
-		84B51C7D1BF139BE004A6CA0 /* Tileset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tileset.h; path = Common/Tileset.h; sourceTree = "<group>"; };
-		84B51C7E1BF139BE004A6CA0 /* WavePathFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WavePathFinder.cpp; path = Common/WavePathFinder.cpp; sourceTree = "<group>"; };
-		84B51C7F1BF139BE004A6CA0 /* WavePathFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WavePathFinder.h; path = Common/WavePathFinder.h; sourceTree = "<group>"; };
-		84B51C881BF139D4004A6CA0 /* Animated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Animated.cpp; path = Engine/Animated.cpp; sourceTree = "<group>"; };
-		84B51C891BF139D4004A6CA0 /* Animated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animated.h; path = Engine/Animated.h; sourceTree = "<group>"; };
-		84B51C8A1BF139D4004A6CA0 /* BaseWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWall.h; path = Engine/BaseWall.h; sourceTree = "<group>"; };
-		84B51C8B1BF139D4004A6CA0 /* Blocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Blocker.h; path = Engine/Blocker.h; sourceTree = "<group>"; };
-		84B51C8C1BF139D4004A6CA0 /* CharacterAnimated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterAnimated.cpp; path = Engine/CharacterAnimated.cpp; sourceTree = "<group>"; };
-		84B51C8D1BF139D4004A6CA0 /* CharacterAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterAnimated.h; path = Engine/CharacterAnimated.h; sourceTree = "<group>"; };
-		84B51C8E1BF139D4004A6CA0 /* CurrentTurnLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CurrentTurnLight.cpp; path = Engine/CurrentTurnLight.cpp; sourceTree = "<group>"; };
-		84B51C8F1BF139D4004A6CA0 /* CurrentTurnLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentTurnLight.h; path = Engine/CurrentTurnLight.h; sourceTree = "<group>"; };
-		84B51C901BF139D4004A6CA0 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Effect.cpp; path = Engine/Effect.cpp; sourceTree = "<group>"; };
-		84B51C911BF139D4004A6CA0 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Effect.h; path = Engine/Effect.h; sourceTree = "<group>"; };
-		84B51C921BF139D4004A6CA0 /* GameObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObj.cpp; path = Engine/GameObj.cpp; sourceTree = "<group>"; };
-		84B51C931BF139D4004A6CA0 /* GameObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObj.h; path = Engine/GameObj.h; sourceTree = "<group>"; };
-		84B51C941BF139D4004A6CA0 /* Magican.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Magican.cpp; path = Engine/Magican.cpp; sourceTree = "<group>"; };
-		84B51C951BF139D4004A6CA0 /* Magican.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Magican.h; path = Engine/Magican.h; sourceTree = "<group>"; };
-		84B51C961BF139D4004A6CA0 /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Map.cpp; path = Engine/Map.cpp; sourceTree = "<group>"; };
-		84B51C971BF139D4004A6CA0 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Map.h; path = Engine/Map.h; sourceTree = "<group>"; };
-		84B51C981BF139D4004A6CA0 /* SolidObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SolidObject.h; path = Engine/SolidObject.h; sourceTree = "<group>"; };
-		84B51C991BF139D4004A6CA0 /* StatusUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StatusUpdater.cpp; path = Engine/StatusUpdater.cpp; sourceTree = "<group>"; };
-		84B51C9A1BF139D4004A6CA0 /* StatusUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusUpdater.h; path = Engine/StatusUpdater.h; sourceTree = "<group>"; };
-		84B51C9B1BF139D4004A6CA0 /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileMap.cpp; path = Engine/TileMap.cpp; sourceTree = "<group>"; };
-		84B51C9C1BF139D4004A6CA0 /* TileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileMap.h; path = Engine/TileMap.h; sourceTree = "<group>"; };
-		84B51CAF1BF13BAC004A6CA0 /* TurnController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TurnController.cpp; path = Controllers/TurnController.cpp; sourceTree = "<group>"; };
-		84B51CB51BF14D92004A6CA0 /* TeamRelationships.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TeamRelationships.cpp; path = Controllers/TeamRelationships.cpp; sourceTree = "<group>"; };
-		84B51CB61BF14D92004A6CA0 /* TeamRelationships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeamRelationships.h; path = Controllers/TeamRelationships.h; sourceTree = "<group>"; };
-		84B51CBA1BF3DD17004A6CA0 /* UIMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIMessage.cpp; path = Interface/UIMessage.cpp; sourceTree = "<group>"; };
-		84B51CBB1BF3DD17004A6CA0 /* UIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIMessage.h; path = Interface/UIMessage.h; sourceTree = "<group>"; };
-		84B51CC01BF3F1F7004A6CA0 /* UIMessageSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIMessageSequence.cpp; path = Interface/UIMessageSequence.cpp; sourceTree = "<group>"; };
-		84B51CC11BF3F1F7004A6CA0 /* UIMessageSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIMessageSequence.h; path = Interface/UIMessageSequence.h; sourceTree = "<group>"; };
-		84B51CC91BF68806004A6CA0 /* UICondition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UICondition.cpp; path = Interface/UICondition.cpp; sourceTree = "<group>"; };
-		84B51CCA1BF68806004A6CA0 /* UICondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICondition.h; path = Interface/UICondition.h; sourceTree = "<group>"; };
-		84B51CCD1BF68880004A6CA0 /* UITrigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UITrigger.cpp; path = Interface/UITrigger.cpp; sourceTree = "<group>"; };
-		84B51CCE1BF68880004A6CA0 /* UITrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITrigger.h; path = Interface/UITrigger.h; sourceTree = "<group>"; };
-		84B51CD11BF68A49004A6CA0 /* UIEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIEvent.cpp; path = Interface/UIEvent.cpp; sourceTree = "<group>"; };
-		84B51CD21BF68A49004A6CA0 /* UIEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIEvent.h; path = Interface/UIEvent.h; sourceTree = "<group>"; };
-		84B51CD61BF92AA0004A6CA0 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuScene.cpp; path = Menu/MenuScene.cpp; sourceTree = "<group>"; };
-		84B51CD71BF92AA0004A6CA0 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuScene.h; path = Menu/MenuScene.h; sourceTree = "<group>"; };
 		84B51ED61BFFB409004A6CA0 /* base */ = {isa = PBXFileReference; lastKnownFileType = folder; path = base; sourceTree = "<group>"; };
 		84B51ED71BFFB409004A6CA0 /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		84B51F621BFFBB95004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIController.cpp; path = AI/AIController.cpp; sourceTree = "<group>"; };
+		84B51F631BFFBB95004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIController.h; path = AI/AIController.h; sourceTree = "<group>"; };
+		84B51F641BFFBB95004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIEngine.cpp; path = AI/AIEngine.cpp; sourceTree = "<group>"; };
+		84B51F651BFFBB95004A6CA0 /* AIEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIEngine.h; path = AI/AIEngine.h; sourceTree = "<group>"; };
+		84B51F661BFFBB95004A6CA0 /* AIMovable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIMovable.cpp; path = AI/AIMovable.cpp; sourceTree = "<group>"; };
+		84B51F671BFFBB95004A6CA0 /* AIMovable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIMovable.h; path = AI/AIMovable.h; sourceTree = "<group>"; };
+		84B51F681BFFBB95004A6CA0 /* AIUsingAttack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIUsingAttack.cpp; path = AI/AIUsingAttack.cpp; sourceTree = "<group>"; };
+		84B51F691BFFBB95004A6CA0 /* AIUsingAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIUsingAttack.h; path = AI/AIUsingAttack.h; sourceTree = "<group>"; };
+		84B51F731BFFBBAD004A6CA0 /* FlaredAutomap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredAutomap.cpp; path = FlaredMap/FlaredAutomap.cpp; sourceTree = "<group>"; };
+		84B51F741BFFBBAD004A6CA0 /* FlaredAutomap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredAutomap.h; path = FlaredMap/FlaredAutomap.h; sourceTree = "<group>"; };
+		84B51F751BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredAutomapRules.cpp; path = FlaredMap/FlaredAutomapRules.cpp; sourceTree = "<group>"; };
+		84B51F761BFFBBAD004A6CA0 /* FlaredAutomapRules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredAutomapRules.h; path = FlaredMap/FlaredAutomapRules.h; sourceTree = "<group>"; };
+		84B51F771BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredAutomapTerrainRuleRecorder.cpp; path = FlaredMap/FlaredAutomapTerrainRuleRecorder.cpp; sourceTree = "<group>"; };
+		84B51F781BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredAutomapTerrainRuleRecorder.h; path = FlaredMap/FlaredAutomapTerrainRuleRecorder.h; sourceTree = "<group>"; };
+		84B51F791BFFBBAD004A6CA0 /* FlaredEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredEnum.h; path = FlaredMap/FlaredEnum.h; sourceTree = "<group>"; };
+		84B51F7A1BFFBBAD004A6CA0 /* FlaredLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredLayer.cpp; path = FlaredMap/FlaredLayer.cpp; sourceTree = "<group>"; };
+		84B51F7B1BFFBBAD004A6CA0 /* FlaredLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredLayer.h; path = FlaredMap/FlaredLayer.h; sourceTree = "<group>"; };
+		84B51F7C1BFFBBAD004A6CA0 /* FlaredMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredMap.cpp; path = FlaredMap/FlaredMap.cpp; sourceTree = "<group>"; };
+		84B51F7D1BFFBBAD004A6CA0 /* FlaredMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredMap.h; path = FlaredMap/FlaredMap.h; sourceTree = "<group>"; };
+		84B51F7E1BFFBBAD004A6CA0 /* FlaredParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredParser.cpp; path = FlaredMap/FlaredParser.cpp; sourceTree = "<group>"; };
+		84B51F7F1BFFBBAD004A6CA0 /* FlaredParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredParser.h; path = FlaredMap/FlaredParser.h; sourceTree = "<group>"; };
+		84B51F801BFFBBAD004A6CA0 /* FlaredTile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredTile.cpp; path = FlaredMap/FlaredTile.cpp; sourceTree = "<group>"; };
+		84B51F811BFFBBAD004A6CA0 /* FlaredTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredTile.h; path = FlaredMap/FlaredTile.h; sourceTree = "<group>"; };
+		84B51F821BFFBBAD004A6CA0 /* FlaredTileset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FlaredTileset.cpp; path = FlaredMap/FlaredTileset.cpp; sourceTree = "<group>"; };
+		84B51F831BFFBBAD004A6CA0 /* FlaredTileset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlaredTileset.h; path = FlaredMap/FlaredTileset.h; sourceTree = "<group>"; };
+		84B51F951BFFBBBF004A6CA0 /* Consts.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Consts.cpp; path = Common/Consts.cpp; sourceTree = "<group>"; };
+		84B51F961BFFBBBF004A6CA0 /* Consts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Consts.h; path = Common/Consts.h; sourceTree = "<group>"; };
+		84B51F971BFFBBBF004A6CA0 /* ContainUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ContainUtils.cpp; path = Common/ContainUtils.cpp; sourceTree = "<group>"; };
+		84B51F981BFFBBBF004A6CA0 /* ContainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContainUtils.h; path = Common/ContainUtils.h; sourceTree = "<group>"; };
+		84B51F991BFFBBBF004A6CA0 /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grid.h; path = Common/Grid.h; sourceTree = "<group>"; };
+		84B51F9A1BFFBBBF004A6CA0 /* MapReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MapReader.cpp; path = Common/MapReader.cpp; sourceTree = "<group>"; };
+		84B51F9B1BFFBBBF004A6CA0 /* MapReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapReader.h; path = Common/MapReader.h; sourceTree = "<group>"; };
+		84B51F9C1BFFBBBF004A6CA0 /* MovingStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MovingStructure.h; path = Common/MovingStructure.h; sourceTree = "<group>"; };
+		84B51F9D1BFFBBBF004A6CA0 /* Tileset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tileset.h; path = Common/Tileset.h; sourceTree = "<group>"; };
+		84B51F9E1BFFBBBF004A6CA0 /* WavePathFinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WavePathFinder.cpp; path = Common/WavePathFinder.cpp; sourceTree = "<group>"; };
+		84B51F9F1BFFBBBF004A6CA0 /* WavePathFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WavePathFinder.h; path = Common/WavePathFinder.h; sourceTree = "<group>"; };
+		84B51FA91BFFBBEF004A6CA0 /* SquareControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SquareControl.cpp; path = Controllers/SquareControl.cpp; sourceTree = "<group>"; };
+		84B51FAA1BFFBBEF004A6CA0 /* SquareControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SquareControl.h; path = Controllers/SquareControl.h; sourceTree = "<group>"; };
+		84B51FAB1BFFBBEF004A6CA0 /* TeamRelationships.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TeamRelationships.cpp; path = Controllers/TeamRelationships.cpp; sourceTree = "<group>"; };
+		84B51FAC1BFFBBEF004A6CA0 /* TeamRelationships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TeamRelationships.h; path = Controllers/TeamRelationships.h; sourceTree = "<group>"; };
+		84B51FAD1BFFBBEF004A6CA0 /* TouchControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TouchControl.cpp; path = Controllers/TouchControl.cpp; sourceTree = "<group>"; };
+		84B51FAE1BFFBBEF004A6CA0 /* TouchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TouchControl.h; path = Controllers/TouchControl.h; sourceTree = "<group>"; };
+		84B51FAF1BFFBBEF004A6CA0 /* TurnController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TurnController.cpp; path = Controllers/TurnController.cpp; sourceTree = "<group>"; };
+		84B51FB01BFFBBEF004A6CA0 /* TurnController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TurnController.h; path = Controllers/TurnController.h; sourceTree = "<group>"; };
+		84B51FBA1BFFBC02004A6CA0 /* Animated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Animated.cpp; path = Engine/Animated.cpp; sourceTree = "<group>"; };
+		84B51FBB1BFFBC02004A6CA0 /* Animated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Animated.h; path = Engine/Animated.h; sourceTree = "<group>"; };
+		84B51FBC1BFFBC02004A6CA0 /* BaseWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseWall.h; path = Engine/BaseWall.h; sourceTree = "<group>"; };
+		84B51FBD1BFFBC02004A6CA0 /* Blocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Blocker.h; path = Engine/Blocker.h; sourceTree = "<group>"; };
+		84B51FBE1BFFBC02004A6CA0 /* CharacterAnimated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CharacterAnimated.cpp; path = Engine/CharacterAnimated.cpp; sourceTree = "<group>"; };
+		84B51FBF1BFFBC02004A6CA0 /* CharacterAnimated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterAnimated.h; path = Engine/CharacterAnimated.h; sourceTree = "<group>"; };
+		84B51FC01BFFBC02004A6CA0 /* CurrentTurnLight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CurrentTurnLight.cpp; path = Engine/CurrentTurnLight.cpp; sourceTree = "<group>"; };
+		84B51FC11BFFBC02004A6CA0 /* CurrentTurnLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentTurnLight.h; path = Engine/CurrentTurnLight.h; sourceTree = "<group>"; };
+		84B51FC21BFFBC02004A6CA0 /* Effect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Effect.cpp; path = Engine/Effect.cpp; sourceTree = "<group>"; };
+		84B51FC31BFFBC02004A6CA0 /* Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Effect.h; path = Engine/Effect.h; sourceTree = "<group>"; };
+		84B51FC41BFFBC02004A6CA0 /* GameObj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameObj.cpp; path = Engine/GameObj.cpp; sourceTree = "<group>"; };
+		84B51FC51BFFBC02004A6CA0 /* GameObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObj.h; path = Engine/GameObj.h; sourceTree = "<group>"; };
+		84B51FC61BFFBC02004A6CA0 /* Magican.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Magican.cpp; path = Engine/Magican.cpp; sourceTree = "<group>"; };
+		84B51FC71BFFBC02004A6CA0 /* Magican.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Magican.h; path = Engine/Magican.h; sourceTree = "<group>"; };
+		84B51FC81BFFBC02004A6CA0 /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Map.cpp; path = Engine/Map.cpp; sourceTree = "<group>"; };
+		84B51FC91BFFBC02004A6CA0 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Map.h; path = Engine/Map.h; sourceTree = "<group>"; };
+		84B51FCA1BFFBC02004A6CA0 /* SolidObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SolidObject.h; path = Engine/SolidObject.h; sourceTree = "<group>"; };
+		84B51FCB1BFFBC02004A6CA0 /* StatusUpdater.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StatusUpdater.cpp; path = Engine/StatusUpdater.cpp; sourceTree = "<group>"; };
+		84B51FCC1BFFBC02004A6CA0 /* StatusUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusUpdater.h; path = Engine/StatusUpdater.h; sourceTree = "<group>"; };
+		84B51FCD1BFFBC02004A6CA0 /* TileMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TileMap.cpp; path = Engine/TileMap.cpp; sourceTree = "<group>"; };
+		84B51FCE1BFFBC02004A6CA0 /* TileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TileMap.h; path = Engine/TileMap.h; sourceTree = "<group>"; };
+		84B51FE21BFFBC16004A6CA0 /* Interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Interface.cpp; path = Interface/Interface.cpp; sourceTree = "<group>"; };
+		84B51FE31BFFBC16004A6CA0 /* Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Interface.h; path = Interface/Interface.h; sourceTree = "<group>"; };
+		84B51FE41BFFBC16004A6CA0 /* UICondition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UICondition.cpp; path = Interface/UICondition.cpp; sourceTree = "<group>"; };
+		84B51FE51BFFBC16004A6CA0 /* UICondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UICondition.h; path = Interface/UICondition.h; sourceTree = "<group>"; };
+		84B51FE61BFFBC16004A6CA0 /* UIEvent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIEvent.cpp; path = Interface/UIEvent.cpp; sourceTree = "<group>"; };
+		84B51FE71BFFBC16004A6CA0 /* UIEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIEvent.h; path = Interface/UIEvent.h; sourceTree = "<group>"; };
+		84B51FE81BFFBC16004A6CA0 /* UIMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIMessage.cpp; path = Interface/UIMessage.cpp; sourceTree = "<group>"; };
+		84B51FE91BFFBC16004A6CA0 /* UIMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIMessage.h; path = Interface/UIMessage.h; sourceTree = "<group>"; };
+		84B51FEA1BFFBC16004A6CA0 /* UIMessageSequence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UIMessageSequence.cpp; path = Interface/UIMessageSequence.cpp; sourceTree = "<group>"; };
+		84B51FEB1BFFBC16004A6CA0 /* UIMessageSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIMessageSequence.h; path = Interface/UIMessageSequence.h; sourceTree = "<group>"; };
+		84B51FEC1BFFBC16004A6CA0 /* UITrigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UITrigger.cpp; path = Interface/UITrigger.cpp; sourceTree = "<group>"; };
+		84B51FED1BFFBC16004A6CA0 /* UITrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UITrigger.h; path = Interface/UITrigger.h; sourceTree = "<group>"; };
+		84B51FFB1BFFBC2A004A6CA0 /* Uncopyble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Uncopyble.h; path = SDK/Uncopyble.h; sourceTree = "<group>"; };
+		84B51FFD1BFFBC38004A6CA0 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MenuScene.cpp; path = Menu/MenuScene.cpp; sourceTree = "<group>"; };
+		84B51FFE1BFFBC38004A6CA0 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuScene.h; path = Menu/MenuScene.h; sourceTree = "<group>"; };
+		84B520011BFFBC60004A6CA0 /* AppDelegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		84B520021BFFBC60004A6CA0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84B520031BFFBC60004A6CA0 /* HelloWorldScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorldScene.cpp; sourceTree = "<group>"; };
+		84B520041BFFBC60004A6CA0 /* HelloWorldScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloWorldScene.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -431,19 +423,18 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				84B51CD51BF92A31004A6CA0 /* Menu */,
-				8407ED7B1BE165F900CE54B6 /* FlaredMap */,
-				8498CCEA1BDEBF62008A4036 /* SDK */,
-				84E958691A0DB41A00899C82 /* AI */,
-				84EEB7DC1A01781800392FC5 /* Controllers */,
-				84EEB7DB1A0177FF00392FC5 /* Library */,
-				84EEB7DA1A0177F200392FC5 /* Interface */,
-				84EEB7D91A01719400392FC5 /* Common */,
-				84EEB7D81A01718E00392FC5 /* Engine */,
-				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
-				46880B8519C43A87006E1F66 /* AppDelegate.h */,
-				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
-				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				84B520011BFFBC60004A6CA0 /* AppDelegate.cpp */,
+				84B520021BFFBC60004A6CA0 /* AppDelegate.h */,
+				84B520031BFFBC60004A6CA0 /* HelloWorldScene.cpp */,
+				84B520041BFFBC60004A6CA0 /* HelloWorldScene.h */,
+				84B51FFC1BFFBC2C004A6CA0 /* Menu */,
+				84B51FFA1BFFBC1A004A6CA0 /* SDK */,
+				84B51FE11BFFBC07004A6CA0 /* Interface */,
+				84B51FB91BFFBBF3004A6CA0 /* Engine */,
+				84B51FA81BFFBBC4004A6CA0 /* Controllers */,
+				84B51F941BFFBBB2004A6CA0 /* Common */,
+				84B51F721BFFBB9D004A6CA0 /* FlaredMap */,
+				84B51F611BFFBB6E004A6CA0 /* AI */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -496,151 +487,140 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
-		8407ED7B1BE165F900CE54B6 /* FlaredMap */ = {
+		84B51F611BFFBB6E004A6CA0 /* AI */ = {
 			isa = PBXGroup;
 			children = (
-				84B51C431BEECAD0004A6CA0 /* FlaredAutomap.cpp */,
-				84B51C441BEECAD0004A6CA0 /* FlaredAutomap.h */,
-				84B51C451BEECAD0004A6CA0 /* FlaredAutomapRules.cpp */,
-				84B51C461BEECAD0004A6CA0 /* FlaredAutomapRules.h */,
-				84176DA81BE80DA10015D791 /* FlaredParser.cpp */,
-				84176DA91BE80DA10015D791 /* FlaredParser.h */,
-				8407ED7C1BE1693700CE54B6 /* FlaredMap.cpp */,
-				8407ED7D1BE1693700CE54B6 /* FlaredMap.h */,
-				8407ED801BE1696A00CE54B6 /* FlaredTileset.cpp */,
-				8407ED811BE1696A00CE54B6 /* FlaredTileset.h */,
-				8407ED841BE1699200CE54B6 /* FlaredLayer.cpp */,
-				8407ED851BE1699200CE54B6 /* FlaredLayer.h */,
-				8407ED891BE169D600CE54B6 /* FlaredEnum.h */,
-				8407ED8C1BE16D2400CE54B6 /* FlaredTile.cpp */,
-				8407ED8D1BE16D2400CE54B6 /* FlaredTile.h */,
-				84B51C3C1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */,
-				84B51C3D1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.h */,
-			);
-			name = FlaredMap;
-			sourceTree = "<group>";
-		};
-		8498CCEA1BDEBF62008A4036 /* SDK */ = {
-			isa = PBXGroup;
-			children = (
-				84B51C4F1BF1397B004A6CA0 /* Uncopyble.h */,
-			);
-			name = SDK;
-			sourceTree = "<group>";
-		};
-		84B51CD51BF92A31004A6CA0 /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				84B51CD61BF92AA0004A6CA0 /* MenuScene.cpp */,
-				84B51CD71BF92AA0004A6CA0 /* MenuScene.h */,
-			);
-			name = Menu;
-			sourceTree = "<group>";
-		};
-		84E958691A0DB41A00899C82 /* AI */ = {
-			isa = PBXGroup;
-			children = (
-				84B51C501BF13988004A6CA0 /* AIController.cpp */,
-				84B51C511BF13988004A6CA0 /* AIController.h */,
-				84B51C521BF13988004A6CA0 /* AIEngine.cpp */,
-				84B51C531BF13988004A6CA0 /* AIEngine.h */,
-				84B51C541BF13988004A6CA0 /* AIMovable.cpp */,
-				84B51C551BF13988004A6CA0 /* AIMovable.h */,
-				84B51C561BF13988004A6CA0 /* AIUsingAttack.cpp */,
-				84B51C571BF13988004A6CA0 /* AIUsingAttack.h */,
+				84B51F621BFFBB95004A6CA0 /* AIController.cpp */,
+				84B51F631BFFBB95004A6CA0 /* AIController.h */,
+				84B51F641BFFBB95004A6CA0 /* AIEngine.cpp */,
+				84B51F651BFFBB95004A6CA0 /* AIEngine.h */,
+				84B51F661BFFBB95004A6CA0 /* AIMovable.cpp */,
+				84B51F671BFFBB95004A6CA0 /* AIMovable.h */,
+				84B51F681BFFBB95004A6CA0 /* AIUsingAttack.cpp */,
+				84B51F691BFFBB95004A6CA0 /* AIUsingAttack.h */,
 			);
 			name = AI;
 			sourceTree = "<group>";
 		};
-		84EEB7D81A01718E00392FC5 /* Engine */ = {
+		84B51F721BFFBB9D004A6CA0 /* FlaredMap */ = {
 			isa = PBXGroup;
 			children = (
-				84B51C881BF139D4004A6CA0 /* Animated.cpp */,
-				84B51C891BF139D4004A6CA0 /* Animated.h */,
-				84B51C8A1BF139D4004A6CA0 /* BaseWall.h */,
-				84B51C8B1BF139D4004A6CA0 /* Blocker.h */,
-				84B51C8C1BF139D4004A6CA0 /* CharacterAnimated.cpp */,
-				84B51C8D1BF139D4004A6CA0 /* CharacterAnimated.h */,
-				84B51C8E1BF139D4004A6CA0 /* CurrentTurnLight.cpp */,
-				84B51C8F1BF139D4004A6CA0 /* CurrentTurnLight.h */,
-				84B51C901BF139D4004A6CA0 /* Effect.cpp */,
-				84B51C911BF139D4004A6CA0 /* Effect.h */,
-				84B51C921BF139D4004A6CA0 /* GameObj.cpp */,
-				84B51C931BF139D4004A6CA0 /* GameObj.h */,
-				84B51C941BF139D4004A6CA0 /* Magican.cpp */,
-				84B51C951BF139D4004A6CA0 /* Magican.h */,
-				84B51C961BF139D4004A6CA0 /* Map.cpp */,
-				84B51C971BF139D4004A6CA0 /* Map.h */,
-				84B51C981BF139D4004A6CA0 /* SolidObject.h */,
-				84B51C991BF139D4004A6CA0 /* StatusUpdater.cpp */,
-				84B51C9A1BF139D4004A6CA0 /* StatusUpdater.h */,
-				84B51C9B1BF139D4004A6CA0 /* TileMap.cpp */,
-				84B51C9C1BF139D4004A6CA0 /* TileMap.h */,
+				84B51F731BFFBBAD004A6CA0 /* FlaredAutomap.cpp */,
+				84B51F741BFFBBAD004A6CA0 /* FlaredAutomap.h */,
+				84B51F751BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp */,
+				84B51F761BFFBBAD004A6CA0 /* FlaredAutomapRules.h */,
+				84B51F771BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp */,
+				84B51F781BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.h */,
+				84B51F791BFFBBAD004A6CA0 /* FlaredEnum.h */,
+				84B51F7A1BFFBBAD004A6CA0 /* FlaredLayer.cpp */,
+				84B51F7B1BFFBBAD004A6CA0 /* FlaredLayer.h */,
+				84B51F7C1BFFBBAD004A6CA0 /* FlaredMap.cpp */,
+				84B51F7D1BFFBBAD004A6CA0 /* FlaredMap.h */,
+				84B51F7E1BFFBBAD004A6CA0 /* FlaredParser.cpp */,
+				84B51F7F1BFFBBAD004A6CA0 /* FlaredParser.h */,
+				84B51F801BFFBBAD004A6CA0 /* FlaredTile.cpp */,
+				84B51F811BFFBBAD004A6CA0 /* FlaredTile.h */,
+				84B51F821BFFBBAD004A6CA0 /* FlaredTileset.cpp */,
+				84B51F831BFFBBAD004A6CA0 /* FlaredTileset.h */,
 			);
-			name = Engine;
+			name = FlaredMap;
 			sourceTree = "<group>";
 		};
-		84EEB7D91A01719400392FC5 /* Common */ = {
+		84B51F941BFFBBB2004A6CA0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				84B51C751BF139BE004A6CA0 /* Consts.cpp */,
-				84B51C761BF139BE004A6CA0 /* Consts.h */,
-				84B51C771BF139BE004A6CA0 /* ContainUtils.cpp */,
-				84B51C781BF139BE004A6CA0 /* ContainUtils.h */,
-				84B51C791BF139BE004A6CA0 /* Grid.h */,
-				84B51C7A1BF139BE004A6CA0 /* MapReader.cpp */,
-				84B51C7B1BF139BE004A6CA0 /* MapReader.h */,
-				84B51C7C1BF139BE004A6CA0 /* MovingStructure.h */,
-				84B51C7D1BF139BE004A6CA0 /* Tileset.h */,
-				84B51C7E1BF139BE004A6CA0 /* WavePathFinder.cpp */,
-				84B51C7F1BF139BE004A6CA0 /* WavePathFinder.h */,
+				84B51F951BFFBBBF004A6CA0 /* Consts.cpp */,
+				84B51F961BFFBBBF004A6CA0 /* Consts.h */,
+				84B51F971BFFBBBF004A6CA0 /* ContainUtils.cpp */,
+				84B51F981BFFBBBF004A6CA0 /* ContainUtils.h */,
+				84B51F991BFFBBBF004A6CA0 /* Grid.h */,
+				84B51F9A1BFFBBBF004A6CA0 /* MapReader.cpp */,
+				84B51F9B1BFFBBBF004A6CA0 /* MapReader.h */,
+				84B51F9C1BFFBBBF004A6CA0 /* MovingStructure.h */,
+				84B51F9D1BFFBBBF004A6CA0 /* Tileset.h */,
+				84B51F9E1BFFBBBF004A6CA0 /* WavePathFinder.cpp */,
+				84B51F9F1BFFBBBF004A6CA0 /* WavePathFinder.h */,
 			);
 			name = Common;
 			sourceTree = "<group>";
 		};
-		84EEB7DA1A0177F200392FC5 /* Interface */ = {
+		84B51FA81BFFBBC4004A6CA0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				84B51C711BF139AD004A6CA0 /* Interface.cpp */,
-				84B51C721BF139AD004A6CA0 /* Interface.h */,
-				84B51CBA1BF3DD17004A6CA0 /* UIMessage.cpp */,
-				84B51CBB1BF3DD17004A6CA0 /* UIMessage.h */,
-				84B51CC01BF3F1F7004A6CA0 /* UIMessageSequence.cpp */,
-				84B51CC11BF3F1F7004A6CA0 /* UIMessageSequence.h */,
-				84B51CC91BF68806004A6CA0 /* UICondition.cpp */,
-				84B51CCA1BF68806004A6CA0 /* UICondition.h */,
-				84B51CCD1BF68880004A6CA0 /* UITrigger.cpp */,
-				84B51CCE1BF68880004A6CA0 /* UITrigger.h */,
-				84B51CD11BF68A49004A6CA0 /* UIEvent.cpp */,
-				84B51CD21BF68A49004A6CA0 /* UIEvent.h */,
+				84B51FA91BFFBBEF004A6CA0 /* SquareControl.cpp */,
+				84B51FAA1BFFBBEF004A6CA0 /* SquareControl.h */,
+				84B51FAB1BFFBBEF004A6CA0 /* TeamRelationships.cpp */,
+				84B51FAC1BFFBBEF004A6CA0 /* TeamRelationships.h */,
+				84B51FAD1BFFBBEF004A6CA0 /* TouchControl.cpp */,
+				84B51FAE1BFFBBEF004A6CA0 /* TouchControl.h */,
+				84B51FAF1BFFBBEF004A6CA0 /* TurnController.cpp */,
+				84B51FB01BFFBBEF004A6CA0 /* TurnController.h */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		84B51FB91BFFBBF3004A6CA0 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				84B51FBA1BFFBC02004A6CA0 /* Animated.cpp */,
+				84B51FBB1BFFBC02004A6CA0 /* Animated.h */,
+				84B51FBC1BFFBC02004A6CA0 /* BaseWall.h */,
+				84B51FBD1BFFBC02004A6CA0 /* Blocker.h */,
+				84B51FBE1BFFBC02004A6CA0 /* CharacterAnimated.cpp */,
+				84B51FBF1BFFBC02004A6CA0 /* CharacterAnimated.h */,
+				84B51FC01BFFBC02004A6CA0 /* CurrentTurnLight.cpp */,
+				84B51FC11BFFBC02004A6CA0 /* CurrentTurnLight.h */,
+				84B51FC21BFFBC02004A6CA0 /* Effect.cpp */,
+				84B51FC31BFFBC02004A6CA0 /* Effect.h */,
+				84B51FC41BFFBC02004A6CA0 /* GameObj.cpp */,
+				84B51FC51BFFBC02004A6CA0 /* GameObj.h */,
+				84B51FC61BFFBC02004A6CA0 /* Magican.cpp */,
+				84B51FC71BFFBC02004A6CA0 /* Magican.h */,
+				84B51FC81BFFBC02004A6CA0 /* Map.cpp */,
+				84B51FC91BFFBC02004A6CA0 /* Map.h */,
+				84B51FCA1BFFBC02004A6CA0 /* SolidObject.h */,
+				84B51FCB1BFFBC02004A6CA0 /* StatusUpdater.cpp */,
+				84B51FCC1BFFBC02004A6CA0 /* StatusUpdater.h */,
+				84B51FCD1BFFBC02004A6CA0 /* TileMap.cpp */,
+				84B51FCE1BFFBC02004A6CA0 /* TileMap.h */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
+		84B51FE11BFFBC07004A6CA0 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				84B51FE21BFFBC16004A6CA0 /* Interface.cpp */,
+				84B51FE31BFFBC16004A6CA0 /* Interface.h */,
+				84B51FE41BFFBC16004A6CA0 /* UICondition.cpp */,
+				84B51FE51BFFBC16004A6CA0 /* UICondition.h */,
+				84B51FE61BFFBC16004A6CA0 /* UIEvent.cpp */,
+				84B51FE71BFFBC16004A6CA0 /* UIEvent.h */,
+				84B51FE81BFFBC16004A6CA0 /* UIMessage.cpp */,
+				84B51FE91BFFBC16004A6CA0 /* UIMessage.h */,
+				84B51FEA1BFFBC16004A6CA0 /* UIMessageSequence.cpp */,
+				84B51FEB1BFFBC16004A6CA0 /* UIMessageSequence.h */,
+				84B51FEC1BFFBC16004A6CA0 /* UITrigger.cpp */,
+				84B51FED1BFFBC16004A6CA0 /* UITrigger.h */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
 		};
-		84EEB7DB1A0177FF00392FC5 /* Library */ = {
+		84B51FFA1BFFBC1A004A6CA0 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				84B51C691BF139A2004A6CA0 /* MagicanDark.cpp */,
-				84B51C6A1BF139A2004A6CA0 /* MagicanDark.h */,
-				84B51C6B1BF139A2004A6CA0 /* MagicanLight.cpp */,
-				84B51C6C1BF139A2004A6CA0 /* MagicanLight.h */,
+				84B51FFB1BFFBC2A004A6CA0 /* Uncopyble.h */,
 			);
-			name = Library;
+			name = SDK;
 			sourceTree = "<group>";
 		};
-		84EEB7DC1A01781800392FC5 /* Controllers */ = {
+		84B51FFC1BFFBC2C004A6CA0 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				84B51C601BF13995004A6CA0 /* SquareControl.cpp */,
-				84B51C611BF13995004A6CA0 /* SquareControl.h */,
-				84B51C621BF13995004A6CA0 /* TouchControl.cpp */,
-				84B51C631BF13995004A6CA0 /* TouchControl.h */,
-				84B51C641BF13995004A6CA0 /* TurnController.h */,
-				84B51CAF1BF13BAC004A6CA0 /* TurnController.cpp */,
-				84B51CB51BF14D92004A6CA0 /* TeamRelationships.cpp */,
-				84B51CB61BF14D92004A6CA0 /* TeamRelationships.h */,
+				84B51FFD1BFFBC38004A6CA0 /* MenuScene.cpp */,
+				84B51FFE1BFFBC38004A6CA0 /* MenuScene.h */,
 			);
-			name = Controllers;
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -783,49 +763,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B51C9D1BF139D4004A6CA0 /* Animated.cpp in Sources */,
-				84B51C6F1BF139A2004A6CA0 /* MagicanLight.cpp in Sources */,
-				8407ED861BE1699200CE54B6 /* FlaredLayer.cpp in Sources */,
-				84B51C841BF139BE004A6CA0 /* MapReader.cpp in Sources */,
-				84B51C3E1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */,
-				84B51CCB1BF68806004A6CA0 /* UICondition.cpp in Sources */,
-				84B51CAB1BF139D4004A6CA0 /* StatusUpdater.cpp in Sources */,
-				84B51C5E1BF13988004A6CA0 /* AIUsingAttack.cpp in Sources */,
-				84B51C821BF139BE004A6CA0 /* ContainUtils.cpp in Sources */,
-				84B51CD81BF92AA0004A6CA0 /* MenuScene.cpp in Sources */,
-				84B51C491BEECAD0004A6CA0 /* FlaredAutomapRules.cpp in Sources */,
-				8407ED8E1BE16D2400CE54B6 /* FlaredTile.cpp in Sources */,
-				84B51C5A1BF13988004A6CA0 /* AIEngine.cpp in Sources */,
-				84B51CBC1BF3DD17004A6CA0 /* UIMessage.cpp in Sources */,
-				84B51CA31BF139D4004A6CA0 /* Effect.cpp in Sources */,
-				84B51C861BF139BE004A6CA0 /* WavePathFinder.cpp in Sources */,
-				84B51CA71BF139D4004A6CA0 /* Magican.cpp in Sources */,
-				84B51C581BF13988004A6CA0 /* AIController.cpp in Sources */,
-				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
-				8407ED7E1BE1693700CE54B6 /* FlaredMap.cpp in Sources */,
-				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
-				84B51C471BEECAD0004A6CA0 /* FlaredAutomap.cpp in Sources */,
-				84B51C5C1BF13988004A6CA0 /* AIMovable.cpp in Sources */,
-				84B51C801BF139BE004A6CA0 /* Consts.cpp in Sources */,
-				84B51C9F1BF139D4004A6CA0 /* CharacterAnimated.cpp in Sources */,
-				84B51C6D1BF139A2004A6CA0 /* MagicanDark.cpp in Sources */,
-				84B51CAD1BF139D4004A6CA0 /* TileMap.cpp in Sources */,
-				84B51CA11BF139D4004A6CA0 /* CurrentTurnLight.cpp in Sources */,
-				84B51CA51BF139D4004A6CA0 /* GameObj.cpp in Sources */,
+				84B51FEE1BFFBC16004A6CA0 /* Interface.cpp in Sources */,
+				84B51FFF1BFFBC38004A6CA0 /* MenuScene.cpp in Sources */,
+				84B51FF41BFFBC16004A6CA0 /* UIMessage.cpp in Sources */,
+				84B51FD91BFFBC02004A6CA0 /* Magican.cpp in Sources */,
+				84B51FCF1BFFBC02004A6CA0 /* Animated.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				84B51FB31BFFBBEF004A6CA0 /* TeamRelationships.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
-				84B51CC21BF3F1F7004A6CA0 /* UIMessageSequence.cpp in Sources */,
-				84B51CCF1BF68880004A6CA0 /* UITrigger.cpp in Sources */,
-				84B51CB01BF13BAC004A6CA0 /* TurnController.cpp in Sources */,
-				84B51C731BF139AD004A6CA0 /* Interface.cpp in Sources */,
-				84B51CA91BF139D4004A6CA0 /* Map.cpp in Sources */,
+				84B51F861BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp in Sources */,
+				84B51FDB1BFFBC02004A6CA0 /* Map.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
-				84176DAA1BE80DA10015D791 /* FlaredParser.cpp in Sources */,
-				84B51C651BF13995004A6CA0 /* SquareControl.cpp in Sources */,
-				8407ED821BE1696A00CE54B6 /* FlaredTileset.cpp in Sources */,
-				84B51CB71BF14D92004A6CA0 /* TeamRelationships.cpp in Sources */,
-				84B51CD31BF68A49004A6CA0 /* UIEvent.cpp in Sources */,
-				84B51C671BF13995004A6CA0 /* TouchControl.cpp in Sources */,
+				84B51FDF1BFFBC02004A6CA0 /* TileMap.cpp in Sources */,
+				84B520051BFFBC60004A6CA0 /* AppDelegate.cpp in Sources */,
+				84B51F6A1BFFBB95004A6CA0 /* AIController.cpp in Sources */,
+				84B51FA61BFFBBBF004A6CA0 /* WavePathFinder.cpp in Sources */,
+				84B51FA01BFFBBBF004A6CA0 /* Consts.cpp in Sources */,
+				84B520071BFFBC60004A6CA0 /* HelloWorldScene.cpp in Sources */,
+				84B51FF01BFFBC16004A6CA0 /* UICondition.cpp in Sources */,
+				84B51F8A1BFFBBAD004A6CA0 /* FlaredLayer.cpp in Sources */,
+				84B51FB51BFFBBEF004A6CA0 /* TouchControl.cpp in Sources */,
+				84B51FD31BFFBC02004A6CA0 /* CurrentTurnLight.cpp in Sources */,
+				84B51FB11BFFBBEF004A6CA0 /* SquareControl.cpp in Sources */,
+				84B51FD51BFFBC02004A6CA0 /* Effect.cpp in Sources */,
+				84B51F921BFFBBAD004A6CA0 /* FlaredTileset.cpp in Sources */,
+				84B51F8C1BFFBBAD004A6CA0 /* FlaredMap.cpp in Sources */,
+				84B51FB71BFFBBEF004A6CA0 /* TurnController.cpp in Sources */,
+				84B51FD71BFFBC02004A6CA0 /* GameObj.cpp in Sources */,
+				84B51FA41BFFBBBF004A6CA0 /* MapReader.cpp in Sources */,
+				84B51FDD1BFFBC02004A6CA0 /* StatusUpdater.cpp in Sources */,
+				84B51FF61BFFBC16004A6CA0 /* UIMessageSequence.cpp in Sources */,
+				84B51F881BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */,
+				84B51F6E1BFFBB95004A6CA0 /* AIMovable.cpp in Sources */,
+				84B51F901BFFBBAD004A6CA0 /* FlaredTile.cpp in Sources */,
+				84B51FA21BFFBBBF004A6CA0 /* ContainUtils.cpp in Sources */,
+				84B51F6C1BFFBB95004A6CA0 /* AIEngine.cpp in Sources */,
+				84B51FD11BFFBC02004A6CA0 /* CharacterAnimated.cpp in Sources */,
+				84B51F701BFFBB95004A6CA0 /* AIUsingAttack.cpp in Sources */,
+				84B51FF81BFFBC16004A6CA0 /* UITrigger.cpp in Sources */,
+				84B51F8E1BFFBBAD004A6CA0 /* FlaredParser.cpp in Sources */,
+				84B51FF21BFFBC16004A6CA0 /* UIEvent.cpp in Sources */,
+				84B51F841BFFBBAD004A6CA0 /* FlaredAutomap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,47 +811,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84B51C741BF139AD004A6CA0 /* Interface.cpp in Sources */,
-				84B51CBD1BF3DD17004A6CA0 /* UIMessage.cpp in Sources */,
-				84B51C5B1BF13988004A6CA0 /* AIEngine.cpp in Sources */,
-				84B51C5F1BF13988004A6CA0 /* AIUsingAttack.cpp in Sources */,
-				84176DAB1BE80DA10015D791 /* FlaredParser.cpp in Sources */,
-				8407ED831BE1696A00CE54B6 /* FlaredTileset.cpp in Sources */,
-				84B51C481BEECAD0004A6CA0 /* FlaredAutomap.cpp in Sources */,
-				84B51C701BF139A2004A6CA0 /* MagicanLight.cpp in Sources */,
-				84B51CAE1BF139D4004A6CA0 /* TileMap.cpp in Sources */,
-				84B51C5D1BF13988004A6CA0 /* AIMovable.cpp in Sources */,
-				8407ED7F1BE1693700CE54B6 /* FlaredMap.cpp in Sources */,
-				84B51C3F1BEE7CFD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */,
-				84B51CA01BF139D4004A6CA0 /* CharacterAnimated.cpp in Sources */,
-				84B51C9E1BF139D4004A6CA0 /* Animated.cpp in Sources */,
-				8407ED8F1BE16D2400CE54B6 /* FlaredTile.cpp in Sources */,
-				84B51C851BF139BE004A6CA0 /* MapReader.cpp in Sources */,
-				84B51CB81BF14D92004A6CA0 /* TeamRelationships.cpp in Sources */,
-				84B51C6E1BF139A2004A6CA0 /* MagicanDark.cpp in Sources */,
-				84B51C661BF13995004A6CA0 /* SquareControl.cpp in Sources */,
-				84B51CA41BF139D4004A6CA0 /* Effect.cpp in Sources */,
-				84B51CAA1BF139D4004A6CA0 /* Map.cpp in Sources */,
-				84B51CCC1BF68806004A6CA0 /* UICondition.cpp in Sources */,
-				84B51C871BF139BE004A6CA0 /* WavePathFinder.cpp in Sources */,
-				84B51CD01BF68880004A6CA0 /* UITrigger.cpp in Sources */,
-				84B51C591BF13988004A6CA0 /* AIController.cpp in Sources */,
-				84B51CA61BF139D4004A6CA0 /* GameObj.cpp in Sources */,
-				84B51CB11BF13BAC004A6CA0 /* TurnController.cpp in Sources */,
-				84B51C4A1BEECAD0004A6CA0 /* FlaredAutomapRules.cpp in Sources */,
-				84B51CD91BF92AA0004A6CA0 /* MenuScene.cpp in Sources */,
-				84B51CD41BF68A49004A6CA0 /* UIEvent.cpp in Sources */,
-				84B51CC31BF3F1F7004A6CA0 /* UIMessageSequence.cpp in Sources */,
-				84B51C811BF139BE004A6CA0 /* Consts.cpp in Sources */,
-				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
-				84B51CA21BF139D4004A6CA0 /* CurrentTurnLight.cpp in Sources */,
-				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
-				84B51CAC1BF139D4004A6CA0 /* StatusUpdater.cpp in Sources */,
-				84B51C681BF13995004A6CA0 /* TouchControl.cpp in Sources */,
-				8407ED871BE1699200CE54B6 /* FlaredLayer.cpp in Sources */,
-				84B51CA81BF139D4004A6CA0 /* Magican.cpp in Sources */,
-				84B51C831BF139BE004A6CA0 /* ContainUtils.cpp in Sources */,
+				84B51FEF1BFFBC16004A6CA0 /* Interface.cpp in Sources */,
+				84B51FD41BFFBC02004A6CA0 /* CurrentTurnLight.cpp in Sources */,
+				84B51F711BFFBB95004A6CA0 /* AIUsingAttack.cpp in Sources */,
+				84B51FA31BFFBBBF004A6CA0 /* ContainUtils.cpp in Sources */,
+				84B51FF71BFFBC16004A6CA0 /* UIMessageSequence.cpp in Sources */,
+				84B51FF11BFFBC16004A6CA0 /* UICondition.cpp in Sources */,
+				84B51FA71BFFBBBF004A6CA0 /* WavePathFinder.cpp in Sources */,
+				84B51FD81BFFBC02004A6CA0 /* GameObj.cpp in Sources */,
+				84B51FD61BFFBC02004A6CA0 /* Effect.cpp in Sources */,
+				84B520061BFFBC60004A6CA0 /* AppDelegate.cpp in Sources */,
+				84B520081BFFBC60004A6CA0 /* HelloWorldScene.cpp in Sources */,
+				84B51F931BFFBBAD004A6CA0 /* FlaredTileset.cpp in Sources */,
+				84B51F6B1BFFBB95004A6CA0 /* AIController.cpp in Sources */,
+				84B51F6F1BFFBB95004A6CA0 /* AIMovable.cpp in Sources */,
+				84B51FA11BFFBBBF004A6CA0 /* Consts.cpp in Sources */,
+				84B51FD21BFFBC02004A6CA0 /* CharacterAnimated.cpp in Sources */,
+				84B51FD01BFFBC02004A6CA0 /* Animated.cpp in Sources */,
+				84B51F8D1BFFBBAD004A6CA0 /* FlaredMap.cpp in Sources */,
+				84B51FF31BFFBC16004A6CA0 /* UIEvent.cpp in Sources */,
+				84B51FF51BFFBC16004A6CA0 /* UIMessage.cpp in Sources */,
+				84B51FB61BFFBBEF004A6CA0 /* TouchControl.cpp in Sources */,
+				84B51FB81BFFBBEF004A6CA0 /* TurnController.cpp in Sources */,
+				84B51F8B1BFFBBAD004A6CA0 /* FlaredLayer.cpp in Sources */,
+				84B520001BFFBC38004A6CA0 /* MenuScene.cpp in Sources */,
+				84B51F6D1BFFBB95004A6CA0 /* AIEngine.cpp in Sources */,
+				84B51F891BFFBBAD004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */,
+				84B51FB21BFFBBEF004A6CA0 /* SquareControl.cpp in Sources */,
+				84B51F851BFFBBAD004A6CA0 /* FlaredAutomap.cpp in Sources */,
+				84B51F8F1BFFBBAD004A6CA0 /* FlaredParser.cpp in Sources */,
+				84B51FDA1BFFBC02004A6CA0 /* Magican.cpp in Sources */,
+				84B51FDE1BFFBC02004A6CA0 /* StatusUpdater.cpp in Sources */,
+				84B51F871BFFBBAD004A6CA0 /* FlaredAutomapRules.cpp in Sources */,
+				84B51F911BFFBBAD004A6CA0 /* FlaredTile.cpp in Sources */,
+				84B51FB41BFFBBEF004A6CA0 /* TeamRelationships.cpp in Sources */,
+				84B51FF91BFFBC16004A6CA0 /* UITrigger.cpp in Sources */,
+				84B51FDC1BFFBC02004A6CA0 /* Map.cpp in Sources */,
+				84B51FE01BFFBC02004A6CA0 /* TileMap.cpp in Sources */,
+				84B51FA51BFFBBBF004A6CA0 /* MapReader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,6 +890,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -944,6 +921,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios",
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
+					"$(SRCROOT)/**",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1034,6 +1012,7 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					"$(SRCROOT)/../Classes",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1063,6 +1042,7 @@
 					"$(SRCROOT)/../cocos2d/extensions",
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
+					"$(SRCROOT)",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

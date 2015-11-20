@@ -8,7 +8,7 @@
 
 #include "FlaredAutomapTerrainRuleRecorder.h"
 
-#include "Consts.h"
+#include <Common/Consts.h>
 
 #include "FlaredEnum.h"
 

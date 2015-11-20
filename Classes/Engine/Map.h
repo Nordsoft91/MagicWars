@@ -10,11 +10,11 @@
 #define __MagicWars__Map__
 
 #include "TileMap.h"
-#include "Consts.h"
+#include <Common/Consts.h>
 #include "BaseWall.h"
-#include "ContainUtils.h"
+#include <Common/ContainUtils.h>
 
-#include "FlaredMap.h"
+#include <FlaredMap/FlaredMap.h>
 
 namespace MagicWars_NS {
     class Map

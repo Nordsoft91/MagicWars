@@ -9,7 +9,7 @@
 #ifndef __MagicWars__AIEngine__
 #define __MagicWars__AIEngine__
 
-#include "TouchControl.h"
+#include <Controllers/TouchControl.h>
 
 namespace MagicWars_NS {
     

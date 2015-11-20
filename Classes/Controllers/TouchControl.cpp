@@ -7,19 +7,17 @@
 //
 
 #include "TouchControl.h"
-#include "ContainUtils.h"
-#include "Effect.h"
-#include "MagicanDark.h"
-#include "MagicanLight.h"
-#include "Interface.h"
+#include <Common/ContainUtils.h>
+#include <Engine/Effect.h>
+#include <Interface/Interface.h>
 
-#include "FlaredParser.h"
-#include "FlaredAutomapRules.h"
-#include "FlaredAutomap.h"
-#include "FlaredAutomapTerrainRuleRecorder.h"
-#include "FlaredEnum.h"
+#include <FlaredMap/FlaredParser.h>
+#include <FlaredMap/FlaredAutomapRules.h>
+#include <FlaredMap/FlaredAutomap.h>
+#include <FlaredMap/FlaredAutomapTerrainRuleRecorder.h>
+#include <FlaredMap/FlaredEnum.h>
 
-#include "UITrigger.h"
+#include <Interface/UITrigger.h>
 
 using namespace MagicWars_NS;
 using namespace cocos2d;

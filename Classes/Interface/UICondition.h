@@ -10,7 +10,7 @@
 #define __MagicWars__UICondition__
 
 #include <CocosGUI.h>
-#include "TouchControl.h"
+#include <Controllers/TouchControl.h>
 
 namespace UI_NS {
     

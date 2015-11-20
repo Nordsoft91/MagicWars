@@ -9,7 +9,7 @@
 #ifndef __MagicWars__MapReader__
 #define __MagicWars__MapReader__
 
-#include "Map.h"
+#include <Engine/Map.h>
 
 namespace MagicWars_NS {
     class MapReader

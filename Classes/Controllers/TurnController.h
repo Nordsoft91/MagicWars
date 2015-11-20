@@ -9,9 +9,9 @@
 #ifndef MagicWars_TurnController_h
 #define MagicWars_TurnController_h
 
-#include "Magican.h"
-#include "Uncopyble.h"
-#include "TeamRelationships.h"
+#include <Engine/Magican.h>
+#include <SDK/Uncopyble.h>
+#include <Controllers/TeamRelationships.h>
 #include <map>
 #include <string>
 

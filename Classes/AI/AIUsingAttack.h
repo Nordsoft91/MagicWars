@@ -9,7 +9,7 @@
 #ifndef __MagicWars__AIUsingAttack__
 #define __MagicWars__AIUsingAttack__
 
-#include <AIEngine.h>
+#include "AIEngine.h"
 
 namespace MagicWars_NS {
     
