@@ -11,9 +11,15 @@ CMakeLists.txt
 
 proj.android/
 
+proj.android-studio/
+
 proj.linux/
 
 proj.win32/
+
+proj.win10/
+
+proj.win8.1-universal/
 
 proj.wp8-xaml/
 proj.ios_mac/MagicWars.xcodeproj/project.xcworkspace/xcshareddata/MagicWars.xccheckout
@@ -33,3 +39,7 @@ proj.ios_mac/MagicWars.xcodeproj/project.xcworkspace/contents.xcworkspacedata
 proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWars iOS.xcscheme
 
 Resources/data
+
+proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWars-mobile.xcscheme
+
+proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWars-desktop.xcscheme
