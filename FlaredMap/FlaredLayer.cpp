@@ -27,7 +27,7 @@ Flared_NS::Tile& Flared_NS::Layer::operator() (size_t x, size_t y)
     return d_layer.at(y*d_width+x);
 }
 
-Flared_NS::Layer::operator std::vector<Tile> ()
+Flared_NS::Layer::operator std::vector<Flared_NS::Tile> ()
 {
     return d_layer;
 }
