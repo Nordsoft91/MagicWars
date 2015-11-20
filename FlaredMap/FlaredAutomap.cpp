@@ -142,10 +142,10 @@ namespace Flared_NS {
             if(!i.second.name().empty())
             {
                 res.push_back(i.second.name());
-                if(const auto* interface = i.second.getTileInfoInterface())
+                if(const auto* pInterface = i.second.getTileInfoInterface())
                 {
-                    if(!interface->info().name().empty())
-                        res.push_back(interface->info().name());
+                    if(!pInterface->info().name().empty())
+                        res.push_back(pInterface->info().name());
                 }
             }
         }
