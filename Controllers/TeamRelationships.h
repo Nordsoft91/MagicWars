@@ -9,6 +9,9 @@
 #ifndef __MagicWars__TeamRelationships__
 #define __MagicWars__TeamRelationships__
 
+#include <string>
+#include <vector>
+
 namespace MagicWars_NS {
     class Relationships
     {
