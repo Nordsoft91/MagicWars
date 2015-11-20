@@ -16,3 +16,10 @@ proj.linux/
 proj.win32/
 
 proj.wp8-xaml/
+proj.ios_mac/MagicWars.xcodeproj/project.xcworkspace/xcshareddata/MagicWars.xccheckout
+
+proj.ios_mac/MagicWars.xcodeproj/project.xcworkspace/xcuserdata/admin.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcuserstate
+
+proj.ios_mac/MagicWars.xcodeproj/project.xcworkspace/xcuserdata/admin.xcuserdatad/UserInterfaceState.xcuserstate
