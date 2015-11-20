@@ -87,19 +87,19 @@ cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
             spr->setVisible(i_tile.info().visible);
             if(i_tile.info().getTileInfoInterface())
             {
-                if(const auto* interface = dynamic_cast<const Flared_NS::ISubtile*>(i_tile.info().getTileInfoInterface()))
+                if(const auto* pInterface = dynamic_cast<const Flared_NS::ISubtile*>(i_tile.info().getTileInfoInterface()))
                 {
-                    if( auto* subspr = getSubtileImg(interface) )
+                    if( auto* subspr = getSubtileImg(pInterface) )
                     {
-                        subspr->setPosition(interface->getRelX(), interface->getRelY());
+                        subspr->setPosition(pInterface->getRelX(), pInterface->getRelY());
                         spr->addChild(subspr);
                     }
                 }
-                if(const auto* interface = dynamic_cast<const Flared_NS::IAnimation*>(i_tile.info().getTileInfoInterface()))
+                if(const auto* pInterface = dynamic_cast<const Flared_NS::IAnimation*>(i_tile.info().getTileInfoInterface()))
                 {
-                    /*if( auto* subspr = getSubtileImg(interface) )
+                    /*if( auto* subspr = getSubtileImg(pInterface) )
                     {
-                        subspr->setPosition(interface->getRelX(), interface->getRelY());
+                        subspr->setPosition(pInterface->getRelX(), pInterface->getRelY());
                         spr->addChild(subspr);
                     }*/
                 }
