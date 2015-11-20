@@ -108,6 +108,7 @@ void HelloWorld::menuCloseCallback(Ref* pSender)
     return;
 #endif
 
+    cocos2d::log("END GAME");
     Director::getInstance()->end();
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
