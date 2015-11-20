@@ -95,6 +95,14 @@ cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
                         spr->addChild(subspr);
                     }
                 }
+                if(const auto* interface = dynamic_cast<const Flared_NS::IAnimation*>(i_tile.info().getTileInfoInterface()))
+                {
+                    /*if( auto* subspr = getSubtileImg(interface) )
+                    {
+                        subspr->setPosition(interface->getRelX(), interface->getRelY());
+                        spr->addChild(subspr);
+                    }*/
+                }
             }
             return spr;
         }

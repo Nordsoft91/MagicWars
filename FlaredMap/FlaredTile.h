@@ -54,7 +54,7 @@ namespace Flared_NS {
         }
         
     private:
-        ITileInfo* d_interface = nullptr;
+        ITileInfo* d_interface = nullptr; //TODO: who is owner?
     };
     
     class ISubtile: public ITileInfo
@@ -72,6 +72,20 @@ namespace Flared_NS {
         TileInfo d_info;
         
         int d_relX, d_relY;
+    };
+    
+    class IAnimation: public ITileInfo
+    {
+    public:
+        IAnimation() = default;
+        IAnimation(const std::vector<TileInfo>& i_info): d_info(i_info) {d_info.push_back(TileInfo());}
+        
+        TileInfo info() const override {return d_info.at(d_frame++);}
+        
+    private:
+        std::vector<TileInfo> d_info;
+        
+        mutable int d_frame = 0;
     };
     
     class Tile
