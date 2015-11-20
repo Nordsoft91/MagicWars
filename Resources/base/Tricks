@@ -1,0 +1,31 @@
+<group> trick_shoot
+{
+    type = DAMMAGE
+    icon = icon_fire.png
+    radius = 4
+    minRadius = 2
+    gridType = STAR
+    coverType = POINT
+    effectType = APPEAR
+    sprite = Melee1.png
+    sprite_size = 10
+    force = 21
+    mind = 0
+    wisdom = 0
+}
+
+<group> trick_doubleshoot
+{
+type = DAMMAGE
+icon = icon_ray.png
+radius = 2
+gridType = BORDER
+coverType = LINE
+coverRadius = 2
+effectType = APPEAR
+sprite = Melee1.png
+sprite_size = 10
+force = 21
+mind = 0
+wisdom = 0
+}

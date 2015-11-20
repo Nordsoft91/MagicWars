@@ -1,0 +1,95 @@
+<group> rule_grass_center
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
+}
+
+<group> rule_water_center
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 128 64 64 } }
+}
+
+<group> rule_water_edge_top
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 64 192 64 64 } }
+rotation = 3
+}
+
+<group> rule_water_edge_left
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 128 128 64 64 } }
+rotation = 2
+}
+
+<group> rule_water_edge_right
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 0 128 64 64 } }
+rotation = 0
+}
+
+<group> rule_water_edge_bottom
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 64 64 64 64 } }
+rotation = 1
+}
+
+<group> rule_water_corner_right
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 128 32 32 32 } { 001_G_Water01.png 64 192 64 64 } { 001_G_Water01.png 0 128 64 64 } { 001_G_Water01.png 64 128 64 64 } }
+rotation = 0
+}
+
+<group> rule_water_corner_top
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 128 0 32 32 } { 001_G_Water01.png 0 128 64 64 } { 001_G_Water01.png 64 64 64 64 } { 001_G_Water01.png 64 128 64 64 } }
+rotation = 1
+}
+
+<group> rule_water_corner_left
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 160 0 32 32 } { 001_G_Water01.png 64 64 64 64 } { 001_G_Water01.png 128 128 64 64 } { 001_G_Water01.png 64 128 64 64 } }
+rotation = 2
+}
+
+<group> rule_water_corner_bottom
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 160 32 32 32 } { 001_G_Water01.png 128 128 64 64 } { 001_G_Water01.png 64 192 64 64 } { 001_G_Water01.png 64 128 64 64 } }
+rotation = 3
+}
+
+<group> rule_water_insidecorner_right
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 128 64 64 64 } }
+rotation = 0
+}
+
+<group> rule_water_insidecorner_top
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 128 192 64 64 } }
+rotation = 1
+}
+
+<group> rule_water_insidecorner_left
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 0 192 64 64 } }
+rotation = 2
+}
+
+<group> rule_water_insidecorner_bottom
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { tsSurfaces.png 192 0 64 64 } { 001_G_Water01.png 64 0 64 64 } { 001_G_Water01.png 0 64 64 64 } }
+rotation = 3
+}

@@ -1,0 +1,28 @@
+<group> hero02_level01
+{
+    spriteType = ANIMATED
+    spriteName = stub.png
+    animationName = hero02.png
+    animationParams = charAnimation4
+    health = 90
+    concentrate = 5
+    mind = 15
+    wisdom = 10
+    dammageMin = 23
+    dammageMax = 33
+    speed = 2
+    expirience = 150
+    spellBook = { trick_shoot trick_doubleshoot }
+}
+
+<group> hero02_level02 <override> hero02_level01
+{
+    health = 115
+    concentrate = 8
+    mind = 25
+    wisdom = 14
+    dammageMin = 26
+    dammageMax = 39
+    speed = 2
+    expirience = 350
+}

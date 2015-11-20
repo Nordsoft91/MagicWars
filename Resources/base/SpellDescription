@@ -1,0 +1,42 @@
+<group> spell_fireball
+{
+icon = icon_fire.png
+radius = 3
+type = STAR
+effectType = FOLLOW
+sprite_fly = Fireball.png
+sprite_fly_size = 15
+sprite_end = Fire10.png
+sprite_end_size = 30
+force = 31
+mind = 21
+wisdom = 6
+}
+<group> spell_lighting
+{
+icon = icon_lighting.png
+radius = 2
+type = SQUAD
+effectType = APPEAR
+sprite = Lightning.png
+sprite_size = 25
+force = 28
+mind = 19
+wisdom = 6
+}
+
+<group> spell_"spell name"
+{
+icon (string) icon picture, filename with extension
+radius (int) maximal distance from source to goal
+gridType (enum)
+POINT - source only can be target
+SQUAD - square around source
+CROSS - cross with center at source
+STAR - 8-end star
+BORDER - only far points can be target
+LINE - for coverType only
+coverType (enum) see gridType
+
+
+}

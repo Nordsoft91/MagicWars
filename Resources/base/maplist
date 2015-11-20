@@ -1,0 +1,19 @@
+<group> tilesets
+{
+    packs = 1
+    pack1 = { 002_G_Shadow01 003_G_Ground01 }
+}
+
+<group> 002_G_Shadow01
+{
+    type = COVER
+    name = shadow
+    trasit = grass
+}
+
+<group> 003_G_Ground01
+{
+    type = COVER
+    name = ground1
+    transit = grass
+}

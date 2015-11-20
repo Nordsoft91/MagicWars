@@ -1,0 +1,16 @@
+<group> wolf01
+{
+    spriteType = ANIMATED
+    spriteName = stub.png
+    animationName = wolf1.png
+    animationParams = quadAnimation3
+    health = 45
+    concentrate = 2
+    mind = 0
+    wisdom = 1
+    dammageMin = 9
+    dammageMax = 13
+    speed = 3
+    expirience = 10000
+    spellBook = { }
+}

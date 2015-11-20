@@ -1,0 +1,108 @@
+<group> magicanLevel1 <override> magican
+{
+health = 85
+concentrate = 8
+mind = 30
+wisdom = 12
+dammageMin = 21
+dammageMax = 32
+speed = 2
+expirience = 150
+spellBook = { spell_fireball spell_lighting }
+}
+<group> magicanLevel2 <override> magican
+{
+health = 105
+concentrate = 10
+mind = 45
+wisdom = 18
+dammageMin = 24
+dammageMax = 38
+speed = 2
+expirience = 350
+spellBook = { spell_fireball spell_lighting spell_ray spell_firewall }
+}
+<group> magicanLevel3 <override> magican
+{
+health = 160
+concentrate = 16
+mind = 80
+wisdom = 27
+dammageMin = 28
+dammageMax = 41
+speed = 3
+expirience = 650
+spellBook = { spell_fireball spell_lighting spell_ray spell_firewall spell_lightingbolt spell_icicles spell_healing }
+}
+<group> magicanLevel4 <override> magican
+{
+health = 200
+concentrate = 19
+mind = 102
+wisdom = 34
+dammageMin = 29
+dammageMax = 44
+speed = 3
+expirience = 1000
+}
+<group> magicanLevel5 <override> magican
+{
+health = 290
+concentrate = 24
+mind = 180
+wisdom = 60
+dammageMin = 33
+dammageMax = 49
+speed = 4
+expirience = 99999
+}
+<group> magicanLightLevel1 <override> magicanLevel1
+{
+spriteName = light1.png
+promotionGroup = magicanLightLevel2
+}
+<group> magicanDarkLevel1 <override> magicanLevel1
+{
+spriteName = dark1.png
+promotionGroup = magicanDarkLevel2
+}
+<group> magicanLightLevel2 <override> magicanLevel2
+{
+spriteName = light2.png
+promotionGroup = magicanLightLevel3
+}
+<group> magicanDarkLevel2 <override> magicanLevel2
+{
+spriteName = dark2.png
+promotionGroup = magicanDarkLevel3
+}
+<group> magicanLightLevel3 <override> magicanLevel3
+{
+spriteName = light3.png
+promotionGroup = magicanLightLevel4
+}
+<group> magicanDarkLevel3 <override> magicanLevel3
+{
+spriteName = dark3.png
+promotionGroup = magicanDarkLevel4
+}
+<group> magicanLightLevel4 <override> magicanLevel4
+{
+spriteName = light4.png
+promotionGroup = magicanLightLevel5
+}
+<group> magicanDarkLevel4 <override> magicanLevel4
+{
+spriteName = dark4.png
+promotionGroup = magicanDarkLevel5
+}
+<group> magicanLightLevel5 <override> magicanLevel5
+{
+spriteName = light5.png
+promotionGroup = magicanLightLevel6
+}
+<group> magicanDarkLevel5 <override> magicanLevel5
+{
+spriteName = dark5.png
+promotionGroup = magicanDarkLevel6
+}

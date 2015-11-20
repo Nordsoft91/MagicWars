@@ -1,0 +1,28 @@
+<group> hero03_level01
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = hero03.png
+animationParams = charAnimation4
+health = 100
+concentrate = 5
+mind = 10
+wisdom = 5
+dammageMin = 27
+dammageMax = 37
+speed = 2
+expirience = 150
+spellBook = { }
+}
+
+<group> hero03_level02 <override> hero03_level01
+{
+    health = 130
+    concentrate = 6
+    mind = 15
+    wisdom = 7
+    dammageMin = 30
+    dammageMax = 43
+    speed = 2
+    expirience = 350
+}

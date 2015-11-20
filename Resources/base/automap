@@ -1,0 +1,68 @@
+<group> Flared
+{
+terrainTypes = { watergrass groundgrass ground2grass grass2grass }
+terrainOutputLayer = layerTerrain
+terrainInputTileset = tsSurfaces.png
+}
+
+<group> rule_grass_center
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
+}
+
+<group> rule_grass_border_right
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
+rotation = 0
+}
+
+<group> rule_grass_border_left
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
+rotation = 1
+}
+
+<group> rule_grass_border_top
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
+rotation = 2
+}
+
+<group> rule_grass_border_bottom
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
+rotation = 3
+}
+
+<group> flared_watergrass
+{
+from = { 0 0 64 64 }
+to = { 192 0 64 64 }
+file = 001_G_Water01.png
+}
+
+<group> flared_groundgrass
+{
+from = { 0 0 64 64 }
+to = { 64 0 64 64 }
+file = 004_G_Ground02.png
+}
+
+<group> flared_ground2grass
+{
+from = { 0 0 64 64 }
+to = { 128 0 64 64 }
+file = 003_G_Ground01.png
+}
+
+<group> flared_grass2grass
+{
+from = { 0 0 64 64 }
+to = { 64 64 64 64 }
+file = 002_G_Shadow01.png
+}

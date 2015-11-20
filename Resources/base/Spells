@@ -1,0 +1,141 @@
+<group> attack
+{
+type = DAMMAGE
+radius = 1
+gridType = SQUAD
+coverType = POINT
+effectType = APPEAR
+sprite = Melee1.png
+sprite_size = 10
+force = 18
+mind = 0
+wisdom = 0
+}
+
+<group> spell_fireball
+{
+type = DAMMAGE
+icon = icon_fire.png
+radius = 3
+gridType = STAR
+coverType = POINT
+effectType = FOLLOW
+sprite_fly = Fireball.png
+sprite_fly_size = 15
+sprite_end = Fire10.png
+sprite_end_size = 30
+force = 28
+mind = 20
+wisdom = 6
+}
+
+<group> spell_lighting
+{
+type = DAMMAGE
+icon = icon_lighting.png
+radius = 2
+gridType = SQUAD
+coverType = POINT
+effectType = APPEAR
+sprite = Lightning.png
+sprite_size = 25
+force = 29
+mind = 19
+wisdom = 6
+}
+
+<group> spell_ray
+{
+type = DAMMAGE
+icon = icon_ray.png
+radius = 1
+gridType = SQUAD
+coverType = LINE
+coverRadius = 3
+effectType = APPEAR
+sprite = Ray.png
+sprite_size = 25
+force = 34
+mind = 26
+wisdom = 10
+}
+
+<group> spell_firewall
+{
+type = DAMMAGE
+icon = icon_firewall.png
+radius = 0
+gridType = POINT
+coverType = BORDER
+coverRadius = 2
+effectType = APPEAR
+sprite = Firewall.png
+sprite_size = 30
+force = 35
+mind = 29
+wisdom = 10
+}
+
+<group> spell_lightingbolt
+{
+type = DAMMAGE
+icon = icon_thunderbolt.png
+radius = 0
+gridType = POINT
+coverType = SQUAD
+coverRadius = 2
+effectType = APPEAR
+sprite = LightningBolt.png
+sprite_size = 20
+force = 49
+mind = 42
+wisdom = 16
+}
+
+<group> spell_icicles
+{
+type = DAMMAGE
+icon = icon_icy.png
+radius = 3
+gridType = CROSS
+coverType = SQUAD
+coverRadius = 1
+effectType = APPEAR_ONCE
+sprite = Icicles.png
+sprite_size = 15
+force = 56
+mind = 41
+wisdom = 16
+}
+
+<group> spell_healing
+{
+type = BLESS
+bressType = HEAL
+icon = icon_healing.png
+radius = 1
+gridType = SQUAD
+coverType = POINT
+effectType = APPEAR
+sprite = Healing1.png
+sprite_size = 20
+force = 50
+mind = 23
+wisdom = 6
+}
+
+<group> spell_farhealing
+{
+type = BLESS
+bressType = HEAL
+icon = icon_healing.png
+radius = 3
+gridType = SQUAD
+coverType = POINT
+effectType = APPEAR
+sprite = Healing1.png
+sprite_size = 20
+force = 50
+mind = 33
+wisdom = 6
+}

@@ -1,0 +1,72 @@
+<group> common
+{
+    mathPI = 3.1415927
+    math2PI = 6.2831854
+    mathPI2 = 1.57079635
+    mapCellWidth = 64
+    mapCellHeight = 64
+    effectFrameWidth = 192
+    effectFrameHeight = 192
+}
+
+<group> magican
+{
+    spriteType = STATIC
+    spriteName = stub.png
+    health = 1
+    concentrate = 1
+    mind = 1
+    wisdom = 1
+    dammageMin = 1
+    dammageMax = 1
+    speed = 2
+    expirience = 10000
+    spellBook = { }
+}
+
+<group> basicAnimatedPerson <override> magican
+{
+    spriteType = ANIMATED
+    animationName = hero01.png
+    animationParams = charAnimation3
+}
+
+<group> charAnimation3
+{
+    frameWidth = 64
+    frameHeight = 96
+    sizeX = 3
+    sizeY = 4
+    goDown = { 0 1 2 1 }
+    goLeft = { 3 4 5 4 }
+    goRight = { 6 7 8 7 }
+    goUp = { 9 10 11 10 }
+}
+
+<group> charAnimation4 <override> charAnimation3
+{
+    sizeX = 4
+    goDown = { 0 1 2 3 }
+    goLeft = { 4 5 6 7 }
+    goRight = { 8 9 10 11 }
+    goUp = { 12 13 14 15 }
+}
+
+<group> quadAnimation3 <override> charAnimation3
+{
+    frameWidth = 64
+    frameHeight = 64
+}
+
+<include> __oldEngine
+<include> Spells
+<include> Tricks
+<include> maplist
+<include> automap
+
+<include> superhero
+<include> monsters
+<include> hero01
+<include> hero02
+<include> hero03
+<include> Girl

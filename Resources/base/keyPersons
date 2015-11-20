@@ -1,0 +1,16 @@
+<group> olderman
+{
+    spriteType = ANIMATED
+    spriteName = stub.png
+    animationName = olderman.png
+    animationParams = charAnimation4
+    health = 140
+    concentrate = 14
+    mind = 60
+    wisdom = 24
+    dammageMin = 24
+    dammageMax = 38
+    speed = 3
+    expirience = 10000
+    spellBook = { spell_healing, spell_farhealing }
+}

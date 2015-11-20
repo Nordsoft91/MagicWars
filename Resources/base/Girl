@@ -1,0 +1,16 @@
+<group> girl_level01
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = Girl.png
+animationParams = charAnimation3
+health = 60
+concentrate = 10
+mind = 50
+wisdom = 15
+dammageMin = 16
+dammageMax = 25
+speed = 2
+expirience = 150
+spellBook = { spell_healing }
+}
