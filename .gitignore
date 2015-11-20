@@ -8,3 +8,11 @@ cocos2d/AUTHORS
 cocos2d/
 
 CMakeLists.txt
+
+proj.android/
+
+proj.linux/
+
+proj.win32/
+
+proj.wp8-xaml/
