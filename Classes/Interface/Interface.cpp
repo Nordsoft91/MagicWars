@@ -5,10 +5,11 @@
 //  Created by nordsoft on 26.10.14.
 //
 //
+#include <CocosGUI.h>
 
 #include "Interface.h"
 
-#include "UITrigger.h"
+#include "UIIcon.h"
 
 using namespace MagicWars_NS;
 
@@ -25,51 +26,46 @@ Interface::Interface(cocos2d::Scene* io_scene)
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     cocos2d::Vec2 screenCenter(visibleSize.width/2, visibleSize.height/2);
     
-    //io_scene->addChild(UI_NS::MessageSequence::create(screenCenter, cocos2d::Color4F{0,0,0,0.5}, {"Welcome to MagicWars! This is tutorial. First of all you should learn basic rules of this game. Tap anywhere to continue.", "This is your first battle. Let observe map, just tap enywhere on map and move it", "Press on character to choose it. You have three unique characters: magican, archer and healer", "Wolfs are your enemies. Also you can see one more character - he is very important person! Protect him and don't let him die!", "Each character has two actions: movement and attack. Blue cells around characters mean possible cells to move", "When you finish your movement you can attack. Look at three buttons in left top conrner of screen - it is physical attack button, spell book button, end turn", "Be careful! If you press end button your enemies will have turn immediately and you will skip your turn!", "If you press attack button you will see red cells around you - it is possible target cells for your attack. Press one - you will select destination and see yellow cell - this is area which will be affect with your attack. Phisycal attack as a rule affects only one cell, but there are some spells and tricks shich can dammage many emenies simultaniously", "If you press spell book you will see possible spell icons at top of screen. You can choose one of them and also select destination of magic on map. If spell has positive effect cells will be green instead of red. Target of such spells are friends usualy", "Spells usually spend your mana. Health and mana status represented as circles around characters on map. Press character to see current status. You can see also status of your enemies.", "You will lost health if your attacked. Health recovers only with special healing spells or potions. Mana a little bit recovers each turn.", "So this short briefing should help you to win this level. Enjoy!"}));
-    
-    auto trigger = UI_NS::Trigger::create();
-    trigger->setActivationCondition(new UI_NS::ConditionTapCellOnMap(5,5));
-    trigger->setThrowEvent(new UI_NS::EventMessage(io_scene, {"Hello!", "You called first trigger!"}));
-    trigger->activate();
-    io_scene->addChild(trigger);
-    
-    
     ////////////CREATE INTERFACE RIGHT NOW///////////////
-    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon1"), "icon1_disable.png",
+    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
                                                    [&](cocos2d::Ref* pSender)
                                                    {
                                                        if( !Blocker::state() )
                                                        {
-                                                           removeSpells();
-                                                           TouchControl::instance().attackAction();
+                                                           removeButtons();
+                                                           createTrickMenu(TouchControl::instance().getTurn());
                                                        }
                                                    });
-    
+    d_pAttackItem->setOpacity(190);
+    d_pAttackItem->addChild(UI_NS::Icon::createFromConsts("panel_tricks"));
     addButton(d_pAttackItem, d_pAttackItem->getContentSize().width/2, visibleSize.height - d_pAttackItem->getContentSize().height/2 );
     
-    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon4"),
+    d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
                                                   [&](cocos2d::Ref* pSender)
                                                   {
                                                       if( !Blocker::state() )
                                                       {
-                                                          removeSpells();
+                                                          removeButtons();
+                                                          createSpellMenu(TouchControl::instance().getTurn());
+                                                      }
+                                                  });
+    d_pSpellItem->setOpacity(190);
+    d_pSpellItem->addChild(UI_NS::Icon::createFromConsts("panel_spells"));
+    addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - d_pSpellItem->getContentSize().height/2 );
+    
+    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"),
+                                                  [&](cocos2d::Ref* pSender)
+                                                  {
+                                                      if( !Blocker::state() )
+                                                      {
+                                                          removeButtons();
                                                           TouchControl::instance().endTurnAction();
                                                       }
                                                   });
     
+    itemEnd->addChild(UI_NS::Icon::createFromConsts("panel_finish"));
+    itemEnd->setOpacity(190);
     addButton(itemEnd, itemEnd->getContentSize().width*2.5, visibleSize.height - itemEnd->getContentSize().height/2 );
-
-    d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon3"), "icon3_disable.png",
-                                                  [&](cocos2d::Ref* pSender)
-                                                  {
-                                                      if( !Blocker::state() )
-                                                      {
-                                                          removeSpells();
-                                                          createSpellMenu(TouchControl::instance().getTurn());
-                                                      }
-                                                  });
-    
-    addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - itemEnd->getContentSize().height/2 );
 }
 
 Interface::~Interface()
@@ -88,53 +84,78 @@ void Interface::addButton(cocos2d::MenuItemImage* i_item, float i_x, float i_y)
     addButton(i_item, cocos2d::Vec2(i_x,i_y));
 }
 
-void Interface::removeSpells()
+void Interface::removeButtons()
 {
-    for(auto i : d_spells)
+    for(auto i : d_buttons)
     {
         i->removeFromParent();
     }
-    d_spells.clear();
+    d_buttons.clear();
 }
 
 void Interface::createSpellMenu(Magican* i_mag)
 {
-    cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     if(i_mag)
     {
         for(auto spellstr : i_mag->d_spells)
         {
-            //check for enough of mind
-            
-            std::string str = spellstr;
-            auto spell = cocos2d::MenuItemImage::create("icon0_none.png", "icon0_select.png", "icon0_disable.png",
-                                                        [&, str](cocos2d::Ref* pSender)
-                                                        {
-                                                            if( !Blocker::state() )
-                                                            {
-                                                                TouchControl::instance().spellAction(str);
-                                                                removeSpells();
-                                                            }
-                                                        });
-            
-            if(std::string(Consts::get("icon",str))!="NONE")
-            {
-                auto icon = cocos2d::Sprite::create(Consts::get("icon",str));
-                icon->setAnchorPoint(cocos2d::Vec2::ZERO);
-                spell->addChild(icon);
-            }
-            
-            if(i_mag->getMind()<int(Consts::get("mind", spellstr)))
-                spell->setEnabled(false);
-            
-            int maxSpellsInString = visibleSize.width / spell->getContentSize().width - 4;
-            int xSpellPosition = d_spells.size() % maxSpellsInString;
-            int ySpellPosition = d_spells.size() / maxSpellsInString;
-            
-            addButton(spell, spell->getContentSize().width*(4+xSpellPosition), visibleSize.height - spell->getContentSize().height/2 - spell->getContentSize().height * ySpellPosition );
-            d_spells.push_back(spell);
+            createButton(spellstr, i_mag->getMind()>=int(Consts::get("mind", spellstr)));
         }
     }
+}
+
+void Interface::createTrickMenu(MagicWars_NS::Magican *i_mag)
+{
+    if(i_mag)
+    {
+        static cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
+        auto but = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
+                                                  [&](cocos2d::Ref* pSender)
+                                                  {
+                                                      if( !Blocker::state() )
+                                                      {
+                                                          TouchControl::instance().spellAction("attack");
+                                                          removeButtons();
+                                                      }
+                                                  });
+        but->setOpacity(190);
+        but->addChild(UI_NS::Icon::createFromConsts(i_mag->d_weapon));
+        int maxTricksInString = visibleSize.width / but->getContentSize().width - 4;
+        int xPosition = d_buttons.size() % maxTricksInString;
+        int yPosition = d_buttons.size() / maxTricksInString;
+        addButton(but, but->getContentSize().width*(4+xPosition), visibleSize.height - but->getContentSize().height/2 - but->getContentSize().height * yPosition );
+        d_buttons.push_back(but);
+        
+        for(auto trickstr : i_mag->d_tricks)
+        {
+            createButton(trickstr.first, trickstr.second==0);
+        }
+    }
+}
+
+void Interface::createButton(const std::string& i_str, bool i_enabled)
+{
+    static cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
+    auto but = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
+                                                [&, i_str](cocos2d::Ref* pSender)
+                                                {
+                                                    if( !Blocker::state() )
+                                                    {
+                                                        TouchControl::instance().spellAction(i_str);
+                                                        removeButtons();
+                                                    }
+                                                });
+    
+    but->addChild(UI_NS::Icon::createFromConsts(i_str));
+    but->setOpacity(190);
+    but->setEnabled(i_enabled);
+    
+    int maxTricksInString = visibleSize.width / but->getContentSize().width - 4;
+    int xPosition = d_buttons.size() % maxTricksInString;
+    int yPosition = d_buttons.size() / maxTricksInString;
+    
+    addButton(but, but->getContentSize().width*(4+xPosition), visibleSize.height - but->getContentSize().height/2 - but->getContentSize().height * yPosition );
+    d_buttons.push_back(but);
 }
 
 void Interface::disableActionButtons(bool i_disable)

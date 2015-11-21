@@ -41,7 +41,10 @@ namespace MagicWars_NS
         int getHealth() const;
         float getPercentMind() const;
         float getPercentHealth() const;
-        bool isHaveSpell(const std::string i_spell) const;
+        
+        bool isHaveSpell(const std::string& i_spell) const;
+        bool isHaveTrick(const std::string& i_trick) const;
+        bool isTrickAvailable(const std::string& i_trick) const;
         
         bool isAlive() const;
         
@@ -50,6 +53,8 @@ namespace MagicWars_NS
         void setActive(bool i_act);
         
         std::vector<std::string> d_spells;
+        std::map<std::string, int> d_tricks;
+        std::string d_weapon;
         
     public:
         std::string d_group;

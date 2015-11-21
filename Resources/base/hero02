@@ -12,7 +12,9 @@
     dammageMax = 33
     speed = 2
     expirience = 150
-    spellBook = { trick_shoot trick_doubleshoot }
+    weapon = weapon_dagger
+    spellBook = { }
+    trickSkills = { trick_shoot }
 }
 
 <group> hero02_level02 <override> hero02_level01

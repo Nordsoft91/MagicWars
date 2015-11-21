@@ -1,21 +1,6 @@
-<group> attack
-{
-type = DAMMAGE
-radius = 1
-gridType = SQUAD
-coverType = POINT
-effectType = APPEAR
-sprite = Melee1.png
-sprite_size = 10
-force = 18
-mind = 0
-wisdom = 0
-}
-
 <group> spell_fireball
 {
 type = DAMMAGE
-icon = icon_fire.png
 radius = 3
 gridType = STAR
 coverType = POINT
@@ -32,7 +17,6 @@ wisdom = 6
 <group> spell_lighting
 {
 type = DAMMAGE
-icon = icon_lighting.png
 radius = 2
 gridType = SQUAD
 coverType = POINT

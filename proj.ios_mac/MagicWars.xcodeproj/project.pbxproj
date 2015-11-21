@@ -48,6 +48,28 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		843D49EE1C00CECD00835492 /* UIIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843D49EC1C00CECD00835492 /* UIIcon.cpp */; };
+		843D49EF1C00CECD00835492 /* UIIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843D49EC1C00CECD00835492 /* UIIcon.cpp */; };
+		843D4A161C00D2FF00835492 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A151C00D2FF00835492 /* Icons */; };
+		843D4A171C00D2FF00835492 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A151C00D2FF00835492 /* Icons */; };
+		843D4A1C1C00F9EC00835492 /* bookmarklet.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A1B1C00F9EC00835492 /* bookmarklet.png */; };
+		843D4A1D1C00F9EC00835492 /* bookmarklet.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A1B1C00F9EC00835492 /* bookmarklet.png */; };
+		843D4A211C00FAEE00835492 /* briefcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A1E1C00FAEE00835492 /* briefcase.png */; };
+		843D4A221C00FAEE00835492 /* briefcase.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A1E1C00FAEE00835492 /* briefcase.png */; };
+		843D4A231C00FAEE00835492 /* crossed-swords.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A1F1C00FAEE00835492 /* crossed-swords.png */; };
+		843D4A241C00FAEE00835492 /* crossed-swords.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A1F1C00FAEE00835492 /* crossed-swords.png */; };
+		843D4A251C00FAEE00835492 /* flying-flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A201C00FAEE00835492 /* flying-flag.png */; };
+		843D4A261C00FAEE00835492 /* flying-flag.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A201C00FAEE00835492 /* flying-flag.png */; };
+		843D4A291C00FCD700835492 /* fire-tail.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A271C00FCD700835492 /* fire-tail.png */; };
+		843D4A2A1C00FCD700835492 /* fire-tail.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A271C00FCD700835492 /* fire-tail.png */; };
+		843D4A2B1C00FCD700835492 /* thunder-struck.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A281C00FCD700835492 /* thunder-struck.png */; };
+		843D4A2C1C00FCD700835492 /* thunder-struck.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A281C00FCD700835492 /* thunder-struck.png */; };
+		843D4A2E1C0105F600835492 /* bowman.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A2D1C0105F600835492 /* bowman.png */; };
+		843D4A2F1C0105F600835492 /* bowman.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A2D1C0105F600835492 /* bowman.png */; };
+		843D4A321C011C5100835492 /* plain-dagger.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A301C011C5100835492 /* plain-dagger.png */; };
+		843D4A331C011C5100835492 /* plain-dagger.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A301C011C5100835492 /* plain-dagger.png */; };
+		843D4A341C011C5100835492 /* wizard-staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A311C011C5100835492 /* wizard-staff.png */; };
+		843D4A351C011C5100835492 /* wizard-staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A311C011C5100835492 /* wizard-staff.png */; };
 		84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206F1BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */; };
@@ -122,8 +144,6 @@
 		84B520B41BFFC2C2004A6CA0 /* UITrigger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520661BFFC2C2004A6CA0 /* UITrigger.cpp */; };
 		84B520B51BFFC2C2004A6CA0 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520691BFFC2C2004A6CA0 /* MenuScene.cpp */; };
 		84B520B61BFFC2C2004A6CA0 /* MenuScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520691BFFC2C2004A6CA0 /* MenuScene.cpp */; };
-		84B5219D1BFFC41E004A6CA0 /* __oldEngine in Resources */ = {isa = PBXBuildFile; fileRef = 84B520B81BFFC41D004A6CA0 /* __oldEngine */; };
-		84B5219E1BFFC41E004A6CA0 /* __oldEngine in Resources */ = {isa = PBXBuildFile; fileRef = 84B520B81BFFC41D004A6CA0 /* __oldEngine */; };
 		84B5219F1BFFC41E004A6CA0 /* automap in Resources */ = {isa = PBXBuildFile; fileRef = 84B520B91BFFC41D004A6CA0 /* automap */; };
 		84B521A01BFFC41E004A6CA0 /* automap in Resources */ = {isa = PBXBuildFile; fileRef = 84B520B91BFFC41D004A6CA0 /* automap */; };
 		84B521A11BFFC41E004A6CA0 /* automap_reserve in Resources */ = {isa = PBXBuildFile; fileRef = 84B520BA1BFFC41D004A6CA0 /* automap_reserve */; };
@@ -639,6 +659,18 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		843D49EC1C00CECD00835492 /* UIIcon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIIcon.cpp; sourceTree = "<group>"; };
+		843D49ED1C00CECD00835492 /* UIIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIcon.h; sourceTree = "<group>"; };
+		843D4A151C00D2FF00835492 /* Icons */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Icons; sourceTree = "<group>"; };
+		843D4A1B1C00F9EC00835492 /* bookmarklet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bookmarklet.png; path = icons/bookmarklet.png; sourceTree = "<group>"; };
+		843D4A1E1C00FAEE00835492 /* briefcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = briefcase.png; path = icons/briefcase.png; sourceTree = "<group>"; };
+		843D4A1F1C00FAEE00835492 /* crossed-swords.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crossed-swords.png"; path = "icons/crossed-swords.png"; sourceTree = "<group>"; };
+		843D4A201C00FAEE00835492 /* flying-flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flying-flag.png"; path = "icons/flying-flag.png"; sourceTree = "<group>"; };
+		843D4A271C00FCD700835492 /* fire-tail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fire-tail.png"; path = "icons/fire-tail.png"; sourceTree = "<group>"; };
+		843D4A281C00FCD700835492 /* thunder-struck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "thunder-struck.png"; path = "icons/thunder-struck.png"; sourceTree = "<group>"; };
+		843D4A2D1C0105F600835492 /* bowman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bowman.png; path = icons/bowman.png; sourceTree = "<group>"; };
+		843D4A301C011C5100835492 /* plain-dagger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plain-dagger.png"; path = "icons/plain-dagger.png"; sourceTree = "<group>"; };
+		843D4A311C011C5100835492 /* wizard-staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wizard-staff.png"; path = "icons/wizard-staff.png"; sourceTree = "<group>"; };
 		84B520141BFFC2C1004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIController.cpp; sourceTree = "<group>"; };
 		84B520151BFFC2C1004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIController.h; sourceTree = "<group>"; };
 		84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIEngine.cpp; sourceTree = "<group>"; };
@@ -721,7 +753,6 @@
 		84B520691BFFC2C2004A6CA0 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
 		84B5206A1BFFC2C2004A6CA0 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		84B5206C1BFFC2C2004A6CA0 /* Uncopyble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uncopyble.h; sourceTree = "<group>"; };
-		84B520B81BFFC41D004A6CA0 /* __oldEngine */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = __oldEngine; sourceTree = "<group>"; };
 		84B520B91BFFC41D004A6CA0 /* automap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = automap; sourceTree = "<group>"; };
 		84B520BA1BFFC41D004A6CA0 /* automap_reserve */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = automap_reserve; sourceTree = "<group>"; };
 		84B520BB1BFFC41D004A6CA0 /* Girl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Girl; sourceTree = "<group>"; };
@@ -1140,6 +1171,22 @@
 			path = ios;
 			sourceTree = SOURCE_ROOT;
 		};
+		843D4A141C00D2AA00835492 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				843D4A301C011C5100835492 /* plain-dagger.png */,
+				843D4A311C011C5100835492 /* wizard-staff.png */,
+				843D4A2D1C0105F600835492 /* bowman.png */,
+				843D4A271C00FCD700835492 /* fire-tail.png */,
+				843D4A281C00FCD700835492 /* thunder-struck.png */,
+				843D4A1E1C00FAEE00835492 /* briefcase.png */,
+				843D4A1F1C00FAEE00835492 /* crossed-swords.png */,
+				843D4A201C00FAEE00835492 /* flying-flag.png */,
+				843D4A1B1C00F9EC00835492 /* bookmarklet.png */,
+			);
+			name = icons;
+			sourceTree = "<group>";
+		};
 		84B520131BFFC2C1004A6CA0 /* AI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,6 +1302,8 @@
 				84B520651BFFC2C2004A6CA0 /* UIMessageSequence.h */,
 				84B520661BFFC2C2004A6CA0 /* UITrigger.cpp */,
 				84B520671BFFC2C2004A6CA0 /* UITrigger.h */,
+				843D49EC1C00CECD00835492 /* UIIcon.cpp */,
+				843D49ED1C00CECD00835492 /* UIIcon.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1279,7 +1328,6 @@
 		84B520B71BFFC41D004A6CA0 /* base */ = {
 			isa = PBXGroup;
 			children = (
-				84B520B81BFFC41D004A6CA0 /* __oldEngine */,
 				84B520B91BFFC41D004A6CA0 /* automap */,
 				84B520BA1BFFC41D004A6CA0 /* automap_reserve */,
 				84B520BB1BFFC41D004A6CA0 /* Girl */,
@@ -1296,6 +1344,7 @@
 				84B520C61BFFC41D004A6CA0 /* superhero */,
 				84B520C71BFFC41D004A6CA0 /* Team.matrix */,
 				84B520C81BFFC41D004A6CA0 /* Tricks */,
+				843D4A151C00D2FF00835492 /* Icons */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1358,6 +1407,7 @@
 		84B520DE1BFFC41D004A6CA0 /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				843D4A141C00D2AA00835492 /* icons */,
 				84B520DF1BFFC41D004A6CA0 /* icon0_disable.png */,
 				84B520E01BFFC41D004A6CA0 /* icon0_none.png */,
 				84B520E11BFFC41D004A6CA0 /* icon0_select.png */,
@@ -1742,6 +1792,7 @@
 				84B5233D1BFFC41E004A6CA0 /* 076-CW_Grass01.png in Resources */,
 				84B522571BFFC41E004A6CA0 /* 006-Desert01.png in Resources */,
 				84B522B31BFFC41E004A6CA0 /* 029-Church02.png in Resources */,
+				843D4A291C00FCD700835492 /* fire-tail.png in Resources */,
 				84B521E91BFFC41E004A6CA0 /* icon1_disable.png in Resources */,
 				84B522B71BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
 				84B522071BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
@@ -1778,6 +1829,7 @@
 				84B522711BFFC41E004A6CA0 /* 012-PortTown02.png in Resources */,
 				84B522411BFFC41E004A6CA0 /* tsSurfaces.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
+				843D4A251C00FAEE00835492 /* flying-flag.png in Resources */,
 				84B522611BFFC41E004A6CA0 /* 008-Snowfield01.png in Resources */,
 				84B521AF1BFFC41E004A6CA0 /* maplist in Resources */,
 				84B522E91BFFC41E004A6CA0 /* 042-Ground02.png in Resources */,
@@ -1785,9 +1837,10 @@
 				84B5222F1BFFC41E004A6CA0 /* civil01.png in Resources */,
 				84B5230B1BFFC41E004A6CA0 /* 051-Carpet01.png in Resources */,
 				84B523151BFFC41E004A6CA0 /* 056-CE_Water01.png in Resources */,
+				843D4A1C1C00F9EC00835492 /* bookmarklet.png in Resources */,
 				84B521EF1BFFC41E004A6CA0 /* icon2.gif in Resources */,
 				84B5229F1BFFC41E004A6CA0 /* 024-FarmVillage02.png in Resources */,
-				84B5219D1BFFC41E004A6CA0 /* __oldEngine in Resources */,
+				843D4A341C011C5100835492 /* wizard-staff.png in Resources */,
 				84B5233F1BFFC41E004A6CA0 /* 077-CW_Grass02.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
 				84B521B11BFFC41E004A6CA0 /* monsters in Resources */,
@@ -1805,6 +1858,7 @@
 				84B5225B1BFFC41E004A6CA0 /* 007-Grass_Undulation01.png in Resources */,
 				84B522D51BFFC41E004A6CA0 /* 037-Tree02.png in Resources */,
 				84B522171BFFC41E004A6CA0 /* mapW_M_myDemoMap01.txt in Resources */,
+				843D4A231C00FAEE00835492 /* crossed-swords.png in Resources */,
 				84B522971BFFC41E004A6CA0 /* 022-Roof01.png in Resources */,
 				84B522851BFFC41E004A6CA0 /* 017-Sa_Grass01.png in Resources */,
 				84B521E11BFFC41E004A6CA0 /* icon0_disable.png in Resources */,
@@ -1828,6 +1882,7 @@
 				84B522631BFFC41E004A6CA0 /* 009-CastleTown01.png in Resources */,
 				84B521FB1BFFC41E004A6CA0 /* icon4_none.png in Resources */,
 				84B5230F1BFFC41E004A6CA0 /* 053-Wall01.png in Resources */,
+				843D4A2B1C00FCD700835492 /* thunder-struck.png in Resources */,
 				84B522291BFFC41E004A6CA0 /* hero02.png in Resources */,
 				84B522111BFFC41E004A6CA0 /* mapRule_Grassland01.txt in Resources */,
 				84B5225F1BFFC41E004A6CA0 /* 008-Grass_Undulation02.png in Resources */,
@@ -1855,6 +1910,7 @@
 				84B5232F1BFFC41E004A6CA0 /* 069-CI_Shadow01.png in Resources */,
 				84B523011BFFC41E004A6CA0 /* 048-Water01.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
+				843D4A211C00FAEE00835492 /* briefcase.png in Resources */,
 				84B522271BFFC41E004A6CA0 /* hero01.png in Resources */,
 				84B5226B1BFFC41E004A6CA0 /* 011-G2_Ground02.png in Resources */,
 				84B5232B1BFFC41E004A6CA0 /* 067-CF_Ground04.png in Resources */,
@@ -1898,6 +1954,7 @@
 				84B523311BFFC41E004A6CA0 /* 070-CI_Snow01.png in Resources */,
 				84B522751BFFC41E004A6CA0 /* 013-PostTown01.png in Resources */,
 				84B522B51BFFC41E004A6CA0 /* 029-Sn_Shadow01.png in Resources */,
+				843D4A321C011C5100835492 /* plain-dagger.png in Resources */,
 				84B522911BFFC41E004A6CA0 /* 020-Sa_Grass03.png in Resources */,
 				84B523051BFFC41E004A6CA0 /* 049-St_Shadow01.png in Resources */,
 				84B521F51BFFC41E004A6CA0 /* icon3_none.png in Resources */,
@@ -1909,6 +1966,7 @@
 				84B522FD1BFFC41E004A6CA0 /* 047-Mine01.png in Resources */,
 				84B522091BFFC41E004A6CA0 /* icon_ray.png in Resources */,
 				84B521C51BFFC41E004A6CA0 /* Fireball.png in Resources */,
+				843D4A2E1C0105F600835492 /* bowman.png in Resources */,
 				84B5224B1BFFC41E004A6CA0 /* 003_Forest01.png in Resources */,
 				84B521D31BFFC41E004A6CA0 /* Melee 2.png in Resources */,
 				84B523251BFFC41E004A6CA0 /* 064-CF_Ground01.png in Resources */,
@@ -1943,6 +2001,7 @@
 				84B523431BFFC41E004A6CA0 /* 079-CW_Grass03.png in Resources */,
 				84B522791BFFC41E004A6CA0 /* 014-PostTown02.png in Resources */,
 				84B522EF1BFFC41E004A6CA0 /* 044-Cave02.png in Resources */,
+				843D4A161C00D2FF00835492 /* Icons in Resources */,
 				84B523451BFFC41E004A6CA0 /* 080-B_Ground01.png in Resources */,
 				84B523271BFFC41E004A6CA0 /* 065-CF_Ground02.png in Resources */,
 			);
@@ -1972,12 +2031,14 @@
 				84B522E01BFFC41E004A6CA0 /* 040-Ground01.png in Resources */,
 				84B5226A1BFFC41E004A6CA0 /* 010-G2_Ground01.png in Resources */,
 				84B522781BFFC41E004A6CA0 /* 014-G2_Swamp03.png in Resources */,
+				843D4A331C011C5100835492 /* plain-dagger.png in Resources */,
 				84B5233C1BFFC41E004A6CA0 /* 075-CW_Shadow01.png in Resources */,
 				84B5232C1BFFC41E004A6CA0 /* 067-CF_Ground04.png in Resources */,
 				84B521E61BFFC41E004A6CA0 /* icon0_select.png in Resources */,
 				84B5224E1BFFC41E004A6CA0 /* 003_G_Ground01.png in Resources */,
 				84B523141BFFC41E004A6CA0 /* 055-Wall03.png in Resources */,
 				84B522501BFFC41E004A6CA0 /* 004-Mountain01.png in Resources */,
+				843D4A351C011C5100835492 /* wizard-staff.png in Resources */,
 				84B5222C1BFFC41E004A6CA0 /* hero03.png in Resources */,
 				84B522C81BFFC41E004A6CA0 /* 034-Bridge01.png in Resources */,
 				84B522321BFFC41E004A6CA0 /* civil02.png in Resources */,
@@ -1999,11 +2060,13 @@
 				84B523101BFFC41E004A6CA0 /* 053-Wall01.png in Resources */,
 				84B522061BFFC41E004A6CA0 /* icon_icy.png in Resources */,
 				84B521E21BFFC41E004A6CA0 /* icon0_disable.png in Resources */,
+				843D4A241C00FAEE00835492 /* crossed-swords.png in Resources */,
 				84B522FE1BFFC41E004A6CA0 /* 047-Mine01.png in Resources */,
 				84B521B81BFFC41E004A6CA0 /* Spells in Resources */,
 				84B523221BFFC41E004A6CA0 /* 062-CF_Lava01.png in Resources */,
 				84B522EA1BFFC41E004A6CA0 /* 042-Ground02.png in Resources */,
 				84B521E01BFFC41E004A6CA0 /* Marker Felt.ttf in Resources */,
+				843D4A171C00D2FF00835492 /* Icons in Resources */,
 				84B5221C1BFFC41E004A6CA0 /* CloseSelected.png in Resources */,
 				84B5221E1BFFC41E004A6CA0 /* playbutton_desktop_180.png in Resources */,
 				84B522401BFFC41E004A6CA0 /* tilesWater.png in Resources */,
@@ -2016,6 +2079,7 @@
 				84B521A81BFFC41E004A6CA0 /* hero02 in Resources */,
 				84B521CA1BFFC41E004A6CA0 /* Healing1.png in Resources */,
 				84B522A81BFFC41E004A6CA0 /* 026-Castle02.png in Resources */,
+				843D4A261C00FAEE00835492 /* flying-flag.png in Resources */,
 				84B521D41BFFC41E004A6CA0 /* Melee 2.png in Resources */,
 				84B521F21BFFC41E004A6CA0 /* icon3.gif in Resources */,
 				84B522081BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
@@ -2046,9 +2110,9 @@
 				84B522281BFFC41E004A6CA0 /* hero01.png in Resources */,
 				84B521F81BFFC41E004A6CA0 /* icon3_select.png in Resources */,
 				84B522561BFFC41E004A6CA0 /* 005-Grass_Road01.png in Resources */,
+				843D4A2F1C0105F600835492 /* bowman.png in Resources */,
 				84B5233A1BFFC41E004A6CA0 /* 074-CW_Water01.png in Resources */,
 				84B522761BFFC41E004A6CA0 /* 013-PostTown01.png in Resources */,
-				84B5219E1BFFC41E004A6CA0 /* __oldEngine in Resources */,
 				84B522301BFFC41E004A6CA0 /* civil01.png in Resources */,
 				84B521C21BFFC41E004A6CA0 /* Christmas 2.png in Resources */,
 				84B522DC1BFFC41E004A6CA0 /* 039-Tower01.png in Resources */,
@@ -2079,6 +2143,7 @@
 				84B521BC1BFFC41E004A6CA0 /* Team.matrix in Resources */,
 				84B521D81BFFC41E004A6CA0 /* Melee 4.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				843D4A221C00FAEE00835492 /* briefcase.png in Resources */,
 				84B522441BFFC41E004A6CA0 /* 001_G_Water01.png in Resources */,
 				84B5231C1BFFC41E004A6CA0 /* 059-CE_Ground02.png in Resources */,
 				84B522821BFFC41E004A6CA0 /* 016-Sa_Shadow01.png in Resources */,
@@ -2087,6 +2152,7 @@
 				84B522F01BFFC41E004A6CA0 /* 044-Cave02.png in Resources */,
 				84B521E81BFFC41E004A6CA0 /* icon1.gif in Resources */,
 				84B522F61BFFC41E004A6CA0 /* 045-Road02.png in Resources */,
+				843D4A2A1C00FCD700835492 /* fire-tail.png in Resources */,
 				84B521CC1BFFC41E004A6CA0 /* Icicles.png in Resources */,
 				84B523261BFFC41E004A6CA0 /* 064-CF_Ground01.png in Resources */,
 				84B5234B1BFFC48F004A6CA0 /* stub.png in Resources */,
@@ -2127,6 +2193,7 @@
 				84B523441BFFC41E004A6CA0 /* 079-CW_Grass03.png in Resources */,
 				84B5229E1BFFC41E004A6CA0 /* 023-Sa_Undulation01.png in Resources */,
 				84B5223A1BFFC41E004A6CA0 /* sheetMisc.png in Resources */,
+				843D4A2C1C00FCD700835492 /* thunder-struck.png in Resources */,
 				84B5230A1BFFC41E004A6CA0 /* 050-Roof02.png in Resources */,
 				84B5227C1BFFC41E004A6CA0 /* 015-ForestTown01.png in Resources */,
 				84B521EA1BFFC41E004A6CA0 /* icon1_disable.png in Resources */,
@@ -2136,6 +2203,7 @@
 				84B5231E1BFFC41E004A6CA0 /* 060-CE_Grass01.png in Resources */,
 				84B521B01BFFC41E004A6CA0 /* maplist in Resources */,
 				84B521F61BFFC41E004A6CA0 /* icon3_none.png in Resources */,
+				843D4A1D1C00F9EC00835492 /* bookmarklet.png in Resources */,
 				84B522961BFFC41E004A6CA0 /* 021-SnowTown01.png in Resources */,
 				84B522521BFFC41E004A6CA0 /* 004_G_Ground02.png in Resources */,
 				84B523341BFFC41E004A6CA0 /* 071-CI_Ground01.png in Resources */,
@@ -2214,6 +2282,7 @@
 				84B5208D1BFFC2C2004A6CA0 /* Effect.cpp in Sources */,
 				84B520A91BFFC2C2004A6CA0 /* Interface.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				843D49EE1C00CECD00835492 /* UIIcon.cpp in Sources */,
 				84B5208B1BFFC2C2004A6CA0 /* CurrentTurnLight.cpp in Sources */,
 				84B520A31BFFC2C2004A6CA0 /* FlaredParser.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
@@ -2228,6 +2297,7 @@
 			files = (
 				84B520AA1BFFC2C2004A6CA0 /* Interface.cpp in Sources */,
 				84B520B61BFFC2C2004A6CA0 /* MenuScene.cpp in Sources */,
+				843D49EF1C00CECD00835492 /* UIIcon.cpp in Sources */,
 				84B520B01BFFC2C2004A6CA0 /* UIMessage.cpp in Sources */,
 				84B520881BFFC2C2004A6CA0 /* Animated.cpp in Sources */,
 				84B520801BFFC2C2004A6CA0 /* SquareControl.cpp in Sources */,

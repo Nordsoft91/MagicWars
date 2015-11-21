@@ -62,7 +62,7 @@ namespace MagicWars_NS {
         
         void attackAction();
         void coverRangeAction(size_t x, size_t y);
-        void spellAction(std::string i_spell);
+        void spellAction(const std::string& i_spell);
         void endTurnAction();
         
         TurnController& getTurnController() {return d_turnControl;}

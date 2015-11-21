@@ -58,11 +58,11 @@
     frameHeight = 64
 }
 
-<include> __oldEngine
 <include> Spells
 <include> Tricks
 <include> maplist
 <include> automap
+<include> Icons
 
 <include> superhero
 <include> monsters

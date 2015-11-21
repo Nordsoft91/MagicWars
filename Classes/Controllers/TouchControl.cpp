@@ -78,7 +78,7 @@ void TouchControl::coverRangeAction(size_t x, size_t y)
     }
 }
 
-void TouchControl::spellAction(std::string i_spell)
+void TouchControl::spellAction(const std::string& i_spell)
 {
     Magican* obj = d_turnControl.getTurn();
     if(obj && d_turnControl.isTurn(obj, TURN_ATTACK))
@@ -164,11 +164,10 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     Magican* obj = dynamic_cast<Magican*>(basobj);
     if( obj && !SquareControl::instance().isSquared(clickX, clickY, "green") && !SquareControl::instance().isSquared(clickX, clickY, "red") && !SquareControl::instance().isSquared(clickX, clickY, "orange"))
     {
-        d_interface->removeSpells();
+        d_interface->removeButtons();
         obj->showStatus(true, 2.0);
         d_turnControl.beginTurn(obj, TURN_ANY);
-        if(d_turnControl.beginTurn(obj, TURN_ATTACK))
-            d_interface->disableActionButtons(false);
+        d_interface->disableActionButtons(!d_turnControl.beginTurn(obj, TURN_ATTACK));
         if( d_turnControl.beginTurn(obj, TURN_MOVE))
         {
             //centralizeOn(cocos2d::Vec2(obj->x*d_sizeWidth, obj->y*d_sizeHeight));
@@ -246,6 +245,8 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
                 }
             }
         }
+        if(Consts::isExist("recover", d_spellCurrent))
+            d_turnControl.getTurn()->d_tricks[d_spellCurrent] = Consts::get("recover", d_spellCurrent);
         d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
         d_interface->disableActionButtons(true);
         d_turnControl.endTurn(TURN_ATTACK);

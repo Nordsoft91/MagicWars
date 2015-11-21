@@ -12,7 +12,9 @@
     dammageMax = 32
     speed = 2
     expirience = 150
+    weapon = weapon_staff
     spellBook = { spell_fireball spell_lighting }
+    trickSkills = { }
 }
 
 <group> hero01_level02 <override> hero01_level01

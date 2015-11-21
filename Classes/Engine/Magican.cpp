@@ -23,11 +23,13 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
     d_speed = Consts::get("speed", i_group);
     d_nextLevel = Consts::get("expirience", i_group);
     
-    std::vector<Param> sv = Consts::get("spellBook", i_group);
-    for( Param& i : sv )
-    {
-        d_spells.push_back(std::string(i));
-    }
+    for( auto& i : Consts::get("spellBook", i_group).toVector<std::string>() )
+        d_spells.push_back(i);
+    
+    for( auto& i : Consts::get("trickSkills", i_group).toVector<std::string>() )
+        d_tricks[i] = 0;
+    
+    d_weapon = (std::string)Consts::get("weapon", i_group);
     
     d_health = d_healthMax;
     d_mana = d_mind;
@@ -74,11 +76,14 @@ void Magican::metamorph(const std::string i_group)
     d_nextLevel = Consts::get("expirience", i_group);
     
     d_spells.clear();
-    std::vector<Param> sv = Consts::get("spellBook", i_group);
-    for( Param& i : sv )
-    {
-        d_spells.push_back(std::string(i));
-    }
+    d_tricks.clear();
+    for( auto& i : Consts::get("spellBook", i_group).toVector<std::string>() )
+        d_spells.push_back(i);
+    
+    for( auto& i : Consts::get("trickSkills", i_group).toVector<std::string>() )
+        d_tricks[i] = 0;
+    
+    d_weapon = (std::string)Consts::get("weapon", i_group);
     
     //fix parameters
     d_health += d_healthMax - currHealth;
@@ -193,9 +198,19 @@ bool Magican::isAlive() const
     return d_health>0;
 }
 
-bool Magican::isHaveSpell(const std::string i_spell) const
+bool Magican::isTrickAvailable(const std::string& i_trick) const
+{
+    return d_tricks.at(i_trick)==0;
+}
+
+bool Magican::isHaveSpell(const std::string& i_spell) const
 {
     return std::find(d_spells.begin(), d_spells.end(), i_spell)!=d_spells.end();
+}
+
+bool Magican::isHaveTrick(const std::string& i_trick) const
+{
+    return d_tricks.find(i_trick)!=d_tricks.end();
 }
 
 void Magican::showStatus(bool i_show, double i_time)
