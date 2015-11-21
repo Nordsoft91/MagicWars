@@ -275,7 +275,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 {
     d_interface = &i_interface;
     
-    Flared_NS::Parser parser("mapT_S_tutorial01.txt");
+    Flared_NS::Parser parser("mapT_M_template.txt");
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
     

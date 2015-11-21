@@ -44,6 +44,8 @@ rotation = 3
 from = { 0 0 64 64 }
 to = { 192 0 64 64 }
 file = 001_G_Water01.png
+animation_frames = 4
+animation_shift = 192
 }
 
 <group> flared_groundgrass

@@ -97,11 +97,11 @@ cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
                 }
                 if(const auto* pInterface = dynamic_cast<const Flared_NS::IAnimation*>(i_tile.info().getTileInfoInterface()))
                 {
-                    /*if( auto* subspr = getSubtileImg(pInterface) )
+                    if( auto* anim = getAnimationImg(pInterface) )
                     {
-                        subspr->setPosition(pInterface->getRelX(), pInterface->getRelY());
-                        spr->addChild(subspr);
-                    }*/
+                        spr->runAction(cocos2d::Animate::create(anim));
+                        spr->scheduleUpdateWithPriority(10);
+                    }
                 }
             }
             return spr;
@@ -120,6 +120,33 @@ cocos2d::Sprite* Flared_NS::Map::getSubtileImg(const Flared_NS::ISubtile *i_inte
         if(i.getName() == i_interface->info().name())
         {
             return i.create( i_interface->info().x, i_interface->info().y, i_interface->info().w, i_interface->info().h );
+        }
+    }
+    return nullptr;
+}
+
+cocos2d::Animation* Flared_NS::Map::getAnimationImg(const Flared_NS::IAnimation *i_interface)
+{
+    if(d_layerMap.empty() || !i_interface)
+        return nullptr;
+    
+    std::vector<size_t> xywh;
+    std::string name;
+    i_interface->restart();
+    for(auto i = i_interface->info(); !i.name().empty(); i=i_interface->info())
+    {
+        name = i.name();
+        xywh.push_back(i.x);
+        xywh.push_back(i.y);
+        xywh.push_back(i.w);
+        xywh.push_back(i.h);
+    }
+    
+    for(Tileset& i : d_tilesetList)
+    {
+        if(i.getName() == name)
+        {
+            return i.create( xywh );
         }
     }
     return nullptr;

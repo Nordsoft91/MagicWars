@@ -80,7 +80,9 @@ namespace Flared_NS {
         IAnimation() = default;
         IAnimation(const std::vector<TileInfo>& i_info): d_info(i_info) {d_info.push_back(TileInfo());}
         
-        TileInfo info() const override {return d_info.at(d_frame++);}
+        void restart() const { d_frame = 0; }
+        
+        TileInfo info() const override {return d_frame<d_info.size() ? d_info.at(d_frame++) : d_info.back(); }
         
     private:
         std::vector<TileInfo> d_info;

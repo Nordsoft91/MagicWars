@@ -19,9 +19,13 @@ namespace Flared_NS {
         if(ruleIndexes.empty())
             AutomapLog::report("Empty indexes from Consts: "+i_group, AutomapLog::Type::Warning);
         
-        size_t ruleRotations = 0;
+        size_t ruleRotations = 0, ruleAnimationFrames = 0, ruleAnimationShift = 0;
         if(Consts::isExist("rotation", i_group))
             ruleRotations = Consts::get("rotation", i_group);
+        if(Consts::isExist("animation_frames", i_group))
+            ruleAnimationFrames = Consts::get("animation_frames", i_group);
+        if(Consts::isExist("animation_shift", i_group))
+            ruleAnimationShift = Consts::get("animation_shift", i_group);
         
         RuleI* rule = makeRule(ruleRotations);
         for( size_t i =0; i<ruleOutLayers.size(); ++i )
@@ -53,6 +57,16 @@ namespace Flared_NS {
             info.y = (size_t)tinfo[2];
             info.w = (size_t)tinfo[3];
             info.h = (size_t)tinfo[4];
+            
+            if(ruleAnimationFrames && ruleAnimationShift)
+            {
+                std::vector<TileInfo> anim;
+                for(size_t frame = 0; frame<ruleAnimationFrames; ++frame)
+                {
+                    anim.push_back( TileInfo(info.path, info.x + frame*ruleAnimationShift, info.y, info.w, info.h));
+                }
+                setAnimation(anim, info);
+            }
             
             //TileInfo info(tinfo[0], tinfo[1], tinfo[2], tinfo[3], tinfo[4]);
             

@@ -45,6 +45,15 @@ namespace Flared_NS {
         virtual size_t makeInfoGetIndex(size_t i_index, TileInfo& io_info) { return i_index; }
         
         RuleI* makeRuleFromConsts(const std::string& i_group);
+        
+        void setAnimation(const std::vector<TileInfo>& i_animation, TileInfo& io_info)
+        {
+            if(!io_info.getTileInfoInterface())
+                io_info.setTileInfoInterface(new IAnimation(i_animation));
+        }
+        
+    protected:
+        std::vector<TileInfo> d_animation;
     };
     
     //place #3

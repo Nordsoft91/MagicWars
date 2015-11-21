@@ -59,6 +59,7 @@ namespace Flared_NS {
         
     private:
         cocos2d::Sprite* getSubtileImg(const Flared_NS::ISubtile* i_interface);
+        cocos2d::Animation* getAnimationImg(const Flared_NS::IAnimation* i_interface);
         
         std::list<Tileset> d_tilesetList;
         std::map<std::string, Layer> d_layerMap;

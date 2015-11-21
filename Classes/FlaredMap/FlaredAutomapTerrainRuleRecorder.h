@@ -39,7 +39,7 @@ namespace Flared_NS {
         const std::string crBottomName = "_bottom";
         
         void writeGroupHeader(std::ofstream& io_file, const std::string& i_group);
-        void writeGroupFooter(std::ofstream& io_file, int i_rotation = -1);
+        void writeGroupFooter(std::ofstream& io_file, size_t i_frames, size_t i_shift, int i_rotation = -1);
         void writeIndex(std::ofstream& io_file, const std::string& i_index, const std::vector<size_t>& i_params);
         
     };

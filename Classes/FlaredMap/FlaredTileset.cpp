@@ -52,3 +52,14 @@ cocos2d::Sprite* Flared_NS::Tileset::create( size_t x, size_t y, size_t w, size_
     i->setAnchorPoint({0,0});
     return i;
 }
+
+cocos2d::Animation* Flared_NS::Tileset::create( const std::vector<size_t>& i_xywh )
+{
+    cocos2d::Vector<cocos2d::SpriteFrame*> seq;
+    for( size_t i = 0; i<i_xywh.size(); i+=4)
+    {
+        cocos2d::Rect rect(i_xywh[i], i_xywh[i+1], i_xywh[i+2], i_xywh[i+3]);
+        seq.pushBack(cocos2d::SpriteFrame::createWithTexture(d_img->getTexture(), rect));
+    }
+    return cocos2d::Animation::createWithSpriteFrames(seq, 0.2, 1000);
+}

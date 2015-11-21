@@ -37,6 +37,7 @@ namespace Flared_NS {
         const std::string getName() const {return d_name;}
         
         cocos2d::Sprite* create( size_t x, size_t y, size_t w, size_t h );
+        cocos2d::Animation* create( const std::vector<size_t>& xywhFrame );
         
         friend bool operator== (const Tileset&, const Tileset&);
         
