@@ -198,8 +198,8 @@
 		84B521D21BFFC41E004A6CA0 /* Ray.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D41BFFC41D004A6CA0 /* Ray.png */; };
 		84B521D31BFFC41E004A6CA0 /* Melee 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D61BFFC41D004A6CA0 /* Melee 2.png */; };
 		84B521D41BFFC41E004A6CA0 /* Melee 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D61BFFC41D004A6CA0 /* Melee 2.png */; };
-		84B521D51BFFC41E004A6CA0 /* Melee 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D71BFFC41D004A6CA0 /* Melee 3.png */; };
-		84B521D61BFFC41E004A6CA0 /* Melee 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D71BFFC41D004A6CA0 /* Melee 3.png */; };
+		84B521D51BFFC41E004A6CA0 /* Melee3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D71BFFC41D004A6CA0 /* Melee3.png */; };
+		84B521D61BFFC41E004A6CA0 /* Melee3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D71BFFC41D004A6CA0 /* Melee3.png */; };
 		84B521D71BFFC41E004A6CA0 /* Melee 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D81BFFC41D004A6CA0 /* Melee 4.png */; };
 		84B521D81BFFC41E004A6CA0 /* Melee 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D81BFFC41D004A6CA0 /* Melee 4.png */; };
 		84B521D91BFFC41E004A6CA0 /* Melee 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D91BFFC41D004A6CA0 /* Melee 5.png */; };
@@ -780,7 +780,7 @@
 		84B520D31BFFC41D004A6CA0 /* LightningBolt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightningBolt.png; sourceTree = "<group>"; };
 		84B520D41BFFC41D004A6CA0 /* Ray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ray.png; sourceTree = "<group>"; };
 		84B520D61BFFC41D004A6CA0 /* Melee 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Melee 2.png"; sourceTree = "<group>"; };
-		84B520D71BFFC41D004A6CA0 /* Melee 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Melee 3.png"; sourceTree = "<group>"; };
+		84B520D71BFFC41D004A6CA0 /* Melee3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Melee3.png; sourceTree = "<group>"; };
 		84B520D81BFFC41D004A6CA0 /* Melee 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Melee 4.png"; sourceTree = "<group>"; };
 		84B520D91BFFC41D004A6CA0 /* Melee 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Melee 5.png"; sourceTree = "<group>"; };
 		84B520DA1BFFC41D004A6CA0 /* Melee1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Melee1.png; sourceTree = "<group>"; };
@@ -1387,7 +1387,7 @@
 			isa = PBXGroup;
 			children = (
 				84B520D61BFFC41D004A6CA0 /* Melee 2.png */,
-				84B520D71BFFC41D004A6CA0 /* Melee 3.png */,
+				84B520D71BFFC41D004A6CA0 /* Melee3.png */,
 				84B520D81BFFC41D004A6CA0 /* Melee 4.png */,
 				84B520D91BFFC41D004A6CA0 /* Melee 5.png */,
 				84B520DA1BFFC41D004A6CA0 /* Melee1.png */,
@@ -1981,7 +1981,7 @@
 				84B522F71BFFC41E004A6CA0 /* 046-Cave04.png in Resources */,
 				84B521A51BFFC41E004A6CA0 /* hero01 in Resources */,
 				84B522211BFFC41E004A6CA0 /* basewall.png in Resources */,
-				84B521D51BFFC41E004A6CA0 /* Melee 3.png in Resources */,
+				84B521D51BFFC41E004A6CA0 /* Melee3.png in Resources */,
 				84B522311BFFC41E004A6CA0 /* civil02.png in Resources */,
 				84B522431BFFC41E004A6CA0 /* 001_G_Water01.png in Resources */,
 				84B522331BFFC41E004A6CA0 /* farmer01.png in Resources */,
@@ -2015,7 +2015,7 @@
 				84B522461BFFC41E004A6CA0 /* 001_Grassland01.png in Resources */,
 				84B521B61BFFC41E004A6CA0 /* SpellDescription in Resources */,
 				84B522481BFFC41E004A6CA0 /* 002_G_Shadow01.png in Resources */,
-				84B521D61BFFC41E004A6CA0 /* Melee 3.png in Resources */,
+				84B521D61BFFC41E004A6CA0 /* Melee3.png in Resources */,
 				84B522981BFFC41E004A6CA0 /* 022-Roof01.png in Resources */,
 				84B5230E1BFFC41E004A6CA0 /* 052-Carpet02.png in Resources */,
 				84B5220C1BFFC41E004A6CA0 /* icon_thunderbolt.png in Resources */,
