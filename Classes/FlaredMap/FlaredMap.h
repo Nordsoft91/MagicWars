@@ -43,6 +43,7 @@ namespace Flared_NS {
         void addLayer(const std::string& i_layerName);
         
         bool isLayerExist(const std::string& i_layerName);
+        std::string getLayerSimilar(const std::string& i_layerName);
         
         Layer& getLayer(const std::string& i_layerName);
         

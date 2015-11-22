@@ -1,8 +1,14 @@
 <group> Flared
 {
-terrainTypes = { watergrass groundgrass ground2grass grass2grass }
+terrainTypes = { watergrass groundgrass ground2grass grass2grass stone2stone lavastone stone3stone lstonestone }
 terrainOutputLayer = layerTerrain
 terrainInputTileset = tsSurfaces.png
+}
+
+<group> rule_lava_solid
+{
+outputLayers = { layerSolid }
+indexes = { { tsSurfaces.png 128 192 64 64 } { Solid.png 0 0 64 64 } }
 }
 
 <group> rule_grass_center
@@ -11,32 +17,10 @@ outputLayers = { layerTerrain }
 indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
 }
 
-<group> rule_grass_border_right
+<group> rule_stone_center
 {
 outputLayers = { layerTerrain }
-indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
-rotation = 0
-}
-
-<group> rule_grass_border_left
-{
-outputLayers = { layerTerrain }
-indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
-rotation = 1
-}
-
-<group> rule_grass_border_top
-{
-outputLayers = { layerTerrain }
-indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
-rotation = 2
-}
-
-<group> rule_grass_border_bottom
-{
-outputLayers = { layerTerrain }
-indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
-rotation = 3
+indexes = { { tsSurfaces.png 0 192 64 64 } { 063-CF_Shadow01.png 64 0 64 64 } }
 }
 
 <group> flared_watergrass
@@ -67,4 +51,34 @@ file = 003_G_Ground01.png
 from = { 0 0 64 64 }
 to = { 64 64 64 64 }
 file = 002_G_Shadow01.png
+}
+
+<group> flared_stone2stone
+{
+from = { 0 192 64 64 }
+to = { 64 192 64 64 }
+file = 063-CF_Shadow01.png
+}
+
+<group> flared_lavastone
+{
+from = { 0 192 64 64 }
+to = { 128 192 64 64 }
+file = 062-CF_Lava01.png
+animation_frames = 4
+animation_shift = 192
+}
+
+<group> flared_stone3stone
+{
+from = { 0 192 64 64 }
+to = { 192 192 64 64 }
+file = 064-CF_Ground01.png
+}
+
+<group> flared_lstonestone
+{
+from = { 0 192 64 64 }
+to = { 256 192 64 64 }
+file = 065-CF_Ground02.png
 }

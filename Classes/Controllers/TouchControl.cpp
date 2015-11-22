@@ -276,7 +276,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 {
     d_interface = &i_interface;
     
-    Flared_NS::Parser parser("mapT_M_template.txt");
+    Flared_NS::Parser parser("mapT_M_prologue.txt");
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
     
@@ -291,13 +291,17 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     RULE_MAKER_TERRAIN;
     
     RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "grass");
+    RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "stone");
+    
+    automap.registerRule(ruleMakerSimpleChange.makeRuleFromConsts("rule_lava_solid"));
+
     
     for( auto& i : Consts::get("terrainTypes", "Flared").toVector<std::string>() )
     {
         RULE_MAKER_TERRAIN_REGISTER(automap, i);
     }
     
-    Flared_NS::Parser ruleParse("mapRule_Grassland01.txt");
+    Flared_NS::Parser ruleParse("mapRule_Cave02.txt");
     Flared_NS::Map mapRule;
     ruleParse.construct(mapRule);
     Flared_NS::registerMapRules(mapRule, "layerObjects", "layerSolid", automap);
@@ -313,7 +317,9 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     d_map = new MagicWars_NS::Map(d_mapWidth, d_mapHeight);
     d_map->setSolid(flaredMap);
     
-    i_layer->addChild(flaredMap.getMapTree());
+    if( auto mapNode = flaredMap.getMapTree())
+        i_layer->addChild(mapNode);
+    
     d_mapLayer = i_layer;
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     

@@ -12,6 +12,7 @@
 #include "FlaredMap.h"
 
 namespace Flared_NS {
+    
     class AutomapLog
     {
     public:

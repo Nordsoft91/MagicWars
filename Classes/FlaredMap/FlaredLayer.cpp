@@ -8,6 +8,13 @@
 
 #include "FlaredLayer.h"
 
+bool Flared_NS::layerNameCompare(const std::string& l, const std::string& r)
+{
+    if(l.find(r)<std::string::npos || r.find(l)<std::string::npos)
+        return true;
+    return false;
+}
+
 Flared_NS::Layer::Layer(const TilesetList& i_list, size_t w, size_t h): d_list(i_list), d_width(w), d_height(h)
 {
     for( size_t j = 0; j<d_height; ++j)
@@ -27,7 +34,7 @@ Flared_NS::Tile& Flared_NS::Layer::operator() (size_t x, size_t y)
     return d_layer.at(y*d_width+x);
 }
 
-Flared_NS::Layer::operator std::vector<Flared_NS::Tile> ()
+Flared_NS::Layer::operator std::vector<Flared_NS::Tile>& ()
 {
     return d_layer;
 }

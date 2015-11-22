@@ -36,7 +36,7 @@ namespace Flared_NS {
         TileInfo() = default;
         TileInfo( const TileInfo& i_info): path(i_info.path), x(i_info.x), y(i_info.y), w(i_info.w), h(i_info.h)
         {
-            setTileInfoInterface(const_cast<ITileInfo*>(i_info.getTileInfoInterface()));
+            setTileInfoInterface(i_info.getTileInfoInterface());
         }
         
         ~TileInfo() { /*setTileInfoInterface(nullptr);*/ }
@@ -48,9 +48,9 @@ namespace Flared_NS {
         
         const ITileInfo* getTileInfoInterface() const { return d_interface; }
         
-        void setTileInfoInterface( ITileInfo* i_info )
+        void setTileInfoInterface( const ITileInfo* i_info )
         {
-            d_interface = i_info;
+            d_interface = const_cast<ITileInfo*>(i_info);
         }
         
     private:

@@ -173,7 +173,22 @@ namespace Flared_NS {
         
         for( auto* rule : d_rules)
         {
-            rule->processInputLayer( i_map.getLayer(rule->getInputLayerName().empty() ? "layerSet" : rule->getInputLayerName()), o_map );
+            const std::string layerName = rule->getInputLayerName().empty() ? "layerSet" : rule->getInputLayerName();
+            //const std::string inputLayerName = i_map.getLayerSimilar(layerName);
+            if(i_map.isLayerExist(layerName))
+                rule->processInputLayer( i_map.getLayer(layerName), o_map );
+        }
+        
+        //copy unknown layers
+        for(auto& layer : i_map.getListOfLayers())
+        {
+            if(!o_map.isLayerExist(layer) && layer!="layerSet")
+            {
+                o_map.addLayer(layer);
+                for(size_t y = 0; y<i_map.getHeight(); ++y)
+                    for(size_t x = 0; x<i_map.getWidth(); ++x)
+                        o_map.getLayer(layer)(x,y) = i_map.getLayer(layer)(x,y);
+            }
         }
     }
     

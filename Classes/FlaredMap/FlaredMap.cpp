@@ -61,6 +61,16 @@ bool Flared_NS::Map::isLayerExist(const std::string& i_layerName)
     return false;
 }
 
+std::string Flared_NS::Map::getLayerSimilar(const std::string& i_layerName)
+{
+    for(auto& i : d_layerMap)
+    {
+        if(layerNameCompare(i.first, i_layerName))
+            return i.first;
+    }
+    return "";
+}
+
 std::list<std::string> Flared_NS::Map::getListOfLayers() const
 {
     std::list<std::string> res;

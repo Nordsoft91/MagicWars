@@ -14,6 +14,9 @@
 #include <vector>
 
 namespace Flared_NS {
+    
+    bool layerNameCompare(const std::string& l, const std::string& r);
+    
     class Layer
     {
     public:
@@ -28,7 +31,7 @@ namespace Flared_NS {
         void set(size_t x, size_t y, size_t index, ITileInfo* i_interface = nullptr);
         void set(size_t n, size_t index, ITileInfo* i_interface = nullptr);
         
-        operator std::vector<Tile> ();
+        operator std::vector<Tile>& ();
     
     private:
         TilesetList d_list;

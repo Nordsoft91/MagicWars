@@ -70,6 +70,10 @@
 		843D4A331C011C5100835492 /* plain-dagger.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A301C011C5100835492 /* plain-dagger.png */; };
 		843D4A341C011C5100835492 /* wizard-staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A311C011C5100835492 /* wizard-staff.png */; };
 		843D4A351C011C5100835492 /* wizard-staff.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A311C011C5100835492 /* wizard-staff.png */; };
+		843D4A381C01D95300835492 /* mapRule_Cave02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A361C01D95300835492 /* mapRule_Cave02.txt */; };
+		843D4A391C01D95300835492 /* mapRule_Cave02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A361C01D95300835492 /* mapRule_Cave02.txt */; };
+		843D4A3A1C01D95300835492 /* mapT_M_prologue.txt in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A371C01D95300835492 /* mapT_M_prologue.txt */; };
+		843D4A3B1C01D95300835492 /* mapT_M_prologue.txt in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A371C01D95300835492 /* mapT_M_prologue.txt */; };
 		84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206F1BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */; };
@@ -671,6 +675,8 @@
 		843D4A2D1C0105F600835492 /* bowman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bowman.png; path = icons/bowman.png; sourceTree = "<group>"; };
 		843D4A301C011C5100835492 /* plain-dagger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plain-dagger.png"; path = "icons/plain-dagger.png"; sourceTree = "<group>"; };
 		843D4A311C011C5100835492 /* wizard-staff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "wizard-staff.png"; path = "icons/wizard-staff.png"; sourceTree = "<group>"; };
+		843D4A361C01D95300835492 /* mapRule_Cave02.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapRule_Cave02.txt; sourceTree = "<group>"; };
+		843D4A371C01D95300835492 /* mapT_M_prologue.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapT_M_prologue.txt; sourceTree = "<group>"; };
 		84B520141BFFC2C1004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIController.cpp; sourceTree = "<group>"; };
 		84B520151BFFC2C1004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIController.h; sourceTree = "<group>"; };
 		84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIEngine.cpp; sourceTree = "<group>"; };
@@ -1446,6 +1452,8 @@
 		84B520F71BFFC41D004A6CA0 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				843D4A361C01D95300835492 /* mapRule_Cave02.txt */,
+				843D4A371C01D95300835492 /* mapT_M_prologue.txt */,
 				84B520F81BFFC41D004A6CA0 /* map_XS_demo01.txt */,
 				84B520F91BFFC41D004A6CA0 /* mapRule_Grassland01.txt */,
 				84B520FA1BFFC41D004A6CA0 /* mapT_M_template.txt */,
@@ -1817,6 +1825,7 @@
 				84B521D71BFFC41E004A6CA0 /* Melee 4.png in Resources */,
 				84B521A31BFFC41E004A6CA0 /* Girl in Resources */,
 				84B521A91BFFC41E004A6CA0 /* hero03 in Resources */,
+				843D4A3A1C01D95300835492 /* mapT_M_prologue.txt in Resources */,
 				84B522E71BFFC41E004A6CA0 /* 042-EvilCastle02.png in Resources */,
 				84B522891BFFC41E004A6CA0 /* 018-Sa_Ground01.png in Resources */,
 				84B523331BFFC41E004A6CA0 /* 071-CI_Ground01.png in Resources */,
@@ -1954,6 +1963,7 @@
 				84B523311BFFC41E004A6CA0 /* 070-CI_Snow01.png in Resources */,
 				84B522751BFFC41E004A6CA0 /* 013-PostTown01.png in Resources */,
 				84B522B51BFFC41E004A6CA0 /* 029-Sn_Shadow01.png in Resources */,
+				843D4A381C01D95300835492 /* mapRule_Cave02.txt in Resources */,
 				843D4A321C011C5100835492 /* plain-dagger.png in Resources */,
 				84B522911BFFC41E004A6CA0 /* 020-Sa_Grass03.png in Resources */,
 				84B523051BFFC41E004A6CA0 /* 049-St_Shadow01.png in Resources */,
@@ -2017,6 +2027,7 @@
 				84B522481BFFC41E004A6CA0 /* 002_G_Shadow01.png in Resources */,
 				84B521D61BFFC41E004A6CA0 /* Melee3.png in Resources */,
 				84B522981BFFC41E004A6CA0 /* 022-Roof01.png in Resources */,
+				843D4A391C01D95300835492 /* mapRule_Cave02.txt in Resources */,
 				84B5230E1BFFC41E004A6CA0 /* 052-Carpet02.png in Resources */,
 				84B5220C1BFFC41E004A6CA0 /* icon_thunderbolt.png in Resources */,
 				84B521AE1BFFC41E004A6CA0 /* MagicConsts in Resources */,
@@ -2169,6 +2180,7 @@
 				84B523321BFFC41E004A6CA0 /* 070-CI_Snow01.png in Resources */,
 				84B522CC1BFFC41E004A6CA0 /* 035-Ruins01.png in Resources */,
 				84B522621BFFC41E004A6CA0 /* 008-Snowfield01.png in Resources */,
+				843D4A3B1C01D95300835492 /* mapT_M_prologue.txt in Resources */,
 				84B522941BFFC41E004A6CA0 /* 021-Sa_Road01.png in Resources */,
 				84B522601BFFC41E004A6CA0 /* 008-Grass_Undulation02.png in Resources */,
 				84B5224C1BFFC41E004A6CA0 /* 003_Forest01.png in Resources */,
