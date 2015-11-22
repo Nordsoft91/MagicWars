@@ -25,6 +25,8 @@ namespace MagicWars_NS {
         virtual bool attackPhase();
         virtual void confirmPhase();
         
+        virtual bool skipTurn() {return true;}
+        
         void setGoal(size_t x, size_t y) { d_goal = true; d_xGoal=x; d_yGoal=y; }
         
         bool skipMovePhase();

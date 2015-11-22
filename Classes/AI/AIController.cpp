@@ -72,6 +72,14 @@ void AIController::nextStage()
     
     switch (d_stage) {
         case 1:
+            if(d_engines[d_team]->skipTurn())
+            {
+                TouchControl::instance().endTurnAction();
+                d_timer = 0.5;
+                d_stage = 0;
+            }
+            else
+            {
             if(d_engines[d_team]->selectPerson())
             {
                 TouchControl::instance().centralizeOn(cocos2d::Vec2(TouchControl::instance().getTurn()->x * size_t(Consts::get("mapCellWidth")), TouchControl::instance().getTurn()->y * size_t(Consts::get("mapCellHeight"))));
@@ -87,6 +95,7 @@ void AIController::nextStage()
                 }
                 else
                     throw std::runtime_error("impossible to choose a magican or end turn");
+            }
             }
             break;
             

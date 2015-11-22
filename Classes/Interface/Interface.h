@@ -38,6 +38,8 @@ namespace MagicWars_NS {
         void disableActionButtons(bool i_disable = true);
         //call RemoveFromParent for MenuItemImage for delete button
         
+        const cocos2d::Vec2 SCREEN_CENTER;
+        
     protected:
         cocos2d::Menu* d_pMenu = nullptr;
         cocos2d::ui::Widget* d_pScreen = nullptr;

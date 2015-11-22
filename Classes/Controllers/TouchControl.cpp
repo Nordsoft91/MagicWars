@@ -276,13 +276,10 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 {
     d_interface = &i_interface;
     
-    Flared_NS::Parser parser("mapT_M_prologue.txt");
+    //MAP NAME
+    Flared_NS::Parser parser("mapT_S_tutorial01.txt");
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
-    
-    
-    //MapReader reader;
-    //d_map = reader.read("mapW_M_myDemoMap01.txt");
     
     Flared_NS::Automap automap;
     
@@ -301,7 +298,8 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
         RULE_MAKER_TERRAIN_REGISTER(automap, i);
     }
     
-    Flared_NS::Parser ruleParse("mapRule_Cave02.txt");
+    //MAP LOAD FOR RULES
+    Flared_NS::Parser ruleParse("mapRule_Grassland01.txt");
     Flared_NS::Map mapRule;
     ruleParse.construct(mapRule);
     Flared_NS::registerMapRules(mapRule, "layerObjects", "layerSolid", automap);
@@ -326,6 +324,8 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     d_turnControl.relationships.set("Light", "Neutral", Relationships::Type::Neutral);
     d_turnControl.relationships.set("Light", "Dark", Relationships::Type::Enemies);
     d_turnControl.relationships.set("Neutral", "Dark", Relationships::Type::Enemies);
+    d_turnControl.relationships.set("Tutor", "Dark", Relationships::Type::Neutral);
+    d_turnControl.relationships.set("Tutor", "Light", Relationships::Type::Neutral);
     
     for(auto& i : flaredSet.getCharacters())
     {
@@ -334,11 +334,13 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
         d_turnControl.insert(object, i.team);
     }
     
+    auto* tutor_intro = UI_NS::MessageSequence::create(d_interface->SCREEN_CENTER, cocos2d::Color4F(0,0,0,1), { "", "" } );
+    d_interface->getScreenNode()->addChild(tutor_intro);
+    
     if( auto* pers = ContainUtils::findObjectByName(d_persons, "Braves"))
     {
-        auto* fr = ContainUtils::findObjectByName(d_persons, "Friend");
-        cocos2d::log("Braves is found");
-        
+        if(auto* fr = ContainUtils::findObjectByName(d_persons, "Friend"))
+        {
         auto trigger = UI_NS::Trigger::create();
         trigger->setActivationCondition(new UI_NS::ConditionTapCellOnMap(pers->x, pers->y));
         trigger->setThrowEvent(new UI_NS::EventChain( i_layer,
@@ -349,6 +351,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
                                                      } ) );
         trigger->activate();
         i_layer->addChild(trigger);
+        }
     }
     
     SquareControl::instance().toScene(i_layer);

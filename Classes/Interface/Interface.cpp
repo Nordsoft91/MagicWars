@@ -13,7 +13,7 @@
 
 using namespace MagicWars_NS;
 
-Interface::Interface(cocos2d::Scene* io_scene)
+Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director::getInstance()->getVisibleSize().width/2, cocos2d::Director::getInstance()->getVisibleSize().height/2)
 {
     // create menu, it's an autorelease object
     d_pMenu = cocos2d::Menu::create();

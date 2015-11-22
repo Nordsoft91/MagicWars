@@ -52,6 +52,18 @@
     goUp = { 12 13 14 15 }
 }
 
+<group> mnsAnimation4
+{
+frameWidth = 80
+frameHeight = 112
+sizeX = 4
+sizeY = 4
+goDown = { 0 1 2 3 }
+goLeft = { 4 5 6 7 }
+goRight = { 8 9 10 11 }
+goUp = { 12 13 14 15 }
+}
+
 <group> quadAnimation3 <override> charAnimation3
 {
     frameWidth = 64
@@ -63,6 +75,9 @@
 <include> maplist
 <include> automap
 <include> Icons
+
+<include> regularPersons
+<include> keyPersons
 
 <include> superhero
 <include> monsters

@@ -22,6 +22,7 @@ namespace MagicWars_NS {
         virtual bool selectPerson() override;
         virtual bool movePhase() override;
         virtual bool attackPhase() override;
+        virtual bool skipTurn() override {return false;}
         
         std::string findBestSpell(int x, int y, double& o_w);
         

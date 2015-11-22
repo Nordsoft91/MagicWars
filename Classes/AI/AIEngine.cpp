@@ -43,7 +43,8 @@ bool AIEngine::selectPerson()
 {
     if(!d_possibleMove.empty())
     {
-        TouchControl::instance().pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
+        endTurn(TouchControl::instance().getTurnController().getTurnSide());
+        //TouchControl::instance().pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
         return true;
     }
     return false;

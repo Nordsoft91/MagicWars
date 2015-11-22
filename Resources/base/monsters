@@ -14,3 +14,37 @@
     expirience = 10000
     spellBook = { }
 }
+
+<group> undead02
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = undead02.png
+animationParams = mnsAnimation4
+health = 100
+concentrate = 2
+mind = 0
+wisdom = 1
+dammageMin = 20
+dammageMax = 35
+speed = 2
+expirience = 10000
+spellBook = { }
+}
+
+<group> undead03
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = undead03.png
+animationParams = mnsAnimation4
+health = 120
+concentrate = 2
+mind = 0
+wisdom = 1
+dammageMin = 30
+dammageMax = 50
+speed = 3
+expirience = 10000
+spellBook = { }
+}

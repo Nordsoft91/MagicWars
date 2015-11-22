@@ -3,7 +3,7 @@
     spriteType = ANIMATED
     spriteName = stub.png
     animationName = olderman.png
-    animationParams = charAnimation4
+    animationParams = charAnimation3
     health = 140
     concentrate = 14
     mind = 60
@@ -12,5 +12,25 @@
     dammageMax = 38
     speed = 3
     expirience = 10000
+
     spellBook = { spell_healing, spell_farhealing }
+}
+
+<group> hero04
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = hero04.png
+animationParams = charAnimation4
+health = 250
+concentrate = 23
+mind = 80
+wisdom = 33
+dammageMin = 49
+dammageMax = 67
+speed = 3
+expirience = 10000
+weapon = weapon_dagger
+spellBook = { spell_fireball }
+trickSkills = { trick_shoot }
 }
