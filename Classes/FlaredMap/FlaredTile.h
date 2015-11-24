@@ -9,6 +9,7 @@
 #ifndef __MagicWars__FlaredTile__
 #define __MagicWars__FlaredTile__
 
+#include <vector>
 #include <string>
 #include <memory>
 

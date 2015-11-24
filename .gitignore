@@ -15,9 +15,11 @@ proj.android-studio/
 
 proj.linux/
 
-proj.win32/
-
 proj.win10/
+
+proj.win32/Debug.win32
+
+proj.win32/Release.win32
 
 proj.win8.1-universal/
 
@@ -45,3 +47,6 @@ proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWar
 proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWars-desktop.xcscheme
 
 proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist
+proj.win32/MagicWars.sdf
+proj.win32/MagicWars.v12.suo
+proj.win32/MagicWars.vcxproj.user

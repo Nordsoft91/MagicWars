@@ -22,7 +22,7 @@ namespace UI_NS {
         {
             auto trigger = UI_NS::Trigger::create();
             io_scene->addChild(trigger);
-            selfTrigger->setThrowEvent(new UI_NS::EventHeap( {link, new UI_NS::EventActivateTrigger(trigger)} ));
+            selfTrigger->setThrowEvent(new UI_NS::EventHeap( std::list<UI_NS::Event*>{link, new UI_NS::EventActivateTrigger(trigger)} ));
             selfTrigger = trigger;
         }
     }

@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AI">
+      <UniqueIdentifier>{bf41d48b-8689-43e0-9bce-046f5b463373}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Controllers">
+      <UniqueIdentifier>{9bfe68e6-fab9-4737-be34-75d54185a717}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Flared">
+      <UniqueIdentifier>{125a2fd2-f999-428c-8ae1-49976678fa82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Engine">
+      <UniqueIdentifier>{981b9cd3-03b0-42a4-a7ad-247328c412a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SDK">
+      <UniqueIdentifier>{05844737-d9f4-45de-93b6-3f1d42d3b5bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Common">
+      <UniqueIdentifier>{8537a9ba-204d-48f5-9287-a2f159f007e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Interface">
+      <UniqueIdentifier>{223f5e68-c6c8-4f2b-89e9-e894cfe140b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Menu">
+      <UniqueIdentifier>{08fd31c3-e814-4059-8296-e74280b6ec01}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AI\AIController.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AI\AIEngine.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AI\AIMovable.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AI\AIUsingAttack.cpp">
+      <Filter>src\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\Consts.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\ContainUtils.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\MapReader.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Common\WavePathFinder.cpp">
+      <Filter>src\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Controllers\SquareControl.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Controllers\TeamRelationships.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Controllers\TouchControl.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Controllers\TurnController.cpp">
+      <Filter>src\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Animated.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\CharacterAnimated.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\CurrentTurnLight.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Effect.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\GameObj.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Magican.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\Map.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\StatusUpdater.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Engine\TileMap.cpp">
+      <Filter>src\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredAutomap.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredAutomapRules.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredAutomapTerrainRuleRecorder.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredLayer.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredMap.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredParser.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredTile.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\FlaredMap\FlaredTileset.cpp">
+      <Filter>src\Flared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Interface\Interface.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Interface\UICondition.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Interface\UIEvent.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Interface\UIIcon.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Interface\UIMessage.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Interface\UIMessageSequence.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Interface\UITrigger.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Menu\MenuScene.cpp">
+      <Filter>src\Menu</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AI\AIController.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AI\AIEngine.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AI\AIMovable.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AI\AIUsingAttack.h">
+      <Filter>src\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\Consts.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\ContainUtils.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\Grid.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\MapReader.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\MovingStructure.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\Tileset.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Common\WavePathFinder.h">
+      <Filter>src\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controllers\SquareControl.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controllers\TeamRelationships.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controllers\TouchControl.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Controllers\TurnController.h">
+      <Filter>src\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Animated.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\BaseWall.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Blocker.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\CharacterAnimated.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\CurrentTurnLight.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Effect.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\GameObj.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Magican.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\Map.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\SolidObject.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\StatusUpdater.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Engine\TileMap.h">
+      <Filter>src\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredAutomap.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredAutomapRules.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredAutomapTerrainRuleRecorder.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredEnum.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredLayer.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredMap.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredParser.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredTile.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\FlaredMap\FlaredTileset.h">
+      <Filter>src\Flared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\Interface.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\UICondition.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\UIEvent.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\UIIcon.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\UIMessage.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\UIMessageSequence.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\UITrigger.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Menu\MenuScene.h">
+      <Filter>src\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SDK\Uncopyble.h">
+      <Filter>src\SDK</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Classes\README.md">
+      <Filter>src</Filter>
+    </None>
+  </ItemGroup>
+</Project>
