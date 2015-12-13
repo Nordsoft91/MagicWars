@@ -51,3 +51,11 @@ proj.win32/MagicWars.vcxproj.user
 proj.win32/MagicWars.opensdf
 proj.win32/game.aps
 *.png
+
+*.gif
+
+*.jpg
+
+Resources/data/fonts/Marker Felt.ttf
+
+Resources.zip

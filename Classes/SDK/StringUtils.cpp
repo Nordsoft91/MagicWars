@@ -49,7 +49,7 @@ size_t packStringByWords(const std::string& i_str, size_t i_limit, size_t i_begi
 {
 	const size_t length = i_str.length();
 	if (i_begin > length)
-		throw std::exception("Begin symbol is outide of array");
+		throw std::runtime_error("Begin symbol is outide of array");
 
 	if ((length - i_begin) <= i_limit)
 		return length;

@@ -330,7 +330,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
         d_turnControl.insert(object, i.team);
     }
 
-	//trRead.read(trStream);
+	trRead.read(trStream);
     
     //if(auto* tutor_intro = UI_NS::MessageSequence::create(d_interface->SCREEN_CENTER, cocos2d::Color4F(0,0,0,1), { "Привет", "Это попытка русского текста" } ))
 		//d_interface->getScreenNode()->addChild(tutor_intro);

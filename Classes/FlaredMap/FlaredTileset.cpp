@@ -8,7 +8,7 @@
 
 #include "FlaredTileset.h"
 #include "FlaredTile.h"
-#include <Common\Consts.h>
+#include <Common/Consts.h>
 
 std::string Flared_NS::Tileset::parsePath( const std::string& i_path )
 {

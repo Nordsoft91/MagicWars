@@ -82,6 +82,14 @@
 		843D4A481C0202D800835492 /* undead02.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A451C0202D800835492 /* undead02.png */; };
 		843D4A491C0202D800835492 /* undead03.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A461C0202D800835492 /* undead03.png */; };
 		843D4A4A1C0202D800835492 /* undead03.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A461C0202D800835492 /* undead03.png */; };
+		843EAB9C1C025526003BC913 /* DBStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843EAB9A1C025526003BC913 /* DBStructure.cpp */; };
+		843EAB9D1C025526003BC913 /* DBStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843EAB9A1C025526003BC913 /* DBStructure.cpp */; };
+		8497C9E01C1DBE6F005C334C /* UITriggerReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */; };
+		8497C9E11C1DBE6F005C334C /* UITriggerReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */; };
+		8497C9E41C1DBE93005C334C /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9E21C1DBE93005C334C /* StringUtils.cpp */; };
+		8497C9E51C1DBE93005C334C /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9E21C1DBE93005C334C /* StringUtils.cpp */; };
+		8497C9E81C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */; };
+		8497C9E91C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */; };
 		84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206F1BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */; };
@@ -689,6 +697,13 @@
 		843D4A3F1C01FF3F00835492 /* hero04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero04.png; sourceTree = "<group>"; };
 		843D4A451C0202D800835492 /* undead02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undead02.png; sourceTree = "<group>"; };
 		843D4A461C0202D800835492 /* undead03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undead03.png; sourceTree = "<group>"; };
+		843EAB9A1C025526003BC913 /* DBStructure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBStructure.cpp; sourceTree = "<group>"; };
+		843EAB9B1C025526003BC913 /* DBStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStructure.h; sourceTree = "<group>"; };
+		8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITriggerReader.cpp; sourceTree = "<group>"; };
+		8497C9DF1C1DBE6F005C334C /* UITriggerReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITriggerReader.h; sourceTree = "<group>"; };
+		8497C9E21C1DBE93005C334C /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
+		8497C9E31C1DBE93005C334C /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
+		8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapT_S_tutorial01_triggers.txt; sourceTree = "<group>"; };
 		84B520141BFFC2C1004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIController.cpp; sourceTree = "<group>"; };
 		84B520151BFFC2C1004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIController.h; sourceTree = "<group>"; };
 		84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIEngine.cpp; sourceTree = "<group>"; };
@@ -1308,6 +1323,8 @@
 		84B5205B1BFFC2C2004A6CA0 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */,
+				8497C9DF1C1DBE6F005C334C /* UITriggerReader.h */,
 				84B5205C1BFFC2C2004A6CA0 /* Interface.cpp */,
 				84B5205D1BFFC2C2004A6CA0 /* Interface.h */,
 				84B5205E1BFFC2C2004A6CA0 /* UICondition.cpp */,
@@ -1338,7 +1355,11 @@
 		84B5206B1BFFC2C2004A6CA0 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				8497C9E21C1DBE93005C334C /* StringUtils.cpp */,
+				8497C9E31C1DBE93005C334C /* StringUtils.h */,
 				84B5206C1BFFC2C2004A6CA0 /* Uncopyble.h */,
+				843EAB9A1C025526003BC913 /* DBStructure.cpp */,
+				843EAB9B1C025526003BC913 /* DBStructure.h */,
 			);
 			path = SDK;
 			sourceTree = "<group>";
@@ -1464,6 +1485,7 @@
 		84B520F71BFFC41D004A6CA0 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */,
 				843D4A361C01D95300835492 /* mapRule_Cave02.txt */,
 				843D4A371C01D95300835492 /* mapT_M_prologue.txt */,
 				84B520F81BFFC41D004A6CA0 /* map_XS_demo01.txt */,
@@ -1736,7 +1758,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0620;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MagicWars" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1917,6 +1939,7 @@
 				84B521B51BFFC41E004A6CA0 /* SpellDescription in Resources */,
 				84B522C71BFFC41E004A6CA0 /* 034-Bridge01.png in Resources */,
 				84B523411BFFC41E004A6CA0 /* 078-CW_Ground01.png in Resources */,
+				8497C9E81C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */,
 				84B521A11BFFC41E004A6CA0 /* automap_reserve in Resources */,
 				84B522C31BFFC41E004A6CA0 /* 033-Heaven02.png in Resources */,
 				521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */,
@@ -2059,6 +2082,7 @@
 				84B522261BFFC41E004A6CA0 /* Girl.png in Resources */,
 				84B522341BFFC41E004A6CA0 /* farmer01.png in Resources */,
 				84B521F01BFFC41E004A6CA0 /* icon2.gif in Resources */,
+				8497C9E91C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */,
 				84B522E01BFFC41E004A6CA0 /* 040-Ground01.png in Resources */,
 				84B5226A1BFFC41E004A6CA0 /* 010-G2_Ground01.png in Resources */,
 				84B522781BFFC41E004A6CA0 /* 014-G2_Swamp03.png in Resources */,
@@ -2306,10 +2330,13 @@
 				84B520791BFFC2C2004A6CA0 /* ContainUtils.cpp in Sources */,
 				84B5207D1BFFC2C2004A6CA0 /* WavePathFinder.cpp in Sources */,
 				84B520971BFFC2C2004A6CA0 /* TileMap.cpp in Sources */,
+				843EAB9C1C025526003BC913 /* DBStructure.cpp in Sources */,
 				84B520991BFFC2C2004A6CA0 /* FlaredAutomap.cpp in Sources */,
 				84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */,
 				84B520811BFFC2C2004A6CA0 /* TeamRelationships.cpp in Sources */,
 				84B520AD1BFFC2C2004A6CA0 /* UIEvent.cpp in Sources */,
+				8497C9E01C1DBE6F005C334C /* UITriggerReader.cpp in Sources */,
+				8497C9E41C1DBE93005C334C /* StringUtils.cpp in Sources */,
 				84B520B51BFFC2C2004A6CA0 /* MenuScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				84B520911BFFC2C2004A6CA0 /* Magican.cpp in Sources */,
@@ -2340,6 +2367,7 @@
 				84B520A41BFFC2C2004A6CA0 /* FlaredParser.cpp in Sources */,
 				84B520741BFFC2C2004A6CA0 /* AIUsingAttack.cpp in Sources */,
 				84B5208A1BFFC2C2004A6CA0 /* CharacterAnimated.cpp in Sources */,
+				843EAB9D1C025526003BC913 /* DBStructure.cpp in Sources */,
 				84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */,
 				84B520901BFFC2C2004A6CA0 /* GameObj.cpp in Sources */,
 				84B5209A1BFFC2C2004A6CA0 /* FlaredAutomap.cpp in Sources */,
@@ -2351,12 +2379,14 @@
 				84B5209E1BFFC2C2004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */,
 				84B520761BFFC2C2004A6CA0 /* AppDelegate.cpp in Sources */,
 				84B5207A1BFFC2C2004A6CA0 /* ContainUtils.cpp in Sources */,
+				8497C9E51C1DBE93005C334C /* StringUtils.cpp in Sources */,
 				84B520921BFFC2C2004A6CA0 /* Magican.cpp in Sources */,
 				84B520781BFFC2C2004A6CA0 /* Consts.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				84B5207E1BFFC2C2004A6CA0 /* WavePathFinder.cpp in Sources */,
 				84B520961BFFC2C2004A6CA0 /* StatusUpdater.cpp in Sources */,
+				8497C9E11C1DBE6F005C334C /* UITriggerReader.cpp in Sources */,
 				84B520981BFFC2C2004A6CA0 /* TileMap.cpp in Sources */,
 				84B5208C1BFFC2C2004A6CA0 /* CurrentTurnLight.cpp in Sources */,
 				84B520B21BFFC2C2004A6CA0 /* UIMessageSequence.cpp in Sources */,
@@ -2466,9 +2496,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2491,7 +2521,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
-				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
+				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END) ../Classes/";
 			};
 			name = Debug;
 		};
@@ -2499,9 +2529,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = mac/Prefix.pch;
@@ -2522,7 +2552,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
-				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
+				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END) ../Classes/";
 			};
 			name = Release;
 		};
@@ -2550,6 +2580,7 @@
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
 					"$(SRCROOT)/../Classes",
+					"$(SRCROOT)/Classes",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -2581,6 +2612,7 @@
 					"$(SRCROOT)/../cocos2d/external",
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
 					"$(SRCROOT)/../Classes",
+					"$(SRCROOT)/Classes",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;

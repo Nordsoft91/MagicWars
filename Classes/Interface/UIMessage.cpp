@@ -6,7 +6,7 @@
 //
 //
 #include "UIMessage.h"
-#include <SDK\StringUtils.h>
+#include <SDK/StringUtils.h>
 
 namespace UI_NS {
     int stringWidth(const std::string& i_str, int i_size)

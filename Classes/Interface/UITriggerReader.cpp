@@ -1,7 +1,7 @@
 #include "UITriggerReader.h"
-#include <Common\ContainUtils.h>
-#include <SDK\StringUtils.h>
-#include <Controllers\TouchControl.h>
+#include <Common/ContainUtils.h>
+#include <SDK/StringUtils.h>
+#include <Controllers/TouchControl.h>
 
 namespace UI_NS
 {
@@ -38,14 +38,14 @@ namespace UI_NS
 			if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), posy))
 				return{ obj->x, obj->y };
 			else
-				cocos2d::log("Cannot find person with name %s", posy);
+				cocos2d::log("Cannot find person with name %s", posy.c_str());
 		}
 		if (posx == "OBJECT")
 		{
 			if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllObjects(), posy))
 				return{ obj->x, obj->y };
 			else
-				cocos2d::log("Cannot find object with name %s", posy);
+				cocos2d::log("Cannot find object with name %s", posy.c_str());
 		}
 
 		int x = 0, y = 0;
@@ -106,7 +106,7 @@ namespace UI_NS
 			if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), name))
 				return new UI_NS::EventDialog(obj->getSprite(), readMessage(io_stream));
 
-			cocos2d::log("Cannot find person with name %s", name);
+			cocos2d::log("Cannot find person with name %s", name.c_str());
 			return nullptr;
 		}
 		if (type == "Activator")

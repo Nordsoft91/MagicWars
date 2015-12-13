@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <exception>
 
 bool isIntegerNumber(const std::string& i_str, int& o_res);
 
