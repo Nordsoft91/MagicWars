@@ -1,0 +1,22 @@
+Trigger Active
+ConditionTapCellOnMap PERSON Braves
+ChainOfEvents
+Event Dialog Braves
+{
+Hello world!
+Let s go
+I'm talking!
+How are you today? Do you want do fight with this wolf?
+}
+Event Dialog Friend
+{
+Yes!
+I really want do do it!
+}
+Event Message
+{
+Play
+Fight
+Use magic
+}
+EndOfChain

@@ -40,8 +40,6 @@ proj.ios_mac/MagicWars.xcodeproj/project.xcworkspace/contents.xcworkspacedata
 
 proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWars iOS.xcscheme
 
-Resources/data
-
 proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWars-mobile.xcscheme
 
 proj.ios_mac/MagicWars.xcodeproj/xcuserdata/admin.xcuserdatad/xcschemes/MagicWars-desktop.xcscheme
@@ -52,3 +50,4 @@ proj.win32/MagicWars.v12.suo
 proj.win32/MagicWars.vcxproj.user
 proj.win32/MagicWars.opensdf
 proj.win32/game.aps
+*.png
