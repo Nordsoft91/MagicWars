@@ -21,7 +21,7 @@ Effect::Effect(const std::string i_spr, int i_frames)
     cocos2d::Vector<cocos2d::SpriteFrame*> frames;
     for(int i=0; i<i_frames; ++i)
     {
-        frames.pushBack(cocos2d::SpriteFrame::create(i_spr, cocos2d::Rect((i%5)*efW, (i/5)*efH, efW, efH)));
+        frames.pushBack(cocos2d::SpriteFrame::create(RES("effects",i_spr), cocos2d::Rect((i%5)*efW, (i/5)*efH, efW, efH)));
     }
     d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, 1);
     Blocker::block(Pause::Animation);
@@ -55,6 +55,7 @@ bool Effect::init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal, double i_time)
         return false;
     
     setPosition(i_start);
+	setZOrder(10000);
     runAction(cocos2d::Animate::create(d_animation));
     if(i_goal!=cocos2d::Vec2::ZERO)
     {
@@ -71,6 +72,10 @@ bool Effect::init(cocos2d::Vec2 i_start, cocos2d::Vec2 i_goal, double i_time)
 
 void Effect::update(float delta)
 {
+	cocos2d::BlendFunc func;
+	func.src = GL_ONE;
+	func.dst = GL_ONE_MINUS_SRC_COLOR;
+	setBlendFunc(func);
     if(!getNumberOfRunningActions())
     {
         removeFromParent();

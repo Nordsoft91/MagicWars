@@ -12,14 +12,12 @@ using namespace MagicWars_NS;
 
 Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
 {
-    setSprite(Consts::get("spriteName", i_group));
+    setSprite(RES("persons",(std::string)Consts::get("spriteName", i_group)));
     
     d_healthMax = Consts::get("health", i_group);
     d_concentrate = Consts::get("concentrate", i_group);
     d_mind = Consts::get("mind", i_group);
     d_wisdom = Consts::get("wisdom", i_group);
-    d_dammage.first = Consts::get("dammageMin", i_group);
-    d_dammage.second = Consts::get("dammageMax", i_group);
     d_speed = Consts::get("speed", i_group);
     d_nextLevel = Consts::get("expirience", i_group);
     
@@ -70,8 +68,6 @@ void Magican::metamorph(const std::string i_group)
     d_concentrate = Consts::get("concentrate", i_group);
     d_mind = Consts::get("mind", i_group);
     d_wisdom = Consts::get("wisdom", i_group);
-    d_dammage.first = Consts::get("dammageMin", i_group);
-    d_dammage.second = Consts::get("dammageMax", i_group);
     d_speed = Consts::get("speed", i_group);
     d_nextLevel = Consts::get("expirience", i_group);
     
@@ -89,7 +85,7 @@ void Magican::metamorph(const std::string i_group)
     d_health += d_healthMax - currHealth;
     d_mana += d_mind - currMind;
     
-    setSprite(Consts::get("spriteName", i_group));
+	setSprite(RES("persons", (std::string)Consts::get("spriteName", i_group)));
     
     if(d_sprite)
     {
@@ -150,7 +146,7 @@ void Magican::increaseExperience(unsigned int i_c)
     if(d_expirience>=d_nextLevel)
     {
         d_expirience-=d_nextLevel;
-        auto eff = Effect::create("Christmas 2.png", 25, d_sprite->getPosition()+d_sprite->getContentSize()*0.5);
+        auto eff = Effect::create(RES("effects","Christmas 2.png"), 25, d_sprite->getPosition()+d_sprite->getContentSize()*0.5);
         d_sprite->getParent()->addChild(eff);
         d_group = std::string(Consts::get("promotionGroup", d_group));
         metamorph(d_group);

@@ -35,11 +35,14 @@ namespace Menu_NS {
         
         auto* background = cocos2d::Layer::create();
         
-        auto* backgroundImage = cocos2d::Sprite::create("Sphash.jpg");
-        backgroundImage->setPosition(sz.width/2, sz.height/2);
+		auto* backgroundImage = cocos2d::Sprite::create(RES("menu","Sphash.jpg"));
+		float scaleFactor = sz.height / backgroundImage->getContentSize().height;
+		backgroundImage->setScale(scaleFactor);
+		backgroundImage->setPosition(sz.width/2, sz.height/2);
+		
         
         auto* menu = cocos2d::Menu::create();
-        auto* playButton = cocos2d::MenuItemImage::create("playbutton_desktop_180.png", "playbutton_desktop_180.png", [](cocos2d::Ref* pSender)
+		auto* playButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
         {
             cocos2d::Director::getInstance()->replaceScene(HelloWorld::createScene());
         });

@@ -32,11 +32,17 @@ namespace UI_NS {
         
         for(auto& i : i_message)
         {
-            auto* msg = Message::create(i_pos, i_background, i);
-            msg->setVisible(false);
-            addChild(msg);
-            d_sequence.push_back(msg);
+			if (auto* msg = Message::create(i_pos, i_background, i))
+			{
+				msg->setVisible(false);
+				addChild(msg);
+				d_sequence.push_back(msg);
+			}
         }
+
+		if (d_sequence.empty())
+			return false;
+
         d_sequence.front()->setVisible(true);
         MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Message);
         

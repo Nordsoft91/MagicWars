@@ -31,7 +31,7 @@ void Consts::loadAdditionalConsts(const std::string &i_filename)
 
 Consts::Consts()
 {
-    readFile("MagicConsts");
+    readFile(CON("MagicConsts"));
 }
 
 void Consts::readFile(const std::string& i_file)
@@ -128,6 +128,6 @@ void Consts::readGroup(std::ifstream& io_file)
     }
     if(identify == "<include>")
     {
-        readFile(group);
+        readFile(CON(group));
     }
 }

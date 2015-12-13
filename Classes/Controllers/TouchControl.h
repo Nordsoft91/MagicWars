@@ -64,6 +64,9 @@ namespace MagicWars_NS {
         void coverRangeAction(size_t x, size_t y);
         void spellAction(const std::string& i_spell);
         void endTurnAction();
+
+		const std::list<GameObj*>& getAllPersons() const { return d_persons; }
+		const std::list<GameObj*>& getAllObjects() const { return d_mapObjects; }
         
         TurnController& getTurnController() {return d_turnControl;}
         

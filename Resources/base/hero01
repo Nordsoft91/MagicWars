@@ -8,8 +8,6 @@
     concentrate = 8
     mind = 30
     wisdom = 12
-    dammageMin = 21
-    dammageMax = 32
     speed = 2
     expirience = 150
     weapon = weapon_staff
@@ -23,8 +21,6 @@
     concentrate = 10
     mind = 45
     wisdom = 18
-    dammageMin = 24
-    dammageMax = 38
     speed = 2
     expirience = 350
     spellBook = { spell_fireball spell_lighting spell_ray spell_firewall }

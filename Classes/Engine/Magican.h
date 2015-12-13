@@ -67,7 +67,6 @@ namespace MagicWars_NS
         int d_speed = 0;
         int d_expirience = 0;
         int d_nextLevel = 0;
-        std::pair<int, int> d_dammage;
         
         //visualize parameters
         StatusUpdater *d_visualizeHealth;

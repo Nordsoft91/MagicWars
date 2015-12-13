@@ -8,6 +8,7 @@
 
 #include "FlaredTileset.h"
 #include "FlaredTile.h"
+#include <Common\Consts.h>
 
 std::string Flared_NS::Tileset::parsePath( const std::string& i_path )
 {
@@ -22,7 +23,7 @@ Flared_NS::Tileset::Tileset( const std::string& i_path, size_t i_tW, size_t i_tH
     d_path(i_path), d_tileWidth(i_tW), d_tileHeight(i_tH), d_tileSepX(0), d_tileSepY(0)
 {
     d_name = parsePath(d_path);
-    d_img = cocos2d::Sprite::create(d_name);
+    d_img = cocos2d::Sprite::create(RES("tiles",d_name));
     d_img->retain();
     
     d_countX = d_img->getContentSize().width / i_tW;

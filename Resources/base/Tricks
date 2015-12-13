@@ -18,9 +18,9 @@ recover = 0
     minRadius = 2
     gridType = STAR
     coverType = POINT
-    effectType = APPEAR
-    sprite = Melee1.png
-    sprite_size = 10
+    effectType = FOLLOW
+	sprite_fly = Arrow1.png
+	sprite_fly_size = 10
     force = 21
     recover = 1
 }

@@ -22,7 +22,7 @@ CharacterAnimated::CharacterAnimated(std::string i_group): Magican(i_group), d_g
     seqRight = Consts::get("goRight", prms).toVector<int>();
     seqUp = Consts::get("goUp", prms).toVector<int>();
     
-    anim = Animated::create(Consts::get("animationName", d_group), prms, 0, 1);
+    anim = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, 0, 1);
     d_sprite->addChild(anim, 2);
 }
 
@@ -56,7 +56,6 @@ void CharacterAnimated::move(const std::list<int>& i_list)
     {
         anim->removeFromParent();
     }
-    anim = Animated::create(Consts::get("animationName", d_group), Consts::get("animationParams", d_group), animSeq);
+	anim = Animated::create(RES("persons", (std::string)Consts::get("animationName", d_group)), Consts::get("animationParams", d_group), animSeq);
     d_sprite->addChild(anim, 2);
-    
 }

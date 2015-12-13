@@ -156,6 +156,12 @@
     <ClCompile Include="..\Classes\Menu\MenuScene.cpp">
       <Filter>src\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Interface\UITriggerReader.cpp">
+      <Filter>src\Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SDK\StringUtils.cpp">
+      <Filter>src\SDK</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -300,6 +306,12 @@
       <Filter>src\Menu</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\SDK\Uncopyble.h">
+      <Filter>src\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Interface\UITriggerReader.h">
+      <Filter>src\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SDK\StringUtils.h">
       <Filter>src\SDK</Filter>
     </ClInclude>
   </ItemGroup>

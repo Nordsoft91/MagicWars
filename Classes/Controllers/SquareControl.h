@@ -17,7 +17,7 @@
 #include <memory>
 
 namespace MagicWars_NS {
-    const std::string cstrSprSquares = "Squares.png";
+    const std::string cstrSprSquares = RES("interface","Squares.png");
     
     struct SquareShape
     {

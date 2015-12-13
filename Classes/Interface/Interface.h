@@ -13,7 +13,8 @@
 #include <Controllers/TouchControl.h>
 #include <Engine/Blocker.h>
 
-#define BUTTON_NAME(T) T"_none.png", T"_select.png"
+#define BUTTON_NAME(T) RES("interface",T"_none.png"), RES("interface",T"_select.png")
+#define BUTTON_NAME_FULL(T) RES("interface",T"_none.png"), RES("interface",T"_select.png"), RES("interface",T"_disable.png")
 
 namespace MagicWars_NS {
     class Interface

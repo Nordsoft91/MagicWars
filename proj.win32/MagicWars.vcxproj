@@ -65,6 +65,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
     <IncludePath>..\cocos2d\cocos\ui;..\cocos2d\cocos;$(IncludePath)</IncludePath>
+    <ExecutablePath>$(ProjectDir)..\Resources\data\menu;$(ExecutablePath)</ExecutablePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LibraryPath>$(MSBuildProgramFiles32)\Microsoft SDKs\Windows\v7.1A\lib;$(LibraryPath)</LibraryPath>
@@ -183,7 +184,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Interface\UIMessage.cpp" />
     <ClCompile Include="..\Classes\Interface\UIMessageSequence.cpp" />
     <ClCompile Include="..\Classes\Interface\UITrigger.cpp" />
+    <ClCompile Include="..\Classes\Interface\UITriggerReader.cpp" />
     <ClCompile Include="..\Classes\Menu\MenuScene.cpp" />
+    <ClCompile Include="..\Classes\SDK\StringUtils.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -232,7 +235,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Interface\UIMessage.h" />
     <ClInclude Include="..\Classes\Interface\UIMessageSequence.h" />
     <ClInclude Include="..\Classes\Interface\UITrigger.h" />
+    <ClInclude Include="..\Classes\Interface\UITriggerReader.h" />
     <ClInclude Include="..\Classes\Menu\MenuScene.h" />
+    <ClInclude Include="..\Classes\SDK\StringUtils.h" />
     <ClInclude Include="..\Classes\SDK\Uncopyble.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

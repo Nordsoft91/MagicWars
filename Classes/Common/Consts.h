@@ -9,6 +9,14 @@
 #ifndef MagicWars_Header_h
 #define MagicWars_Header_h
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
+#define RES(D,X) std::string("data\\")+D+'\\'+X 
+#define CON(X) std::string("base\\")+X
+#else
+#define RES(D,X) X 
+#define CON(X) X
+#endif
+
 #include <fstream>
 #include <cocos2d.h>
 

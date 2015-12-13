@@ -8,8 +8,6 @@
     concentrate = 14
     mind = 60
     wisdom = 24
-    dammageMin = 24
-    dammageMax = 38
     speed = 3
     expirience = 10000
 
@@ -26,8 +24,6 @@ health = 250
 concentrate = 23
 mind = 80
 wisdom = 33
-dammageMin = 49
-dammageMax = 67
 speed = 3
 expirience = 10000
 weapon = weapon_dagger

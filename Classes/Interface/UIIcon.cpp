@@ -22,7 +22,7 @@ namespace UI_NS {
     Icon* Icon::create(const std::string& i_file, const cocos2d::Color3B &i_color )
     {
         Icon *pRet = new Icon;
-        if (pRet && pRet->init(i_file, i_color))
+        if (pRet && pRet->init(RES("interface\\icons",i_file), i_color))
         {
             pRet->autorelease();
             return pRet;

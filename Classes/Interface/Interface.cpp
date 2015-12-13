@@ -25,9 +25,9 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
     
     cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
     cocos2d::Vec2 screenCenter(visibleSize.width/2, visibleSize.height/2);
-    
+	   
     ////////////CREATE INTERFACE RIGHT NOW///////////////
-    d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
+	d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
                                                    [&](cocos2d::Ref* pSender)
                                                    {
                                                        if( !Blocker::state() )
@@ -40,7 +40,7 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
     d_pAttackItem->addChild(UI_NS::Icon::createFromConsts("panel_tricks"));
     addButton(d_pAttackItem, d_pAttackItem->getContentSize().width/2, visibleSize.height - d_pAttackItem->getContentSize().height/2 );
     
-    d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
+	d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
                                                   [&](cocos2d::Ref* pSender)
                                                   {
                                                       if( !Blocker::state() )
@@ -109,7 +109,7 @@ void Interface::createTrickMenu(MagicWars_NS::Magican *i_mag)
     if(i_mag)
     {
         static cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
-        auto but = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
+        auto but = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
                                                   [&](cocos2d::Ref* pSender)
                                                   {
                                                       if( !Blocker::state() )
@@ -136,13 +136,14 @@ void Interface::createTrickMenu(MagicWars_NS::Magican *i_mag)
 void Interface::createButton(const std::string& i_str, bool i_enabled)
 {
     static cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
-    auto but = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"), "icon0_disable.png",
-                                                [&, i_str](cocos2d::Ref* pSender)
+	//const std::string str = i_str;
+	auto but = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
+                                                [this, i_str](cocos2d::Ref* pSender)
                                                 {
                                                     if( !Blocker::state() )
                                                     {
                                                         TouchControl::instance().spellAction(i_str);
-                                                        removeButtons();
+														removeButtons();
                                                     }
                                                 });
     

@@ -18,6 +18,7 @@
 #include <FlaredMap/FlaredEnum.h>
 
 #include <Interface/UITrigger.h>
+#include <Interface/UITriggerReader.h>
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -275,39 +276,42 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
 void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 {
     d_interface = &i_interface;
-    
+	d_mapLayer = i_layer;
+
+	d_turnControl.relationships.set("Light", "Neutral", Relationships::Type::Neutral);
+	d_turnControl.relationships.set("Light", "Dark", Relationships::Type::Enemies);
+	d_turnControl.relationships.set("Neutral", "Dark", Relationships::Type::Enemies);
+	d_turnControl.relationships.set("Tutor", "Dark", Relationships::Type::Neutral);
+	d_turnControl.relationships.set("Tutor", "Light", Relationships::Type::Neutral);
+
+	//AUTOMAP
+	UI_NS::TriggerReader trRead(i_layer, d_interface->getScreenNode());
+	Flared_NS::Automap automap;
+	Flared_NS::AutomapTerrainRuleRecorder::record();
+
+	RULE_MAKER_TERRAIN;
+	RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "grass");
+	RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "stone");
+
+	automap.registerRule(ruleMakerSimpleChange.makeRuleFromConsts("rule_lava_solid"));
+
+	for (auto& i : Consts::get("terrainTypes", "Flared").toVector<std::string>())
+	{
+		RULE_MAKER_TERRAIN_REGISTER(automap, i);
+	}
+
+	//MAP LOAD FOR RULES
+	Flared_NS::Parser ruleParse("mapRule_Grassland01.txt");
+	Flared_NS::Map mapRule;
+	ruleParse.construct(mapRule);
+	Flared_NS::registerMapRules(mapRule, "layerObjects", "layerSolid", automap);
+
     //MAP NAME
     Flared_NS::Parser parser("mapT_S_tutorial01.txt");
+	std::ifstream trStream(RES("maps", "mapT_S_tutorial01_triggers.txt"));
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
-    
-    Flared_NS::Automap automap;
-    
-    Flared_NS::AutomapTerrainRuleRecorder::record();
-    
-    RULE_MAKER_TERRAIN;
-    
-    RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "grass");
-    RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "stone");
-    
-    automap.registerRule(ruleMakerSimpleChange.makeRuleFromConsts("rule_lava_solid"));
-
-    
-    for( auto& i : Consts::get("terrainTypes", "Flared").toVector<std::string>() )
-    {
-        RULE_MAKER_TERRAIN_REGISTER(automap, i);
-    }
-    
-    //MAP LOAD FOR RULES
-    Flared_NS::Parser ruleParse("mapRule_Grassland01.txt");
-    Flared_NS::Map mapRule;
-    ruleParse.construct(mapRule);
-    Flared_NS::registerMapRules(mapRule, "layerObjects", "layerSolid", automap);
-    
     automap.process(flaredSet, flaredMap);
-    
-    for(std::string& s : Flared_NS::AutomapLog::log())
-        cocos2d::log(s.c_str());
 
     d_mapWidth = flaredMap.getWidth();
     d_mapHeight = flaredMap.getHeight();
@@ -318,44 +322,22 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     if( auto mapNode = flaredMap.getMapTree())
         i_layer->addChild(mapNode);
     
-    d_mapLayer = i_layer;
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    
-    d_turnControl.relationships.set("Light", "Neutral", Relationships::Type::Neutral);
-    d_turnControl.relationships.set("Light", "Dark", Relationships::Type::Enemies);
-    d_turnControl.relationships.set("Neutral", "Dark", Relationships::Type::Enemies);
-    d_turnControl.relationships.set("Tutor", "Dark", Relationships::Type::Neutral);
-    d_turnControl.relationships.set("Tutor", "Light", Relationships::Type::Neutral);
-    
     for(auto& i : flaredSet.getCharacters())
     {
-        Magican* object = i.name.empty() ? dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group))) : dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group, i.name)));
+        Magican* object = i.name.empty() ? dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group)))
+										 : dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group, i.name)));
         object->born(i_layer, i.x, i.y);
         d_turnControl.insert(object, i.team);
     }
+
+	//trRead.read(trStream);
     
-    auto* tutor_intro = UI_NS::MessageSequence::create(d_interface->SCREEN_CENTER, cocos2d::Color4F(0,0,0,1), { "", "" } );
-    d_interface->getScreenNode()->addChild(tutor_intro);
-    
-    if( auto* pers = ContainUtils::findObjectByName(d_persons, "Braves"))
-    {
-        if(auto* fr = ContainUtils::findObjectByName(d_persons, "Friend"))
-        {
-        auto trigger = UI_NS::Trigger::create();
-        trigger->setActivationCondition(new UI_NS::ConditionTapCellOnMap(pers->x, pers->y));
-        trigger->setThrowEvent(new UI_NS::EventChain( i_layer,
-                                                     {
-                                                         new UI_NS::EventDialog(pers->getSprite(), {"Hello world!", "Let s go", "I'm talking!", "How are you today? Do you want do fight with this wolf?"}),
-                                                         new UI_NS::EventDialog(fr->getSprite(), {"Yes!", "I really want do do it!"}),
-                                                         new UI_NS::EventMessage(d_interface->getScreenNode(), {"Play", "Fight", "Use magic"})
-                                                     } ) );
-        trigger->activate();
-        i_layer->addChild(trigger);
-        }
-    }
+    //if(auto* tutor_intro = UI_NS::MessageSequence::create(d_interface->SCREEN_CENTER, cocos2d::Color4F(0,0,0,1), { "Привет", "Это попытка русского текста" } ))
+		//d_interface->getScreenNode()->addChild(tutor_intro);
     
     SquareControl::instance().toScene(i_layer);
-    
+	for (std::string& s : Flared_NS::AutomapLog::log())
+		cocos2d::log(s.c_str());
 }
 
 void TouchControl::destroy()

@@ -30,8 +30,8 @@ MagicWars_NS::Interface& HelloWorld::createInterface(Scene* io_scene)
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
     auto closeItem = MenuItemImage::create(
-                                           "CloseNormal.png",
-                                           "CloseSelected.png",
+                                           RES("menu","CloseNormal.png"),
+                                           RES("menu","CloseSelected.png"),
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     
     d_interface.reset( new MagicWars_NS::Interface(io_scene) );

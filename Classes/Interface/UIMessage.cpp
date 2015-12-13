@@ -5,8 +5,8 @@
 //  Created by nordsoft on 11.11.15.
 //
 //
-
 #include "UIMessage.h"
+#include <SDK\StringUtils.h>
 
 namespace UI_NS {
     int stringWidth(const std::string& i_str, int i_size)
@@ -22,11 +22,12 @@ namespace UI_NS {
     std::vector<std::string> stringSplit(const std::string& i_str, int i_limit)
     {
         std::vector<std::string> res;
-        for(size_t pos = 0; pos<i_str.length(); pos+=i_limit)
-        {
-            res.push_back(i_str.substr(pos,i_limit));
-        }
-        
+		for (size_t pos = 0, limit = packStringByWords(i_str, i_limit, pos); pos < i_str.length(); limit = packStringByWords(i_str, i_limit, pos))
+		{
+			res.push_back(i_str.substr(pos, limit-pos));
+			pos = limit;
+		}
+
         return res;
     }
     
@@ -71,7 +72,7 @@ namespace UI_NS {
     
     bool Message::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
     {
-        if(!cocos2d::ui::Widget::init())
+        if(!cocos2d::ui::Widget::init() || i_message.empty())
             return false;
         
         auto list = stringSplit(i_message, 36);
@@ -93,9 +94,9 @@ namespace UI_NS {
             return true;
         };
         
-        d_listener->onTouchEnded = [this](cocos2d::Touch *touch, cocos2d::Event *event)
+        d_listener->onTouchEnded = [&](cocos2d::Touch *touch, cocos2d::Event *event)
         {
-            this->callback(touch);
+            callback(touch);
         };
         
         cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 30);

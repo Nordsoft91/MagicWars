@@ -110,7 +110,7 @@ bool MapReader::parseLayer(std::ifstream &io_stream, MagicWars_NS::Map &io_map, 
 
 Map* MapReader::read(const std::string i_fname)
 {
-    std::ifstream file(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_fname));
+    std::ifstream file(cocos2d::FileUtils::getInstance()->fullPathForFilename(RES("maps",i_fname)));
     
     std::string grpName;
     auto group = parseGroup(file, grpName, 5);

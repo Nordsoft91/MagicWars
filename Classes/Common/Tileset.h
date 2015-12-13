@@ -11,6 +11,7 @@
 
 #include <cocos2d.h>
 #include <string>
+#include <Common\Consts.h>
 
 namespace MagicWars_NS {
     

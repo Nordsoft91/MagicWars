@@ -7,10 +7,11 @@
 //
 
 #include "FlaredParser.h"
+#include <Common\Consts.h>
 
 Flared_NS::Parser::Parser(const std::string& i_filename)
 {
-    std::ifstream F(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_filename));
+    std::ifstream F(cocos2d::FileUtils::getInstance()->fullPathForFilename(RES("maps",i_filename)));
     if(!F)
         throw std::runtime_error("Cannot open file");
     
