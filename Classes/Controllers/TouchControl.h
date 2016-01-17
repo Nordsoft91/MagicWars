@@ -70,6 +70,8 @@ namespace MagicWars_NS {
         
         TurnController& getTurnController() {return d_turnControl;}
         
+        cocos2d::Layer* getMapNode() {return d_mapLayer;}
+        
         Magican* getTurn() {return d_turnControl.getTurn();}
         MovingStructure* getMove() {return d_move;}
         

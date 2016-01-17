@@ -168,7 +168,10 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
         d_interface->removeButtons();
         obj->showStatus(true, 2.0);
         d_turnControl.beginTurn(obj, TURN_ANY);
-        d_interface->disableActionButtons(!d_turnControl.beginTurn(obj, TURN_ATTACK));
+        
+        d_interface->makeMagicanMenu(obj);
+        
+        /*d_interface->disableActionButtons(!d_turnControl.beginTurn(obj, TURN_ATTACK));
         if( d_turnControl.beginTurn(obj, TURN_MOVE))
         {
             //centralizeOn(cocos2d::Vec2(obj->x*d_sizeWidth, obj->y*d_sizeHeight));
@@ -184,7 +187,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             d_targetCursor.first = std::numeric_limits<size_t>::max();
             d_targetCursor.second = std::numeric_limits<size_t>::max();
             return;
-        }
+        }*/
     }
     else
     {
@@ -268,8 +271,8 @@ void TouchControl::moveAction(cocos2d::Vec2 i_touch)
 void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
 {
     cocos2d::Vec2 sz = Director::getInstance()->getVisibleSize()*0.5;
-    sz.x -= d_sizeWidth;
-    sz.y -= d_sizeHeight;
+    sz.x -= d_sizeWidth / 2;
+    sz.y -= d_sizeHeight / 2;
     d_mapLayer->setPosition(sz - i_center);
 }
 

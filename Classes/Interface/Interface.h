@@ -41,6 +41,19 @@ namespace MagicWars_NS {
         
         const cocos2d::Vec2 SCREEN_CENTER;
         
+        void makeMagicanMenu(MagicWars_NS::Magican* i_mag);
+        
+        cocos2d::MenuItemImage* makeMoveButton(MagicWars_NS::Magican* i_mag);
+        cocos2d::MenuItemImage* makeAttackButton(MagicWars_NS::Magican* i_mag);
+        cocos2d::MenuItemImage* makeSpellsButton(MagicWars_NS::Magican* i_mag);
+        cocos2d::MenuItemImage* makeInventoryButton(MagicWars_NS::Magican* i_mag);
+        cocos2d::MenuItemImage* makeStatusButton(MagicWars_NS::Magican* i_mag);
+
+        void adjustButtonPositions(std::list<cocos2d::MenuItemImage*>& io_buttons);
+        const cocos2d::Vec2 getPosition(size_t i, size_t n);
+        
+        cocos2d::Menu* d_menu = nullptr;
+        
     protected:
         cocos2d::Menu* d_pMenu = nullptr;
         cocos2d::ui::Widget* d_pScreen = nullptr;

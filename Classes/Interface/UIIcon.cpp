@@ -48,8 +48,8 @@ namespace UI_NS {
        // getTexture()->setAntiAliasTexParameters();
 
         //setBlendFunc( func );
-        setScale(0.18);
-        setAnchorPoint(cocos2d::Vec2::ZERO);
+        setScale(0.10);
+        //setAnchorPoint(cocos2d::Vec2::ZERO);
         
         return true;
     }
