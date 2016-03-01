@@ -64,6 +64,9 @@ namespace MagicWars_NS {
         void coverRangeAction(size_t x, size_t y);
         void spellAction(const std::string& i_spell);
         void endTurnAction();
+        
+        void disableAllButPoint(size_t x, size_t y);
+        void enableAll();
 
 		const std::list<GameObj*>& getAllPersons() const { return d_persons; }
 		const std::list<GameObj*>& getAllObjects() const { return d_mapObjects; }
@@ -76,6 +79,8 @@ namespace MagicWars_NS {
         void prepareMovingStructure(MovingStructure &io_struct);
         
         std::string d_spellCurrent;
+        
+        Interface& getInterface() { return *d_interface; }
         
     private:
         Interface* d_interface = nullptr;
@@ -102,6 +107,8 @@ namespace MagicWars_NS {
         MovingStructure* d_move = nullptr;
         
         cocos2d::Layer* d_mapLayer = nullptr;
+        
+        std::vector<std::pair<size_t, size_t>> d_allowedCells;
         
     public:
         

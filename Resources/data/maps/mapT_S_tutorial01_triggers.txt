@@ -1,22 +1,65 @@
+Trigger Name FirstSteps Sleep
+ConditionTapCellOnMap SUM PERSON Braves 2 -2
+ChainOfEvents
+Event Message
+{
+За один ход ты можешь передвинуть один раз каждого из персонажей под твоим управлением.
+Теперь давай завершим ход и посмотрим за действиями противника.
+}
+Event TutorialPressButton END
+EndOfChain
+
+Trigger Active
+ConditionTurnNumberBegin 2
+ChainOfEvents
+Event Message
+{
+Кажется, этот волк двигается быстрее чем ты!
+Давай теперь ударим по нему. Воспользуемся магией, не зря же ее учили.
+Выбери своего персонажа и посмотри список доступных тебе заклинаний нажав на кнопку с книгой.
+}
+EndOfChain
+
+Trigger Active
+NoCondition
+ChainOfEvents
+Event Message
+{
+Добро пожаловать в Magic Wars! Это обучающий уровен. Нажмите чтобы продолжить.
+Поздравляем! Вы начинающий маг. Сейчас вы обучитесь основам управления и ведения магического боя.
+Нажмите на своего персонажа, чтобы выделить его.
+}
+Event TutorialPressOnMap PERSON Braves
+EndOfChain
+
 Trigger Active
 ConditionTapCellOnMap PERSON Braves
 ChainOfEvents
 Event Dialog Braves
 {
-Hello world!
-Let s go
-I'm talking!
-How are you today? Do you want do fight with this wolf?
+Ооох, что за шум, сейчас же раннее утро!
+Доброе утро, Даррис, что случилось?
 }
 Event Dialog Friend
 {
-Yes!
-I really want do do it!
+Брайв, у меня для тебя есть настоящее задание.
+Теперь попробуй применить все то, чему я тебя учил, на практике.
+К нам пробрался волк, он очень опасен. Ну-ка, прогони его!
+}
+Event Dialog Braves
+{
+Да этот зверь с меня ростом!
+Ты ведь поможешь мне, Даррис?
+}
+Event Dialog Friend
+{
+Конечно! Как только волк лишит тебя одной из конечностей, охохохо!
 }
 Event Message
 {
-Play
-Fight
-Use magic
+Итак, ты получил свое первое боевое задание, давай достойно с ним справимся.
+Синие клетки вокруг персонажа - возможные варианты передвижения. Для начала отойдем от палатки.
 }
+Event TutorialPressOnMap SUM PERSON Braves 2 -2
+Event Activator FirstSteps
 EndOfChain

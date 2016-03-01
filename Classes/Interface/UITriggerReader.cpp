@@ -1,4 +1,5 @@
 #include "UITriggerReader.h"
+#include "UITutorialPressOnMap.h"
 #include <Common/ContainUtils.h>
 #include <SDK/StringUtils.h>
 #include <Controllers/TouchControl.h>
@@ -32,7 +33,15 @@ namespace UI_NS
 	std::pair<size_t, size_t> TriggerReader::readPosition(std::ifstream& io_stream)
 	{
 		std::string posx, posy;
-		io_stream >> posx >> posy;
+		io_stream >> posx;
+        if (posx == "SUM")
+        {
+            auto a = readPosition(io_stream);
+            auto b = readPosition(io_stream);
+            return {a.first+b.first, a.second+b.second};
+        }
+        
+        io_stream >> posy;
 		if (posx == "PERSON")
 		{
 			if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), posy))
@@ -63,6 +72,12 @@ namespace UI_NS
 			auto pos = readPosition(io_stream);
 			return new UI_NS::ConditionTapCellOnMap(pos.first, pos.second);
 		}
+        if (type == "ConditionTurnNumberBegin")
+        {
+            size_t turn;
+            io_stream >> turn;
+            return new UI_NS::ConditionTurnNumberBegin(turn);
+        }
 		return nullptr;
 	}
 
@@ -70,11 +85,15 @@ namespace UI_NS
 	{
 		std::string type;
 		io_stream >> type;
+        if(type == "Event")
+        {
+            io_stream >> type;
+        }
 
 		if (type == "HeapOfEvents")
 		{
 			std::list<UI_NS::Event*> list;
-			for (std::string s; io_stream >> s; s != "EndOfHeap")
+			for (std::string s; s != "EndOfHeap"; io_stream >> s)
 			{
 				if (s == "Event")
 					if (auto* ev = readEvent(io_stream))
@@ -86,7 +105,7 @@ namespace UI_NS
 		if (type == "ChainOfEvents")
 		{
 			std::list<UI_NS::Event*> list;
-			for (std::string s; io_stream >> s; s != "EndOfChain")
+			for (std::string s; s != "EndOfChain"; io_stream >> s)
 			{
 				if (s == "Event")
 					if (auto* ev = readEvent(io_stream))
@@ -109,9 +128,31 @@ namespace UI_NS
 			cocos2d::log("Cannot find person with name %s", name.c_str());
 			return nullptr;
 		}
+        if (type == "TutorialPressOnMap")
+        {
+            return new UI_NS::EventCreate<UI_NS::TutorialPressOnMap>(d_layer, readPosition(io_stream));
+        }
+        if (type == "TutorialPressButton")
+        {
+            std::string name;
+            size_t idx = 0;
+            io_stream >> name;
+            MagicWars_NS::Interface::Button but = MagicWars_NS::Interface::Button::End;
+            if(name=="TRICK") but = MagicWars_NS::Interface::Button::Trick;
+            if(name=="SPELL") but = MagicWars_NS::Interface::Button::Spell;
+            if(name=="END") but = MagicWars_NS::Interface::Button::End;
+            if(name=="CUSTOM")
+            {
+                but = MagicWars_NS::Interface::Button::Custom;
+                io_stream >> idx;
+            }
+            return new UI_NS::EventOneButtonAllow(d_screen, but, idx);
+        }
 		if (type == "Activator")
 		{
-			
+            std::string name;
+            io_stream >> name;
+            return new UI_NS::EventActivateTrigger(d_triggers[name]);
 		}
 		if (type == "Condition")
 		{
@@ -122,9 +163,15 @@ namespace UI_NS
 
 	Trigger* TriggerReader::readTrigger(std::ifstream& io_stream)
 	{
-		auto trigger = UI_NS::Trigger::create();
-		std::string act;
+        UI_NS::Trigger* trigger = UI_NS::Trigger::create();
+		std::string act, name;
 		io_stream >> act;
+        if (act == "Name")
+        {
+            io_stream >> name >> act;
+            d_triggers[name] = trigger;
+        }
+        
 		if (act == "Active")
 			trigger->activate();
 

@@ -73,6 +73,14 @@ namespace MagicWars_NS {
             return false;
         }
         
+        static bool stateIgnore(const Pause& i_p)
+        {
+            for(auto& i : get().d_pauseMap)
+                if(i.first != i_p && i.second.first==true)
+                    return true;
+            return false;
+        }
+        
         static void timer( float d_time )
         {
             Blocker& b = get();

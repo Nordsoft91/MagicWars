@@ -8,6 +8,7 @@
 
 #include "UIEvent.h"
 #include "UITrigger.h"
+#include "UITutorialPressOnMap.h"
 
 namespace UI_NS {
     
@@ -78,5 +79,11 @@ namespace UI_NS {
     void EventCondition::throwEvent()
     {
         d_active = true;
+    }
+    
+    void EventOneButtonAllow::throwEvent()
+    {
+        auto tutor = TutorialPressButton::create(d_but, d_idx);
+        d_scene->addChild(tutor);
     }
 }

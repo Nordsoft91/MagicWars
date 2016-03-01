@@ -1,6 +1,7 @@
 #pragma once
 
 #include "UITrigger.h"
+#include <map>
 
 namespace UI_NS
 {
@@ -18,8 +19,10 @@ namespace UI_NS
 		std::pair<size_t, size_t> readPosition(std::ifstream& io_stream);
 		std::list<std::string> readMessage(std::ifstream& io_stream);
 
-	private:
+	protected:
 		cocos2d::Layer* d_layer = nullptr;
 		cocos2d::ui::Widget* d_screen = nullptr;
+        
+        std::map<std::string, UI_NS::Trigger*> d_triggers;
 	};
 }

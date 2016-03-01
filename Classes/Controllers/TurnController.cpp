@@ -78,7 +78,10 @@ namespace MagicWars_NS {
         do
         {
             if( ++d_iterSideTurn == d_sides.end() )
+            {
+                ++d_turnNumber;
                 d_iterSideTurn = d_sides.begin();
+            }
         }
         while(sideArray(*d_iterSideTurn).empty());
         

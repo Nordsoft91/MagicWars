@@ -53,7 +53,7 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
     d_pSpellItem->addChild(UI_NS::Icon::createFromConsts("panel_spells"));
     addButton(d_pSpellItem, d_pSpellItem->getContentSize().width*1.5, visibleSize.height - d_pSpellItem->getContentSize().height/2 );
     
-    auto itemEnd = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"),
+    d_pEndItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"),
                                                   [&](cocos2d::Ref* pSender)
                                                   {
                                                       if( !Blocker::state() )
@@ -63,9 +63,9 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
                                                       }
                                                   });
     
-    itemEnd->addChild(UI_NS::Icon::createFromConsts("panel_finish"));
-    itemEnd->setOpacity(190);
-    addButton(itemEnd, itemEnd->getContentSize().width*2.5, visibleSize.height - itemEnd->getContentSize().height/2 );
+    d_pEndItem->addChild(UI_NS::Icon::createFromConsts("panel_finish"));
+    d_pEndItem->setOpacity(190);
+    addButton(d_pEndItem, d_pEndItem->getContentSize().width*2.5, visibleSize.height - d_pEndItem->getContentSize().height/2 );
 }
 
 Interface::~Interface()
@@ -163,6 +163,49 @@ void Interface::disableActionButtons(bool i_disable)
 {
     d_pAttackItem->setEnabled(!i_disable);
     d_pSpellItem->setEnabled(!i_disable);
+}
+
+void Interface::disableAllButtons(bool i_disable)
+{
+    d_pAttackItem->setEnabled(!i_disable);
+    d_pSpellItem->setEnabled(!i_disable);
+    d_pEndItem->setEnabled(!i_disable);
+    for(auto* i : d_buttons)
+        i->setEnabled(!i_disable);
+}
+
+bool Interface::disableButton(const Interface::Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx)
+{
+    cocos2d::MenuItemImage* sel = nullptr;
+    switch(i_desc)
+    {
+        case Button::Trick: sel = d_pAttackItem; break;
+        case Button::Spell: sel = d_pSpellItem; break;
+        case Button::End: sel = d_pEndItem; break;
+        case Button::Custom: sel = d_buttons.at(i_idx); break;
+        default: return false;
+    }
+    bool en = sel->isEnabled();
+    sel->setEnabled(false);
+    o_pos = sel->getPosition();
+    return en;
+}
+
+bool Interface::enableButton(const Interface::Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx)
+{
+    cocos2d::MenuItemImage* sel = nullptr;
+    switch(i_desc)
+    {
+        case Button::Trick: sel = d_pAttackItem; break;
+        case Button::Spell: sel = d_pSpellItem; break;
+        case Button::End: sel = d_pEndItem; break;
+        case Button::Custom: sel = d_buttons.at(i_idx); break;
+        default: return false;
+    }
+    bool en = sel->isEnabled();
+    sel->setEnabled(true);
+    o_pos = sel->getPosition();
+    return en;
 }
 
 cocos2d::ui::Widget* Interface::getScreenNode() const

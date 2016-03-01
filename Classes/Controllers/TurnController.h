@@ -51,6 +51,8 @@ namespace MagicWars_NS {
         
         std::string getTurnSide() const;
         
+        size_t getTurnNumber() const { return d_turnNumber; }
+        
         std::vector<Magican*> sideArrayActive(const std::string& i_side, int i_status = TURN_ANY);
         
         std::vector<Magican*> sideArray(const std::string& i_side);
@@ -66,6 +68,8 @@ namespace MagicWars_NS {
         std::vector<std::string>::iterator d_iterSideTurn;
         
         Magican* d_turn = nullptr;
+        
+        size_t d_turnNumber = 1;
     };
 }
 

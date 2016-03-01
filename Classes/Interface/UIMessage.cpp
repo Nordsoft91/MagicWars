@@ -11,7 +11,7 @@
 namespace UI_NS {
     int stringWidth(const std::string& i_str, int i_size)
     {
-        return i_str.length() * i_size / 1.5;
+        return i_str.length() * i_size / 3;
     }
     
     int stringHeight(size_t i_rows, int i_size)
@@ -63,7 +63,7 @@ namespace UI_NS {
     
     void Message::drawText(cocos2d::Vec2 i_pos, const std::string& i_message, cocos2d::Color3B i_color)
     {
-        auto t = cocos2d::ui::Text::create(i_message, "Courier", 16);
+        auto t = cocos2d::ui::Text::create(i_message, "Washington.ttf", 17);
         t->setPosition(i_pos);
         t->setColor(i_color);
         d_text.push_back(t);
@@ -75,7 +75,7 @@ namespace UI_NS {
         if(!cocos2d::ui::Widget::init() || i_message.empty())
             return false;
         
-        auto list = stringSplit(i_message, 36);
+        auto list = stringSplit(i_message, 80);
         cocos2d::Vec2 textSize(stringWidth(list.front(), 16), stringHeight(list.size(), 16));
         cocos2d::Vec2 stringSize(stringWidth(list.front(), 16), stringHeight(1, 16));
         cocos2d::Vec2 stringh(0, stringSize.y);

@@ -84,6 +84,10 @@
 		843D4A4A1C0202D800835492 /* undead03.png in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A461C0202D800835492 /* undead03.png */; };
 		843EAB9C1C025526003BC913 /* DBStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843EAB9A1C025526003BC913 /* DBStructure.cpp */; };
 		843EAB9D1C025526003BC913 /* DBStructure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843EAB9A1C025526003BC913 /* DBStructure.cpp */; };
+		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
+		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
+		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
+		848F6EAB1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
 		8497C9E01C1DBE6F005C334C /* UITriggerReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */; };
 		8497C9E11C1DBE6F005C334C /* UITriggerReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */; };
 		8497C9E41C1DBE93005C334C /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9E21C1DBE93005C334C /* StringUtils.cpp */; };
@@ -697,6 +701,9 @@
 		843D4A461C0202D800835492 /* undead03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = undead03.png; sourceTree = "<group>"; };
 		843EAB9A1C025526003BC913 /* DBStructure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DBStructure.cpp; sourceTree = "<group>"; };
 		843EAB9B1C025526003BC913 /* DBStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBStructure.h; sourceTree = "<group>"; };
+		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
+		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
+		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
 		8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITriggerReader.cpp; sourceTree = "<group>"; };
 		8497C9DF1C1DBE6F005C334C /* UITriggerReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITriggerReader.h; sourceTree = "<group>"; };
 		8497C9E21C1DBE93005C334C /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
@@ -1336,6 +1343,8 @@
 				84B520671BFFC2C2004A6CA0 /* UITrigger.h */,
 				843D49EC1C00CECD00835492 /* UIIcon.cpp */,
 				843D49ED1C00CECD00835492 /* UIIcon.h */,
+				848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */,
+				848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1434,6 +1443,7 @@
 		84B520DC1BFFC41D004A6CA0 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				848F6EA51C86120C005B928E /* Washington.ttf */,
 				84B520DD1BFFC41D004A6CA0 /* Marker Felt.ttf */,
 			);
 			path = fonts;
@@ -2036,6 +2046,7 @@
 				84B522331BFFC41E004A6CA0 /* farmer01.png in Resources */,
 				84B522231BFFC41E004A6CA0 /* Logo.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
+				848F6EA61C86120C005B928E /* Washington.ttf in Resources */,
 				84B521D91BFFC41E004A6CA0 /* Melee 5.png in Resources */,
 				84B5226F1BFFC41E004A6CA0 /* 012-G2_Swamp01.png in Resources */,
 				84B521A71BFFC41E004A6CA0 /* hero02 in Resources */,
@@ -2135,6 +2146,7 @@
 				84B522081BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
 				84B523401BFFC41E004A6CA0 /* 077-CW_Grass02.png in Resources */,
 				84B522C61BFFC41E004A6CA0 /* 033-Waterfall01.png in Resources */,
+				848F6EA71C86120C005B928E /* Washington.ttf in Resources */,
 				84B523461BFFC41E004A6CA0 /* 080-B_Ground01.png in Resources */,
 				84B521EE1BFFC41E004A6CA0 /* icon1_select.png in Resources */,
 				84B522101BFFC41E004A6CA0 /* map_XS_demo01.txt in Resources */,
@@ -2307,6 +2319,7 @@
 				84B520A11BFFC2C2004A6CA0 /* FlaredMap.cpp in Sources */,
 				84B520A51BFFC2C2004A6CA0 /* FlaredTile.cpp in Sources */,
 				84B5209F1BFFC2C2004A6CA0 /* FlaredLayer.cpp in Sources */,
+				848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */,
 				84B5207F1BFFC2C2004A6CA0 /* SquareControl.cpp in Sources */,
 				84B520711BFFC2C2004A6CA0 /* AIMovable.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
@@ -2387,6 +2400,7 @@
 				84B520941BFFC2C2004A6CA0 /* Map.cpp in Sources */,
 				84B5207C1BFFC2C2004A6CA0 /* MapReader.cpp in Sources */,
 				84B520821BFFC2C2004A6CA0 /* TeamRelationships.cpp in Sources */,
+				848F6EAB1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */,
 				84B520861BFFC2C2004A6CA0 /* TurnController.cpp in Sources */,
 				84B520841BFFC2C2004A6CA0 /* TouchControl.cpp in Sources */,
 				84B5208E1BFFC2C2004A6CA0 /* Effect.cpp in Sources */,

@@ -11,6 +11,7 @@
 
 #include "UICondition.h"
 #include "UIMessageSequence.h"
+#include "Interface/Interface.h"
 
 
 namespace UI_NS {
@@ -27,6 +28,36 @@ namespace UI_NS {
         virtual void throwEvent() = 0;
     };
     
+    //EventCreate
+    template<class T>
+    class EventCreate: public Event
+    {
+    public:
+        EventCreate(cocos2d::Node* io_scene, const std::pair<size_t, size_t>& i_pos): d_scene(io_scene), d_pos(i_pos) {}
+        
+        virtual void throwEvent() override
+        {
+            cocos2d::Node* obj = T::create(cocos2d::Vec2(d_pos.first, d_pos.second));
+            d_scene->addChild(obj);
+        }
+        
+    private:
+        cocos2d::Node* d_scene = nullptr;
+        const std::pair<size_t, size_t> d_pos;
+    };
+    
+    class EventOneButtonAllow: public Event
+    {
+    public:
+        EventOneButtonAllow(cocos2d::Node* io_scene, const MagicWars_NS::Interface::Button i_but, size_t i_idx): d_scene(io_scene), d_but(i_but), d_idx(i_idx) {}
+        
+        virtual void throwEvent() override;
+        
+    private:
+        cocos2d::Node* d_scene = nullptr;
+        MagicWars_NS::Interface::Button d_but;
+        size_t d_idx;
+    };
     
     //EventHeap
     class EventHeap: public Event

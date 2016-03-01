@@ -134,13 +134,16 @@ void TouchControl::endTurnAction()
 
 void TouchControl::tapAction(cocos2d::Vec2 i_touch)
 {
-    if(!Blocker::state())
+    Vec2 globPos = i_touch - d_mapLayer->getPosition();
+    tapLastCellX = globPos.x / d_sizeWidth;
+    tapLastCellY = globPos.y / d_sizeHeight;
+    if( !d_allowedCells.empty() )
     {
-        Vec2 globPos = i_touch - d_mapLayer->getPosition();
-        tapLastCellX = globPos.x / d_sizeWidth;
-        tapLastCellY = globPos.y / d_sizeHeight;
-        pressAction(tapLastCellX, tapLastCellY);
+        if( std::find(d_allowedCells.begin(), d_allowedCells.end(), std::pair<size_t,size_t>{tapLastCellX, tapLastCellY}) == d_allowedCells.end() )
+            return;
     }
+    if(!Blocker::stateIgnore(Pause::Interface))
+        pressAction(tapLastCellX, tapLastCellY);
 }
 
 void TouchControl::prepareMovingStructure(MagicWars_NS::MovingStructure& io_struct)
@@ -163,6 +166,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
 {
     GameObj* basobj = ContainUtils::findObject(d_persons, clickX, clickY);
     Magican* obj = dynamic_cast<Magican*>(basobj);
+    
     if( obj && !SquareControl::instance().isSquared(clickX, clickY, "green") && !SquareControl::instance().isSquared(clickX, clickY, "red") && !SquareControl::instance().isSquared(clickX, clickY, "orange"))
     {
         d_interface->removeButtons();
@@ -261,7 +265,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
 
 void TouchControl::moveAction(cocos2d::Vec2 i_touch)
 {
-    if(!Blocker::state())
+    if(!Blocker::state(Pause::Interface))
         d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
 }
 
@@ -338,6 +342,16 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     SquareControl::instance().toScene(i_layer);
 	for (std::string& s : Flared_NS::AutomapLog::log())
 		cocos2d::log(s.c_str());
+}
+
+void TouchControl::disableAllButPoint(size_t x, size_t y)
+{
+    d_allowedCells.emplace_back(x,y);
+}
+
+void TouchControl::enableAll()
+{
+    d_allowedCells.clear();
 }
 
 void TouchControl::destroy()

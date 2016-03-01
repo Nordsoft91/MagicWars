@@ -40,6 +40,23 @@ namespace UI_NS {
         size_t x,y;
         
     };
+    
+    class ConditionTurnNumberBegin: public Condition
+    {
+    public:
+        virtual bool get() const override
+        {
+            if(MagicWars_NS::TouchControl::instance().getTurnController().getTurnNumber()==d_neededTurn)
+                return true;
+            else
+                return false;
+        }
+        
+        ConditionTurnNumberBegin(size_t i_turn): d_neededTurn(i_turn) {}
+        
+    private:
+        size_t d_neededTurn = 0;
+    };
 }
 
 #endif /* defined(__MagicWars__UICondition__) */
