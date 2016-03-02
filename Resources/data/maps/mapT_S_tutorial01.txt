@@ -12,7 +12,7 @@ tileset=../tiles/vx_map02/001_Grassland01.png,64,64,0,0
 [characters]
 character=Light,hero01_level01,5,7,Braves
 character=Tutor,olderman,7,6,Friend
-character=Dark,wolf01,12,6
+character=Dark,wolf01,12,6,Wolf
 
 [layer]
 type=layerSet

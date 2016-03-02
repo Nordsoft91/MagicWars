@@ -7,7 +7,7 @@ coverType = POINT
 effectType = APPEAR
 sprite = Melee1.png
 sprite_size = 10
-force = 18
+force = 14
 recover = 0
 }
 

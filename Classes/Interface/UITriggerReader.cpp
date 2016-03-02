@@ -29,8 +29,29 @@ namespace UI_NS
 		} while (start != '}');
 		return list;
 	}
+    
+    const MagicWars_NS::GameObj* TriggerReader::readObject(std::ifstream &io_stream)
+    {
+        std::string type, name;
+        io_stream >> type >> name;
+        if (type == "PERSON")
+        {
+            if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), name))
+                return obj;
+            else
+                cocos2d::log("Cannot find person with name %s", name.c_str());
+        }
+        if (type == "OBJECT")
+        {
+            if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllObjects(), name))
+                return obj;
+            else
+                cocos2d::log("Cannot find object with name %s", name.c_str());
+        }
+        return nullptr;
+    }
 
-	std::pair<size_t, size_t> TriggerReader::readPosition(std::ifstream& io_stream)
+	std::pair<int, int> TriggerReader::readPosition(std::ifstream& io_stream)
 	{
 		std::string posx, posy;
 		io_stream >> posx;
@@ -61,7 +82,7 @@ namespace UI_NS
 		if (isIntegerNumber(posx, x) && isIntegerNumber(posy, y))
 			return{ x, y };
 	}
-
+    
 	Condition* TriggerReader::readCondition(std::ifstream& io_stream)
 	{
 		std::string type;
@@ -77,6 +98,30 @@ namespace UI_NS
             size_t turn;
             io_stream >> turn;
             return new UI_NS::ConditionTurnNumberBegin(turn);
+        }
+        if( type == "ConditionTapObject")
+        {
+            if( const auto* obj = readObject(io_stream))
+                return new UI_NS::ConditionTapObject(obj);
+            else
+                cocos2d::log("Cannot create condition");
+        }
+        if( type == "ConditionTapObjectRelative")
+        {
+            if( const auto* obj = readObject(io_stream))
+            {
+                auto pos = readPosition(io_stream);
+                return new UI_NS::ConditionTapObject(obj, pos.first, pos.second);
+            }
+            else
+                cocos2d::log("Cannot create condition");
+        }
+        if( type == "ConditionDeathPerson")
+        {
+            if( const auto* obj = dynamic_cast<const MagicWars_NS::Magican*>(readObject(io_stream)))
+                return new UI_NS::ConditionDeathPeson(obj);
+            else
+                cocos2d::log("Cannot create condition");
         }
 		return nullptr;
 	}
@@ -132,6 +177,16 @@ namespace UI_NS
         {
             return new UI_NS::EventCreate<UI_NS::TutorialPressOnMap>(d_layer, readPosition(io_stream));
         }
+        if (type == "TutorialPressObject")
+        {
+            return new UI_NS::EventCreate<UI_NS::TutorialPressOnMap>(d_layer, readObject(io_stream));
+        }
+        if (type == "TutorialPressObjectRelative")
+        {
+            auto obj = readObject(io_stream);
+            auto pos = readPosition(io_stream);
+            return new UI_NS::EventCreate<UI_NS::TutorialPressOnMap>(d_layer, obj, pos.first, pos.second);
+        }
         if (type == "TutorialPressButton")
         {
             std::string name;
@@ -146,7 +201,7 @@ namespace UI_NS
                 but = MagicWars_NS::Interface::Button::Custom;
                 io_stream >> idx;
             }
-            return new UI_NS::EventOneButtonAllow(d_screen, but, idx);
+            return new UI_NS::EventOneButtonAllow(d_layer, but, idx);
         }
 		if (type == "Activator")
 		{

@@ -251,7 +251,10 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             }
         }
         if(Consts::isExist("recover", d_spellCurrent))
-            d_turnControl.getTurn()->d_tricks[d_spellCurrent] = Consts::get("recover", d_spellCurrent);
+        {
+            if(d_turnControl.getTurn()->isHaveTrick(d_spellCurrent))
+                d_turnControl.getTurn()->d_tricks[d_spellCurrent] = Consts::get("recover", d_spellCurrent);
+        }
         d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
         d_interface->disableActionButtons(true);
         d_turnControl.endTurn(TURN_ATTACK);
@@ -335,9 +338,6 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
     }
 
 	trRead.read(trStream);
-    
-    //if(auto* tutor_intro = UI_NS::MessageSequence::create(d_interface->SCREEN_CENTER, cocos2d::Color4F(0,0,0,1), { "Привет", "Это попытка русского текста" } ))
-		//d_interface->getScreenNode()->addChild(tutor_intro);
     
     SquareControl::instance().toScene(i_layer);
 	for (std::string& s : Flared_NS::AutomapLog::log())

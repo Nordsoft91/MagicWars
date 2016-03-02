@@ -16,8 +16,9 @@ namespace UI_NS
 		Trigger* readTrigger(std::ifstream& io_stream);
 		void read(std::ifstream& io_stream);
 
-		std::pair<size_t, size_t> readPosition(std::ifstream& io_stream);
+		std::pair<int, int> readPosition(std::ifstream& io_stream);
 		std::list<std::string> readMessage(std::ifstream& io_stream);
+        const MagicWars_NS::GameObj* readObject(std::ifstream& io_stream);
 
 	protected:
 		cocos2d::Layer* d_layer = nullptr;

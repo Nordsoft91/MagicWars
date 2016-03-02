@@ -196,6 +196,8 @@ bool Magican::isAlive() const
 
 bool Magican::isTrickAvailable(const std::string& i_trick) const
 {
+    if(!isHaveTrick(i_trick))
+        return false;
     return d_tricks.at(i_trick)==0;
 }
 

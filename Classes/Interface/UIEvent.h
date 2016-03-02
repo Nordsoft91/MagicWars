@@ -33,17 +33,24 @@ namespace UI_NS {
     class EventCreate: public Event
     {
     public:
-        EventCreate(cocos2d::Node* io_scene, const std::pair<size_t, size_t>& i_pos): d_scene(io_scene), d_pos(i_pos) {}
+        EventCreate(cocos2d::Node* io_scene, const std::pair<int, int>& i_pos): d_scene(io_scene), d_x(i_pos.first), d_y(i_pos.second) {}
+        EventCreate(cocos2d::Node* io_scene, const MagicWars_NS::GameObj* i_obj, int i_relX = 0, int i_relY = 0): d_scene(io_scene), d_obj(i_obj), d_x(i_relX), d_y(i_relY) {}
         
         virtual void throwEvent() override
         {
-            cocos2d::Node* obj = T::create(cocos2d::Vec2(d_pos.first, d_pos.second));
+            cocos2d::Node* obj = nullptr;
+            if(d_obj)
+                obj = T::create(d_obj, d_x, d_y);
+            else
+                obj = T::create(cocos2d::Vec2(d_x,d_y));
+            
             d_scene->addChild(obj);
         }
         
     private:
         cocos2d::Node* d_scene = nullptr;
-        const std::pair<size_t, size_t> d_pos;
+        const MagicWars_NS::GameObj* d_obj = nullptr;
+        int d_x, d_y;
     };
     
     class EventOneButtonAllow: public Event

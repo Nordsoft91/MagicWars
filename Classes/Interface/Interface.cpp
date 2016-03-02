@@ -30,8 +30,10 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
 	d_pAttackItem = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
                                                    [&](cocos2d::Ref* pSender)
                                                    {
-                                                       if( !Blocker::state() )
+                                                       if( !Blocker::stateIgnore(Pause::Map) )
                                                        {
+                                                           disableAllButtons(false);
+                                                           Blocker::release(Pause::Map);
                                                            removeButtons();
                                                            createTrickMenu(TouchControl::instance().getTurn());
                                                        }
@@ -43,8 +45,10 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
 	d_pSpellItem = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
                                                   [&](cocos2d::Ref* pSender)
                                                   {
-                                                      if( !Blocker::state() )
+                                                      if( !Blocker::stateIgnore(Pause::Map) )
                                                       {
+                                                          disableAllButtons(false);
+                                                          Blocker::release(Pause::Map);
                                                           removeButtons();
                                                           createSpellMenu(TouchControl::instance().getTurn());
                                                       }
@@ -56,8 +60,10 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
     d_pEndItem = cocos2d::MenuItemImage::create(BUTTON_NAME("icon0"),
                                                   [&](cocos2d::Ref* pSender)
                                                   {
-                                                      if( !Blocker::state() )
+                                                      if( !Blocker::stateIgnore(Pause::Map) )
                                                       {
+                                                          disableAllButtons(false);
+                                                          Blocker::release(Pause::Map);
                                                           removeButtons();
                                                           TouchControl::instance().endTurnAction();
                                                       }
@@ -112,8 +118,10 @@ void Interface::createTrickMenu(MagicWars_NS::Magican *i_mag)
         auto but = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
                                                   [&](cocos2d::Ref* pSender)
                                                   {
-                                                      if( !Blocker::state() )
+                                                      if( !Blocker::stateIgnore(Pause::Map) )
                                                       {
+                                                          disableAllButtons(false);
+                                                          Blocker::release(Pause::Map);
                                                           TouchControl::instance().spellAction("attack");
                                                           removeButtons();
                                                       }
@@ -126,9 +134,10 @@ void Interface::createTrickMenu(MagicWars_NS::Magican *i_mag)
         addButton(but, but->getContentSize().width*(4+xPosition), visibleSize.height - but->getContentSize().height/2 - but->getContentSize().height * yPosition );
         d_buttons.push_back(but);
         
-        for(auto trickstr : i_mag->d_tricks)
+        for(auto& trickstr : i_mag->d_tricks)
         {
-            createButton(trickstr.first, trickstr.second==0);
+            if(!trickstr.first.empty())
+                createButton(trickstr.first, trickstr.second==0);
         }
     }
 }
@@ -140,8 +149,10 @@ void Interface::createButton(const std::string& i_str, bool i_enabled)
 	auto but = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
                                                 [this, i_str](cocos2d::Ref* pSender)
                                                 {
-                                                    if( !Blocker::state() )
+                                                    if( !Blocker::stateIgnore(Pause::Map) )
                                                     {
+                                                        disableAllButtons(false);
+                                                        Blocker::release(Pause::Map);
                                                         TouchControl::instance().spellAction(i_str);
 														removeButtons();
                                                     }

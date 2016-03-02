@@ -41,6 +41,43 @@ namespace UI_NS {
         
     };
     
+    class ConditionDeathPeson: public Condition
+    {
+    public:
+        
+        virtual bool get() const override
+        {
+            if(d_object->getHealth() <= 0)
+                return true;
+            else
+                return false;
+        }
+        
+        ConditionDeathPeson(const MagicWars_NS::Magican* i_object): d_object(i_object) {}
+        
+    private:
+        const MagicWars_NS::Magican* d_object;
+    };
+    
+    class ConditionTapObject: public Condition
+    {
+    public:
+        
+        virtual bool get() const override
+        {
+            if(MagicWars_NS::TouchControl::instance().tapLastCellX==d_object->x+d_x && MagicWars_NS::TouchControl::instance().tapLastCellY==d_object->y+d_y)
+                return true;
+            else
+                return false;
+        }
+        
+        ConditionTapObject(const MagicWars_NS::GameObj* i_object, int i_relX = 0, int i_relY = 0): d_object(i_object), d_x(i_relX), d_y(i_relY) {}
+        
+    private:
+        const MagicWars_NS::GameObj* d_object;
+        int d_x, d_y;
+    };
+    
     class ConditionTurnNumberBegin: public Condition
     {
     public:
