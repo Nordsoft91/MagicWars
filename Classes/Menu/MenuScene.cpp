@@ -46,7 +46,7 @@ namespace Menu_NS {
 		auto* playButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
         {
             auto scene = CampaignSelect::create();
-            cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(2, scene));
+            cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1.5, scene));
         });
         
         menu->addChild(playButton);
@@ -77,7 +77,7 @@ namespace Menu_NS {
         
         auto* menu = cocos2d::Menu::create();
         menu->setPosition(cocos2d::Vec2::ZERO);
-        std::vector<cocos2d::Vec2> positions{ {0.3f*sz.width, 0.65f*sz.height}, {0.7f*sz.width, 0.65f*sz.height}, {0.3f*sz.width, 0.25f*sz.height}, {0.7f*sz.width, 0.25f*sz.height} };
+        std::vector<cocos2d::Vec2> positions{ {0.3f*sz.width, 0.7f*sz.height}, {0.7f*sz.width, 0.7f*sz.height}, {0.3f*sz.width, 0.3f*sz.height}, {0.7f*sz.width, 0.3f*sz.height} };
         std::vector<bool> enable{1,0,0,0};
         std::vector<std::string> labels{"Путь волшебника","Коллекционер мертвецов","Наследие короля","Вечный часовой"};
         
@@ -89,7 +89,7 @@ namespace Menu_NS {
                                                               auto scene = MissionBrief::create();
                                                               cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                                                           });
-            float scale = scaleFactor * 0.7;
+            float scale = scaleFactor * 0.65;
             campaign_buton->setPosition(positions[i-1]);
             campaign_buton->setEnabled(enable[i-1]);
             campaign_buton->setScale(scale);
