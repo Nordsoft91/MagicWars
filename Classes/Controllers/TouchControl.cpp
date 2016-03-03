@@ -280,7 +280,7 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
     d_mapLayer->setPosition(sz - i_center);
 }
 
-void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
+void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, const CampaignReader::Mission& i_mission)
 {
     d_interface = &i_interface;
 	d_mapLayer = i_layer;
@@ -308,14 +308,14 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface)
 	}
 
 	//MAP LOAD FOR RULES
-	Flared_NS::Parser ruleParse("mapRule_Grassland01.txt");
+	Flared_NS::Parser ruleParse(i_mission.rulesFile);
 	Flared_NS::Map mapRule;
 	ruleParse.construct(mapRule);
 	Flared_NS::registerMapRules(mapRule, "layerObjects", "layerSolid", automap);
 
     //MAP NAME
-    Flared_NS::Parser parser("mapT_S_tutorial01.txt");
-	std::ifstream trStream(RES("maps", "mapT_S_tutorial01_triggers.txt"));
+    Flared_NS::Parser parser(i_mission.mapFile);
+	std::ifstream trStream(RES("maps", i_mission.triggersFile));
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
     automap.process(flaredSet, flaredMap);

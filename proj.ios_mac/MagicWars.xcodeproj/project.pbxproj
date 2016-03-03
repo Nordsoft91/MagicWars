@@ -616,6 +616,12 @@
 		84B72CFE1C88E58500660898 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CFC1C88E58500660898 /* frame.png */; };
 		84B72D041C88EDE700660898 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D031C88EDE700660898 /* background1.jpg */; };
 		84B72D051C88EDE700660898 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D031C88EDE700660898 /* background1.jpg */; };
+		84B72D081C88F89500660898 /* Taverna.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D071C88F89500660898 /* Taverna.ttf */; };
+		84B72D091C88F89500660898 /* Taverna.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D071C88F89500660898 /* Taverna.ttf */; };
+		84B72D0B1C88F90500660898 /* campaign1 in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D0A1C88F90500660898 /* campaign1 */; };
+		84B72D0C1C88F90500660898 /* campaign1 in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D0A1C88F90500660898 /* campaign1 */; };
+		84B72D0F1C88FAC700660898 /* CampaignReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B72D0D1C88FAC700660898 /* CampaignReader.cpp */; };
+		84B72D101C88FAC700660898 /* CampaignReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B72D0D1C88FAC700660898 /* CampaignReader.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -1037,6 +1043,10 @@
 		84B72CE91C88E4A500660898 /* menu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_background.png; sourceTree = "<group>"; };
 		84B72CFC1C88E58500660898 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
 		84B72D031C88EDE700660898 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
+		84B72D071C88F89500660898 /* Taverna.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Taverna.ttf; sourceTree = "<group>"; };
+		84B72D0A1C88F90500660898 /* campaign1 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = campaign1; sourceTree = "<group>"; };
+		84B72D0D1C88FAC700660898 /* CampaignReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CampaignReader.cpp; sourceTree = "<group>"; };
+		84B72D0E1C88FAC700660898 /* CampaignReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampaignReader.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1286,6 +1296,8 @@
 				84B520271BFFC2C1004A6CA0 /* Tileset.h */,
 				84B520281BFFC2C1004A6CA0 /* WavePathFinder.cpp */,
 				84B520291BFFC2C1004A6CA0 /* WavePathFinder.h */,
+				84B72D0D1C88FAC700660898 /* CampaignReader.cpp */,
+				84B72D0E1C88FAC700660898 /* CampaignReader.h */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1423,6 +1435,7 @@
 				84B520C71BFFC41D004A6CA0 /* Team.matrix */,
 				84B520C81BFFC41D004A6CA0 /* Tricks */,
 				843D4A151C00D2FF00835492 /* Icons */,
+				84B72D0A1C88F90500660898 /* campaign1 */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1476,6 +1489,7 @@
 		84B520DC1BFFC41D004A6CA0 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				84B72D071C88F89500660898 /* Taverna.ttf */,
 				848F6EA51C86120C005B928E /* Washington.ttf */,
 				84B520DD1BFFC41D004A6CA0 /* Marker Felt.ttf */,
 			);
@@ -1890,6 +1904,7 @@
 				84B522571BFFC41E004A6CA0 /* 006-Desert01.png in Resources */,
 				84B522B31BFFC41E004A6CA0 /* 029-Church02.png in Resources */,
 				843D4A291C00FCD700835492 /* fire-tail.png in Resources */,
+				84B72D0B1C88F90500660898 /* campaign1 in Resources */,
 				84B521E91BFFC41E004A6CA0 /* icon1_disable.png in Resources */,
 				84B522B71BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
 				84B522071BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
@@ -1993,6 +2008,7 @@
 				84B522931BFFC41E004A6CA0 /* 021-Sa_Road01.png in Resources */,
 				84B5223D1BFFC41E004A6CA0 /* tilesGround.png in Resources */,
 				84B521B51BFFC41E004A6CA0 /* SpellDescription in Resources */,
+				84B72D081C88F89500660898 /* Taverna.ttf in Resources */,
 				84B522C71BFFC41E004A6CA0 /* 034-Bridge01.png in Resources */,
 				84B523411BFFC41E004A6CA0 /* 078-CW_Ground01.png in Resources */,
 				8497C9E81C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */,
@@ -2208,6 +2224,7 @@
 				84B522101BFFC41E004A6CA0 /* map_XS_demo01.txt in Resources */,
 				84B522B81BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
 				84B522B41BFFC41E004A6CA0 /* 029-Church02.png in Resources */,
+				84B72D0C1C88F90500660898 /* campaign1 in Resources */,
 				84B521C61BFFC41E004A6CA0 /* Fireball.png in Resources */,
 				84B5230C1BFFC41E004A6CA0 /* 051-Carpet01.png in Resources */,
 				84B5233E1BFFC41E004A6CA0 /* 076-CW_Grass01.png in Resources */,
@@ -2301,6 +2318,7 @@
 				84B522601BFFC41E004A6CA0 /* 008-Grass_Undulation02.png in Resources */,
 				84B5224C1BFFC41E004A6CA0 /* 003_Forest01.png in Resources */,
 				84B521B41BFFC41E004A6CA0 /* regularPersons in Resources */,
+				84B72D091C88F89500660898 /* Taverna.ttf in Resources */,
 				84B521AC1BFFC41E004A6CA0 /* keyPersons in Resources */,
 				84B522161BFFC41E004A6CA0 /* mapT_S_tutorial01.txt in Resources */,
 				84B5232A1BFFC41E004A6CA0 /* 066-CF_Ground03.png in Resources */,
@@ -2389,6 +2407,7 @@
 				84B5207F1BFFC2C2004A6CA0 /* SquareControl.cpp in Sources */,
 				84B520711BFFC2C2004A6CA0 /* AIMovable.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				84B72D0F1C88FAC700660898 /* CampaignReader.cpp in Sources */,
 				84B520751BFFC2C2004A6CA0 /* AppDelegate.cpp in Sources */,
 				84B5207B1BFFC2C2004A6CA0 /* MapReader.cpp in Sources */,
 				84B520AF1BFFC2C2004A6CA0 /* UIMessage.cpp in Sources */,
@@ -2467,6 +2486,7 @@
 				84B5207C1BFFC2C2004A6CA0 /* MapReader.cpp in Sources */,
 				84B520821BFFC2C2004A6CA0 /* TeamRelationships.cpp in Sources */,
 				848F6EAB1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */,
+				84B72D101C88FAC700660898 /* CampaignReader.cpp in Sources */,
 				84B520861BFFC2C2004A6CA0 /* TurnController.cpp in Sources */,
 				84B520841BFFC2C2004A6CA0 /* TouchControl.cpp in Sources */,
 				84B5208E1BFFC2C2004A6CA0 /* Effect.cpp in Sources */,

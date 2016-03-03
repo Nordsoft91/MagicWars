@@ -9,6 +9,7 @@
 #include "MenuScene.h"
 #include "HelloWorldScene.h"
 
+
 namespace Menu_NS {
     MainMenu* MainMenu::create()
     {
@@ -85,8 +86,8 @@ namespace Menu_NS {
             std::string name = "camp"+std::to_string(i);
             auto* campaign_buton = cocos2d::MenuItemImage::create(RES("menu", name+".png"), RES("menu", name+".png"), RES("menu", name+"_d.png"), [](cocos2d::Ref* pSender)
                                                           {
-                                                              auto scene = HelloWorld::createScene();
-                                                              cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(5, scene));
+                                                              auto scene = MissionBrief::create();
+                                                              cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                                                           });
             float scale = scaleFactor * 0.7;
             campaign_buton->setPosition(positions[i-1]);
@@ -107,6 +108,33 @@ namespace Menu_NS {
         background->addChild(menu);
         
         addChild(background);
+        
+        return true;
+    }
+    
+    bool MissionBrief::init()
+    {
+        if(!cocos2d::Scene::init())
+            return false;
+        
+        auto sz = cocos2d::Director::getInstance()->getVisibleSize();
+        
+        auto* background = cocos2d::Layer::create();
+        
+        CampaignReader reader(RES("base","campaign1"));
+        const CampaignReader::Mission& mission = reader.getMission(level);
+        
+        auto label = cocos2d::Label::createWithTTF("Уровень "+std::to_string(level+1)+"\n"+mission.missionName, RES("fonts","Washington.ttf"), 120);
+        label->setPosition(sz.width/2, sz.height/2);
+        background->addChild(label);
+        
+        
+        addChild(background);
+        scheduleOnce([&, mission](float d)
+        {
+            auto scene = HelloWorld::createScene(mission);
+            cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(5, scene));
+        }, 5, "key?");
         
         return true;
     }

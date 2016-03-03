@@ -18,6 +18,7 @@
 #include <Controllers/TurnController.h>
 #include <Engine/Effect.h>
 #include <Common/MapReader.h>
+#include <Common/CampaignReader.h>
 #include <SDK/Uncopyble.h>
 
 namespace MagicWars_NS {
@@ -50,7 +51,7 @@ namespace MagicWars_NS {
             }
         }
         
-        void initialize(cocos2d::Layer* i_layer, Interface& i_interaface);
+        void initialize(cocos2d::Layer* i_layer, Interface& i_interaface, const CampaignReader::Mission& i_mission);
         void destroy();
         
         void centralizeOn(cocos2d::Vec2 i_center);

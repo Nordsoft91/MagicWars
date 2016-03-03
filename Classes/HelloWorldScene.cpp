@@ -8,7 +8,7 @@
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene()
+Scene* HelloWorld::createScene(const CampaignReader::Mission& i_mission)
 {
     // 'scene' is an autorelease object
     auto scene = Scene::create();
@@ -19,7 +19,7 @@ Scene* HelloWorld::createScene()
     // add layer as a child to scene
     scene->addChild(layer);
     
-    MagicWars_NS::TouchControl::instance().initialize(layer, layer->createInterface(scene));
+    MagicWars_NS::TouchControl::instance().initialize(layer, layer->createInterface(scene), i_mission);
 
     // return the scene
     return scene;

@@ -10,6 +10,7 @@
 #define __MagicWars__MenuScene__
 
 #include <cocos2d.h>
+#include <Common/CampaignReader.h>
 
 namespace Menu_NS {
     class MainMenu: public cocos2d::Scene
@@ -33,6 +34,19 @@ namespace Menu_NS {
         
     protected:
         CampaignSelect() = default;
+    };
+    
+    class MissionBrief: public cocos2d::Scene
+    {
+    public:
+        CREATE_FUNC(MissionBrief);
+        
+        bool init() override;
+        
+    protected:
+        MissionBrief() = default;
+        
+        size_t level = 0;
     };
 }
 
