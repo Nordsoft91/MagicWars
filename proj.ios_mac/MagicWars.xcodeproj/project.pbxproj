@@ -594,6 +594,28 @@
 		84B523481BFFC41E004A6CA0 /* 081-B_Ground02.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B5219C1BFFC41E004A6CA0 /* 081-B_Ground02.png */; };
 		84B5234A1BFFC48F004A6CA0 /* stub.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B523491BFFC48F004A6CA0 /* stub.png */; };
 		84B5234B1BFFC48F004A6CA0 /* stub.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B523491BFFC48F004A6CA0 /* stub.png */; };
+		84B72CEA1C88E4A600660898 /* camp1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE11C88E4A500660898 /* camp1.png */; };
+		84B72CEB1C88E4A600660898 /* camp1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE11C88E4A500660898 /* camp1.png */; };
+		84B72CEC1C88E4A600660898 /* camp1_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE21C88E4A500660898 /* camp1_d.png */; };
+		84B72CED1C88E4A600660898 /* camp1_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE21C88E4A500660898 /* camp1_d.png */; };
+		84B72CEE1C88E4A600660898 /* camp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE31C88E4A500660898 /* camp2.png */; };
+		84B72CEF1C88E4A600660898 /* camp2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE31C88E4A500660898 /* camp2.png */; };
+		84B72CF01C88E4A600660898 /* camp2_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE41C88E4A500660898 /* camp2_d.png */; };
+		84B72CF11C88E4A600660898 /* camp2_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE41C88E4A500660898 /* camp2_d.png */; };
+		84B72CF21C88E4A600660898 /* camp3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE51C88E4A500660898 /* camp3.png */; };
+		84B72CF31C88E4A600660898 /* camp3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE51C88E4A500660898 /* camp3.png */; };
+		84B72CF41C88E4A600660898 /* camp3_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE61C88E4A500660898 /* camp3_d.png */; };
+		84B72CF51C88E4A600660898 /* camp3_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE61C88E4A500660898 /* camp3_d.png */; };
+		84B72CF61C88E4A600660898 /* camp4.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE71C88E4A500660898 /* camp4.png */; };
+		84B72CF71C88E4A600660898 /* camp4.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE71C88E4A500660898 /* camp4.png */; };
+		84B72CF81C88E4A600660898 /* camp4_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE81C88E4A500660898 /* camp4_d.png */; };
+		84B72CF91C88E4A600660898 /* camp4_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE81C88E4A500660898 /* camp4_d.png */; };
+		84B72CFA1C88E4A600660898 /* menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE91C88E4A500660898 /* menu_background.png */; };
+		84B72CFB1C88E4A600660898 /* menu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE91C88E4A500660898 /* menu_background.png */; };
+		84B72CFD1C88E58500660898 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CFC1C88E58500660898 /* frame.png */; };
+		84B72CFE1C88E58500660898 /* frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CFC1C88E58500660898 /* frame.png */; };
+		84B72D041C88EDE700660898 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D031C88EDE700660898 /* background1.jpg */; };
+		84B72D051C88EDE700660898 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D031C88EDE700660898 /* background1.jpg */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -1004,6 +1026,17 @@
 		84B5219B1BFFC41D004A6CA0 /* 080-B_Ground01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "080-B_Ground01.png"; sourceTree = "<group>"; };
 		84B5219C1BFFC41E004A6CA0 /* 081-B_Ground02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "081-B_Ground02.png"; sourceTree = "<group>"; };
 		84B523491BFFC48F004A6CA0 /* stub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stub.png; sourceTree = "<group>"; };
+		84B72CE11C88E4A500660898 /* camp1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp1.png; sourceTree = "<group>"; };
+		84B72CE21C88E4A500660898 /* camp1_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp1_d.png; sourceTree = "<group>"; };
+		84B72CE31C88E4A500660898 /* camp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp2.png; sourceTree = "<group>"; };
+		84B72CE41C88E4A500660898 /* camp2_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp2_d.png; sourceTree = "<group>"; };
+		84B72CE51C88E4A500660898 /* camp3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp3.png; sourceTree = "<group>"; };
+		84B72CE61C88E4A500660898 /* camp3_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp3_d.png; sourceTree = "<group>"; };
+		84B72CE71C88E4A500660898 /* camp4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp4.png; sourceTree = "<group>"; };
+		84B72CE81C88E4A500660898 /* camp4_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp4_d.png; sourceTree = "<group>"; };
+		84B72CE91C88E4A500660898 /* menu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu_background.png; sourceTree = "<group>"; };
+		84B72CFC1C88E58500660898 /* frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = frame.png; sourceTree = "<group>"; };
+		84B72D031C88EDE700660898 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1506,6 +1539,17 @@
 		84B520FD1BFFC41D004A6CA0 /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				84B72D031C88EDE700660898 /* background1.jpg */,
+				84B72CFC1C88E58500660898 /* frame.png */,
+				84B72CE11C88E4A500660898 /* camp1.png */,
+				84B72CE21C88E4A500660898 /* camp1_d.png */,
+				84B72CE31C88E4A500660898 /* camp2.png */,
+				84B72CE41C88E4A500660898 /* camp2_d.png */,
+				84B72CE51C88E4A500660898 /* camp3.png */,
+				84B72CE61C88E4A500660898 /* camp3_d.png */,
+				84B72CE71C88E4A500660898 /* camp4.png */,
+				84B72CE81C88E4A500660898 /* camp4_d.png */,
+				84B72CE91C88E4A500660898 /* menu_background.png */,
 				84B520FE1BFFC41D004A6CA0 /* CloseNormal.png */,
 				84B520FF1BFFC41D004A6CA0 /* CloseSelected.png */,
 				84B521001BFFC41D004A6CA0 /* playbutton_desktop_180.png */,
@@ -1818,6 +1862,7 @@
 				84B521BF1BFFC41E004A6CA0 /* BubbleShield.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				84B521CB1BFFC41E004A6CA0 /* Icicles.png in Resources */,
+				84B72CF01C88E4A600660898 /* camp2_d.png in Resources */,
 				84B522CD1BFFC41E004A6CA0 /* 035-Waterfall03.png in Resources */,
 				84B522691BFFC41E004A6CA0 /* 010-G2_Ground01.png in Resources */,
 				84B522FF1BFFC41E004A6CA0 /* 048-Sewer01.png in Resources */,
@@ -1856,12 +1901,15 @@
 				84B521B31BFFC41E004A6CA0 /* regularPersons in Resources */,
 				84B522371BFFC41E004A6CA0 /* varvar01.png in Resources */,
 				84B522CF1BFFC41E004A6CA0 /* 036-Shop01.png in Resources */,
+				84B72D041C88EDE700660898 /* background1.jpg in Resources */,
+				84B72CF81C88E4A600660898 /* camp4_d.png in Resources */,
 				84B5221F1BFFC41E004A6CA0 /* Sphash.jpg in Resources */,
 				84B521C31BFFC41E004A6CA0 /* Fire10.png in Resources */,
 				84B522D71BFFC41E004A6CA0 /* 038-Fort02.png in Resources */,
 				84B522011BFFC41E004A6CA0 /* icon_firewall.png in Resources */,
 				84B5226D1BFFC41E004A6CA0 /* 011-PortTown01.png in Resources */,
 				84B522031BFFC41E004A6CA0 /* icon_healing.png in Resources */,
+				84B72CEC1C88E4A600660898 /* camp1_d.png in Resources */,
 				84B522AF1BFFC41E004A6CA0 /* 028-Church01.png in Resources */,
 				84B523171BFFC41E004A6CA0 /* 057-CE_Shadow01.png in Resources */,
 				84B522D91BFFC41E004A6CA0 /* 038-Tree03.png in Resources */,
@@ -1893,6 +1941,7 @@
 				843D4A1C1C00F9EC00835492 /* bookmarklet.png in Resources */,
 				84B521EF1BFFC41E004A6CA0 /* icon2.gif in Resources */,
 				84B5229F1BFFC41E004A6CA0 /* 024-FarmVillage02.png in Resources */,
+				84B72CF61C88E4A600660898 /* camp4.png in Resources */,
 				843D4A401C01FF3F00835492 /* hero04.png in Resources */,
 				843D4A341C011C5100835492 /* wizard-staff.png in Resources */,
 				84B5233F1BFFC41E004A6CA0 /* 077-CW_Grass02.png in Resources */,
@@ -1912,6 +1961,7 @@
 				84B5225B1BFFC41E004A6CA0 /* 007-Grass_Undulation01.png in Resources */,
 				84B522D51BFFC41E004A6CA0 /* 037-Tree02.png in Resources */,
 				84B522171BFFC41E004A6CA0 /* mapW_M_myDemoMap01.txt in Resources */,
+				84B72CEA1C88E4A600660898 /* camp1.png in Resources */,
 				843D4A231C00FAEE00835492 /* crossed-swords.png in Resources */,
 				84B522971BFFC41E004A6CA0 /* 022-Roof01.png in Resources */,
 				84B522851BFFC41E004A6CA0 /* 017-Sa_Grass01.png in Resources */,
@@ -1960,9 +2010,11 @@
 				84B5220D1BFFC41E004A6CA0 /* Squares.png in Resources */,
 				84B521E71BFFC41E004A6CA0 /* icon1.gif in Resources */,
 				84B522731BFFC41E004A6CA0 /* 013-G2_Swamp02.png in Resources */,
+				84B72CFD1C88E58500660898 /* frame.png in Resources */,
 				84B5233B1BFFC41E004A6CA0 /* 075-CW_Shadow01.png in Resources */,
 				84B522DD1BFFC41E004A6CA0 /* 039-Tree04.png in Resources */,
 				84B5232F1BFFC41E004A6CA0 /* 069-CI_Shadow01.png in Resources */,
+				84B72CEE1C88E4A600660898 /* camp2.png in Resources */,
 				84B523011BFFC41E004A6CA0 /* 048-Water01.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				843D4A211C00FAEE00835492 /* briefcase.png in Resources */,
@@ -2000,10 +2052,13 @@
 				84B522A31BFFC41E004A6CA0 /* 025-Castle01.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				84B523371BFFC41E004A6CA0 /* 073-CI_Ground02.png in Resources */,
+				84B72CF21C88E4A600660898 /* camp3.png in Resources */,
 				84B521E31BFFC41E004A6CA0 /* icon0_none.png in Resources */,
 				84B522671BFFC41E004A6CA0 /* 010-CastleTown02.png in Resources */,
 				84B521BB1BFFC41E004A6CA0 /* Team.matrix in Resources */,
+				84B72CF41C88E4A600660898 /* camp3_d.png in Resources */,
 				843D4A471C0202D800835492 /* undead02.png in Resources */,
+				84B72CFA1C88E4A600660898 /* menu_background.png in Resources */,
 				84B521CD1BFFC41E004A6CA0 /* Lightning.png in Resources */,
 				84B523351BFFC41E004A6CA0 /* 072-CI_Ice01.png in Resources */,
 				84B522F51BFFC41E004A6CA0 /* 045-Road02.png in Resources */,
@@ -2107,6 +2162,7 @@
 				84B521A01BFFC41E004A6CA0 /* automap in Resources */,
 				84B522AE1BFFC41E004A6CA0 /* 027-Ocean04.png in Resources */,
 				84B522A21BFFC41E004A6CA0 /* 024-Ocean01.png in Resources */,
+				84B72CEB1C88E4A600660898 /* camp1.png in Resources */,
 				84B5220E1BFFC41E004A6CA0 /* Squares.png in Resources */,
 				84B522C01BFFC41E004A6CA0 /* 032-Heaven01.png in Resources */,
 				84B522C41BFFC41E004A6CA0 /* 033-Heaven02.png in Resources */,
@@ -2163,10 +2219,13 @@
 				84B522181BFFC41E004A6CA0 /* mapW_M_myDemoMap01.txt in Resources */,
 				84B5222E1BFFC41E004A6CA0 /* wolf1.png in Resources */,
 				84B522861BFFC41E004A6CA0 /* 017-Sa_Grass01.png in Resources */,
+				84B72CFB1C88E4A600660898 /* menu_background.png in Resources */,
 				84B522641BFFC41E004A6CA0 /* 009-CastleTown01.png in Resources */,
 				84B522AA1BFFC41E004A6CA0 /* 026-Ocean03.png in Resources */,
+				84B72CF11C88E4A600660898 /* camp2_d.png in Resources */,
 				843D4A481C0202D800835492 /* undead02.png in Resources */,
 				84B5227E1BFFC41E004A6CA0 /* 015-Sa_Water01.png in Resources */,
+				84B72D051C88EDE700660898 /* background1.jpg in Resources */,
 				84B521C01BFFC41E004A6CA0 /* BubbleShield.png in Resources */,
 				84B521FC1BFFC41E004A6CA0 /* icon4_none.png in Resources */,
 				84B522281BFFC41E004A6CA0 /* hero01.png in Resources */,
@@ -2182,6 +2241,7 @@
 				84B522E21BFFC41E004A6CA0 /* 040-Tower02.png in Resources */,
 				84B5226C1BFFC41E004A6CA0 /* 011-G2_Ground02.png in Resources */,
 				84B523381BFFC41E004A6CA0 /* 073-CI_Ground02.png in Resources */,
+				84B72CED1C88E4A600660898 /* camp1_d.png in Resources */,
 				84B522741BFFC41E004A6CA0 /* 013-G2_Swamp02.png in Resources */,
 				84B5228A1BFFC41E004A6CA0 /* 018-Sa_Ground01.png in Resources */,
 				84B522021BFFC41E004A6CA0 /* icon_firewall.png in Resources */,
@@ -2206,9 +2266,12 @@
 				84B521BC1BFFC41E004A6CA0 /* Team.matrix in Resources */,
 				84B521D81BFFC41E004A6CA0 /* Melee 4.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
+				84B72CF31C88E4A600660898 /* camp3.png in Resources */,
+				84B72CFE1C88E58500660898 /* frame.png in Resources */,
 				843D4A221C00FAEE00835492 /* briefcase.png in Resources */,
 				84B522441BFFC41E004A6CA0 /* 001_G_Water01.png in Resources */,
 				84B5231C1BFFC41E004A6CA0 /* 059-CE_Ground02.png in Resources */,
+				84B72CF51C88E4A600660898 /* camp3_d.png in Resources */,
 				84B522821BFFC41E004A6CA0 /* 016-Sa_Shadow01.png in Resources */,
 				84B522881BFFC41E004A6CA0 /* 018-MineTown02.png in Resources */,
 				84B522681BFFC41E004A6CA0 /* 010-CastleTown02.png in Resources */,
@@ -2249,6 +2312,7 @@
 				84B522AC1BFFC41E004A6CA0 /* 027-Castle03.png in Resources */,
 				84B522E41BFFC41E004A6CA0 /* 041-EvilCastle01.png in Resources */,
 				843D4A411C01FF3F00835492 /* hero04.png in Resources */,
+				84B72CEF1C88E4A600660898 /* camp2.png in Resources */,
 				84B523181BFFC41E004A6CA0 /* 057-CE_Shadow01.png in Resources */,
 				84B523001BFFC41E004A6CA0 /* 048-Sewer01.png in Resources */,
 				84B522361BFFC41E004A6CA0 /* olderman.png in Resources */,
@@ -2283,6 +2347,7 @@
 				84B522BE1BFFC41E004A6CA0 /* 031-Sn_Undulation01.png in Resources */,
 				84B522921BFFC41E004A6CA0 /* 020-Sa_Grass03.png in Resources */,
 				84B521D21BFFC41E004A6CA0 /* Ray.png in Resources */,
+				84B72CF71C88E4A600660898 /* camp4.png in Resources */,
 				84B522B61BFFC41E004A6CA0 /* 029-Sn_Shadow01.png in Resources */,
 				84B523041BFFC41E004A6CA0 /* 049-InnerBody01.png in Resources */,
 				84B522F41BFFC41E004A6CA0 /* 045-Cave03.png in Resources */,
@@ -2293,6 +2358,7 @@
 				84B521AA1BFFC41E004A6CA0 /* hero03 in Resources */,
 				84B522421BFFC41E004A6CA0 /* tsSurfaces.png in Resources */,
 				84B522241BFFC41E004A6CA0 /* Logo.png in Resources */,
+				84B72CF91C88E4A600660898 /* camp4_d.png in Resources */,
 				84B522661BFFC41E004A6CA0 /* 009-G2_Water01.png in Resources */,
 				84B523061BFFC41E004A6CA0 /* 049-St_Shadow01.png in Resources */,
 				84B522DE1BFFC41E004A6CA0 /* 039-Tree04.png in Resources */,

@@ -23,6 +23,17 @@ namespace Menu_NS {
         MainMenu() = default;
         
     };
+    
+    class CampaignSelect: public cocos2d::Scene
+    {
+    public:
+        CREATE_FUNC(CampaignSelect);
+        
+        bool init() override;
+        
+    protected:
+        CampaignSelect() = default;
+    };
 }
 
 #endif /* defined(__MagicWars__MenuScene__) */
