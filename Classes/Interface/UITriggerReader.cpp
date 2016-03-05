@@ -135,6 +135,10 @@ namespace UI_NS
             io_stream >> type;
         }
 
+        if( type == "Win")
+        {
+            return new UI_NS::EventWin();
+        }
 		if (type == "HeapOfEvents")
 		{
 			std::list<UI_NS::Event*> list;

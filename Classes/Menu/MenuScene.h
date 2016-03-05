@@ -39,12 +39,25 @@ namespace Menu_NS {
     class MissionBrief: public cocos2d::Scene
     {
     public:
-        CREATE_FUNC(MissionBrief);
+        static MissionBrief* create(const std::string& i_campaign, size_t i_level)
+        {
+            auto* pRet = new MissionBrief(i_level);
+            if (pRet && pRet->init(i_campaign))
+            {
+                pRet->autorelease();
+                return pRet;
+            }
+            else
+            {
+                delete pRet;
+                return nullptr;
+            }
+        }
         
-        bool init() override;
+        bool init(const std::string& i_campaign);
         
     protected:
-        MissionBrief() = default;
+        MissionBrief(size_t l): level(l) {}
         
         size_t level = 0;
     };

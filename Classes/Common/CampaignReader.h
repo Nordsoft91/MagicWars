@@ -18,13 +18,16 @@ class CampaignReader
 public:
     struct Mission
     {
-        std::string missionName, mapFile, triggersFile, rulesFile;
+        std::string missionName, mapFile, triggersFile, rulesFile, prevMission;
         std::list<std::string> briefing;
+        size_t x, y;
     };
     
     CampaignReader(const std::string& i_file);
     
     const Mission& getMission(size_t inumber) const;
+    
+    size_t getMissionsCount() const { return d_missions.size(); }
     
 private:
     std::vector<Mission> d_missions;

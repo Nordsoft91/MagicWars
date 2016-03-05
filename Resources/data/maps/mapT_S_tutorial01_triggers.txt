@@ -156,4 +156,5 @@ Event Message
 Теперь самое время начать приключение.
 ПОБЕДА
 }
+Event Win
 EndOfChain

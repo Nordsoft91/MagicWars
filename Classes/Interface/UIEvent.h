@@ -142,6 +142,14 @@ namespace UI_NS {
     protected:
         bool d_active = false;
     };
+    
+    //Event win
+    class EventWin: public Event
+    {
+    public:
+        EventWin() = default;
+        virtual void throwEvent() override;
+    };
 
 }
 

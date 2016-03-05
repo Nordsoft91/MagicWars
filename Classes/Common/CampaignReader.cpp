@@ -15,27 +15,35 @@ CampaignReader::CampaignReader(const std::string& i_file)
     std::ifstream f(i_file);
     while(f)
     {
-        std::string key, value;
-        f >> key >> value;
+        std::string key;
+        f >> key;
         if(key=="mission")
         {
             Mission m;
-            m.missionName = value;
+            f >> m.missionName;
             d_missions.push_back(m);
         }
         if(key=="brief")
         {
+            std::string value;
+            f >> value;
             if(value!="null")
             {
                 
             }
         }
         if(key=="map")
-            d_missions.back().mapFile = value;
+            f >> d_missions.back().mapFile;
         if(key=="triggers")
-            d_missions.back().triggersFile = value;
+            f >> d_missions.back().triggersFile;
         if(key=="rules")
-            d_missions.back().rulesFile = value;
+            f >> d_missions.back().rulesFile;
+        if(key=="previous")
+            f >> d_missions.back().prevMission;
+        if(key=="position")
+        {
+            f >> d_missions.back().x >> d_missions.back().y;
+        }
     }
 }
 

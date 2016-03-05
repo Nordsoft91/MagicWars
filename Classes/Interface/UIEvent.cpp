@@ -9,6 +9,7 @@
 #include "UIEvent.h"
 #include "UITrigger.h"
 #include "UITutorialPressOnMap.h"
+#include <Travel/TravelScene.h>
 
 namespace UI_NS {
     
@@ -85,5 +86,18 @@ namespace UI_NS {
     {
         auto tutor = TutorialPressButton::create(d_but, d_idx);
         d_scene->addChild(tutor);
+    }
+    
+    void EventWin::throwEvent()
+    {
+        std::string camp = cocos2d::UserDefault::getInstance()->getStringForKey("CurrentCampaignName");
+        int level = cocos2d::UserDefault::getInstance()->getIntegerForKey("CurrentLevel");
+        int maxLevel = cocos2d::UserDefault::getInstance()->getIntegerForKey((camp+"_level").c_str(),0);
+        if(level==maxLevel)
+            cocos2d::UserDefault::getInstance()->setIntegerForKey((camp+"_level").c_str(), maxLevel+1);
+        
+        cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+        auto scene = MagicWars_NS::TravelScene::create();
+        cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
     }
 }

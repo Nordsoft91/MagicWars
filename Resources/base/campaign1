@@ -1,5 +1,0 @@
-mission  Обучение
-brief    null
-map      mapT_S_tutorial01.txt
-triggers mapT_S_tutorial01_triggers.txt
-rules    mapRule_Grassland01.txt

@@ -8,7 +8,7 @@
 
 #include "MenuScene.h"
 #include "HelloWorldScene.h"
-
+#include <Travel/TravelScene.h>
 
 namespace Menu_NS {
     MainMenu* MainMenu::create()
@@ -64,6 +64,8 @@ namespace Menu_NS {
         if(!cocos2d::Scene::init())
             return false;
         
+        cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true);
+
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         
         auto* background = cocos2d::Layer::create();
@@ -78,16 +80,30 @@ namespace Menu_NS {
         auto* menu = cocos2d::Menu::create();
         menu->setPosition(cocos2d::Vec2::ZERO);
         std::vector<cocos2d::Vec2> positions{ {0.3f*sz.width, 0.7f*sz.height}, {0.7f*sz.width, 0.7f*sz.height}, {0.3f*sz.width, 0.3f*sz.height}, {0.7f*sz.width, 0.3f*sz.height} };
-        std::vector<bool> enable{1,0,0,0};
+        std::vector<bool> enable;
+        std::vector<std::string> campaignNames{"WizardWay", "CorpseCollector", "KingHeritage", "EternalSentry"};
         std::vector<std::string> labels{"Путь волшебника","Коллекционер мертвецов","Наследие короля","Вечный часовой"};
+        
+        for(auto i : campaignNames)
+            enable.push_back(cocos2d::UserDefault::getInstance()->getBoolForKey(i.c_str(), false));
         
         for( int i : {1, 2, 3, 4})
         {
             std::string name = "camp"+std::to_string(i);
-            auto* campaign_buton = cocos2d::MenuItemImage::create(RES("menu", name+".png"), RES("menu", name+".png"), RES("menu", name+"_d.png"), [](cocos2d::Ref* pSender)
+            auto* campaign_buton = cocos2d::MenuItemImage::create(RES("menu", name+".png"), RES("menu", name+".png"), RES("menu", name+"_d.png"), [i, campaignNames](cocos2d::Ref* pSender)
                                                           {
-                                                              auto scene = MissionBrief::create();
-                                                              cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
+                                                              cocos2d::UserDefault::getInstance()->setStringForKey("CurrentCampaignName", campaignNames[i-1]);
+                                                              if(cocos2d::UserDefault::getInstance()->getIntegerForKey((campaignNames[i-1]+"_level").c_str(), 0))
+                                                              {
+                                                                  auto scene = MagicWars_NS::TravelScene::create();
+                                                                  cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
+                                                              }
+                                                              else
+                                                              {
+                                                                  cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+                                                                  auto scene = MissionBrief::create(campaignNames[i-1], 0);
+                                                                  cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
+                                                              }
                                                           });
             float scale = scaleFactor * 0.65;
             campaign_buton->setPosition(positions[i-1]);
@@ -112,16 +128,18 @@ namespace Menu_NS {
         return true;
     }
     
-    bool MissionBrief::init()
+    bool MissionBrief::init(const std::string& i_campaign)
     {
         if(!cocos2d::Scene::init())
             return false;
+        
+        cocos2d::UserDefault::getInstance()->setIntegerForKey("CurrentLevel", level);
         
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         
         auto* background = cocos2d::Layer::create();
         
-        CampaignReader reader(RES("base","campaign1"));
+        CampaignReader reader(RES("base",i_campaign));
         const CampaignReader::Mission& mission = reader.getMission(level);
         
         auto label = cocos2d::Label::createWithTTF("Уровень "+std::to_string(level+1)+"\n"+mission.missionName, RES("fonts","Washington.ttf"), 120);
@@ -133,6 +151,7 @@ namespace Menu_NS {
         scheduleOnce([&, mission](float d)
         {
             auto scene = HelloWorld::createScene(mission);
+
             cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(5, scene));
         }, 5, "key?");
         

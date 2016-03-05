@@ -282,6 +282,8 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
 
 void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, const CampaignReader::Mission& i_mission)
 {
+    destroy();
+    
     d_interface = &i_interface;
 	d_mapLayer = i_layer;
 
@@ -315,7 +317,6 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, c
 
     //MAP NAME
     Flared_NS::Parser parser(i_mission.mapFile);
-	std::ifstream trStream(RES("maps", i_mission.triggersFile));
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
     automap.process(flaredSet, flaredMap);
@@ -337,7 +338,11 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, c
         d_turnControl.insert(object, i.team);
     }
 
-	trRead.read(trStream);
+    if(i_mission.triggersFile!="null")
+    {
+        std::ifstream trStream(RES("maps", i_mission.triggersFile));
+        trRead.read(trStream);
+    }
     
     SquareControl::instance().toScene(i_layer);
 	for (std::string& s : Flared_NS::AutomapLog::log())
