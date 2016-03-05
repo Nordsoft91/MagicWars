@@ -34,6 +34,8 @@ namespace Menu_NS {
         
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         
+        //cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",0); //USERDATA
+        
         auto* background = cocos2d::Layer::create();
         
 		auto* backgroundImage = cocos2d::Sprite::create(RES("menu","Sphash.jpg"));
@@ -64,7 +66,7 @@ namespace Menu_NS {
         if(!cocos2d::Scene::init())
             return false;
         
-        cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true);
+        cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true); //USERDATA
 
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         
