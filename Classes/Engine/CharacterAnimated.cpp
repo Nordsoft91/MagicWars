@@ -10,7 +10,7 @@
 
 using namespace MagicWars_NS;
 
-CharacterAnimated::CharacterAnimated(std::string i_group): Magican(i_group), d_group(i_group)
+CharacterAnimated::CharacterAnimated(const std::string& i_group): Magican(i_group), d_group(i_group)
 {
     if(std::string(Consts::get("spriteType", i_group)) != "ANIMATED")
         throw std::runtime_error("not animated object!");

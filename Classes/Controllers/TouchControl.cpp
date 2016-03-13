@@ -20,6 +20,8 @@
 #include <Interface/UITrigger.h>
 #include <Interface/UITriggerReader.h>
 
+#include <Engine/AnimatedObject.h>
+
 using namespace MagicWars_NS;
 using namespace cocos2d;
 
@@ -106,6 +108,11 @@ void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::
             if(std::string(Consts::get("bressType", i_spell))=="HEAL")
                 tgrt->increaseHealth(int(Consts::get("force", i_spell)));
         }
+    }
+    
+    if(Consts::isExist("createObject", i_spell))
+    {
+        ContainUtils::findObjectById(d_mapObjects, ContainUtils::createObjectWithName<AnimatedObject>(d_mapObjects, Consts::get("createObject", i_spell)))->born(d_mapLayer, x, y);
     }
 }
 

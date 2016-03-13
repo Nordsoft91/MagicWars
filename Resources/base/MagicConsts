@@ -81,6 +81,7 @@ frameHeight = 80
 <include> maplist
 <include> automap
 <include> Icons
+<include> animations
 
 <include> regularPersons
 <include> keyPersons

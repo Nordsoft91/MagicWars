@@ -16,7 +16,7 @@ namespace UI_NS {
     
     int stringHeight(size_t i_rows, int i_size)
     {
-        return (i_size+2)*i_rows+6;
+        return (i_size+3)*i_rows+1;
     }
     
     std::vector<std::string> stringSplit(const std::string& i_str, int i_limit)
@@ -63,7 +63,7 @@ namespace UI_NS {
     
     void Message::drawText(cocos2d::Vec2 i_pos, const std::string& i_message, cocos2d::Color3B i_color)
     {
-        auto t = cocos2d::ui::Text::create(i_message, "Washington.ttf", 17);
+        auto t = cocos2d::ui::Text::create(i_message, "Washington.ttf", FONT_SIZE);
         t->setPosition(i_pos);
         t->setColor(i_color);
         d_text.push_back(t);
@@ -76,8 +76,8 @@ namespace UI_NS {
             return false;
         
         auto list = stringSplit(i_message, 80);
-        cocos2d::Vec2 textSize(stringWidth(list.front(), 16), stringHeight(list.size(), 16));
-        cocos2d::Vec2 stringSize(stringWidth(list.front(), 16), stringHeight(1, 16));
+        cocos2d::Vec2 textSize(stringWidth(list.front(), FONT_SIZE), stringHeight(list.size(), FONT_SIZE));
+        cocos2d::Vec2 stringSize(stringWidth(list.front(), FONT_SIZE), stringHeight(1, FONT_SIZE));
         cocos2d::Vec2 stringh(0, stringSize.y);
         
         drawBackground(i_pos + textSize/1.9 + stringh/2, i_pos - textSize/1.9 + stringh/2, i_background);

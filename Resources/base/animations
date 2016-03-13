@@ -1,0 +1,14 @@
+<group> natureEffectAnimation
+{
+spriteType = ANIMATED
+animationName = natureEffects.png
+frameWidth = 64
+frameHeight = 128
+sizeX = 12
+sizeY = 8
+}
+
+<group> fire01_animation <override> natureEffectAnimation
+{
+sequence = { 54 55 56 }
+}

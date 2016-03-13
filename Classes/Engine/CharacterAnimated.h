@@ -16,7 +16,7 @@ namespace MagicWars_NS {
     class CharacterAnimated: public Magican
     {
     public:
-        CharacterAnimated(std::string i_group);
+        CharacterAnimated(const std::string& i_group);
         ~CharacterAnimated() {};
         
         virtual void move(const std::list<int>& i_list);

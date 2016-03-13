@@ -44,10 +44,10 @@ Animated::~Animated()
 {
 }
 
-Animated* Animated::create(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count)
+Animated* Animated::create(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count, bool i_forever)
 {
     Animated *pRet = new Animated(i_spr, i_w, i_h, i_sizex, i_sizey, i_start, i_count);
-    if (pRet && pRet->init())
+    if (pRet && pRet->init(i_forever))
     {
         pRet->autorelease();
         return pRet;
@@ -60,10 +60,10 @@ Animated* Animated::create(const std::string i_spr, int i_w, int i_h, int i_size
     }
 }
 
-Animated* Animated::create(const std::string i_spr, std::string i_group, int i_start, int i_count)
+Animated* Animated::create(const std::string i_spr, std::string i_group, int i_start, int i_count, bool i_forever)
 {
     Animated *pRet = new Animated(i_spr, Consts::get("frameWidth", i_group), Consts::get("frameHeight", i_group), Consts::get("sizeX", i_group), Consts::get("sizeY", i_group), i_start, i_count);
-    if (pRet && pRet->init())
+    if (pRet && pRet->init(i_forever))
     {
         pRet->autorelease();
         return pRet;
@@ -76,10 +76,10 @@ Animated* Animated::create(const std::string i_spr, std::string i_group, int i_s
     }
 }
 
-Animated* Animated::create(const std::string i_spr, std::string i_group, const std::vector<int>& i_seq)
+Animated* Animated::create(const std::string i_spr, std::string i_group, const std::vector<int>& i_seq, bool i_forever)
 {
     Animated *pRet = new Animated(i_spr, Consts::get("frameWidth", i_group), Consts::get("frameHeight", i_group), Consts::get("sizeX", i_group), Consts::get("sizeY", i_group), i_seq);
-    if (pRet && pRet->init())
+    if (pRet && pRet->init(i_forever))
     {
         pRet->autorelease();
         return pRet;
@@ -92,12 +92,16 @@ Animated* Animated::create(const std::string i_spr, std::string i_group, const s
     }
 }
 
-bool Animated::init()
+bool Animated::init(bool i_forever)
 {
     if(!cocos2d::Sprite::init())
         return false;
     
-    runAction(cocos2d::Animate::create(d_animation));
+    if(i_forever)
+        runAction(cocos2d::RepeatForever::create(cocos2d::Animate::create(d_animation)));
+    else
+        runAction(cocos2d::Animate::create(d_animation));
+    
     scheduleUpdateWithPriority(10);
     return true;
 }
