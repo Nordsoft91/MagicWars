@@ -16,7 +16,7 @@ namespace UI_NS {
     
     int stringHeight(size_t i_rows, int i_size)
     {
-        return (i_size+2)*i_rows;
+        return (i_size+2)*i_rows+6;
     }
     
     std::vector<std::string> stringSplit(const std::string& i_str, int i_limit)

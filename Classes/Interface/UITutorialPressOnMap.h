@@ -18,7 +18,7 @@ namespace UI_NS {
     {
     public:
         static TutorialPressOnMap* create(cocos2d::Vec2 i_pos);
-        static TutorialPressOnMap* create(const MagicWars_NS::GameObj* i_object, int i_relX = 0, int i_relY = 0);
+        static TutorialPressOnMap* create(const std::string& i_object, int i_relX = 0, int i_relY = 0);
         
         virtual void callback(cocos2d::Touch *touch);
         
@@ -26,13 +26,11 @@ namespace UI_NS {
         TutorialPressOnMap() = default;
         
         virtual bool init(cocos2d::Vec2 i_pos);
-        virtual bool init(const MagicWars_NS::GameObj* i_object, int i_relX, int i_relY);
+        virtual bool init(const std::string& i_name, int i_relX, int i_relY);
         
         cocos2d::EventListenerTouchOneByOne* d_listener;
         
         int x,y;
-        
-        const MagicWars_NS::GameObj* d_object = nullptr;
     };
     
     class TutorialPressButton: public cocos2d::Node

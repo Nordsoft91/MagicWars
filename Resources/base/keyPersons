@@ -10,8 +10,26 @@
     wisdom = 24
     speed = 3
     expirience = 10000
+    weapon = weapon_staff
+    trickSkills = { }
+    spellBook = { spell_fireball spell_lighting spell_ray spell_super_firewall }
+}
 
-    spellBook = { spell_healing, spell_farhealing }
+<group> dog01
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = dog01.png
+animationParams = quadAnimation4x80
+health = 105
+concentrate = 2
+mind = 0
+wisdom = 1
+speed = 3
+expirience = 10000
+weapon = weapon_jawbone
+trickSkills = { }
+spellBook = { }
 }
 
 <group> hero04

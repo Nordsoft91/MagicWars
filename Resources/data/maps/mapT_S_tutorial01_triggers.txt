@@ -7,7 +7,7 @@ Event Message
 Поздравляем! Вы начинающий маг. Сейчас вы обучитесь основам управления и ведения магического боя.
 Нажмите на своего персонажа, чтобы выделить его.
 }
-Event TutorialPressObject PERSON Braves
+Event TutorialPressObject Braves
 Event Dialog Braves
 {
 Ооох, что за шум, сейчас же раннее утро!
@@ -33,7 +33,7 @@ Event Message
 Итак, ты получил свое первое боевое задание, давай достойно с ним справимся.
 Синие клетки вокруг персонажа - возможные варианты передвижения. Для начала отойдем от палатки.
 }
-Event TutorialPressObjectRelative PERSON Braves 2 -2
+Event TutorialPressObjectRelative Braves 2 -2
 Event Message
 {
 За один ход ты можешь передвинуть один раз каждого из персонажей под твоим управлением.
@@ -51,27 +51,27 @@ Event Message
 Давай теперь ударим по нему. Воспользуемся магией, не зря же ее учили.
 Выбери своего персонажа и посмотри список доступных тебе заклинаний нажав на кнопку с книгой.
 }
-Event TutorialPressObject PERSON Braves
+Event TutorialPressObject Braves
 Event TutorialPressButton SPELL
 Event TutorialPressButton CUSTOM 0
 Event Message
 {
 Красные клетки - возможные цели для заклинания. Когда ты нажмешь на клетку, клетки, находящиеся в зоне поражения станут оранжевыми. Нажми на клетку с волком
 }
-Event TutorialPressObjectRelative PERSON Braves 2 0
+Event TutorialPressObjectRelative Braves 2 0
 Event Message
 {
 Хорошо, теперь нажми на эту клетку еще раз для подтверждения.
 }
-Event TutorialPressObjectRelative PERSON Braves 2 0
+Event TutorialPressObjectRelative Braves 2 0
 Event Message
 {
 Ты нанес магический удар! Красное и синее кольца воркуг персонажей показывают их здоровье и ману. Мана понемногу восстанавливается каждый ход, а здоровье нужно восстанавливать другими средствами.
 Если ход не завершился автоматически, значит у твоих персонажей еще есть действия.
 Ты еще можешь двигаться. Самое время отойти подальше.
 }
-Event TutorialPressObject PERSON Braves
-Event TutorialPressObjectRelative PERSON Braves -2 0
+Event TutorialPressObject Braves
+Event TutorialPressObjectRelative Braves -2 0
 EndOfChain
 
 Trigger Name Injure Active
@@ -94,15 +94,15 @@ Event Message
 Ну вот и первое ранение. Теперь давай атакуем в ответ, однако для заклинания маны нам не хватит, нужно атаковать физически.
 Кнопка в левом верхнем углу - это трюки, которыми персонаж владеет. Выдели персонажа и нажми на нее.
 }
-Event TutorialPressObject PERSON Braves
+Event TutorialPressObject Braves
 Event TutorialPressButton TRICK
 Event Message
 {
 Пока что ты можешь только ударить врага посохом. Что же, давай так и сделаем.
 }
 Event TutorialPressButton CUSTOM 0
-Event TutorialPressObjectRelative PERSON Braves 1 0
-Event TutorialPressObjectRelative PERSON Braves 1 0
+Event TutorialPressObjectRelative Braves 1 0
+Event TutorialPressObjectRelative Braves 1 0
 Event Message
 {
 Достойный ответ! Теперь проучи этого волка, используя свои знания.
@@ -110,7 +110,7 @@ Event Message
 EndOfChain
 
 Trigger Active
-ConditionDeathPerson PERSON Wolf
+ConditionDeathPerson Wolf
 ChainOfEvents
 Event Dialog Braves
 {
@@ -158,3 +158,11 @@ Event Message
 }
 Event Win
 EndOfChain
+
+Trigger Active
+ConditionDeathPerson Braves
+Event Lose
+
+Trigger Active
+ConditionDeathPerson Friend
+Event Lose

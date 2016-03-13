@@ -35,6 +35,80 @@ TouchControl& TouchControl::instance()
     return control;
 }
 
+void TouchControl::coverRange(std::vector<std::pair<size_t, size_t>> coord, const std::string &i_spell)
+{
+    if(coord.size()<2)
+        throw std::out_of_range("Not enough coordinates");
+        
+    bool center = !(coord[0].first==coord[1].first && coord[0].second==coord[1].second);
+    std::string squareType = Consts::get("coverType", i_spell);
+    if(squareType=="POINT")
+        SquareControl::instance().createPoint(coord[1].first, coord[1].second, "orange");
+    if(squareType=="BORDER")
+        SquareControl::instance().createBorder(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange");
+    if(squareType=="SQUAD")
+        SquareControl::instance().createSquare(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange", center);
+    if(squareType=="CROSS")
+        SquareControl::instance().createCross(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange", center);
+    if(squareType=="STAR")
+        SquareControl::instance().createStar(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange", center);
+    if(squareType=="LINE")
+        SquareControl::instance().createLine(coord[0].first, coord[0].second, coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange");
+}
+
+void TouchControl::performSpell(Magican* i_owner, size_t x, size_t y, const std::string& i_spell)
+{
+    Effect *myEff = nullptr;
+    if(std::string(Consts::get("effectType", i_spell)) == "APPEAR_ONCE")
+    {
+        myEff = Effect::create(Consts::get("sprite", i_spell), Consts::get("sprite_size", i_spell), Vec2((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight));
+        d_mapLayer->addChild(myEff);
+    }
+    for(auto i : SquareControl::instance().getSquared("orange"))
+    {
+        createSpell(i_owner, i.first, i.second, i_spell);
+    }
+    if(Consts::isExist("recover", i_spell))
+    {
+        if(i_owner && i_owner->isHaveTrick(i_spell))
+            i_owner->d_tricks[i_spell] = Consts::get("recover", i_spell);
+    }
+}
+
+void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::string& i_spell)
+{
+    Effect *myEff = nullptr;
+    
+    if(std::string(Consts::get("effectType", i_spell)) == "APPEAR")
+        myEff = Effect::create(Consts::get("sprite", i_spell), Consts::get("sprite_size", i_spell), Vec2((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight));
+    
+    if(std::string(Consts::get("effectType", i_spell)) == "FOLLOW")
+        myEff = Effect::create(Consts::get("sprite_fly", i_spell), Consts::get("sprite_fly_size", i_spell), Vec2((d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight),Vec2((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight));
+    
+    if(!myEff)
+        throw std::runtime_error("Error in effect creating");
+    
+    if(std::string(Consts::get("effectType", i_spell)) != "APPEAR_ONCE")
+        d_mapLayer->addChild(myEff);
+    
+    Magican* tgrt = dynamic_cast<Magican*>(ContainUtils::findObject(d_persons, x, y));
+    if( tgrt )
+    {
+        tgrt->showStatus(false);
+        if(std::string(Consts::get("type", i_spell))=="DAMMAGE")
+        {
+            tgrt->decreaseHealth(int(Consts::get("force", i_spell)));
+            if(i_owner)
+                i_owner->increaseExperience(int(Consts::get("force", i_spell)));
+        }
+        if(std::string(Consts::get("type", i_spell))=="BLESS")
+        {
+            if(std::string(Consts::get("bressType", i_spell))=="HEAL")
+                tgrt->increaseHealth(int(Consts::get("force", i_spell)));
+        }
+    }
+}
+
 void TouchControl::attackAction()
 {
     Magican* obj = d_turnControl.getTurn();
@@ -62,20 +136,7 @@ void TouchControl::coverRangeAction(size_t x, size_t y)
     spellAction(d_spellCurrent);
     if(obj && d_turnControl.isTurn(obj, TURN_ATTACK))
     {
-        bool center = !(obj->x==x && obj->y==y);
-        std::string squareType = Consts::get("coverType", d_spellCurrent);
-        if(squareType=="POINT")
-            SquareControl::instance().createPoint(x, y, "orange");
-        if(squareType=="BORDER")
-            SquareControl::instance().createBorder(x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
-        if(squareType=="SQUAD")
-            SquareControl::instance().createSquare(x, y, Consts::get("coverRadius", d_spellCurrent), "orange", center);
-        if(squareType=="CROSS")
-            SquareControl::instance().createCross(x, y, Consts::get("coverRadius", d_spellCurrent), "orange", center);
-        if(squareType=="STAR")
-            SquareControl::instance().createStar(x, y, Consts::get("coverRadius", d_spellCurrent), "orange", center);
-        if(squareType=="LINE")
-            SquareControl::instance().createLine(obj->x, obj->y, x, y, Consts::get("coverRadius", d_spellCurrent), "orange");
+        coverRange({{obj->x,obj->y},{x,y}}, d_spellCurrent);
     }
 }
 
@@ -213,48 +274,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     //attack
     if(d_targetCursor.first == clickX && d_targetCursor.second == clickY && !SquareControl::instance().getSquared("orange").empty())
     {
-        Effect *myEff = nullptr;
-        if(std::string(Consts::get("effectType", d_spellCurrent)) == "APPEAR_ONCE")
-        {
-            myEff = Effect::create(Consts::get("sprite", d_spellCurrent), Consts::get("sprite_size", d_spellCurrent), Vec2((0.5+clickX)*d_sizeWidth, (0.5+clickY)*d_sizeHeight));
-            d_mapLayer->addChild(myEff);
-        }
-        for(auto i : SquareControl::instance().getSquared("orange"))
-        {
-            
-            if(std::string(Consts::get("effectType", d_spellCurrent)) == "APPEAR")
-                myEff = Effect::create(Consts::get("sprite", d_spellCurrent), Consts::get("sprite_size", d_spellCurrent), Vec2((0.5+i.first)*d_sizeWidth, (0.5+i.second)*d_sizeHeight));
-        
-            if(std::string(Consts::get("effectType", d_spellCurrent)) == "FOLLOW")
-                myEff = Effect::create(Consts::get("sprite_fly", d_spellCurrent), Consts::get("sprite_fly_size", d_spellCurrent), Vec2((d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight),Vec2((0.5+i.first)*d_sizeWidth, (0.5+i.second)*d_sizeHeight));
-        
-            if(!myEff)
-                throw std::runtime_error("Error in effect creating");
-        
-            if(std::string(Consts::get("effectType", d_spellCurrent)) != "APPEAR_ONCE")
-                d_mapLayer->addChild(myEff);
-            
-            Magican* tgrt = dynamic_cast<Magican*>(ContainUtils::findObject(d_persons, i.first, i.second));
-            if( tgrt )
-            {
-                tgrt->showStatus(false);
-                if(std::string(Consts::get("type", d_spellCurrent))=="DAMMAGE")
-                {
-                    tgrt->decreaseHealth(int(Consts::get("force", d_spellCurrent)));
-                    d_turnControl.getTurn()->increaseExperience(int(Consts::get("force", d_spellCurrent)));
-                }
-                if(std::string(Consts::get("type", d_spellCurrent))=="BLESS")
-                {
-                    if(std::string(Consts::get("bressType", d_spellCurrent))=="HEAL")
-                        tgrt->increaseHealth(int(Consts::get("force", d_spellCurrent)));
-                }
-            }
-        }
-        if(Consts::isExist("recover", d_spellCurrent))
-        {
-            if(d_turnControl.getTurn()->isHaveTrick(d_spellCurrent))
-                d_turnControl.getTurn()->d_tricks[d_spellCurrent] = Consts::get("recover", d_spellCurrent);
-        }
+        performSpell(d_turnControl.getTurn(), clickX, clickY, d_spellCurrent);
         d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
         d_interface->disableActionButtons(true);
         d_turnControl.endTurn(TURN_ATTACK);
@@ -332,10 +352,10 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, c
     
     for(auto& i : flaredSet.getCharacters())
     {
-        Magican* object = i.name.empty() ? dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group)))
-										 : dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i.group, i.name)));
-        object->born(i_layer, i.x, i.y);
-        d_turnControl.insert(object, i.team);
+        if( Magican* object = createMagican(i.x, i.y, i.group, i.name) )
+            d_turnControl.insert(object, i.team);
+        else
+            cocos2d::log("createMagican returns nullptr for %s with name %s", i.group.c_str(), i.name.c_str());
     }
 
     if(i_mission.triggersFile!="null")
@@ -347,6 +367,14 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, c
     SquareControl::instance().toScene(i_layer);
 	for (std::string& s : Flared_NS::AutomapLog::log())
 		cocos2d::log(s.c_str());
+}
+
+Magican* TouchControl::createMagican(int i_x, int i_y, const std::string &i_group, const std::string &i_name)
+{
+    Magican* object = i_name.empty() ? dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i_group)))
+    : dynamic_cast<Magican*>(ContainUtils::findObjectById(d_persons, ContainUtils::createObjectWithName<CharacterAnimated>(d_persons, i_group, i_name)));
+    object->born(d_mapLayer, i_x, i_y);
+    return object;
 }
 
 void TouchControl::disableAllButPoint(size_t x, size_t y)

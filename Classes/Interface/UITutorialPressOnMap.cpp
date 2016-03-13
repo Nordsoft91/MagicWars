@@ -28,7 +28,7 @@ TutorialPressOnMap* TutorialPressOnMap::create(cocos2d::Vec2 i_pos)
     }
 }
 
-TutorialPressOnMap* TutorialPressOnMap::create(const MagicWars_NS::GameObj* i_object, int i_relX, int i_relY)
+TutorialPressOnMap* TutorialPressOnMap::create(const std::string& i_object, int i_relX, int i_relY)
 {
     TutorialPressOnMap *pRet = new TutorialPressOnMap;
     if (pRet && pRet->init(i_object, i_relX, i_relY))
@@ -44,13 +44,16 @@ TutorialPressOnMap* TutorialPressOnMap::create(const MagicWars_NS::GameObj* i_ob
     }
 }
 
-bool TutorialPressOnMap::init(const MagicWars_NS::GameObj* i_object, int i_relX, int i_relY)
+bool TutorialPressOnMap::init(const std::string& i_name, int i_relX, int i_relY)
 {
     if(!cocos2d::Sprite::initWithFile(RES("", "Squares.png"), cocos2d::Rect(0,64,64,64)))
         return false;
     
-    x = i_relX + i_object->x;
-    y = i_relY + i_object->y;
+    if( auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), i_name)))
+    {
+        x = i_relX + object->x;
+        y = i_relY + object->y;
+    }
     
     //TODO: get grid size from consts
     setAnchorPoint({0,0});

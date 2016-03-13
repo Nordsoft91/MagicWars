@@ -8,8 +8,16 @@ position 100 100
 
 mission  Пролог
 brief    null
-map      mapT_M_prologue.txt
-triggers null
-rules    mapRule_Cave02.txt
+map      map_M_intro.txt
+triggers map_M_intro_triggers.txt
+rules    mapRule_Grassland01.txt
 previous Обучение
 position 250 180
+
+mission  Голодные
+brief    null
+map      map_M_mission1.txt
+triggers map_M_mission1_triggers.txt
+rules    mapRule_Grassland01.txt
+previous Пролог
+position 120 200

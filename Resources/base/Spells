@@ -60,6 +60,22 @@ mind = 29
 wisdom = 10
 }
 
+<group> spell_super_firewall
+{
+type = DAMMAGE
+icon = icon_firewall.png
+radius = 0
+gridType = POINT
+coverType = BORDER
+coverRadius = 4
+effectType = APPEAR
+sprite = Firewall.png
+sprite_size = 30
+force = 35
+mind = 29
+wisdom = 10
+}
+
 <group> spell_lightingbolt
 {
 type = DAMMAGE

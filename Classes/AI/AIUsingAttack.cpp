@@ -53,6 +53,13 @@ std::string AIUsingAttack::findBestSpell(int x, int y, double& o_w)
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_lighting")) spell["spell_lighting"]=useLighting(x,y);
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_ray"))      spell["spell_ray"]=useRay(x,y);
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_firewall")) spell["spell_firewall"]=useFirewall(x,y);
+    
+    //tricks
+    for(auto i : TouchControl::instance().getTurn()->d_tricks)
+    {
+        spell[i.first] = useTrick(i.first, x, y);
+    }
+    
     auto k = std::max_element(spell.begin(), spell.end(),
                               [](std::pair<std::string, double> l, std::pair<std::string, double> r)
                               {
@@ -76,6 +83,11 @@ bool AIUsingAttack::attackPhase()
     if(k=="spell_lighting") useLighting(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
     if(k=="spell_ray") useRay(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
     if(k=="spell_firewall") useFirewall(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    if(k.find("trick")!=std::string::npos)
+    {
+        useTrick(k, TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    }
+        
     
     for(auto i = d_enemies.begin(); i!=d_enemies.end(); ++i)
     {
@@ -328,5 +340,50 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
     TouchControl::instance().spellAction(spellStr);
     TouchControl::instance().pressAction(x, y);
     setGoal(x, y);
+    return w;
+}
+
+double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_action)
+{
+    //std::string spellStr = "spell_fireball";
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
+    Magican* pGoal = nullptr;
+    double w = 0.0;
+    //spell params
+    double force = Consts::get("force", i_trick);
+    int radius = Consts::get("radius", i_trick);
+    //check if recovered
+    if(pMag->d_tricks[i_trick])
+        return 0;
+    
+    for( int j = y-radius; j<=y+radius; ++j)
+    {
+        for( int i = x-radius; i<=x+radius; ++i)
+        {
+            if(i!=x || j!=y)
+            {
+                if(i==x || j==y || i-x==j-y || i-x==y-j)
+                {
+                    Magican* p = ContainUtils::findMagican(d_enemies, i, j);
+                    if(p && d_goals[p] > w)
+                    {
+                        w = d_goals[p] * force;
+                        pGoal = p;
+                    }
+                }
+            }
+        }
+    }
+    
+    w *= 3.0;
+    
+    if(!i_action || !pGoal)
+        return w;
+    
+    //attack
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().spellAction(i_trick);
+    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
+    setGoal(pGoal->x, pGoal->y);
     return w;
 }

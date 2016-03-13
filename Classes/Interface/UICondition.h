@@ -47,16 +47,33 @@ namespace UI_NS {
         
         virtual bool get() const override
         {
-            if(d_object->getHealth() <= 0)
+            auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name));
+            
+            if(object && object->getHealth() <= 0)
                 return true;
             else
                 return false;
         }
         
-        ConditionDeathPeson(const MagicWars_NS::Magican* i_object): d_object(i_object) {}
+        ConditionDeathPeson( const std::string& i_object): d_name(i_object) {}
         
     private:
-        const MagicWars_NS::Magican* d_object;
+        const std::string d_name;
+    };
+    
+    class ConditionKillTeam: public Condition
+    {
+    public:
+        
+        virtual bool get() const override
+        {
+            return MagicWars_NS::TouchControl::instance().getTurnController().sideArray(d_name).empty();
+        }
+        
+        ConditionKillTeam( const std::string& i_team): d_name(i_team) {}
+        
+    private:
+        const std::string d_name;
     };
     
     class ConditionTapObject: public Condition
@@ -65,17 +82,19 @@ namespace UI_NS {
         
         virtual bool get() const override
         {
-            if(MagicWars_NS::TouchControl::instance().tapLastCellX==d_object->x+d_x && MagicWars_NS::TouchControl::instance().tapLastCellY==d_object->y+d_y)
+            auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name));
+            
+            if(MagicWars_NS::TouchControl::instance().tapLastCellX==object->x+d_x && MagicWars_NS::TouchControl::instance().tapLastCellY==object->y+d_y)
                 return true;
             else
                 return false;
         }
         
-        ConditionTapObject(const MagicWars_NS::GameObj* i_object, int i_relX = 0, int i_relY = 0): d_object(i_object), d_x(i_relX), d_y(i_relY) {}
+        ConditionTapObject( const std::string& i_object, int i_relX = 0, int i_relY = 0): d_name(i_object), d_x(i_relX), d_y(i_relY) {}
         
     private:
-        const MagicWars_NS::GameObj* d_object;
         int d_x, d_y;
+        const std::string d_name;
     };
     
     class ConditionTurnNumberBegin: public Condition

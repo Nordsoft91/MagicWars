@@ -30,25 +30,11 @@ namespace UI_NS
 		return list;
 	}
     
-    const MagicWars_NS::GameObj* TriggerReader::readObject(std::ifstream &io_stream)
+    std::string TriggerReader::readObject(std::ifstream &io_stream)
     {
-        std::string type, name;
-        io_stream >> type >> name;
-        if (type == "PERSON")
-        {
-            if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), name))
-                return obj;
-            else
-                cocos2d::log("Cannot find person with name %s", name.c_str());
-        }
-        if (type == "OBJECT")
-        {
-            if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllObjects(), name))
-                return obj;
-            else
-                cocos2d::log("Cannot find object with name %s", name.c_str());
-        }
-        return nullptr;
+        std::string name;
+        io_stream >> name;
+        return name;
     }
 
 	std::pair<int, int> TriggerReader::readPosition(std::ifstream& io_stream)
@@ -101,27 +87,21 @@ namespace UI_NS
         }
         if( type == "ConditionTapObject")
         {
-            if( const auto* obj = readObject(io_stream))
-                return new UI_NS::ConditionTapObject(obj);
-            else
-                cocos2d::log("Cannot create condition");
+            return new UI_NS::ConditionTapObject(readObject(io_stream));
         }
         if( type == "ConditionTapObjectRelative")
         {
-            if( const auto* obj = readObject(io_stream))
-            {
-                auto pos = readPosition(io_stream);
-                return new UI_NS::ConditionTapObject(obj, pos.first, pos.second);
-            }
-            else
-                cocos2d::log("Cannot create condition");
+            const auto obj = readObject(io_stream);
+            auto pos = readPosition(io_stream);
+            return new UI_NS::ConditionTapObject(obj, pos.first, pos.second);
         }
         if( type == "ConditionDeathPerson")
         {
-            if( const auto* obj = dynamic_cast<const MagicWars_NS::Magican*>(readObject(io_stream)))
-                return new UI_NS::ConditionDeathPeson(obj);
-            else
-                cocos2d::log("Cannot create condition");
+            return new UI_NS::ConditionDeathPeson(readObject(io_stream));
+        }
+        if( type == "ConditionKillTeam")
+        {
+            return new UI_NS::ConditionKillTeam(readObject(io_stream));
         }
 		return nullptr;
 	}
@@ -138,6 +118,10 @@ namespace UI_NS
         if( type == "Win")
         {
             return new UI_NS::EventWin();
+        }
+        if( type == "Lose")
+        {
+            return new UI_NS::EventLose();
         }
 		if (type == "HeapOfEvents")
 		{
@@ -169,13 +153,7 @@ namespace UI_NS
 		}
 		if (type == "Dialog")
 		{
-			std::string name;
-			io_stream >> name;
-			if (auto* obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), name))
-				return new UI_NS::EventDialog(obj->getSprite(), readMessage(io_stream));
-
-			cocos2d::log("Cannot find person with name %s", name.c_str());
-			return nullptr;
+            return new UI_NS::EventDialog(readObject(io_stream), readMessage(io_stream));
 		}
         if (type == "TutorialPressOnMap")
         {
@@ -217,6 +195,68 @@ namespace UI_NS
 		{
 
 		}
+        if (type == "Move")
+        {
+            auto n = readObject(io_stream);
+            auto pos = readPosition(io_stream);
+            return new UI_NS::EventMove(n, pos.first, pos.second);
+        }
+        if (type == "BornWithoutControl")
+        {
+            std::string group, post, name;
+            io_stream >> group >> post;
+            if( post != "REL" && post != "ABS")
+            {
+                name = post;
+                io_stream >> post;
+            }
+            
+            if( post == "REL")
+            {
+                auto n = readObject(io_stream);
+                auto pos = readPosition(io_stream);
+                return new UI_NS::EventBorn(pos.first, pos.second, name, group, n);
+            }
+            if( post == "ABS")
+            {
+                auto pos = readPosition(io_stream);
+                return new UI_NS::EventBorn(pos.first, pos.second, name, group, "");
+            }
+        }
+        if (type == "BornWithControl")
+        {
+            std::string group, team, post, name;
+            io_stream >> group >> team >> post;
+            if( post != "REL" && post != "ABS")
+            {
+                name = post;
+                io_stream >> post;
+            }
+            
+            if( post == "REL")
+            {
+                auto n = readObject(io_stream);
+                auto pos = readPosition(io_stream);
+                return new UI_NS::EventBorn(pos.first, pos.second, name, group, team, n);
+            }
+            if( post == "ABS")
+            {
+                auto pos = readPosition(io_stream);
+                return new UI_NS::EventBorn(pos.first, pos.second, name, group, team, "");
+            }
+        }
+        if (type == "Spell")
+        {
+            auto n = readObject(io_stream);
+            auto s = readObject(io_stream);
+            auto pos = readPosition(io_stream);
+            return new UI_NS::EventSpell(n, s, pos.first, pos.second);
+        }
+        if( type == "Centralize")
+        {
+            return new UI_NS::EventCentralize(readObject(io_stream));
+        }
+        cocos2d::log("Fatal error in event reading");
 		return nullptr;
 	}
 

@@ -52,7 +52,7 @@ namespace UI_NS {
     
     Trigger::~Trigger()
     {
-        cocos2d::log("Trigger destructor");
+        //cocos2d::log("Trigger destructor");
         
         if(d_controlRes)
         {

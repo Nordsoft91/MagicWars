@@ -68,6 +68,10 @@ namespace MagicWars_NS {
         
         void disableAllButPoint(size_t x, size_t y);
         void enableAll();
+        
+        void performSpell(Magican* i_owner, size_t x, size_t y, const std::string& i_spell);
+        void createSpell(Magican* i_owner, size_t x, size_t y, const std::string& i_spell);
+        void coverRange(std::vector<std::pair<size_t,size_t>> coords, const std::string& i_spell);
 
 		const std::list<GameObj*>& getAllPersons() const { return d_persons; }
 		const std::list<GameObj*>& getAllObjects() const { return d_mapObjects; }
@@ -82,6 +86,8 @@ namespace MagicWars_NS {
         std::string d_spellCurrent;
         
         Interface& getInterface() { return *d_interface; }
+        
+        Magican* createMagican(int x, int y, const std::string& i_group, const std::string& i_name);
         
     private:
         Interface* d_interface = nullptr;

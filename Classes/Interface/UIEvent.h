@@ -21,9 +21,9 @@ namespace UI_NS {
     class Event
     {
     public:
-        Event() { cocos2d::log("Constructor"); };
+        Event() {} //cocos2d::log("Constructor"); };
         
-        virtual ~Event() { cocos2d::log("Destructor"); }
+        virtual ~Event() {} //cocos2d::log("Destructor"); }
         
         virtual void throwEvent() = 0;
     };
@@ -34,13 +34,13 @@ namespace UI_NS {
     {
     public:
         EventCreate(cocos2d::Node* io_scene, const std::pair<int, int>& i_pos): d_scene(io_scene), d_x(i_pos.first), d_y(i_pos.second) {}
-        EventCreate(cocos2d::Node* io_scene, const MagicWars_NS::GameObj* i_obj, int i_relX = 0, int i_relY = 0): d_scene(io_scene), d_obj(i_obj), d_x(i_relX), d_y(i_relY) {}
+        EventCreate(cocos2d::Node* io_scene, const std::string& i_name, int i_relX = 0, int i_relY = 0): d_scene(io_scene), d_name(i_name), d_x(i_relX), d_y(i_relY) {}
         
         virtual void throwEvent() override
         {
             cocos2d::Node* obj = nullptr;
-            if(d_obj)
-                obj = T::create(d_obj, d_x, d_y);
+            if(!d_name.empty())
+                obj = T::create(d_name, d_x, d_y);
             else
                 obj = T::create(cocos2d::Vec2(d_x,d_y));
             
@@ -49,7 +49,7 @@ namespace UI_NS {
         
     private:
         cocos2d::Node* d_scene = nullptr;
-        const MagicWars_NS::GameObj* d_obj = nullptr;
+        const std::string d_name;
         int d_x, d_y;
     };
     
@@ -70,7 +70,7 @@ namespace UI_NS {
     class EventHeap: public Event
     {
     public:
-        EventHeap(std::list<Event*> i_events): d_events(i_events) { cocos2d::log("Heap constructor"); }
+        EventHeap(std::list<Event*> i_events): d_events(i_events) {} //cocos2d::log("Heap constructor"); }
         void releaseResourceControl(Event* i_event) {d_preventRelease.push_back(i_event);}
         virtual void throwEvent() override;
         virtual ~EventHeap();
@@ -98,12 +98,13 @@ namespace UI_NS {
     class EventDialog: public Event
     {
     public:
-        EventDialog(cocos2d::Node* io_character, const std::list<std::string>& i_message): d_owner(io_character), d_message(i_message)
+        EventDialog(const std::string& i_name, const std::list<std::string>& i_message): d_name(i_name), d_message(i_message)
         {}
         
         virtual void throwEvent() override;
         
     protected:
+        const std::string d_name;
         cocos2d::Node *d_owner = nullptr;
         const std::list<std::string> d_message;
     };
@@ -149,6 +150,68 @@ namespace UI_NS {
     public:
         EventWin() = default;
         virtual void throwEvent() override;
+    };
+    
+    //Event lose
+    class EventLose: public Event
+    {
+    public:
+        EventLose() = default;
+        virtual void throwEvent() override;
+    };
+    
+    //EventMove
+    class EventMove: public Event
+    {
+    public:
+        EventMove(const std::string& i_name, int i_relX, int i_relY): d_name(i_name), d_x(i_relX), d_y(i_relY) {}
+        virtual void throwEvent() override;
+        
+    protected:
+        const std::string d_name;
+        int d_x, d_y;
+    };
+    
+    //EventBorn
+    class EventBorn: public Event
+    {
+    public:
+        EventBorn(int i_relX, int i_relY, const std::string& i_name, const std::string& i_group, const std::string& i_obj): d_obj(i_obj), d_x(i_relX), d_y(i_relY), d_name(i_name), d_group(i_group) {}
+        
+        EventBorn(int i_relX, int i_relY, const std::string& i_name, const std::string& i_group, const std::string& i_team, const std::string& i_obj): d_obj(i_obj), d_x(i_relX), d_y(i_relY), d_name(i_name), d_group(i_group), d_team(i_team), d_addToTurn(true) {}
+        
+        virtual void throwEvent() override;
+        
+    protected:
+        const std::string d_obj;
+        int d_x, d_y;
+        const std::string d_name, d_group, d_team;
+        bool d_addToTurn = false;
+    };
+    
+    //EventSpell
+    class EventSpell: public Event
+    {
+    public:
+        EventSpell(const std::string& i_name, const std::string& i_spell, int i_relX, int i_relY): d_name(i_name), d_spell(i_spell), d_x(i_relX), d_y(i_relY) {}
+        
+        virtual void throwEvent() override;
+        
+    protected:
+        const std::string d_name, d_spell;
+        int d_x, d_y;
+    };
+    
+    //EventCentralize
+    class EventCentralize: public Event
+    {
+    public:
+        EventCentralize(const std::string& i_name): d_name(i_name) {}
+        
+        virtual void throwEvent() override;
+        
+    protected:
+        const std::string d_name;
     };
 
 }

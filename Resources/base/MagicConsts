@@ -64,10 +64,16 @@ goRight = { 8 9 10 11 }
 goUp = { 12 13 14 15 }
 }
 
-<group> quadAnimation3 <override> charAnimation3
+<group> quadAnimation3x64 <override> charAnimation3
 {
     frameWidth = 64
     frameHeight = 64
+}
+
+<group> quadAnimation4x80 <override> charAnimation4
+{
+frameWidth = 80
+frameHeight = 80
 }
 
 <include> Spells

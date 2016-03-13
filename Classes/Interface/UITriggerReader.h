@@ -18,7 +18,7 @@ namespace UI_NS
 
 		std::pair<int, int> readPosition(std::ifstream& io_stream);
 		std::list<std::string> readMessage(std::ifstream& io_stream);
-        const MagicWars_NS::GameObj* readObject(std::ifstream& io_stream);
+        std::string readObject(std::ifstream& io_stream);
 
 	protected:
 		cocos2d::Layer* d_layer = nullptr;

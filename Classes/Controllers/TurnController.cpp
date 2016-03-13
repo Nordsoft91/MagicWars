@@ -8,6 +8,9 @@
 
 #include "TurnController.h"
 
+#include <Interface/UIMessage.h>
+#include <Controllers/TouchControl.h>
+
 namespace MagicWars_NS {
     bool TurnController::insert(Magican* i_char, const std::string& i_side)
     {
@@ -91,6 +94,15 @@ namespace MagicWars_NS {
         {
             d_persons[i].d_active = TURN_MOVE | TURN_ATTACK;
             i->increaseMind();
+            
+            //show message and centralize on first hero
+            if( d_iterSideTurn == d_sides.begin() )
+            {
+                MagicWars_NS::TouchControl::instance().centralizeOn((*sideArray(*d_iterSideTurn).begin())->getSprite()->getPosition());
+                cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
+                cocos2d::Vec2 screenCenter(visibleSize.width/2, visibleSize.height/2);
+                cocos2d::Director::getInstance()->getRunningScene()->addChild(UI_NS::Message::create(screenCenter, cocos2d::Color4F{0,0,0,0.5}, "Ваш ход"));
+            }
         }
         return false;
     }

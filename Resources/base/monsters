@@ -3,7 +3,7 @@
     spriteType = ANIMATED
     spriteName = stub.png
     animationName = wolf1.png
-    animationParams = quadAnimation3
+    animationParams = quadAnimation3x64
     health = 50
     concentrate = 2
     mind = 0

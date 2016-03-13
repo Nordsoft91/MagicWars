@@ -10,6 +10,7 @@
 #include "UITrigger.h"
 #include "UITutorialPressOnMap.h"
 #include <Travel/TravelScene.h>
+#include <Common/MovingStructure.h>
 
 namespace UI_NS {
     
@@ -50,7 +51,7 @@ namespace UI_NS {
     
     EventHeap::~EventHeap()
     {
-        cocos2d::log("Heap destructor");
+        //cocos2d::log("Heap destructor");
         
         for(auto* i : d_events)
         {
@@ -68,8 +69,12 @@ namespace UI_NS {
     
     void EventDialog::throwEvent()
     {
-        MagicWars_NS::TouchControl::instance().centralizeOn(d_owner->getPosition());
-        d_owner->addChild(UI_NS::MessageSequence::create(cocos2d::Vec2(64,128), cocos2d::Color4F{1,1,1,0.5}, d_message));
+        if( auto obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name))
+        {
+            d_owner = obj->getSprite();
+            MagicWars_NS::TouchControl::instance().centralizeOn(d_owner->getPosition());
+            d_owner->addChild(UI_NS::MessageSequence::create(cocos2d::Vec2(64,128), cocos2d::Color4F{1,1,1,0.5}, d_message));
+        }
     }
     
     bool EventCondition::get() const
@@ -99,5 +104,58 @@ namespace UI_NS {
         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
         auto scene = MagicWars_NS::TravelScene::create();
         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
+    }
+    
+    void EventLose::throwEvent()
+    {
+        cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+        auto scene = MagicWars_NS::TravelScene::create();
+        cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
+    }
+    
+    void EventMove::throwEvent()
+    {
+        if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name)))
+        {
+            int rad = std::max(abs(d_x),abs(d_y));
+            auto move = new MagicWars_NS::MovingStructure(object, object->x, object->y, rad );
+            MagicWars_NS::TouchControl::instance().prepareMovingStructure(*move);
+            move->applyPath(int(object->x)+d_x, int(object->y)+d_y);
+        }
+    }
+    
+    void EventBorn::throwEvent()
+    {
+        if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_obj)))
+        {
+            d_x += object->x;
+            d_y += object->y;
+        }
+        
+        if( MagicWars_NS::Magican* object = MagicWars_NS::TouchControl::instance().createMagican(d_x, d_y, d_group, d_name) )
+        {
+            if( d_addToTurn )
+                MagicWars_NS::TouchControl::instance().getTurnController().insert( object, d_team);
+        }
+    }
+    
+    void EventSpell::throwEvent()
+    {
+        if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name)))
+        {
+            d_x += object->x;
+            d_y += object->y;
+            MagicWars_NS::TouchControl::instance().coverRange({{object->x, object->y},{d_x, d_y}}, d_spell);
+            MagicWars_NS::TouchControl::instance().performSpell(object, d_x, d_y, d_spell);
+            MagicWars_NS::SquareControl::instance().deleteSquares();
+        }
+    }
+    
+    void EventCentralize::throwEvent()
+    {
+        if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name)))
+        {
+            MagicWars_NS::TouchControl::instance().centralizeOn(object->getSprite()->getPosition());
+        }
     }
 }

@@ -32,6 +32,8 @@ namespace MagicWars_NS {
         double useRay(int x, int y, bool i_action = false);
         double useFirewall(int x, int y, bool i_action = false);
         
+        double useTrick(const std::string& i_trick, int x, int y, bool i_action = false);
+        
     protected:
         std::vector<Magican*> d_enemies;
         std::map<Magican*, double> d_goals;

@@ -39,6 +39,7 @@ namespace MagicWars_NS {
         d_point = cocos2d::Sprite::create(RES("travel","points.png"), cocos2d::Rect{100,100,100,100});
         d_point->setAnchorPoint(cocos2d::Vec2::ZERO);
         addChild(d_point);
+        setVisible(true);
     }
     
     bool TravelScene::init()
