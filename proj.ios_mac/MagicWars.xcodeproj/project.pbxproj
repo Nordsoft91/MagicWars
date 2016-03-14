@@ -54,8 +54,6 @@
 		8438F0081C8B5C3A00087593 /* map1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438F0051C8B5C3A00087593 /* map1.png */; };
 		8438F0091C8B5C3A00087593 /* points.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438F0061C8B5C3A00087593 /* points.png */; };
 		8438F00A1C8B5C3A00087593 /* points.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438F0061C8B5C3A00087593 /* points.png */; };
-		8438F0281C8B730B00087593 /* save in Resources */ = {isa = PBXBuildFile; fileRef = 8438F0271C8B730B00087593 /* save */; };
-		8438F0291C8B730B00087593 /* save in Resources */ = {isa = PBXBuildFile; fileRef = 8438F0271C8B730B00087593 /* save */; };
 		843D49EE1C00CECD00835492 /* UIIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843D49EC1C00CECD00835492 /* UIIcon.cpp */; };
 		843D49EF1C00CECD00835492 /* UIIcon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843D49EC1C00CECD00835492 /* UIIcon.cpp */; };
 		843D4A161C00D2FF00835492 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 843D4A151C00D2FF00835492 /* Icons */; };
@@ -102,6 +100,8 @@
 		8497C9E51C1DBE93005C334C /* StringUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8497C9E21C1DBE93005C334C /* StringUtils.cpp */; };
 		8497C9E81C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */; };
 		8497C9E91C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */; };
+		84A07BF21C974451001300B0 /* mapObjects in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF11C974451001300B0 /* mapObjects */; };
+		84A07BF31C974451001300B0 /* mapObjects in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF11C974451001300B0 /* mapObjects */; };
 		84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206F1BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */; };
@@ -745,7 +745,6 @@
 		8438EFFE1C8B5A9E00087593 /* TravelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelScene.h; path = Travel/TravelScene.h; sourceTree = "<group>"; };
 		8438F0051C8B5C3A00087593 /* map1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map1.png; path = travel/map1.png; sourceTree = "<group>"; };
 		8438F0061C8B5C3A00087593 /* points.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = points.png; path = travel/points.png; sourceTree = "<group>"; };
-		8438F0271C8B730B00087593 /* save */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = save; sourceTree = "<group>"; };
 		843D49EC1C00CECD00835492 /* UIIcon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIIcon.cpp; sourceTree = "<group>"; };
 		843D49ED1C00CECD00835492 /* UIIcon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIIcon.h; sourceTree = "<group>"; };
 		843D4A151C00D2FF00835492 /* Icons */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Icons; sourceTree = "<group>"; };
@@ -774,6 +773,7 @@
 		8497C9E21C1DBE93005C334C /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
 		8497C9E31C1DBE93005C334C /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapT_S_tutorial01_triggers.txt; sourceTree = "<group>"; };
+		84A07BF11C974451001300B0 /* mapObjects */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapObjects; sourceTree = "<group>"; };
 		84B520141BFFC2C1004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIController.cpp; sourceTree = "<group>"; };
 		84B520151BFFC2C1004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIController.h; sourceTree = "<group>"; };
 		84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIEngine.cpp; sourceTree = "<group>"; };
@@ -1491,7 +1491,6 @@
 			isa = PBXGroup;
 			children = (
 				84B520B91BFFC41D004A6CA0 /* automap */,
-				8438F0271C8B730B00087593 /* save */,
 				84B520BA1BFFC41D004A6CA0 /* automap_reserve */,
 				84B520BB1BFFC41D004A6CA0 /* Girl */,
 				84B520BC1BFFC41D004A6CA0 /* hero01 */,
@@ -1510,6 +1509,7 @@
 				843D4A151C00D2FF00835492 /* Icons */,
 				84B72D0A1C88F90500660898 /* WizardWay */,
 				84F152921C962DBD00B57942 /* animations */,
+				84A07BF11C974451001300B0 /* mapObjects */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -2095,6 +2095,7 @@
 				84B521AB1BFFC41E004A6CA0 /* keyPersons in Resources */,
 				84B521F11BFFC41E004A6CA0 /* icon3.gif in Resources */,
 				84B522471BFFC41E004A6CA0 /* 002_G_Shadow01.png in Resources */,
+				84A07BF21C974451001300B0 /* mapObjects in Resources */,
 				84B522A91BFFC41E004A6CA0 /* 026-Ocean03.png in Resources */,
 				84B522551BFFC41E004A6CA0 /* 005-Grass_Road01.png in Resources */,
 				84B522631BFFC41E004A6CA0 /* 009-CastleTown01.png in Resources */,
@@ -2127,7 +2128,6 @@
 				84B521E71BFFC41E004A6CA0 /* icon1.gif in Resources */,
 				84B522731BFFC41E004A6CA0 /* 013-G2_Swamp02.png in Resources */,
 				84B72CFD1C88E58500660898 /* frame.png in Resources */,
-				8438F0281C8B730B00087593 /* save in Resources */,
 				84B5233B1BFFC41E004A6CA0 /* 075-CW_Shadow01.png in Resources */,
 				84B522DD1BFFC41E004A6CA0 /* 039-Tree04.png in Resources */,
 				84B5232F1BFFC41E004A6CA0 /* 069-CI_Shadow01.png in Resources */,
@@ -2352,7 +2352,6 @@
 				84B522AA1BFFC41E004A6CA0 /* 026-Ocean03.png in Resources */,
 				84B72CF11C88E4A600660898 /* camp2_d.png in Resources */,
 				843D4A481C0202D800835492 /* undead02.png in Resources */,
-				8438F0291C8B730B00087593 /* save in Resources */,
 				84B5227E1BFFC41E004A6CA0 /* 015-Sa_Water01.png in Resources */,
 				84B72D051C88EDE700660898 /* background1.jpg in Resources */,
 				84B521C01BFFC41E004A6CA0 /* BubbleShield.png in Resources */,
@@ -2488,6 +2487,7 @@
 				84B522B61BFFC41E004A6CA0 /* 029-Sn_Shadow01.png in Resources */,
 				84B523041BFFC41E004A6CA0 /* 049-InnerBody01.png in Resources */,
 				84B522F41BFFC41E004A6CA0 /* 045-Cave03.png in Resources */,
+				84A07BF31C974451001300B0 /* mapObjects in Resources */,
 				84B5229A1BFFC41E004A6CA0 /* 022-SnowTown02.png in Resources */,
 				84B522BA1BFFC41E004A6CA0 /* 030-Sn_Ground01.png in Resources */,
 				84B522841BFFC41E004A6CA0 /* 017-MineTown01.png in Resources */,

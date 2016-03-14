@@ -1,3 +1,20 @@
+<group> testPerson
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = hero01.png
+animationParams = charAnimation3
+health = 900
+concentrate = 100
+mind = 500
+wisdom = 60
+speed = 3
+expirience = 10000
+weapon = weapon_staff
+trickSkills = { trick_shoot }
+spellBook = { spell_fireball spell_lighting }
+}
+
 <group> olderman
 {
     spriteType = ANIMATED

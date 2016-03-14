@@ -52,6 +52,10 @@ namespace MagicWars_NS
         
         void setActive(bool i_act);
         
+        virtual void onEndOfMove(size_t ix, size_t iy) override;
+        
+        virtual void kill() override;
+        
         std::vector<std::string> d_spells;
         std::map<std::string, int> d_tricks;
         std::string d_weapon;

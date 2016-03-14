@@ -112,7 +112,22 @@ void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::
     
     if(Consts::isExist("createObject", i_spell))
     {
-        ContainUtils::findObjectById(d_mapObjects, ContainUtils::createObjectWithName<AnimatedObject>(d_mapObjects, Consts::get("createObject", i_spell)))->born(d_mapLayer, x, y);
+        const std::string createObjGroup = Consts::get("createObject", i_spell);
+        if((std::string)Consts::get("class", createObjGroup) == "FIRE")
+        {
+            int arg = 0;
+            if(Consts::isExist("createObjectArg", i_spell))
+                arg = Consts::get("createObjectArg", i_spell);
+                
+            auto newObj = new ObjectFire(createObjGroup, arg);
+            d_mapObjects.push_back(newObj);
+            newObj->born(d_mapLayer, x, y);
+            
+            if( auto collide = dynamic_cast<Magican*>(ContainUtils::findObject(d_persons, x, y)) )
+            {
+                newObj->collisionWithMagican(collide);
+            }
+        }
     }
 }
 

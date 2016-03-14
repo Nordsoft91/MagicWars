@@ -21,7 +21,9 @@ namespace MagicWars_NS {
         
         virtual void move(const std::list<int>& i_list);
         //virtual void born(cocos2d::Layer *io_layer, size_t ix, size_t iy);
-        //virtual void kill();
+        virtual void kill() override;
+        
+        void onDeath();
         
     protected:
         Animated *anim;

@@ -76,7 +76,7 @@ void GameObj::move(char i_direction)
     x += tx; y += ty;
     
     auto action = cocos2d::MoveTo::create(0.5, cocos2d::Point(x*globalStepX,y*globalStepY));
-    d_sprite->runAction(action);
+    d_sprite->runAction(cocos2d::Sequence::create(action,cocos2d::CallFuncN::create(CC_CALLBACK_0(GameObj::onEndOfMove, this, x, y)),NULL));
 }
 
 void GameObj::move(const std::list<int>& i_list)
@@ -95,9 +95,14 @@ void GameObj::move(const std::list<int>& i_list)
         x += tx; y += ty;
         
         seq.pushBack(cocos2d::MoveTo::create(0.3, cocos2d::Point(x*globalStepX,y*globalStepY)));
+        seq.pushBack(cocos2d::CallFuncN::create(CC_CALLBACK_0(GameObj::onEndOfMove, this, x, y)));
         
     }
     d_sprite->setZOrder(1000-y);
     auto action = cocos2d::Sequence::create(seq);
     d_sprite->runAction(action);
+}
+
+void GameObj::onEndOfMove(size_t ix, size_t iy)
+{
 }

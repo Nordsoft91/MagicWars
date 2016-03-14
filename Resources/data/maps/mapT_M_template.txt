@@ -9,6 +9,10 @@ orientation=orthogonal
 tileset=../tiles/tsSurfaces.png,64,64,0,0
 tileset=../tiles/vx_map02/001_Grassland01.png,64,64,0,0
 
+[characters]
+character=Light,testPerson,7,9
+character=Dark,wolf01,9,11
+
 [layer]
 type=layerSet
 data=

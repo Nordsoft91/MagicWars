@@ -37,6 +37,8 @@ namespace MagicWars_NS {
         
         virtual void move(const std::list<int>& i_list);
         
+        virtual void onEndOfMove(size_t ix, size_t iy);
+        
         void setName(const std::string& i_name) {d_name=i_name;}
         const std::string& getName() const {return d_name;}
         

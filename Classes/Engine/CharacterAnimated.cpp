@@ -46,7 +46,7 @@ void CharacterAnimated::move(const std::list<int>& i_list)
         x += tx; y += ty;
         
         seq.pushBack(cocos2d::MoveTo::create(0.4, cocos2d::Point(x*globalStepX,y*globalStepY)));
-        
+        seq.pushBack(cocos2d::CallFuncN::create(CC_CALLBACK_0(GameObj::onEndOfMove, this, x, y)));
     }
     d_sprite->setZOrder(1000-y);
     auto action = cocos2d::Sequence::create(seq);
@@ -58,4 +58,21 @@ void CharacterAnimated::move(const std::list<int>& i_list)
     }
 	anim = Animated::create(RES("persons", (std::string)Consts::get("animationName", d_group)), Consts::get("animationParams", d_group), animSeq);
     d_sprite->addChild(anim, 2);
+}
+
+void CharacterAnimated::kill()
+{
+    anim->runAction(
+                    cocos2d::Sequence::create(
+                                              cocos2d::FadeOut::create(3),
+                                              cocos2d::CallFuncN::create(CC_CALLBACK_0(CharacterAnimated::onDeath, this)),
+                                              NULL));
+}
+                    
+void CharacterAnimated::onDeath()
+{
+    d_sprite->removeAllChildren();
+    d_sprite->removeFromParent();
+    x = -1;
+    y = -1;
 }

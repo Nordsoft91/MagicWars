@@ -21,7 +21,7 @@ namespace MagicWars_NS {
     
     struct SquareShape
     {
-        
+    
     };
     
     class SquareControl: public Uncopyble

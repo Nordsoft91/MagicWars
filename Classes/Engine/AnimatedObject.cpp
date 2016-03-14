@@ -10,20 +10,65 @@
 
 namespace MagicWars_NS {
     
-AnimatedObject::AnimatedObject(const std::string& i_group): GameObj("stub.png")
-{
-    if(std::string(Consts::get("spriteType", i_group)) != "ANIMATED")
-        throw std::runtime_error("not animated object!");
-    
-    auto seq = Consts::get("sequence", i_group).toVector<int>();
-    if(seq.empty())
+    AnimatedObject::AnimatedObject(): GameObj("stub.png")
     {
-        anim = Animated::create((std::string)Consts::get("animationName", i_group), i_group, 0, (size_t)Consts::get("sizeX", i_group) * (size_t)Consts::get("sizeY", i_group), true);
+        
     }
-    else
-        anim = Animated::create((std::string)Consts::get("animationName", i_group), i_group, seq, true);
     
-    d_sprite->addChild(anim, 2);
-}
+    AnimatedObject::AnimatedObject(const std::string& i_group): GameObj("stub.png")
+    {
+        switchAnimation(i_group);
+    }
+    
+    void AnimatedObject::switchAnimation(const std::string &i_animation)
+    {
+        d_sprite->removeAllChildren();
+        
+        if(std::string(Consts::get("spriteType", i_animation)) != "ANIMATED")
+            throw std::runtime_error("not animated object!");
+        
+        auto seq = Consts::get("sequence", i_animation).toVector<int>();
+        if(seq.empty())
+        {
+            anim = Animated::create((std::string)Consts::get("animationName", i_animation), i_animation, 0, (size_t)Consts::get("sizeX", i_animation) * (size_t)Consts::get("sizeY", i_animation), true);
+        }
+        else
+            anim = Animated::create((std::string)Consts::get("animationName", i_animation), i_animation, seq, true);
+        
+        d_sprite->addChild(anim, 2);
+    }
+    
+    ObjectFire::ObjectFire(const std::string& i_fireDescription, int i_stage): d_description(i_fireDescription), d_liveTime(i_stage)
+    {
+        auto s = Consts::get("animatedArray", d_description).toVector<std::string>().at(d_liveTime);
+        switchAnimation(s);
+    }
+    
+    bool ObjectFire::turn()
+    {
+        auto v = Consts::get("animatedArray", d_description).toVector<std::string>();
+        if(v.size()<= ++d_liveTime)
+        {
+            kill();
+            return true;
+        }
+        
+        switchAnimation(v[d_liveTime]);
+        return false;
+    }
+    
+    void ObjectFire::collisionWithMagican(MagicWars_NS::Magican *i_magican)
+    {
+        if(std::string(Consts::get("type", d_description))=="DAMMAGE")
+        {
+            cocos2d::log("ouch");
+            i_magican->decreaseHealth(int(Consts::get("force", d_description)));
+        }
+        if(std::string(Consts::get("type", d_description))=="BLESS")
+        {
+            if(std::string(Consts::get("bressType", d_description))=="HEAL")
+                i_magican->increaseHealth(int(Consts::get("force", d_description)));
+        }
+    }
     
 }

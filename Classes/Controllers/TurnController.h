@@ -47,6 +47,8 @@ namespace MagicWars_NS {
         
         bool endTurn(int i_status);
         
+        void newTurn();
+        
         Magican* getTurn() const;
         
         std::string getTurnSide() const;

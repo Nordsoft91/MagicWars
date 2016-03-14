@@ -10,6 +10,7 @@
 
 #include <Interface/UIMessage.h>
 #include <Controllers/TouchControl.h>
+#include <Engine/AnimatedObject.h>
 
 namespace MagicWars_NS {
     bool TurnController::insert(Magican* i_char, const std::string& i_side)
@@ -84,6 +85,7 @@ namespace MagicWars_NS {
             {
                 ++d_turnNumber;
                 d_iterSideTurn = d_sides.begin();
+                newTurn();
             }
         }
         while(sideArray(*d_iterSideTurn).empty());
@@ -164,5 +166,24 @@ namespace MagicWars_NS {
             }
         }
         return res;
+    }
+    
+    void TurnController::newTurn()
+    {
+        //make time objects
+        {
+            auto lst = ContainUtils::findObjectsByType<ObjectFire>( MagicWars_NS::TouchControl::instance().getAllObjects() );
+            for( auto* i : lst)
+                i->turn();
+        }
+        //make magicans
+        {
+            auto lst = ContainUtils::findObjectsByType<Magican>( MagicWars_NS::TouchControl::instance().getAllPersons() );
+            for( auto* i : lst)
+                for( auto& t : i->d_tricks)
+                    if(t.second)
+                        --t.second;
+        }
+        
     }
 }

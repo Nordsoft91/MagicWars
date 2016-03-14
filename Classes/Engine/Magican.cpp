@@ -7,6 +7,9 @@
 //
 
 #include "Magican.h"
+#include <Common/ContainUtils.h>
+#include <Controllers/TouchControl.h>
+#include <Engine/AnimatedObject.h>
 
 using namespace MagicWars_NS;
 
@@ -34,11 +37,11 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
     
     if(d_sprite)
     {
-        d_visualizeMind = StatusUpdater::create(28, cocos2d::Color4F(0.,0.,1.,0.2));
+        d_visualizeMind = StatusUpdater::create(38, cocos2d::Color4F(0.,0.,1.,0.2));
         d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
         d_sprite->addChild(d_visualizeMind, 7);
     
-        d_visualizeHealth = StatusUpdater::create(34, cocos2d::Color4F(1.,0.,0.,0.2));
+        d_visualizeHealth = StatusUpdater::create(44, cocos2d::Color4F(1.,0.,0.,0.2));
         d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
         d_sprite->addChild(d_visualizeHealth, 8);
     
@@ -89,11 +92,11 @@ void Magican::metamorph(const std::string i_group)
     
     if(d_sprite)
     {
-        d_visualizeMind = StatusUpdater::create(28, cocos2d::Color4F(0.,0.,1.,0.2));
+        d_visualizeMind = StatusUpdater::create(38, cocos2d::Color4F(0.,0.,1.,0.2));
         d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
         d_sprite->addChild(d_visualizeMind);
     
-        d_visualizeHealth = StatusUpdater::create(34, cocos2d::Color4F(1.,0.,0.,0.2));
+        d_visualizeHealth = StatusUpdater::create(45, cocos2d::Color4F(1.,0.,0.,0.2));
         d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
         d_sprite->addChild(d_visualizeHealth);
     
@@ -114,11 +117,16 @@ void Magican::decreaseHealth(unsigned int i_dammage)
     d_visualizeHealth->setStatus(float(d_health)/float(d_healthMax));
     if(d_health<=0)
     {
-        d_sprite->removeAllChildren();
-        d_sprite->removeFromParent();
-        x = -1;
-        y = -1;
+        kill();
     }
+}
+
+void Magican::kill()
+{
+    d_sprite->removeAllChildren();
+    d_sprite->removeFromParent();
+    x = -1;
+    y = -1;
 }
 
 void Magican::decreaseMind(unsigned int i_decr)
@@ -220,4 +228,12 @@ void Magican::showStatus(bool i_show, double i_time)
 void Magican::setActive(bool i_act)
 {
     d_currentTurnLight->show(i_act);
+}
+
+void Magican::onEndOfMove(size_t ix, size_t iy)
+{
+    if( auto collide = dynamic_cast<ObjectFire*>(ContainUtils::findObject(GET_OBJECTS_LIST, ix, iy)) )
+    {
+        collide->collisionWithMagican(this);
+    }
 }

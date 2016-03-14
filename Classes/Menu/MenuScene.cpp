@@ -56,6 +56,22 @@ namespace Menu_NS {
         background->addChild(backgroundImage);
         background->addChild(menu);
         
+        //sandbox
+        auto sandboxButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
+                                                           {
+                                                               //std::string missionName, mapFile, triggersFile, rulesFile, prevMission;
+                                                               //std::list<std::string> briefing;
+                                                               //size_t x, y;
+                                                               
+                                                               CampaignReader::Mission mission{"Песочница", "mapT_M_template.txt", "", "mapRule_Grassland01.txt", "", {}, 0, 0};
+                                                               
+                                                               auto scene = HelloWorld::createScene(mission);
+                                                               
+                                                               cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
+                                                           });
+        sandboxButton->setPosition(100, 100);
+        menu->addChild(sandboxButton);
+        
         addChild(background);
         
         return true;

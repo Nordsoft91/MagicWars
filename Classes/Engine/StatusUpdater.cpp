@@ -28,17 +28,19 @@ StatusUpdater* StatusUpdater::create(double i_cicrleRadius, cocos2d::Color4F i_c
 
 void StatusUpdater::update(float delta)
 {
-    if(fabs(d_value-d_status)>0.05f || !delta)
+    if(fabs(d_value-d_status)>0.03f || !delta)
     {
         setVisible(true);
         clear();
         double dPI = Consts::get("math2PI");
-        double step = double(Consts::get("mathPI")) / 30;
+        double step = double(Consts::get("mathPI")) / 40;
         for(float i=0; i<dPI * d_value/d_maximum; i+=step)
         {
-            drawSolidCircle(cocos2d::Vec2(d_circleRadius*cos(i), d_circleRadius*sin(i)), 4, 0.6, 6, d_color );
+            drawSolidCircle(cocos2d::Vec2(d_circleRadius*cos(i), d_circleRadius*sin(i)), 6, 0.6, 6, d_color );
         }
-        d_value-=(d_value-d_status)/30+0.001f;
+        d_value-=(d_value-d_status)/100+0.0001f;
+        d_force = true;
+        d_forceTime = 2;
     }
     else
     {

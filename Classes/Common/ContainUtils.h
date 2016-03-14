@@ -13,6 +13,9 @@
 #include <list>
 #include <map>
 
+#define GET_OBJECTS_LIST MagicWars_NS::TouchControl::instance().getAllObjects()
+#define GET_PERSONS_LIST MagicWars_NS::TouchControl::instance().getAllPersons()
+
 namespace MagicWars_NS {
     
     //TODO: replave std::list with smart structure
@@ -28,14 +31,26 @@ namespace MagicWars_NS {
         static GameObj* findObject(const std::vector<GameObj*>& i_arr, size_t i_x, size_t i_y);
         
         static Magican* findMagican(const std::vector<Magican*>& i_arr, size_t i_x, size_t i_y);
+        
+        template<class T>
+        static std::list<T*> findObjectsByType(const std::list<GameObj*>& i_list)
+        {
+            std::list<T*> o;
+            for(auto i : i_list)
+            {
+                if(auto p = dynamic_cast<T*>(i))
+                    o.push_back(p);
+            }
+            return o;
+        }
     
         template<class T>
         static T* findFirstObjectByType(const std::list<GameObj*>& i_list) 
         {
             for(auto i : i_list)
             {
-                if(dynamic_cast<T*>(i))
-                return dynamic_cast<T*>(i);
+                if(auto p = dynamic_cast<T*>(i))
+                return p;
             }
             return nullptr;
         }
