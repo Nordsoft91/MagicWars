@@ -61,13 +61,16 @@ namespace MagicWars_NS {
     {
         if(std::string(Consts::get("type", d_description))=="DAMMAGE")
         {
-            cocos2d::log("ouch");
             i_magican->decreaseHealth(int(Consts::get("force", d_description)));
         }
         if(std::string(Consts::get("type", d_description))=="BLESS")
         {
             if(std::string(Consts::get("bressType", d_description))=="HEAL")
                 i_magican->increaseHealth(int(Consts::get("force", d_description)));
+        }
+        if(std::string(Consts::get("type", d_description))=="STATE")
+        {
+            i_magican->setState(Consts::get("state", d_description), d_liveTime);
         }
     }
     

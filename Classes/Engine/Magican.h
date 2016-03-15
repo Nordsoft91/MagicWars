@@ -56,11 +56,14 @@ namespace MagicWars_NS
         
         virtual void kill() override;
         
+        void setState(const std::string& i_state, int i_turns, bool isAdditive = false);
+        
         std::vector<std::string> d_spells;
         std::map<std::string, int> d_tricks;
+        std::vector<std::pair<std::string, int>> d_states;
         std::string d_weapon;
         
-    public:
+    protected:
         std::string d_group;
         int d_health = 0;
         int d_healthMax = 0;
@@ -76,6 +79,7 @@ namespace MagicWars_NS
         StatusUpdater *d_visualizeHealth;
         StatusUpdater *d_visualizeMind;
         CurrentTurnLight *d_currentTurnLight = nullptr;
+        
         
     };
 }

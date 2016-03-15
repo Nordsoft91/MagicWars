@@ -107,6 +107,8 @@ void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::
         {
             if(std::string(Consts::get("bressType", i_spell))=="HEAL")
                 tgrt->increaseHealth(int(Consts::get("force", i_spell)));
+            if(std::string(Consts::get("bressType", i_spell))=="STATE")
+                tgrt->setState(Consts::get("state", i_spell), Consts::get("force", i_spell));
         }
     }
     

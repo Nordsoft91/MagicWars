@@ -6,10 +6,14 @@ panel_finish = { flying-flag.png 0 0 0 }
 
 spell_fireball = { fire-tail.png 255 0 0 }
 spell_lighting = { thunder-struck.png 80 80 250 }
+spell_shield = { checked-shield.png 60 10 200 }
 
 trick_shoot = { bowman.png 125 90 0 }
 
 weapon_dagger = { plain-dagger.png 0 0 0 }
 weapon_staff = { wizard-staff.png 0 0 0 }
 weapon_jawbone = { jawbone.png 0 0 0 }
+
+state_burn = { fire-silhouette.png 250 40 30 }
+state_shield = { checked-shield.png 60 10 200 }
 }

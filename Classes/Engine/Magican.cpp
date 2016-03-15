@@ -223,11 +223,35 @@ void Magican::showStatus(bool i_show, double i_time)
 {
     d_visualizeHealth->show(i_show, i_time);
     d_visualizeMind->show(i_show, i_time);
+    
+    size_t sz = d_states.size();
+    for(size_t i = 0; i<sz; ++i)
+    {
+        auto notify = StateNotify::create(d_states[i].first, d_states[i].second);
+        notify->setPositionAround(80, sz, i);
+        d_visualizeHealth->addChild(notify);
+    }
 }
 
 void Magican::setActive(bool i_act)
 {
     d_currentTurnLight->show(i_act);
+}
+
+void Magican::setState(const std::string &i_state, int i_turns, bool isAdditive)
+{
+    for(auto& i : d_states)
+    {
+        if(i.first == i_state)
+        {
+            if(isAdditive)
+                i.second += i_turns;
+            else
+                i.second = std::max(i.second, i_turns);
+            return;
+        }
+    }
+    d_states.push_back({i_state, i_turns});
 }
 
 void Magican::onEndOfMove(size_t ix, size_t iy)

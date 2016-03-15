@@ -8,6 +8,8 @@
 
 #include "StatusUpdater.h"
 
+#include <Interface/UIIcon.h>
+
 using namespace MagicWars_NS;
 
 StatusUpdater* StatusUpdater::create(double i_cicrleRadius, cocos2d::Color4F i_color)
@@ -48,7 +50,10 @@ void StatusUpdater::update(float delta)
         if(d_forceTime>0)
             d_forceTime-=delta;
         else
+        {
             d_force = false;
+            removeAllChildren();
+        }
     }
 }
 
@@ -74,3 +79,56 @@ void StatusUpdater::show(bool i_force, double i_time)
     d_forceTime = i_time;
 }
 
+StateNotify* StateNotify::create(const std::string& i_state, int i_value)
+{
+    StateNotify *pRet = new StateNotify;
+    if (pRet && pRet->init(i_state, i_value))
+    {
+        pRet->autorelease();
+        return pRet;
+    }
+    else
+    {
+        delete pRet;
+        pRet = NULL;
+        return NULL;
+    }
+}
+
+bool StateNotify::init(const std::string &i_state, int i_value)
+{
+    if(!cocos2d::Node::init())
+        return false;
+    
+    auto back = cocos2d::Sprite::create(RES("Interface","roundButton.png"));
+    auto icon = UI_NS::Icon::createFromConsts(i_state);
+    //auto numb = cocos2d::Label::createWithTTF(std::to_string(i_value), RES("fonts", "Washington.ttf"), 24);
+    
+    icon->setAnchorPoint({0.5,0.5});
+    icon->setScale(0.09);
+    
+    //numb->setColor(cocos2d::Color3B::BLACK);
+    //numb->setOpacity(140);
+    
+    addChild(back);
+    addChild(icon);
+    //addChild(numb);
+    
+    setScale(0.7);
+    
+    return true;
+}
+
+void StateNotify::setPositionAround(float i_radius, size_t i_max, size_t n)
+{
+    if(n>=i_max)
+        throw std::logic_error("cannot place around with zero maximum elements");
+    
+    if(i_max==1)
+        setPosition(0, i_radius);
+    else
+    {
+        double angle = double(n)/double(i_max) * (double)Consts::get("math2PI") + (double)Consts::get("mathPI2");
+        setPosition(i_radius*cos(angle), i_radius*sin(angle));
+    }
+}

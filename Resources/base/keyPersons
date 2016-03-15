@@ -12,7 +12,7 @@ speed = 3
 expirience = 10000
 weapon = weapon_staff
 trickSkills = { trick_shoot }
-spellBook = { spell_fireball spell_lighting }
+spellBook = { spell_fireball spell_lighting spell_shield }
 }
 
 <group> olderman

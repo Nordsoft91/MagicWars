@@ -42,5 +42,17 @@ protected:
     double d_circleRadius;
     cocos2d::Color4F d_color;
 };
+    
+    class StateNotify: public cocos2d::Node
+    {
+    public:
+        static StateNotify* create(const std::string& i_state, int i_value);
+        
+        void setPositionAround(float i_radius, size_t i_max, size_t n);
+        
+    protected:
+        bool init(const std::string& i_state, int i_value);
+    };
+
 }
 #endif /* defined(__MagicWars__StatusUpdater__) */

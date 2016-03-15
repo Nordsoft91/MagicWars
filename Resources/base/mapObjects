@@ -2,6 +2,6 @@
 {
 class = FIRE
 animatedArray = { fire01_animation fire02_animation fire03_animation fire04_animation }
-type = DAMMAGE
-force = 10
+type = STATE
+state = state_burn
 }

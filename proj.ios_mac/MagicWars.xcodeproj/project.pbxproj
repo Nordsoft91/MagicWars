@@ -102,6 +102,14 @@
 		8497C9E91C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */; };
 		84A07BF21C974451001300B0 /* mapObjects in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF11C974451001300B0 /* mapObjects */; };
 		84A07BF31C974451001300B0 /* mapObjects in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF11C974451001300B0 /* mapObjects */; };
+		84A07BF51C98C014001300B0 /* ArmorBoost.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF41C98C014001300B0 /* ArmorBoost.png */; };
+		84A07BF61C98C014001300B0 /* ArmorBoost.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF41C98C014001300B0 /* ArmorBoost.png */; };
+		84A07BF81C98C0F5001300B0 /* fire-silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF71C98C0F5001300B0 /* fire-silhouette.png */; };
+		84A07BF91C98C0F5001300B0 /* fire-silhouette.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BF71C98C0F5001300B0 /* fire-silhouette.png */; };
+		84A07BFE1C98C50F001300B0 /* roundButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BFD1C98C50F001300B0 /* roundButton.png */; };
+		84A07BFF1C98C50F001300B0 /* roundButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BFD1C98C50F001300B0 /* roundButton.png */; };
+		84A07C011C98CB45001300B0 /* checked-shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C001C98CB45001300B0 /* checked-shield.png */; };
+		84A07C021C98CB45001300B0 /* checked-shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C001C98CB45001300B0 /* checked-shield.png */; };
 		84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206F1BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */; };
@@ -774,6 +782,10 @@
 		8497C9E31C1DBE93005C334C /* StringUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtils.h; sourceTree = "<group>"; };
 		8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapT_S_tutorial01_triggers.txt; sourceTree = "<group>"; };
 		84A07BF11C974451001300B0 /* mapObjects */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapObjects; sourceTree = "<group>"; };
+		84A07BF41C98C014001300B0 /* ArmorBoost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArmorBoost.png; sourceTree = "<group>"; };
+		84A07BF71C98C0F5001300B0 /* fire-silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fire-silhouette.png"; path = "icons/fire-silhouette.png"; sourceTree = "<group>"; };
+		84A07BFD1C98C50F001300B0 /* roundButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton.png; sourceTree = "<group>"; };
+		84A07C001C98CB45001300B0 /* checked-shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checked-shield.png"; path = "icons/checked-shield.png"; sourceTree = "<group>"; };
 		84B520141BFFC2C1004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIController.cpp; sourceTree = "<group>"; };
 		84B520151BFFC2C1004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIController.h; sourceTree = "<group>"; };
 		84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIEngine.cpp; sourceTree = "<group>"; };
@@ -1323,6 +1335,8 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				84A07C001C98CB45001300B0 /* checked-shield.png */,
+				84A07BF71C98C0F5001300B0 /* fire-silhouette.png */,
 				84F152871C95D20000B57942 /* jawbone.png */,
 				843D4A301C011C5100835492 /* plain-dagger.png */,
 				843D4A311C011C5100835492 /* wizard-staff.png */,
@@ -1535,6 +1549,7 @@
 		84B520CA1BFFC41D004A6CA0 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				84A07BF41C98C014001300B0 /* ArmorBoost.png */,
 				84F152951C962E0700B57942 /* Blaze.png */,
 				84F1528A1C95D7BB00B57942 /* Arrow1.png */,
 				84B520CB1BFFC41D004A6CA0 /* BubbleShield.png */,
@@ -1578,6 +1593,7 @@
 		84B520DE1BFFC41D004A6CA0 /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				84A07BFD1C98C50F001300B0 /* roundButton.png */,
 				843D4A141C00D2AA00835492 /* icons */,
 				84B520DF1BFFC41D004A6CA0 /* icon0_disable.png */,
 				84B520E01BFFC41D004A6CA0 /* icon0_none.png */,
@@ -2003,6 +2019,7 @@
 				84B522071BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
 				84B522B11BFFC41E004A6CA0 /* 028-Sn_Water01.png in Resources */,
 				84B522531BFFC41E004A6CA0 /* 005-Beach01.png in Resources */,
+				84A07BFE1C98C50F001300B0 /* roundButton.png in Resources */,
 				84B522EB1BFFC41E004A6CA0 /* 043-Cave01.png in Resources */,
 				84B521E51BFFC41E004A6CA0 /* icon0_select.png in Resources */,
 				84B521C91BFFC41E004A6CA0 /* Healing1.png in Resources */,
@@ -2077,6 +2094,7 @@
 				843D4A231C00FAEE00835492 /* crossed-swords.png in Resources */,
 				84F152851C95BFA600B57942 /* map_M_mission1_triggers.txt in Resources */,
 				84B522971BFFC41E004A6CA0 /* 022-Roof01.png in Resources */,
+				84A07C011C98CB45001300B0 /* checked-shield.png in Resources */,
 				84B522851BFFC41E004A6CA0 /* 017-Sa_Grass01.png in Resources */,
 				84B521E11BFFC41E004A6CA0 /* icon0_disable.png in Resources */,
 				84B5223F1BFFC41E004A6CA0 /* tilesWater.png in Resources */,
@@ -2111,6 +2129,7 @@
 				84B521B51BFFC41E004A6CA0 /* SpellDescription in Resources */,
 				84B72D081C88F89500660898 /* Taverna.ttf in Resources */,
 				84B522C71BFFC41E004A6CA0 /* 034-Bridge01.png in Resources */,
+				84A07BF81C98C0F5001300B0 /* fire-silhouette.png in Resources */,
 				84B523411BFFC41E004A6CA0 /* 078-CW_Ground01.png in Resources */,
 				8497C9E81C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */,
 				84B521A11BFFC41E004A6CA0 /* automap_reserve in Resources */,
@@ -2141,6 +2160,7 @@
 				84B5231F1BFFC41E004A6CA0 /* 061-CE_Road01.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				84B522811BFFC41E004A6CA0 /* 016-Sa_Shadow01.png in Resources */,
+				84A07BF51C98C014001300B0 /* ArmorBoost.png in Resources */,
 				84B522BD1BFFC41E004A6CA0 /* 031-Sn_Undulation01.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
@@ -2262,6 +2282,7 @@
 				8438F0081C8B5C3A00087593 /* map1.png in Resources */,
 				84B5228C1BFFC41E004A6CA0 /* 019-DesertTown01.png in Resources */,
 				84B522721BFFC41E004A6CA0 /* 012-PortTown02.png in Resources */,
+				84A07BF91C98C0F5001300B0 /* fire-silhouette.png in Resources */,
 				84B521D01BFFC41E004A6CA0 /* LightningBolt.png in Resources */,
 				84B522261BFFC41E004A6CA0 /* Girl.png in Resources */,
 				84B522341BFFC41E004A6CA0 /* farmer01.png in Resources */,
@@ -2336,6 +2357,7 @@
 				84B522B81BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
 				84B522B41BFFC41E004A6CA0 /* 029-Church02.png in Resources */,
 				84B72D0C1C88F90500660898 /* WizardWay in Resources */,
+				84A07C021C98CB45001300B0 /* checked-shield.png in Resources */,
 				84B521C61BFFC41E004A6CA0 /* Fireball.png in Resources */,
 				84B5230C1BFFC41E004A6CA0 /* 051-Carpet01.png in Resources */,
 				84B5233E1BFFC41E004A6CA0 /* 076-CW_Grass01.png in Resources */,
@@ -2414,6 +2436,7 @@
 				843D4A4A1C0202D800835492 /* undead03.png in Resources */,
 				84B5234B1BFFC48F004A6CA0 /* stub.png in Resources */,
 				84B522C21BFFC41E004A6CA0 /* 032-T_Ocean01.png in Resources */,
+				84A07BFF1C98C50F001300B0 /* roundButton.png in Resources */,
 				84B522541BFFC41E004A6CA0 /* 005-Beach01.png in Resources */,
 				84B522A61BFFC41E004A6CA0 /* 025-Ocean02.png in Resources */,
 				84B5229C1BFFC41E004A6CA0 /* 023-FarmVillage01.png in Resources */,
@@ -2440,6 +2463,7 @@
 				84B5225E1BFFC41E004A6CA0 /* 007-Swamp01.png in Resources */,
 				84B522B01BFFC41E004A6CA0 /* 028-Church01.png in Resources */,
 				84B521FE1BFFC41E004A6CA0 /* icon4_select.png in Resources */,
+				84A07BF61C98C014001300B0 /* ArmorBoost.png in Resources */,
 				84B522D01BFFC41E004A6CA0 /* 036-Shop01.png in Resources */,
 				84B72D131C8905F100660898 /* Victorian Gothic One.ttf in Resources */,
 				84B522001BFFC41E004A6CA0 /* icon_fire.png in Resources */,
