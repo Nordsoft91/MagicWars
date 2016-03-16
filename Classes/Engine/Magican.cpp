@@ -225,10 +225,11 @@ void Magican::showStatus(bool i_show, double i_time)
     d_visualizeMind->show(i_show, i_time);
     
     size_t sz = d_states.size();
+    d_visualizeHealth->removeAllChildren();
     for(size_t i = 0; i<sz; ++i)
     {
         auto notify = StateNotify::create(d_states[i].first, d_states[i].second);
-        notify->setPositionAround(80, sz, i);
+        notify->setPositionAround(70, sz, i);
         d_visualizeHealth->addChild(notify);
     }
 }

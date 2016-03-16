@@ -185,9 +185,11 @@ namespace MagicWars_NS {
                     if(t.second)
                         --t.second;
                 
-                for( auto it = i->d_states.begin(); it!=i->d_states.end(); ++it)
+                for( auto it = i->d_states.begin(); it!=i->d_states.end();)
                     if(--(it->second) == 0)
-                        it-- = i->d_states.erase(it);
+                        it = i->d_states.erase(it);
+                    else
+                        ++it;
             }
         }
         

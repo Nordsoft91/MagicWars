@@ -34,7 +34,7 @@ void StatusUpdater::update(float delta)
     {
         setVisible(true);
         clear();
-        double dPI = Consts::get("math2PI");
+        const double dPI = Consts::get("math2PI");
         double step = double(Consts::get("mathPI")) / 40;
         for(float i=0; i<dPI * d_value/d_maximum; i+=step)
         {
@@ -49,7 +49,7 @@ void StatusUpdater::update(float delta)
         setVisible(d_force);
         if(d_forceTime>0)
             d_forceTime-=delta;
-        else
+        else if(d_force)
         {
             d_force = false;
             removeAllChildren();
@@ -104,8 +104,13 @@ bool StateNotify::init(const std::string &i_state, int i_value)
     auto icon = UI_NS::Icon::createFromConsts(i_state);
     //auto numb = cocos2d::Label::createWithTTF(std::to_string(i_value), RES("fonts", "Washington.ttf"), 24);
     
+    GLubyte opac = 40*std::min(i_value, 5);
+    
+    back->setOpacity(opac);
+    //back->setColor(cocos2d::Color3B{opac, opac, opac});
     icon->setAnchorPoint({0.5,0.5});
     icon->setScale(0.09);
+    icon->setOpacity(190);
     
     //numb->setColor(cocos2d::Color3B::BLACK);
     //numb->setOpacity(140);
