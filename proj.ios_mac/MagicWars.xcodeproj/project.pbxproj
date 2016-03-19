@@ -110,6 +110,10 @@
 		84A07BFF1C98C50F001300B0 /* roundButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07BFD1C98C50F001300B0 /* roundButton.png */; };
 		84A07C011C98CB45001300B0 /* checked-shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C001C98CB45001300B0 /* checked-shield.png */; };
 		84A07C021C98CB45001300B0 /* checked-shield.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C001C98CB45001300B0 /* checked-shield.png */; };
+		84A07C041C9B5639001300B0 /* map_S_tavern.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C031C9B5639001300B0 /* map_S_tavern.txt */; };
+		84A07C051C9B5639001300B0 /* map_S_tavern.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C031C9B5639001300B0 /* map_S_tavern.txt */; };
+		84A07C071C9B58D2001300B0 /* mapRule_forestTown.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C061C9B58D2001300B0 /* mapRule_forestTown.txt */; };
+		84A07C081C9B58D2001300B0 /* mapRule_forestTown.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84A07C061C9B58D2001300B0 /* mapRule_forestTown.txt */; };
 		84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520141BFFC2C1004A6CA0 /* AIController.cpp */; };
 		84B5206F1BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */; };
@@ -786,6 +790,8 @@
 		84A07BF71C98C0F5001300B0 /* fire-silhouette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fire-silhouette.png"; path = "icons/fire-silhouette.png"; sourceTree = "<group>"; };
 		84A07BFD1C98C50F001300B0 /* roundButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton.png; sourceTree = "<group>"; };
 		84A07C001C98CB45001300B0 /* checked-shield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checked-shield.png"; path = "icons/checked-shield.png"; sourceTree = "<group>"; };
+		84A07C031C9B5639001300B0 /* map_S_tavern.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_S_tavern.txt; sourceTree = "<group>"; };
+		84A07C061C9B58D2001300B0 /* mapRule_forestTown.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapRule_forestTown.txt; sourceTree = "<group>"; };
 		84B520141BFFC2C1004A6CA0 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIController.cpp; sourceTree = "<group>"; };
 		84B520151BFFC2C1004A6CA0 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIController.h; sourceTree = "<group>"; };
 		84B520161BFFC2C1004A6CA0 /* AIEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AIEngine.cpp; sourceTree = "<group>"; };
@@ -1633,6 +1639,8 @@
 		84B520F71BFFC41D004A6CA0 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				84A07C031C9B5639001300B0 /* map_S_tavern.txt */,
+				84A07C061C9B58D2001300B0 /* mapRule_forestTown.txt */,
 				84B520FB1BFFC41D004A6CA0 /* mapT_S_tutorial01.txt */,
 				8497C9E71C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt */,
 				84F152781C95707E00B57942 /* map_M_intro.txt */,
@@ -2024,6 +2032,7 @@
 				84B521E51BFFC41E004A6CA0 /* icon0_select.png in Resources */,
 				84B521C91BFFC41E004A6CA0 /* Healing1.png in Resources */,
 				84B521B31BFFC41E004A6CA0 /* regularPersons in Resources */,
+				84A07C071C9B58D2001300B0 /* mapRule_forestTown.txt in Resources */,
 				84B522371BFFC41E004A6CA0 /* varvar01.png in Resources */,
 				84B522CF1BFFC41E004A6CA0 /* 036-Shop01.png in Resources */,
 				84B72D041C88EDE700660898 /* background1.jpg in Resources */,
@@ -2169,6 +2178,7 @@
 				84B521F91BFFC41E004A6CA0 /* icon4.gif in Resources */,
 				84B5231D1BFFC41E004A6CA0 /* 060-CE_Grass01.png in Resources */,
 				84B523191BFFC41E004A6CA0 /* 058-CE_Ground01.png in Resources */,
+				84A07C041C9B5639001300B0 /* map_S_tavern.txt in Resources */,
 				84B5230D1BFFC41E004A6CA0 /* 052-Carpet02.png in Resources */,
 				84B5228D1BFFC41E004A6CA0 /* 019-Sa_Grass02.png in Resources */,
 				84B523111BFFC41E004A6CA0 /* 054-Wall02.png in Resources */,
@@ -2304,6 +2314,7 @@
 				84B522C81BFFC41E004A6CA0 /* 034-Bridge01.png in Resources */,
 				84B522321BFFC41E004A6CA0 /* civil02.png in Resources */,
 				8438F00A1C8B5C3A00087593 /* points.png in Resources */,
+				84A07C051C9B5639001300B0 /* map_S_tavern.txt in Resources */,
 				84B5225A1BFFC41E004A6CA0 /* 006-Grass_Road02.png in Resources */,
 				84B521A01BFFC41E004A6CA0 /* automap in Resources */,
 				84B522AE1BFFC41E004A6CA0 /* 027-Ocean04.png in Resources */,
@@ -2343,6 +2354,7 @@
 				84B521A81BFFC41E004A6CA0 /* hero02 in Resources */,
 				84B521CA1BFFC41E004A6CA0 /* Healing1.png in Resources */,
 				84B522A81BFFC41E004A6CA0 /* 026-Castle02.png in Resources */,
+				84A07C081C9B58D2001300B0 /* mapRule_forestTown.txt in Resources */,
 				843D4A261C00FAEE00835492 /* flying-flag.png in Resources */,
 				84F1527A1C95707E00B57942 /* map_M_intro.txt in Resources */,
 				84B521D41BFFC41E004A6CA0 /* Melee 2.png in Resources */,

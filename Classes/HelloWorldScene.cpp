@@ -8,24 +8,18 @@
 
 USING_NS_CC;
 
-Scene* HelloWorld::createScene(const CampaignReader::Mission& i_mission)
+HelloWorld* HelloWorld::createScene(const CampaignReader::Mission& i_mission)
 {
-    // 'scene' is an autorelease object
-    auto scene = Scene::create();
-    
     // 'layer' is an autorelease object
-    auto layer = HelloWorld::create();
-
-    // add layer as a child to scene
-    scene->addChild(layer);
+    auto scene = HelloWorld::create();
     
-    MagicWars_NS::TouchControl::instance().initialize(layer, layer->createInterface(scene), i_mission);
+    MagicWars_NS::TouchControl::instance().initialize(scene, scene->createInterface(), i_mission);
 
     // return the scene
     return scene;
 }
 
-MagicWars_NS::Interface& HelloWorld::createInterface(Scene* io_scene)
+MagicWars_NS::Interface& HelloWorld::createInterface()
 {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
@@ -34,7 +28,7 @@ MagicWars_NS::Interface& HelloWorld::createInterface(Scene* io_scene)
                                            RES("menu","CloseSelected.png"),
                                            CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     
-    d_interface.reset( new MagicWars_NS::Interface(io_scene) );
+    d_interface.reset( new MagicWars_NS::Interface(this) );
     d_interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
                                          closeItem->getContentSize().height/2));
     
@@ -46,7 +40,7 @@ bool HelloWorld::init()
 {
     //////////////////////////////
     // 1. super init first
-    if ( !Layer::init() )
+    if ( !Scene::init() )
     {
         return false;
     }

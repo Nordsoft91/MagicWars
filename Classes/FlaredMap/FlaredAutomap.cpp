@@ -103,7 +103,7 @@ namespace Flared_NS {
                         
                         if(!o_map.isLayerExist(output.first))
                         {
-                            AutomapLog::report("Add new layer into map");
+                            AutomapLog::report(std::string("Add new layer into map ") + output.first.c_str());
                             o_map.addLayer(output.first);
                         }
                         auto& layer = o_map.getLayer(output.first);

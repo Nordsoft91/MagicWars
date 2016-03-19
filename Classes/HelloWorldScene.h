@@ -6,16 +6,16 @@
 #include <Interface/Interface.h>
 #include <Common/CampaignReader.h>
 
-class HelloWorld : public cocos2d::Layer
+class HelloWorld : public cocos2d::Scene
 {
 public:
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
-    static cocos2d::Scene* createScene(const CampaignReader::Mission& i_mission);
+    static HelloWorld* createScene(const CampaignReader::Mission& i_mission);
 
     // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
     virtual bool init();
     
-    MagicWars_NS::Interface& createInterface(cocos2d::Scene*);
+    MagicWars_NS::Interface& createInterface();
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);

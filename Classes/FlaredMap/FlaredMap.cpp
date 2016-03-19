@@ -8,6 +8,8 @@
 
 #include "FlaredMap.h"
 
+#include <exception>
+
 //works only if tileset list empty
 bool Flared_NS::Map::setTileSize(size_t w, size_t h)
 {
@@ -162,21 +164,15 @@ cocos2d::Animation* Flared_NS::Map::getAnimationImg(const Flared_NS::IAnimation 
     return nullptr;
 }
 
-cocos2d::Node* Flared_NS::Map::getMapTree()
+void Flared_NS::Map::addMapToLayer(cocos2d::Layer& i_layer)
 {
     if(d_layerMap.empty() || d_tilesetList.empty())
-        return nullptr;
+        throw std::logic_error("Map is not ready");
     
-    cocos2d::Node* m = cocos2d::Node::create();
-    
-    int zOrder = 1000;
+    int zOrder = 100;
     
     for( auto& i : d_layerMap )
     {
-        cocos2d::Layer* l = cocos2d::Layer::create();
-        l->setName(i.first);
-        m->addChild(l, zOrder--);
-        
         for(size_t y = 0; y<d_height; ++y)
         {
             for(size_t x = 0; x<d_width; ++x)
@@ -184,13 +180,14 @@ cocos2d::Node* Flared_NS::Map::getMapTree()
                 if(cocos2d::Sprite* t = getTileImg(i.second(x,y)))
                 {
                     //should be inverted by Y axis
-                    t->setPosition(x*d_tileWidth, (d_height - 1 - y)*d_tileHeight);
-                    l->addChild(t);
+                    int cy = (d_height - 1 - y);
+                    t->setPosition(x*d_tileWidth, cy*d_tileHeight);
+                    i_layer.addChild(t, zOrder - cy);
                 }
             }
         }
+        zOrder-=1;
     }
-    return m;
 }
 
 std::vector<Flared_NS::Map::Character> Flared_NS::Map::getCharacters() const

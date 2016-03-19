@@ -4,6 +4,12 @@ outputLayers = { layerTerrain }
 indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
 }
 
+<group> rule_floor_center
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 128 256 64 64 } { 054-Wall02.png 64 0 64 64 } }
+}
+
 <group> rule_water_center
 {
 outputLayers = { layerTerrain }

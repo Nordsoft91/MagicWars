@@ -41,7 +41,7 @@ void GameObj::setSprite(const std::string i_spr)
 
 void GameObj::born(cocos2d::Layer *io_layer, size_t ix, size_t iy)
 {
-    io_layer->addChild(d_sprite, 1000-iy);
+    io_layer->addChild(d_sprite, 98-iy);
     d_sprite->setPosition(cocos2d::Vec2(ix * globalStepX, iy * globalStepY));
     d_sprite->ignoreAnchorPointForPosition(true);
     x = ix; y = iy;
@@ -98,11 +98,11 @@ void GameObj::move(const std::list<int>& i_list)
         seq.pushBack(cocos2d::CallFuncN::create(CC_CALLBACK_0(GameObj::onEndOfMove, this, x, y)));
         
     }
-    d_sprite->setZOrder(1000-y);
     auto action = cocos2d::Sequence::create(seq);
     d_sprite->runAction(action);
 }
 
 void GameObj::onEndOfMove(size_t ix, size_t iy)
 {
+    d_sprite->setZOrder(98-iy);
 }

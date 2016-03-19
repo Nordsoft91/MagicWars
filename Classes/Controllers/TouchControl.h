@@ -51,10 +51,12 @@ namespace MagicWars_NS {
             }
         }
         
-        void initialize(cocos2d::Layer* i_layer, Interface& i_interaface, const CampaignReader::Mission& i_mission);
+        void initialize(cocos2d::Scene* i_scene, Interface& i_interaface, const CampaignReader::Mission& i_mission);
         void destroy();
         
         void centralizeOn(cocos2d::Vec2 i_center);
+        
+        
         
         void tapAction(cocos2d::Vec2 i_touch);
         void moveAction(cocos2d::Vec2 i_touch);
@@ -114,6 +116,7 @@ namespace MagicWars_NS {
         MovingStructure* d_move = nullptr;
         
         cocos2d::Layer* d_mapLayer = nullptr;
+        cocos2d::Layer* d_highLayer = nullptr;
         
         std::vector<std::pair<size_t, size_t>> d_allowedCells;
         

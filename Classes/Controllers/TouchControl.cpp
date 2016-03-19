@@ -313,7 +313,10 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
 void TouchControl::moveAction(cocos2d::Vec2 i_touch)
 {
     if(!Blocker::state(Pause::Interface))
+    {
         d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
+        d_highLayer->setPosition(d_highLayer->getPosition() + i_touch);
+    }
 }
 
 void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
@@ -322,14 +325,19 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
     sz.x -= d_sizeWidth;
     sz.y -= d_sizeHeight;
     d_mapLayer->setPosition(sz - i_center);
+    d_highLayer->setPosition(sz - i_center);
 }
 
-void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, const CampaignReader::Mission& i_mission)
+void TouchControl::initialize(cocos2d::Scene* i_scene, Interface& i_interface, const CampaignReader::Mission& i_mission)
 {
     destroy();
     
     d_interface = &i_interface;
-	d_mapLayer = i_layer;
+    d_mapLayer = cocos2d::Layer::create();
+    d_highLayer = cocos2d::Layer::create();
+    
+    i_scene->addChild(d_mapLayer, -1);
+    i_scene->addChild(d_highLayer, 0);
 
 	d_turnControl.relationships.set("Light", "Neutral", Relationships::Type::Neutral);
 	d_turnControl.relationships.set("Light", "Dark", Relationships::Type::Enemies);
@@ -338,13 +346,14 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, c
 	d_turnControl.relationships.set("Tutor", "Light", Relationships::Type::Neutral);
 
 	//AUTOMAP
-	UI_NS::TriggerReader trRead(i_layer, d_interface->getScreenNode());
+	UI_NS::TriggerReader trRead(d_mapLayer, d_interface->getScreenNode());
 	Flared_NS::Automap automap;
 	Flared_NS::AutomapTerrainRuleRecorder::record();
 
 	RULE_MAKER_TERRAIN;
 	RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "grass");
 	RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "stone");
+    RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "floor");
 
 	automap.registerRule(ruleMakerSimpleChange.makeRuleFromConsts("rule_lava_solid"));
 
@@ -371,8 +380,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, c
     d_map = new MagicWars_NS::Map(d_mapWidth, d_mapHeight);
     d_map->setSolid(flaredMap);
     
-    if( auto mapNode = flaredMap.getMapTree())
-        i_layer->addChild(mapNode);
+    flaredMap.addMapToLayer(*d_mapLayer);
     
     for(auto& i : flaredSet.getCharacters())
     {
@@ -388,7 +396,7 @@ void TouchControl::initialize(cocos2d::Layer* i_layer, Interface& i_interface, c
         trRead.read(trStream);
     }
     
-    SquareControl::instance().toScene(i_layer);
+    SquareControl::instance().toScene(d_highLayer);
 	for (std::string& s : Flared_NS::AutomapLog::log())
 		cocos2d::log(s.c_str());
 }

@@ -67,6 +67,7 @@ namespace Flared_NS
             
             cocos2d::FileUtils::getInstance()->getWritablePath();
             const std::string fname = cocos2d::FileUtils::getInstance()->getWritablePath() + d_terrainTypeName + ".automap";
+            cocos2d::FileUtils::getInstance()->removeFile(fname);
             std::ofstream F(fname);
             //center
             writeGroupHeader(F, RULE_MAKER_STR(crName, d_terrainTypeName, crCenterName));

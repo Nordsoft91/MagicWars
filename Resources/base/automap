@@ -1,6 +1,6 @@
 <group> Flared
 {
-terrainTypes = { watergrass groundgrass ground2grass grass2grass stone2stone lavastone stone3stone lstonestone }
+terrainTypes = { watergrass groundgrass ground2grass grass2grass stone2stone lavastone stone3stone lstonestone wall02floor }
 terrainOutputLayer = layerTerrain
 terrainInputTileset = tsSurfaces.png
 }
@@ -21,6 +21,12 @@ indexes = { { tsSurfaces.png 0 0 64 64 } { 002_G_Shadow01.png 64 0 64 64 } }
 {
 outputLayers = { layerTerrain }
 indexes = { { tsSurfaces.png 0 192 64 64 } { 063-CF_Shadow01.png 64 0 64 64 } }
+}
+
+<group> rule_floor_center
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 128 256 64 64 } { 054-Wall02.png 64 0 64 64 } }
 }
 
 <group> flared_watergrass
@@ -81,4 +87,11 @@ file = 064-CF_Ground01.png
 from = { 0 192 64 64 }
 to = { 256 192 64 64 }
 file = 065-CF_Ground02.png
+}
+
+<group> flared_wall02floor
+{
+from = { 128 256 64 64 }
+to = { 64 256 64 64 }
+file = 054-Wall02.png
 }

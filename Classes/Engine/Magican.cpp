@@ -257,6 +257,7 @@ void Magican::setState(const std::string &i_state, int i_turns, bool isAdditive)
 
 void Magican::onEndOfMove(size_t ix, size_t iy)
 {
+    GameObj::onEndOfMove(ix, iy);
     if( auto collide = dynamic_cast<ObjectFire*>(ContainUtils::findObject(GET_OBJECTS_LIST, ix, iy)) )
     {
         collide->collisionWithMagican(this);

@@ -11,9 +11,9 @@
     trasit = grass
 }
 
-<group> 003_G_Ground01
+<group> 054-Wall02
 {
     type = COVER
-    name = ground1
-    transit = grass
+    name = wall02
+    trasit = grass
 }

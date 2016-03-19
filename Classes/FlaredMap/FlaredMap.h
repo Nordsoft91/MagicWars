@@ -56,7 +56,7 @@ namespace Flared_NS {
         void addCharacter(Character i_ch);
         
         //convert map to cocos nodes tree
-        cocos2d::Node* getMapTree();
+        void addMapToLayer(cocos2d::Layer& i_layer);
         
     private:
         cocos2d::Sprite* getSubtileImg(const Flared_NS::ISubtile* i_interface);
