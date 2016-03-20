@@ -54,27 +54,34 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
 
 void Magican::metamorph(const std::string i_group)
 {
-    throw std::runtime_error("metamorph is depreciated");
+    //throw std::runtime_error("metamorph is depreciated");
     
     auto node = dynamic_cast<cocos2d::Layer*>(d_sprite->getParent());
     
-    if(d_sprite)
+    /*if(d_sprite)
     {
         d_sprite->removeFromParent();
         d_sprite->release();
         d_sprite = nullptr;
     }
     
+    if(d_highSprite)
+    {
+        d_highSprite->removeFromParent();
+        d_highSprite->release();
+        d_highSprite = nullptr;
+    }*/
+    
     //saving old params
-    int currHealth = d_healthMax;
-    int currMind = d_mind;
+    int currHealth = d_health;
+    int currMind = d_mana;
     
     d_healthMax = Consts::get("health", i_group);
     d_concentrate = Consts::get("concentrate", i_group);
     d_mind = Consts::get("mind", i_group);
     d_wisdom = Consts::get("wisdom", i_group);
     d_speed = Consts::get("speed", i_group);
-    d_nextLevel = Consts::get("expirience", i_group);
+    d_nextLevel += (int)Consts::get("expirience", i_group);
     
     d_spells.clear();
     d_tricks.clear();
@@ -90,25 +97,27 @@ void Magican::metamorph(const std::string i_group)
     d_health += d_healthMax - currHealth;
     d_mana += d_mind - currMind;
     
-	setSprite(RES("persons", (std::string)Consts::get("spriteName", i_group)));
+	//setSprite(RES("persons", (std::string)Consts::get("spriteName", i_group)));
     
-    if(d_sprite)
+    /*if(d_sprite && d_highSprite)
     {
         d_visualizeMind = StatusUpdater::create(38, cocos2d::Color4F(0.,0.,1.,0.2));
-        d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
-        d_sprite->addChild(d_visualizeMind);
-    
-        d_visualizeHealth = StatusUpdater::create(45, cocos2d::Color4F(1.,0.,0.,0.2));
-        d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
-        d_sprite->addChild(d_visualizeHealth);
-    
-        d_currentTurnLight = CurrentTurnLight::create();
-        d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
-        d_currentTurnLight->show(false);
-        d_sprite->addChild(d_currentTurnLight);
+        d_visualizeMind->setPosition(d_highSprite->getContentSize()*0.5);
+        d_highSprite->addChild(d_visualizeMind, 7);
         
+        d_visualizeHealth = StatusUpdater::create(44, cocos2d::Color4F(1.,0.,0.,0.2));
+        d_visualizeHealth->setPosition(d_highSprite->getContentSize()*0.5);
+        d_highSprite->addChild(d_visualizeHealth, 8);
+        
+        d_currentTurnLight = CurrentTurnLight::create();
+        d_currentTurnLight->setPosition(d_highSprite->getContentSize()*0.5);
+        d_currentTurnLight->show(false);
+        d_highSprite->addChild(d_currentTurnLight, 10);
+    
         born(node, x, y);
-    }
+    }*/
+    
+    
 }
 
 void Magican::decreaseHealth(unsigned int i_dammage)
@@ -152,7 +161,6 @@ void Magican::increaseExperience(unsigned int i_c)
     d_expirience += i_c;
     if(d_expirience>=d_nextLevel)
     {
-        d_expirience-=d_nextLevel;
         auto eff = Effect::create(RES("effects","Christmas 2.png"), 25, d_sprite->getPosition()+d_sprite->getContentSize()*0.5);
         d_sprite->getParent()->addChild(eff);
         d_group = std::string(Consts::get("promotionGroup", d_group));
@@ -184,6 +192,11 @@ int Magican::getMind() const
 int Magican::getHealth() const
 {
     return d_health;
+}
+
+int Magican::getExperience() const
+{
+    return d_expirience;
 }
 
 float Magican::getPercentMind() const

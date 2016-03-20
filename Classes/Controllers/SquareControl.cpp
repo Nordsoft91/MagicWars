@@ -77,12 +77,13 @@ void SquareControl::createSquare(size_t x, size_t y, size_t i_radius, const std:
     }
 }
 
-void SquareControl::createStar(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center )
+void SquareControl::createStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, const std::string i_color, bool i_center )
 {
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
+            if(abs(i-int(x))>=i_minradius || abs(j-int(y))>=i_minradius)
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {
                 if(i==x || j==y || i-int(x)==j-int(y) || i-int(x)==int(y)-j)
@@ -92,12 +93,13 @@ void SquareControl::createStar(size_t x, size_t y, size_t i_radius, const std::s
     }
 }
 
-void SquareControl::createCross(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center )
+void SquareControl::createCross(size_t x, size_t y, size_t i_minradius, size_t i_radius, const std::string i_color, bool i_center )
 {
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
+            if(abs(i)>=i_minradius || abs(j)>=i_minradius)
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {
                 if(i==x || j==y)

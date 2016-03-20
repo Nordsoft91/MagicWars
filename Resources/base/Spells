@@ -49,7 +49,6 @@ wisdom = 9
 <group> spell_ray
 {
 type = DAMMAGE
-icon = icon_ray.png
 radius = 1
 gridType = SQUAD
 coverType = LINE

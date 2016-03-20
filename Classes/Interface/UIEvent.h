@@ -160,6 +160,14 @@ namespace UI_NS {
         virtual void throwEvent() override;
     };
     
+    //Event loadPersond
+    class EventLoadPersons: public Event
+    {
+    public:
+        EventLoadPersons() = default;
+        virtual void throwEvent() override;
+    };
+    
     //EventMove
     class EventMove: public Event
     {
@@ -187,6 +195,17 @@ namespace UI_NS {
         int d_x, d_y;
         const std::string d_name, d_group, d_team;
         bool d_addToTurn = false;
+    };
+    
+    class EventKill: public Event
+    {
+    public:
+        EventKill(const std::string& i_obj): d_obj(i_obj) {}
+        
+        virtual void throwEvent() override;
+        
+    protected:
+        const std::string d_obj;
     };
     
     //EventSpell

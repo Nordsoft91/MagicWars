@@ -99,7 +99,7 @@ namespace UI_NS {
             callback(touch);
         };
         
-        cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 30);
+        cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 1);
         
         return true;
     }

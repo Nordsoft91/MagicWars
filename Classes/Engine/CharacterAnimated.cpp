@@ -34,7 +34,7 @@ void CharacterAnimated::move(const std::list<int>& i_list)
     cocos2d::Vector<cocos2d::FiniteTimeAction*> seq, seqHigh;
     std::vector<int> animSeq;
     
-    Blocker::block(Pause::Animation, 0.01*i_list.size());
+    Blocker::block(Pause::Animation, 0.4*i_list.size());
     
     for(int i : i_list)
     {
@@ -48,9 +48,9 @@ void CharacterAnimated::move(const std::list<int>& i_list)
         }
         x += tx; y += ty;
         
-        seq.pushBack(cocos2d::MoveTo::create(0.01, cocos2d::Point(x*globalStepX,y*globalStepY)));
+        seq.pushBack(cocos2d::MoveTo::create(0.4, cocos2d::Point(x*globalStepX,y*globalStepY)));
         seq.pushBack(cocos2d::CallFuncN::create(CC_CALLBACK_0(GameObj::onEndOfMove, this, x, y)));
-        seqHigh.pushBack(cocos2d::MoveTo::create(0.01, cocos2d::Point(x*globalStepX,y*globalStepY)));
+        seqHigh.pushBack(cocos2d::MoveTo::create(0.4, cocos2d::Point(x*globalStepX,y*globalStepY)));
     }
     d_sprite->runAction(cocos2d::Sequence::create(seq));
     d_highSprite->runAction(cocos2d::Sequence::create(seqHigh));

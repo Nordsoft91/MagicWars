@@ -101,9 +101,26 @@ namespace UI_NS {
         if(level==maxLevel)
             cocos2d::UserDefault::getInstance()->setIntegerForKey((camp+"_level").c_str(), maxLevel+1);
         
+        //save persons expirience
+        auto magicans = MagicWars_NS::TouchControl::instance().getTurnController().sideArray("Light");
+        for(auto i : magicans)
+        {
+            cocos2d::UserDefault::getInstance()->setIntegerForKey((i->getName()+"_experience_"+std::to_string(level)).c_str(), i->getExperience());
+        }
+        
         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
         auto scene = MagicWars_NS::TravelScene::create();
         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
+    }
+    
+    void EventLoadPersons::throwEvent()
+    {
+        int level = cocos2d::UserDefault::getInstance()->getIntegerForKey("CurrentLevel");
+        auto magicans = MagicWars_NS::TouchControl::instance().getTurnController().sideArray("Light");
+        for(auto i : magicans)
+        {
+            i->increaseExperience(cocos2d::UserDefault::getInstance()->getIntegerForKey((i->getName()+"_experience_"+std::to_string(level-1)).c_str()));
+        }
     }
     
     void EventLose::throwEvent()
@@ -136,6 +153,14 @@ namespace UI_NS {
         {
             if( d_addToTurn )
                 MagicWars_NS::TouchControl::instance().getTurnController().insert( object, d_team);
+        }
+    }
+    
+    void EventKill::throwEvent()
+    {
+        if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_obj)))
+        {
+            object->kill();
         }
     }
     

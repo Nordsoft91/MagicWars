@@ -4,7 +4,7 @@
     spriteName = stub.png
     animationName = hero02.png
     animationParams = charAnimation4
-    health = 90
+    health = 95
     concentrate = 5
     mind = 15
     wisdom = 10
@@ -13,14 +13,16 @@
     weapon = weapon_dagger
     spellBook = { }
     trickSkills = { trick_shoot }
+    promotionGroup = hero02_level02
 }
 
 <group> hero02_level02 <override> hero02_level01
 {
-    health = 115
+    health = 125
     concentrate = 8
     mind = 25
     wisdom = 14
     speed = 2
     expirience = 350
+    trickSkills = { trick_shoot trick_doubleshoot }
 }

@@ -112,6 +112,8 @@
 		844535B21C9EBD6000C523A1 /* 049-Soldier01.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535AF1C9EBD6000C523A1 /* 049-Soldier01.png */; };
 		844535B31C9EBD6000C523A1 /* 050-Soldier02.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535B01C9EBD6000C523A1 /* 050-Soldier02.png */; };
 		844535B41C9EBD6000C523A1 /* 050-Soldier02.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535B01C9EBD6000C523A1 /* 050-Soldier02.png */; };
+		844535B61C9F667600C523A1 /* laserburn.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535B51C9F667600C523A1 /* laserburn.png */; };
+		844535B71C9F667600C523A1 /* laserburn.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535B51C9F667600C523A1 /* laserburn.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -262,8 +264,8 @@
 		84B521D01BFFC41E004A6CA0 /* LightningBolt.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D31BFFC41D004A6CA0 /* LightningBolt.png */; };
 		84B521D11BFFC41E004A6CA0 /* Ray.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D41BFFC41D004A6CA0 /* Ray.png */; };
 		84B521D21BFFC41E004A6CA0 /* Ray.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D41BFFC41D004A6CA0 /* Ray.png */; };
-		84B521D31BFFC41E004A6CA0 /* Melee 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D61BFFC41D004A6CA0 /* Melee 2.png */; };
-		84B521D41BFFC41E004A6CA0 /* Melee 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D61BFFC41D004A6CA0 /* Melee 2.png */; };
+		84B521D31BFFC41E004A6CA0 /* Melee2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D61BFFC41D004A6CA0 /* Melee2.png */; };
+		84B521D41BFFC41E004A6CA0 /* Melee2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D61BFFC41D004A6CA0 /* Melee2.png */; };
 		84B521D51BFFC41E004A6CA0 /* Melee3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D71BFFC41D004A6CA0 /* Melee3.png */; };
 		84B521D61BFFC41E004A6CA0 /* Melee3.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D71BFFC41D004A6CA0 /* Melee3.png */; };
 		84B521D71BFFC41E004A6CA0 /* Melee 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B520D81BFFC41D004A6CA0 /* Melee 4.png */; };
@@ -810,6 +812,7 @@
 		844535AC1C9DE25D00C523A1 /* map_M_tavern1_triggers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_M_tavern1_triggers.txt; sourceTree = "<group>"; };
 		844535AF1C9EBD6000C523A1 /* 049-Soldier01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "049-Soldier01.png"; sourceTree = "<group>"; };
 		844535B01C9EBD6000C523A1 /* 050-Soldier02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "050-Soldier02.png"; sourceTree = "<group>"; };
+		844535B51C9F667600C523A1 /* laserburn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserburn.png; path = icons/laserburn.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -933,7 +936,7 @@
 		84B520D21BFFC41D004A6CA0 /* Lightning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lightning.png; sourceTree = "<group>"; };
 		84B520D31BFFC41D004A6CA0 /* LightningBolt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightningBolt.png; sourceTree = "<group>"; };
 		84B520D41BFFC41D004A6CA0 /* Ray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ray.png; sourceTree = "<group>"; };
-		84B520D61BFFC41D004A6CA0 /* Melee 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Melee 2.png"; sourceTree = "<group>"; };
+		84B520D61BFFC41D004A6CA0 /* Melee2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Melee2.png; sourceTree = "<group>"; };
 		84B520D71BFFC41D004A6CA0 /* Melee3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Melee3.png; sourceTree = "<group>"; };
 		84B520D81BFFC41D004A6CA0 /* Melee 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Melee 4.png"; sourceTree = "<group>"; };
 		84B520D91BFFC41D004A6CA0 /* Melee 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Melee 5.png"; sourceTree = "<group>"; };
@@ -1374,6 +1377,7 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				844535B51C9F667600C523A1 /* laserburn.png */,
 				84A07C001C98CB45001300B0 /* checked-shield.png */,
 				84A07BF71C98C0F5001300B0 /* fire-silhouette.png */,
 				84F152871C95D20000B57942 /* jawbone.png */,
@@ -1609,7 +1613,7 @@
 		84B520D51BFFC41D004A6CA0 /* Slashing */ = {
 			isa = PBXGroup;
 			children = (
-				84B520D61BFFC41D004A6CA0 /* Melee 2.png */,
+				84B520D61BFFC41D004A6CA0 /* Melee2.png */,
 				84B520D71BFFC41D004A6CA0 /* Melee3.png */,
 				84B520D81BFFC41D004A6CA0 /* Melee 4.png */,
 				84B520D91BFFC41D004A6CA0 /* Melee 5.png */,
@@ -2104,6 +2108,7 @@
 				84B523331BFFC41E004A6CA0 /* 071-CI_Ground01.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				84B523031BFFC41E004A6CA0 /* 049-InnerBody01.png in Resources */,
+				844535B61C9F667600C523A1 /* laserburn.png in Resources */,
 				84B522A71BFFC41E004A6CA0 /* 026-Castle02.png in Resources */,
 				84B5222B1BFFC41E004A6CA0 /* hero03.png in Resources */,
 				84B521DB1BFFC41E004A6CA0 /* Melee1.png in Resources */,
@@ -2285,7 +2290,7 @@
 				843D4A2E1C0105F600835492 /* bowman.png in Resources */,
 				84B5224B1BFFC41E004A6CA0 /* 003_Forest01.png in Resources */,
 				843D4A491C0202D800835492 /* undead03.png in Resources */,
-				84B521D31BFFC41E004A6CA0 /* Melee 2.png in Resources */,
+				84B521D31BFFC41E004A6CA0 /* Melee2.png in Resources */,
 				84B523251BFFC41E004A6CA0 /* 064-CF_Ground01.png in Resources */,
 				84B522E51BFFC41E004A6CA0 /* 041-Grass01.png in Resources */,
 				84B522DB1BFFC41E004A6CA0 /* 039-Tower01.png in Resources */,
@@ -2415,7 +2420,7 @@
 				84A07C081C9B58D2001300B0 /* mapRule_forestTown.txt in Resources */,
 				843D4A261C00FAEE00835492 /* flying-flag.png in Resources */,
 				84F1527A1C95707E00B57942 /* map_M_intro.txt in Resources */,
-				84B521D41BFFC41E004A6CA0 /* Melee 2.png in Resources */,
+				84B521D41BFFC41E004A6CA0 /* Melee2.png in Resources */,
 				84B521F21BFFC41E004A6CA0 /* icon3.gif in Resources */,
 				84B522081BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
 				84B523401BFFC41E004A6CA0 /* 077-CW_Grass02.png in Resources */,
@@ -2469,6 +2474,7 @@
 				84F152971C962E0700B57942 /* Blaze.png in Resources */,
 				84B522021BFFC41E004A6CA0 /* icon_firewall.png in Resources */,
 				84B522A41BFFC41E004A6CA0 /* 025-Castle01.png in Resources */,
+				844535B71C9F667600C523A1 /* laserburn.png in Resources */,
 				84B521F41BFFC41E004A6CA0 /* icon3_disable.png in Resources */,
 				84B522121BFFC41E004A6CA0 /* mapRule_Grassland01.txt in Resources */,
 				84B521FA1BFFC41E004A6CA0 /* icon4.gif in Resources */,

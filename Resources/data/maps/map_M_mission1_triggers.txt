@@ -10,6 +10,7 @@ Event Message
 Trigger Active
 NoCondition
 ChainOfEvents
+Event LoadPersons
 Event Centralize Braves
 Event Message
 {

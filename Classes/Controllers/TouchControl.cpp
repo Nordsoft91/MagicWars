@@ -44,6 +44,7 @@ void TouchControl::coverRange(std::vector<std::pair<size_t, size_t>> coord, cons
         
     bool center = !(coord[0].first==coord[1].first && coord[0].second==coord[1].second);
     std::string squareType = Consts::get("coverType", i_spell);
+    size_t minRadius = Consts::isExist("coverMinRadius", i_spell) ? Consts::get("coverMinRadius", i_spell) : 0;
     if(squareType=="POINT")
         SquareControl::instance().createPoint(coord[1].first, coord[1].second, "orange");
     if(squareType=="BORDER")
@@ -51,9 +52,9 @@ void TouchControl::coverRange(std::vector<std::pair<size_t, size_t>> coord, cons
     if(squareType=="SQUAD")
         SquareControl::instance().createSquare(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange", center);
     if(squareType=="CROSS")
-        SquareControl::instance().createCross(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange", center);
+        SquareControl::instance().createCross(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), "orange", center);
     if(squareType=="STAR")
-        SquareControl::instance().createStar(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange", center);
+        SquareControl::instance().createStar(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), "orange", center);
     if(squareType=="LINE")
         SquareControl::instance().createLine(coord[0].first, coord[0].second, coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange");
 }
@@ -184,6 +185,7 @@ void TouchControl::spellAction(const std::string& i_spell)
         
         
         SquareControl::instance().deleteSquares();
+        size_t minRadius = Consts::isExist("minRadius", i_spell) ? Consts::get("minRadius", i_spell) : 0;
         if(squareType=="POINT")
             SquareControl::instance().createPoint(obj->x, obj->y, color);
         if(squareType=="BORDER")
@@ -191,9 +193,9 @@ void TouchControl::spellAction(const std::string& i_spell)
         if(squareType=="SQUAD")
             SquareControl::instance().createSquare(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
         if(squareType=="CROSS")
-            SquareControl::instance().createCross(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
+            SquareControl::instance().createCross(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), color, forme);
         if(squareType=="STAR")
-            SquareControl::instance().createStar(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
+            SquareControl::instance().createStar(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), color, forme);
         d_spellCurrent = i_spell;
     }
 }
@@ -346,7 +348,7 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, Interface& i_interface, c
 	d_turnControl.relationships.set("Tutor", "Light", Relationships::Type::Neutral);
 
 	//AUTOMAP
-	UI_NS::TriggerReader trRead(d_mapLayer, d_interface->getScreenNode());
+	UI_NS::TriggerReader trRead(d_highLayer, d_interface->getScreenNode());
 	Flared_NS::Automap automap;
 	Flared_NS::AutomapTerrainRuleRecorder::record();
 

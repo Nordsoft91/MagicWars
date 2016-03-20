@@ -113,7 +113,7 @@ bool TutorialPressOnMap::init(cocos2d::Vec2 i_pos)
 
 void TutorialPressOnMap::callback(cocos2d::Touch *touch)
 {
-    if(isVisible() && MagicWars_NS::TouchControl::instance().tapLastCellX == x && MagicWars_NS::TouchControl::instance().tapLastCellY == y )
+    if(MagicWars_NS::TouchControl::instance().tapLastCellX == x && MagicWars_NS::TouchControl::instance().tapLastCellY == y )
     {
         MagicWars_NS::TouchControl::instance().enableAll();
         MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Interface);

@@ -11,6 +11,19 @@ force = 14
 recover = 0
 }
 
+<group> attack_strong
+{
+type = DAMMAGE
+radius = 1
+gridType = CROSS
+coverType = POINT
+effectType = APPEAR
+sprite = Melee2.png
+sprite_size = 10
+force = 25
+recover = 2
+}
+
 <group> trick_shoot
 {
     type = DAMMAGE
@@ -36,5 +49,5 @@ effectType = APPEAR
 sprite = Melee1.png
 sprite_size = 10
 force = 21
-recover = 1
+recover = 2
 }

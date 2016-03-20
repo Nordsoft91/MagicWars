@@ -21,3 +21,11 @@ triggers map_M_mission1_triggers.txt
 rules    mapRule_Grassland01.txt
 previous Пролог
 position 120 200
+
+mission  Таверна
+brief    null
+map      map_M_tavern1.txt
+triggers map_M_tavern1_triggers.txt
+rules    mapRule_forestTown.txt
+previous Голодные
+position 380 220

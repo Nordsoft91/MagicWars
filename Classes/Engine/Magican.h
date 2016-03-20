@@ -39,6 +39,7 @@ namespace MagicWars_NS
         int getSpeed() const;
         int getMind() const;
         int getHealth() const;
+        int getExperience() const;
         float getPercentMind() const;
         float getPercentHealth() const;
         

@@ -245,6 +245,14 @@ namespace UI_NS
                 return new UI_NS::EventBorn(pos.first, pos.second, name, group, team, "");
             }
         }
+        if (type == "Kill")
+        {
+            return new UI_NS::EventKill(readObject(io_stream));
+        }
+        if (type == "LoadPersons")
+        {
+            return new UI_NS::EventLoadPersons();
+        }
         if (type == "Spell")
         {
             auto n = readObject(io_stream);
@@ -256,7 +264,7 @@ namespace UI_NS
         {
             return new UI_NS::EventCentralize(readObject(io_stream));
         }
-        cocos2d::log("Fatal error in event reading");
+        cocos2d::log("Fatal error in event reading: %s", type.c_str());
 		return nullptr;
 	}
 
@@ -283,9 +291,9 @@ namespace UI_NS
 
 	void TriggerReader::read(std::ifstream& io_stream)
 	{
-		std::string type;
-		while (io_stream)
+		while (io_stream && !io_stream.eof())
 		{
+            std::string type;
 			io_stream >> type;
 			if (type == "Trigger")
 			{

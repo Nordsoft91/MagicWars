@@ -4,13 +4,13 @@ spriteType = ANIMATED
 spriteName = stub.png
 animationName = 027-Cleric03.png
 animationParams = charAnimation4
-health = 120
+health = 155
 concentrate = 12
 mind = 5
 wisdom = 3
 speed = 2
-expirience = 1500
+expirience = 15000
 weapon = weapon_staff
 spellBook = { }
-trickSkills = { }
+trickSkills = { attack_strong }
 }

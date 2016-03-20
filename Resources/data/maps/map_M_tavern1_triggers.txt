@@ -1,6 +1,7 @@
 Trigger Active
 NoCondition
 ChainOfEvents
+Event LoadPersons
 Event Centralize Braves
 Event HeapOfEvents
 Event Move Braves 4 0
@@ -232,11 +233,13 @@ Event Dialog Dolor
 Это солдаты из гарнизона, давайте уйдем отсюда
 Им не стоит что-то знать
 }
+Event HeapOfEvents
 Event Move Dolor -2 -8
 Event Move Erson -5 -4
 Event Move Braves -6 -5
 Event Move c4 12 5
 Event Move c2 9 3
+EndOfHeap
 Event Dialog c4
 {
 Ха, как мы удачно вернулись!
@@ -267,8 +270,12 @@ Event Dialog c5
 {
 Пойдем отсюда скорее...
 }
+Event HeapOfEvents
 Event Move c5 -16 -6
 Event Move c6 -17 -7
+EndOfHeap
+Event Kill c5
+Event Kill c6
 Event Dialog Braves
 {
 Какого черта, Долор??
