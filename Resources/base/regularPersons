@@ -14,3 +14,60 @@ weapon = weapon_dagger
 spellBook = { }
 trickSkills = { trick_shoot }
 }
+
+<group> civil01
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = 107-Civilian07.png
+animationParams = charAnimation4
+health = 100
+concentrate = 25
+mind = 20
+wisdom = 5
+speed = 2
+expirience = 10000
+weapon = weapon_dagger
+spellBook = { }
+trickSkills = { }
+}
+
+<group> civil02 <override> civil01
+{
+animationName = 108-Civilian08.png
+}
+
+<group> civil03 <override> civil01
+{
+animationName = civil02.png
+}
+
+<group> civil04 <override> civil01
+{
+animationName = 109-Civilian09.png
+}
+
+<group> civil05 <override> civil01
+{
+animationName = 118-Civilian18.png
+}
+
+<group> civil06 <override> civil01
+{
+animationName = 124-Civilian24.png
+}
+
+<group> cooker <override> civil01
+{
+animationName = 138-Cook01.png
+}
+
+<group> soldier1 <override> civil01
+{
+animationName = 049-Soldier01.png
+}
+
+<group> officer1 <override> civil01
+{
+animationName = 050-Soldier02.png
+}

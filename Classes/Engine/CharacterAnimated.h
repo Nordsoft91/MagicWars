@@ -26,7 +26,8 @@ namespace MagicWars_NS {
         void onDeath();
         
     protected:
-        Animated *anim;
+        Animated *d_animation = nullptr;
+        Animated *d_highAnimation = nullptr;
         std::vector<int> seqDown, seqLeft, seqRight, seqUp;
         std::string d_group;
     };

@@ -2,23 +2,15 @@
 {
 spriteType = ANIMATED
 spriteName = stub.png
-animationName = hero03.png
+animationName = 027-Cleric03.png
 animationParams = charAnimation4
-health = 100
-concentrate = 5
-mind = 10
-wisdom = 5
+health = 120
+concentrate = 12
+mind = 5
+wisdom = 3
 speed = 2
-expirience = 150
+expirience = 1500
+weapon = weapon_staff
 spellBook = { }
-}
-
-<group> hero03_level02 <override> hero03_level01
-{
-    health = 130
-    concentrate = 6
-    mind = 15
-    wisdom = 7
-    speed = 2
-    expirience = 350
+trickSkills = { }
 }

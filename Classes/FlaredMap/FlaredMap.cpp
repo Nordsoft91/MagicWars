@@ -50,7 +50,7 @@ void Flared_NS::Map::addLayer(const std::string& i_layerName)
     for(Tileset& i : d_tilesetList)
         tlist.push_back(&i);
     
-    d_layerMap[i_layerName] = Flared_NS::Layer(tlist, d_width, d_height);
+    d_layerMap.push_back({i_layerName, Flared_NS::Layer(tlist, d_width, d_height)});
 }
 
 bool Flared_NS::Map::isLayerExist(const std::string& i_layerName)
@@ -67,7 +67,7 @@ std::string Flared_NS::Map::getLayerSimilar(const std::string& i_layerName)
 {
     for(auto& i : d_layerMap)
     {
-        if(layerNameCompare(i.first, i_layerName))
+        if(i.first!=i_layerName && layerNameCompare(i.first, i_layerName))
             return i.first;
     }
     return "";
@@ -83,7 +83,10 @@ std::list<std::string> Flared_NS::Map::getListOfLayers() const
 
 Flared_NS::Layer& Flared_NS::Map::getLayer(const std::string& i_layerName)
 {
-    return d_layerMap[i_layerName];
+    for(auto& i : d_layerMap)
+        if(i.first == i_layerName)
+            return i.second;
+    throw std::runtime_error(std::string("no layer with name ")+i_layerName);
 }
 
 cocos2d::Sprite* Flared_NS::Map::getTileImg(const Flared_NS::Tile &i_tile)
@@ -169,7 +172,7 @@ void Flared_NS::Map::addMapToLayer(cocos2d::Layer& i_layer)
     if(d_layerMap.empty() || d_tilesetList.empty())
         throw std::logic_error("Map is not ready");
     
-    int zOrder = 100;
+    int zOrder = 97;
     
     for( auto& i : d_layerMap )
     {
@@ -186,7 +189,7 @@ void Flared_NS::Map::addMapToLayer(cocos2d::Layer& i_layer)
                 }
             }
         }
-        zOrder-=1;
+        zOrder+=1;
     }
 }
 

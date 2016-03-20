@@ -22,16 +22,19 @@ CharacterAnimated::CharacterAnimated(const std::string& i_group): Magican(i_grou
     seqRight = Consts::get("goRight", prms).toVector<int>();
     seqUp = Consts::get("goUp", prms).toVector<int>();
     
-    anim = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, 0, 1);
-    d_sprite->addChild(anim, 2);
+    d_animation = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, 0, 1);
+    d_highAnimation = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, 0, 1);
+    d_highAnimation->setOpacity(96);
+    d_sprite->addChild(d_animation);
+    d_highSprite->addChild(d_highAnimation);
 }
 
 void CharacterAnimated::move(const std::list<int>& i_list)
 {
-    cocos2d::Vector<cocos2d::FiniteTimeAction*> seq;
+    cocos2d::Vector<cocos2d::FiniteTimeAction*> seq, seqHigh;
     std::vector<int> animSeq;
     
-    Blocker::block(Pause::Animation, 0.4*i_list.size());
+    Blocker::block(Pause::Animation, 0.01*i_list.size());
     
     for(int i : i_list)
     {
@@ -45,33 +48,41 @@ void CharacterAnimated::move(const std::list<int>& i_list)
         }
         x += tx; y += ty;
         
-        seq.pushBack(cocos2d::MoveTo::create(0.4, cocos2d::Point(x*globalStepX,y*globalStepY)));
+        seq.pushBack(cocos2d::MoveTo::create(0.01, cocos2d::Point(x*globalStepX,y*globalStepY)));
         seq.pushBack(cocos2d::CallFuncN::create(CC_CALLBACK_0(GameObj::onEndOfMove, this, x, y)));
+        seqHigh.pushBack(cocos2d::MoveTo::create(0.01, cocos2d::Point(x*globalStepX,y*globalStepY)));
     }
-    auto action = cocos2d::Sequence::create(seq);
-    d_sprite->runAction(action);
+    d_sprite->runAction(cocos2d::Sequence::create(seq));
+    d_highSprite->runAction(cocos2d::Sequence::create(seqHigh));
     
-    if(anim)
-    {
-        anim->removeFromParent();
-    }
-	anim = Animated::create(RES("persons", (std::string)Consts::get("animationName", d_group)), Consts::get("animationParams", d_group), animSeq);
-    d_sprite->addChild(anim, 2);
+    if(d_animation)
+        d_animation->removeFromParent();
+    if(d_highAnimation)
+        d_highAnimation->removeFromParent();
+    
+	d_animation = Animated::create(RES("persons", (std::string)Consts::get("animationName", d_group)), Consts::get("animationParams", d_group), animSeq);
+    d_highAnimation = Animated::create(RES("persons", (std::string)Consts::get("animationName", d_group)), Consts::get("animationParams", d_group), animSeq);
+    d_highAnimation->setOpacity(96);
+    d_sprite->addChild(d_animation);
+    d_highSprite->addChild(d_highAnimation);
 }
 
 void CharacterAnimated::kill()
 {
-    anim->runAction(
+    d_animation->runAction(
                     cocos2d::Sequence::create(
                                               cocos2d::FadeOut::create(3),
                                               cocos2d::CallFuncN::create(CC_CALLBACK_0(CharacterAnimated::onDeath, this)),
                                               NULL));
+    
+    d_highAnimation->runAction(
+                           cocos2d::Sequence::create(
+                                                     cocos2d::FadeOut::create(3),
+                                                     cocos2d::CallFuncN::create(CC_CALLBACK_0(CharacterAnimated::onDeath, this)),
+                                                     NULL));
 }
                     
 void CharacterAnimated::onDeath()
 {
-    d_sprite->removeAllChildren();
-    d_sprite->removeFromParent();
-    x = -1;
-    y = -1;
+    Magican::kill();
 }

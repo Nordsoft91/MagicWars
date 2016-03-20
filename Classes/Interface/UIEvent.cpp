@@ -71,7 +71,7 @@ namespace UI_NS {
     {
         if( auto obj = MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name))
         {
-            d_owner = obj->getSprite();
+            d_owner = obj->getHighSprite();
             MagicWars_NS::TouchControl::instance().centralizeOn(d_owner->getPosition());
             d_owner->addChild(UI_NS::MessageSequence::create(cocos2d::Vec2(64,128), cocos2d::Color4F{1,1,1,0.5}, d_message));
         }

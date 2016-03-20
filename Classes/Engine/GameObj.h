@@ -30,6 +30,7 @@ namespace MagicWars_NS {
         
         void setSprite(const std::string i_spr);
         cocos2d::Sprite* getSprite() { return d_sprite;}
+        cocos2d::Sprite* getHighSprite() { return d_highSprite; }
         
         void jump(size_t ix, size_t iy);
         
@@ -46,6 +47,7 @@ namespace MagicWars_NS {
         
     protected:
         cocos2d::Sprite *d_sprite = nullptr;
+        cocos2d::Sprite *d_highSprite = nullptr;
         std::string d_name;
         int d_id;
     };

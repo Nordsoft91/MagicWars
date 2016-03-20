@@ -35,25 +35,27 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
     d_health = d_healthMax;
     d_mana = d_mind;
     
-    if(d_sprite)
+    if(d_sprite && d_highSprite)
     {
         d_visualizeMind = StatusUpdater::create(38, cocos2d::Color4F(0.,0.,1.,0.2));
-        d_visualizeMind->setPosition(d_sprite->getContentSize()*0.5);
-        d_sprite->addChild(d_visualizeMind, 7);
+        d_visualizeMind->setPosition(d_highSprite->getContentSize()*0.5);
+        d_highSprite->addChild(d_visualizeMind, 7);
     
         d_visualizeHealth = StatusUpdater::create(44, cocos2d::Color4F(1.,0.,0.,0.2));
-        d_visualizeHealth->setPosition(d_sprite->getContentSize()*0.5);
-        d_sprite->addChild(d_visualizeHealth, 8);
+        d_visualizeHealth->setPosition(d_highSprite->getContentSize()*0.5);
+        d_highSprite->addChild(d_visualizeHealth, 8);
     
         d_currentTurnLight = CurrentTurnLight::create();
-        d_currentTurnLight->setPosition(d_sprite->getContentSize()*0.5);
+        d_currentTurnLight->setPosition(d_highSprite->getContentSize()*0.5);
         d_currentTurnLight->show(false);
-        d_sprite->addChild(d_currentTurnLight, 10);
+        d_highSprite->addChild(d_currentTurnLight, 10);
     }
 }
 
 void Magican::metamorph(const std::string i_group)
 {
+    throw std::runtime_error("metamorph is depreciated");
+    
     auto node = dynamic_cast<cocos2d::Layer*>(d_sprite->getParent());
     
     if(d_sprite)
@@ -111,8 +113,6 @@ void Magican::metamorph(const std::string i_group)
 
 void Magican::decreaseHealth(unsigned int i_dammage)
 {
-    //increaseExperience(i_dammage*0.25);
-    //d_healthMax += 0.015 * i_dammage;
     d_health -= i_dammage;
     d_visualizeHealth->setStatus(float(d_health)/float(d_healthMax));
     if(d_health<=0)
@@ -123,8 +123,7 @@ void Magican::decreaseHealth(unsigned int i_dammage)
 
 void Magican::kill()
 {
-    d_sprite->removeAllChildren();
-    d_sprite->removeFromParent();
+    GameObj::kill();
     x = -1;
     y = -1;
 }

@@ -63,7 +63,7 @@ namespace Menu_NS {
                                                                //std::list<std::string> briefing;
                                                                //size_t x, y;
                                                                
-                                                               CampaignReader::Mission mission{"Песочница", "map_S_tavern.txt", "", "mapRule_forestTown.txt", "", {}, 0, 0};
+                                                               CampaignReader::Mission mission{"Песочница", "map_M_tavern1.txt", "map_M_tavern1_triggers.txt", "mapRule_forestTown.txt", "", {}, 0, 0};
                                                                
                                                                auto scene = HelloWorld::createScene(mission);
                                                                

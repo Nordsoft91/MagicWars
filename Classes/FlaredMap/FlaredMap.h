@@ -63,7 +63,7 @@ namespace Flared_NS {
         cocos2d::Animation* getAnimationImg(const Flared_NS::IAnimation* i_interface);
         
         std::list<Tileset> d_tilesetList;
-        std::map<std::string, Layer> d_layerMap;
+        std::vector<std::pair<std::string, Layer>> d_layerMap;
         std::vector<Character> d_characters;
         size_t d_width, d_height;
         size_t d_tileWidth, d_tileHeight;
