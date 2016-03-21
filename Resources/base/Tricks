@@ -11,7 +11,7 @@ force = 14
 recover = 0
 }
 
-<group> attack_strong
+<group> trick_strongAttack
 {
 type = DAMMAGE
 radius = 1

@@ -46,7 +46,7 @@ animationName = civil02.png
 <group> civil04 <override> civil01
 {
 animationName = 109-Civilian09.png
-trickSkills = { attack_strong }
+trickSkills = { trick_strongAttack }
 }
 
 <group> civil05 <override> civil01

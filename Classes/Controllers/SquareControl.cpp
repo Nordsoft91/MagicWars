@@ -42,12 +42,15 @@ void SquareControl::createPoint(size_t x, size_t y, const std::string i_color )
 
 void SquareControl::createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, const std::string i_color)
 {
-    int xdiff = int(xd)-int(xs);
-    int ydiff = int(yd)-int(ys);
-    for(int i = 1; i<=int(i_radius); ++i)
+    double xdiff = int(xd)-int(xs);
+    double ydiff = int(yd)-int(ys);
+    double sum = std::max(abs(xdiff),abs(ydiff));
+    xdiff /= sum;
+    ydiff /= sum;
+    for(int i = 0; i<int(i_radius); ++i)
     {
-        int xp = int(xs)+i*xdiff;
-        int yp = int(ys)+i*ydiff;
+        int xp = int(xd)+xdiff*i;
+        int yp = int(yd)+ydiff*i;
         if(xp>=0 && yp>=0 && xp<d_pSquares->width() && yp<d_pSquares->height())
             createPoint(xp, yp, i_color);
     }

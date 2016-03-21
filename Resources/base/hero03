@@ -12,5 +12,5 @@ speed = 2
 expirience = 15000
 weapon = weapon_staff
 spellBook = { }
-trickSkills = { attack_strong }
+trickSkills = { trick_strongAttack }
 }

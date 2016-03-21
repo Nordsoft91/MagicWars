@@ -189,7 +189,7 @@ void TouchControl::spellAction(const std::string& i_spell)
         if(squareType=="POINT")
             SquareControl::instance().createPoint(obj->x, obj->y, color);
         if(squareType=="BORDER")
-            SquareControl::instance().createBorder(obj->x, obj->y, Consts::get("radius2", i_spell), color);
+            SquareControl::instance().createBorder(obj->x, obj->y, Consts::get("radius", i_spell), color);
         if(squareType=="SQUAD")
             SquareControl::instance().createSquare(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
         if(squareType=="CROSS")

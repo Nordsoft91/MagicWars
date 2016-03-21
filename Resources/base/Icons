@@ -10,7 +10,8 @@ spell_shield = { checked-shield.png 60 10 200 }
 spell_ray = { laserburn.png 240 200 20 }
 
 trick_shoot = { bowman.png 125 90 0 }
-trick_doubleshoot = { bowman.png 125 90 0 }
+trick_doubleshoot = { pocket-bow.png 160 40 100 }
+trick_strongAttack = { jawbone.png 160 40 100 }
 
 weapon_dagger = { plain-dagger.png 0 0 0 }
 weapon_staff = { wizard-staff.png 0 0 0 }

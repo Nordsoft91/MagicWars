@@ -40,7 +40,6 @@ bool AIUsingAttack::selectPerson()
 
 bool AIUsingAttack::movePhase()
 {
-    
     d_possibleMove.erase(d_possibleMove.begin());
     return false;
 }
@@ -352,6 +351,7 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
     //spell params
     double force = Consts::get("force", i_trick);
     int radius = Consts::get("radius", i_trick);
+    int minRadius = Consts::isExist("minRadius", i_trick) ? Consts::get("radius", i_trick) : 0;
     //check if recovered
     if(pMag->d_tricks[i_trick])
         return 0;
@@ -362,6 +362,7 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
         {
             if(i!=x || j!=y)
             {
+                if(abs(i-x)>=minRadius || abs(j-y)>=minRadius)
                 if(i==x || j==y || i-x==j-y || i-x==y-j)
                 {
                     Magican* p = ContainUtils::findMagican(d_enemies, i, j);
