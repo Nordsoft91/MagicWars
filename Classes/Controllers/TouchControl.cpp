@@ -45,18 +45,20 @@ void TouchControl::coverRange(std::vector<std::pair<size_t, size_t>> coord, cons
     bool center = !(coord[0].first==coord[1].first && coord[0].second==coord[1].second);
     std::string squareType = Consts::get("coverType", i_spell);
     size_t minRadius = Consts::isExist("coverMinRadius", i_spell) ? Consts::get("coverMinRadius", i_spell) : 0;
+    SquareControl::Points pnts;
     if(squareType=="POINT")
-        SquareControl::instance().createPoint(coord[1].first, coord[1].second, "orange");
+        pnts = SquareControl::instance().getPoint(coord[1].first, coord[1].second);
     if(squareType=="BORDER")
-        SquareControl::instance().createBorder(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange");
+        pnts = SquareControl::instance().getBorder(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell));
     if(squareType=="SQUAD")
-        SquareControl::instance().createSquare(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange", center);
+        pnts = SquareControl::instance().getSquare(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), center);
     if(squareType=="CROSS")
-        SquareControl::instance().createCross(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), "orange", center);
+        pnts = SquareControl::instance().getCross(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), center);
     if(squareType=="STAR")
-        SquareControl::instance().createStar(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), "orange", center);
+        pnts = SquareControl::instance().getStar(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), center);
     if(squareType=="LINE")
-        SquareControl::instance().createLine(coord[0].first, coord[0].second, coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), "orange");
+        pnts = SquareControl::instance().getLine(coord[0].first, coord[0].second, coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell));
+    SquareControl::instance().createSquares(pnts, "orange");
 }
 
 void TouchControl::performSpell(Magican* i_owner, size_t x, size_t y, const std::string& i_spell)
@@ -146,7 +148,7 @@ void TouchControl::attackAction()
             d_move = nullptr;
         }
         
-        SquareControl::instance().createSquare(obj->x, obj->y, 1, "red");
+        SquareControl::instance().createSquares(SquareControl::instance().getSquare(obj->x, obj->y, 1), "red");
         d_spellCurrent = "attack";
     }
 }
@@ -186,16 +188,18 @@ void TouchControl::spellAction(const std::string& i_spell)
         
         SquareControl::instance().deleteSquares();
         size_t minRadius = Consts::isExist("minRadius", i_spell) ? Consts::get("minRadius", i_spell) : 0;
+        SquareControl::Points pnts;
         if(squareType=="POINT")
-            SquareControl::instance().createPoint(obj->x, obj->y, color);
+            pnts = SquareControl::instance().getPoint(obj->x, obj->y);
         if(squareType=="BORDER")
-            SquareControl::instance().createBorder(obj->x, obj->y, Consts::get("radius", i_spell), color);
+            pnts = SquareControl::instance().getBorder(obj->x, obj->y, Consts::get("radius", i_spell));
         if(squareType=="SQUAD")
-            SquareControl::instance().createSquare(obj->x, obj->y, Consts::get("radius", i_spell), color, forme);
+            pnts = SquareControl::instance().getSquare(obj->x, obj->y, Consts::get("radius", i_spell), forme);
         if(squareType=="CROSS")
-            SquareControl::instance().createCross(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), color, forme);
+            pnts = SquareControl::instance().getCross(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), forme);
         if(squareType=="STAR")
-            SquareControl::instance().createStar(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), color, forme);
+            pnts = SquareControl::instance().getStar(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), forme);
+        SquareControl::instance().createSquares(pnts, color);
         d_spellCurrent = i_spell;
     }
 }
@@ -271,7 +275,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
         
             //filling finder
             SquareControl::instance().deleteSquares();
-            SquareControl::instance().createSquare(obj->x, obj->y, *d_move->d_finder, "blue");
+            SquareControl::instance().createSquares(SquareControl::instance().getSquare(obj->x, obj->y, *d_move->d_finder), "blue");
             d_targetCursor.first = std::numeric_limits<size_t>::max();
             d_targetCursor.second = std::numeric_limits<size_t>::max();
             return;

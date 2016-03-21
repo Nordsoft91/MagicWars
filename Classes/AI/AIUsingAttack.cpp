@@ -356,23 +356,27 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
     if(pMag->d_tricks[i_trick])
         return 0;
     
-    for( int j = y-radius; j<=y+radius; ++j)
+    std::string squareType = Consts::get("gridType", i_trick);
+
+    SquareControl::Points pnts;
+    if(squareType=="POINT")
+        pnts = SquareControl::instance().getPoint(x, y);
+    if(squareType=="BORDER")
+        pnts = SquareControl::instance().getBorder(x, y, radius);
+    if(squareType=="SQUAD")
+        pnts = SquareControl::instance().getSquare(x, y, radius, false);
+    if(squareType=="CROSS")
+        pnts = SquareControl::instance().getCross(x, y, minRadius, radius, false);
+    if(squareType=="STAR")
+        pnts = SquareControl::instance().getStar(x, y, minRadius, radius, false);
+    
+    for( auto i : pnts)
     {
-        for( int i = x-radius; i<=x+radius; ++i)
+        Magican* p = ContainUtils::findMagican(d_enemies, i.first, i.second);
+        if(p && d_goals[p] > w)
         {
-            if(i!=x || j!=y)
-            {
-                if(abs(i-x)>=minRadius || abs(j-y)>=minRadius)
-                if(i==x || j==y || i-x==j-y || i-x==y-j)
-                {
-                    Magican* p = ContainUtils::findMagican(d_enemies, i, j);
-                    if(p && d_goals[p] > w)
-                    {
-                        w = d_goals[p] * force;
-                        pGoal = p;
-                    }
-                }
-            }
+            w = d_goals[p] * force;
+            pGoal = p;
         }
     }
     

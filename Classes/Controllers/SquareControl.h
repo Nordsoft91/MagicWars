@@ -30,19 +30,32 @@ namespace MagicWars_NS {
         ~SquareControl();
         
     public:
+        using Point = std::pair<size_t, size_t>;
+        using Points = std::vector<Point>;
+        
         static SquareControl& instance();
         
-        void createBorder(size_t x, size_t y, size_t i_radius, const std::string i_color);
+        Points getBorder(size_t x, size_t y, size_t i_radius);
+        Points getPoint(size_t x, size_t y);
+        Points getSquare(size_t x, size_t y, size_t i_radius, bool i_center = false);
+        Points getCross(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center = false);
+        Points getStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center = false);
+        Points getLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius);
+        Points getSquare(size_t x, size_t y, WavePathFinder& i_finder);
+        
+        void createSquares(const Points& i_points, const std::string i_color);
+        
+        /*void createBorder(size_t x, size_t y, size_t i_radius, const std::string i_color);
         void createPoint(size_t x, size_t y, const std::string i_color);
         void createSquare(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center = false);
         void createCross(size_t x, size_t y, size_t i_minradius, size_t i_radius, const std::string i_color, bool i_center = false);
         void createStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, const std::string i_color, bool i_center = false);
         void createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, const std::string i_color);
         
-        void createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color);
+        void createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color);*/
         
         bool isSquared(size_t x, size_t y, const std::string i_color);
-        std::vector<std::pair<size_t, size_t> > getSquared(const std::string i_color);
+        Points getSquared(const std::string i_color);
         
         void deleteSquares(const std::string i_color);
         void deleteSquares();

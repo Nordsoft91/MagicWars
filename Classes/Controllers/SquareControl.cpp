@@ -35,13 +35,20 @@ SquareControl::~SquareControl()
     delete d_pSqTileset;
 }
 
-void SquareControl::createPoint(size_t x, size_t y, const std::string i_color )
+void SquareControl::createSquares(const Points &i_points, const std::string i_color)
 {
-    d_pSquares->set(i_color, x, y);
+    for(auto i : i_points)
+        d_pSquares->set(i_color, i.first, i.second);
 }
 
-void SquareControl::createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, const std::string i_color)
+SquareControl::Points SquareControl::getPoint(size_t x, size_t y)
 {
+    return {{x,y}};
+}
+
+SquareControl::Points SquareControl::getLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius)
+{
+    SquareControl::Points pnts;
     double xdiff = int(xd)-int(xs);
     double ydiff = int(yd)-int(ys);
     double sum = std::max(abs(xdiff),abs(ydiff));
@@ -52,36 +59,42 @@ void SquareControl::createLine(size_t xs, size_t ys, size_t xd, size_t yd, size_
         int xp = int(xd)+xdiff*i;
         int yp = int(yd)+ydiff*i;
         if(xp>=0 && yp>=0 && xp<d_pSquares->width() && yp<d_pSquares->height())
-            createPoint(xp, yp, i_color);
+            pnts.push_back({xp, yp});
     }
+    return pnts;
 }
 
-void SquareControl::createBorder(size_t x, size_t y, size_t i_radius, const std::string i_color )
+SquareControl::Points SquareControl::getBorder(size_t x, size_t y, size_t i_radius )
 {
+    SquareControl::Points pnts;
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
             if((abs(i-int(x))==i_radius || abs(j-int(y))==i_radius) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
-                createPoint(i, j, i_color);
+                pnts.push_back({i,j});
         }
     }
+    return pnts;
 }
 
-void SquareControl::createSquare(size_t x, size_t y, size_t i_radius, const std::string i_color, bool i_center )
+SquareControl::Points SquareControl::getSquare(size_t x, size_t y, size_t i_radius, bool i_center )
 {
+    SquareControl::Points pnts;
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
-                createPoint(i, j, i_color);
+                pnts.push_back({i,j});
         }
     }
+    return pnts;
 }
 
-void SquareControl::createStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, const std::string i_color, bool i_center )
+SquareControl::Points SquareControl::getStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center )
 {
+    SquareControl::Points pnts;
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
@@ -90,14 +103,16 @@ void SquareControl::createStar(size_t x, size_t y, size_t i_minradius, size_t i_
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {
                 if(i==x || j==y || i-int(x)==j-int(y) || i-int(x)==int(y)-j)
-                    createPoint(i, j, i_color);
+                    pnts.push_back({i,j});
             }
         }
     }
+    return pnts;
 }
 
-void SquareControl::createCross(size_t x, size_t y, size_t i_minradius, size_t i_radius, const std::string i_color, bool i_center )
+SquareControl::Points SquareControl::getCross(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center )
 {
+    SquareControl::Points pnts;
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
@@ -106,22 +121,25 @@ void SquareControl::createCross(size_t x, size_t y, size_t i_minradius, size_t i
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {
                 if(i==x || j==y)
-                    createPoint(i, j, i_color);
+                    pnts.push_back({i,j});
             }
         }
     }
+    return pnts;
 }
 
-void SquareControl::createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color)
+SquareControl::Points SquareControl::getSquare(size_t x, size_t y, WavePathFinder& i_finder )
 {
+    SquareControl::Points pnts;
     for( int j = -i_finder.getDistance(); j<=i_finder.getDistance(); ++j)
     {
         for( int i = -i_finder.getDistance(); i<=i_finder.getDistance(); ++i)
         {
             if((i!=0 || j!=0) && i_finder.process(i,j)>-1)
-                d_pSquares->set(i_color, int(x)+i, int(y)+j);
+                pnts.push_back({int(x)+i, int(y)+j});
         }
     }
+    return pnts;
 }
 
 bool SquareControl::isSquared(size_t x, size_t y, const std::string i_color)
@@ -129,13 +147,13 @@ bool SquareControl::isSquared(size_t x, size_t y, const std::string i_color)
     return d_pSquares->isTiled(x,y,i_color);
 }
 
-std::vector<std::pair<size_t, size_t> > SquareControl::getSquared(const std::string i_color)
+SquareControl::Points SquareControl::getSquared(const std::string i_color)
 {
-    std::vector<std::pair<size_t, size_t> > vec;
+    SquareControl::Points vec;
     for( size_t y = 0; y<d_pSquares->height(); ++y)
         for( size_t x = 0; x<d_pSquares->width(); ++x)
             if(isSquared(x,y,i_color))
-                vec.push_back(std::pair<size_t, size_t>(x,y));
+                vec.push_back({x,y});
     return vec;
 }
 
