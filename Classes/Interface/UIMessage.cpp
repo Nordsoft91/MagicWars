@@ -109,7 +109,14 @@ namespace UI_NS {
         if(isVisible() && !d_block)
         {
             cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
+            d_listener = nullptr;
             removeFromParent();
         }
+    }
+    
+    Message::~Message()
+    {
+        if(d_listener)
+            cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
     }
 }

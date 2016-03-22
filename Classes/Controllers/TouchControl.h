@@ -38,7 +38,7 @@ namespace MagicWars_NS {
         {
         }
         
-        void initialize(cocos2d::Scene* i_scene, Interface& i_interaface, const CampaignReader::Mission& i_mission);
+        void initialize(cocos2d::Scene* i_scene, const CampaignReader::Mission& i_mission);
         void destroy();
         
         void centralizeOn(cocos2d::Vec2 i_center);

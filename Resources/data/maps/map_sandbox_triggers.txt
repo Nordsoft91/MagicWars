@@ -1,0 +1,9 @@
+Trigger Active
+NoCondition
+ChainOfEvents
+Event Message
+{
+msg1
+}
+Event Win
+EndOfChain

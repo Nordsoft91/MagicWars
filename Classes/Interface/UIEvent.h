@@ -70,7 +70,7 @@ namespace UI_NS {
     class EventHeap: public Event
     {
     public:
-        EventHeap(std::list<Event*> i_events): d_events(i_events) {} //cocos2d::log("Heap constructor"); }
+        EventHeap(std::list<Event*> i_events): d_events(i_events) { static int a = 1; cocos2d::log("Heap constructor %i", a++); }
         void releaseResourceControl(Event* i_event) {d_preventRelease.push_back(i_event);}
         virtual void throwEvent() override;
         virtual ~EventHeap();
@@ -116,6 +116,7 @@ namespace UI_NS {
         EventChain(cocos2d::Node* io_scene, const std::list<Event*>& i_chain);
         
         virtual void throwEvent() override;
+        virtual ~EventChain();
         
     protected:
         Trigger* d_trigger = nullptr;
@@ -127,6 +128,8 @@ namespace UI_NS {
     {
     public:
         EventActivateTrigger(Trigger* i_trigger);
+        virtual ~EventActivateTrigger();
+        
         virtual void throwEvent() override;
         
     protected:

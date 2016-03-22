@@ -25,9 +25,15 @@ namespace UI_NS {
         {
             auto trigger = UI_NS::Trigger::create();
             io_scene->addChild(trigger);
-            selfTrigger->setThrowEvent(new UI_NS::EventHeap( std::list<UI_NS::Event*>{link, new UI_NS::EventActivateTrigger(trigger)} ));
+            auto activateTrigger = new UI_NS::EventActivateTrigger(trigger);
+            auto heap = new UI_NS::EventHeap( std::list<UI_NS::Event*>{link, activateTrigger} );
+            selfTrigger->setThrowEvent(heap);
             selfTrigger = trigger;
         }
+    }
+    
+    EventChain::~EventChain()
+    {
     }
     
     void EventChain::throwEvent()
@@ -38,6 +44,11 @@ namespace UI_NS {
     
     EventActivateTrigger::EventActivateTrigger(Trigger* i_trigger): d_trigger(i_trigger) {}
     
+    EventActivateTrigger::~EventActivateTrigger()
+    {
+        //delete d_trigger;
+    }
+    
     void EventActivateTrigger::throwEvent()
     {
         d_trigger->activate();
@@ -45,14 +56,17 @@ namespace UI_NS {
     
     void EventHeap::throwEvent()
     {
-        for(auto* i : d_events)
+        auto events = d_events;
+        for(auto* i : events)
+        {
             i->throwEvent();
+        }
     }
     
     EventHeap::~EventHeap()
     {
-        //cocos2d::log("Heap destructor");
-        
+        static int a = 1;
+        cocos2d::log("Heap destructor %i", a++);
         for(auto* i : d_events)
         {
             if(std::find(d_preventRelease.begin(), d_preventRelease.end(), i)==d_preventRelease.end())
@@ -108,7 +122,7 @@ namespace UI_NS {
             cocos2d::UserDefault::getInstance()->setIntegerForKey((i->getName()+"_experience_"+std::to_string(level)).c_str(), i->getExperience());
         }
         
-        //MagicWars_NS::TouchControl::instance().destroy();
+        MagicWars_NS::TouchControl::instance().destroy();
         
         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
         auto scene = MagicWars_NS::TravelScene::create();
@@ -127,6 +141,7 @@ namespace UI_NS {
     
     void EventLose::throwEvent()
     {
+        MagicWars_NS::TouchControl::instance().destroy();
         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
         auto scene = MagicWars_NS::TravelScene::create();
         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));

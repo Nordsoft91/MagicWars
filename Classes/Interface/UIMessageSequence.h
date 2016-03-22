@@ -22,6 +22,8 @@ namespace UI_NS {
         
         void releaseLast();
         
+        virtual ~MessageSequence();
+        
     protected:
         MessageSequence() = default;
         
@@ -29,7 +31,7 @@ namespace UI_NS {
         
         std::list<Message*> d_sequence;
         
-        cocos2d::EventListenerTouchOneByOne* d_listener;
+        cocos2d::EventListenerTouchOneByOne* d_listener = nullptr;
     };
 }
 

@@ -28,10 +28,10 @@ namespace UI_NS {
 
         virtual void update(float i_delta) override;
         
-        ~Trigger();
+        virtual ~Trigger();
         
     protected:
-        Trigger() = default;
+        Trigger();
         
         Condition* d_condition = nullptr;
         Event* d_event = nullptr;

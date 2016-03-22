@@ -58,6 +58,7 @@ namespace UI_NS {
             if(d_sequence.empty())
             {
                 cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
+                d_listener = nullptr;
                 MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Message);
                 removeFromParent();
             }
@@ -79,5 +80,11 @@ namespace UI_NS {
     void MessageSequence::releaseLast()
     {
         d_sequence.back()->block(false);
+    }
+    
+    MessageSequence::~MessageSequence()
+    {
+        if(d_listener)
+            cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
     }
 }

@@ -341,11 +341,11 @@ void TouchControl::centralizeOn(GameObj* i_object)
     centralizeOn(v);
 }
 
-void TouchControl::initialize(cocos2d::Scene* i_scene, Interface& i_interface, const CampaignReader::Mission& i_mission)
+void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mission& i_mission)
 {
     destroy();
     
-    d_interface = &i_interface;
+    d_interface = new MagicWars_NS::Interface(i_scene);
     d_mapLayer = cocos2d::Layer::create();
     d_highLayer = cocos2d::Layer::create();
     
@@ -456,6 +456,18 @@ void TouchControl::destroy()
     {
         delete d_terrainMap;
         d_terrainMap = nullptr;
+    }
+    
+    /*if(d_highLayer)
+    {
+        d_highLayer->removeFromParent();
+        d_highLayer = nullptr;
+    }*/
+    
+    if(d_interface)
+    {
+        delete d_interface;
+        d_interface = nullptr;
     }
 }
 

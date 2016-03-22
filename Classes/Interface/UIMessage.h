@@ -28,6 +28,7 @@ namespace UI_NS {
         
     protected:
         Message() = default;
+        virtual ~Message();
         
         virtual bool init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string& i_message);
         
@@ -44,7 +45,7 @@ namespace UI_NS {
         
         std::list<cocos2d::ui::Text*> d_text;
         cocos2d::DrawNode* d_background = nullptr;
-        cocos2d::EventListenerTouchOneByOne* d_listener;
+        cocos2d::EventListenerTouchOneByOne* d_listener = nullptr;
         
         const size_t FONT_SIZE = 17;
     };

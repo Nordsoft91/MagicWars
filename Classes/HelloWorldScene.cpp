@@ -13,26 +13,10 @@ HelloWorld* HelloWorld::createScene(const CampaignReader::Mission& i_mission)
     // 'layer' is an autorelease object
     auto scene = HelloWorld::create();
     
-    MagicWars_NS::TouchControl::instance().initialize(scene, scene->createInterface(), i_mission);
+    MagicWars_NS::TouchControl::instance().initialize(scene, i_mission);
 
     // return the scene
     return scene;
-}
-
-MagicWars_NS::Interface& HelloWorld::createInterface()
-{
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    
-    /*auto closeItem = MenuItemImage::create(
-                                           RES("menu","CloseNormal.png"),
-                                           RES("menu","CloseSelected.png"),
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));*/
-    
-    d_interface.reset( new MagicWars_NS::Interface(this) );
-    //d_interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
-    //                                     closeItem->getContentSize().height/2));
-    
-    return *d_interface;
 }
 
 // on "init" you need to initialize your instance

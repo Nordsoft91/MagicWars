@@ -17,7 +17,7 @@ namespace MagicWars_NS {
     {
     public:
         CharacterAnimated(const std::string& i_group);
-        ~CharacterAnimated() {};
+        virtual ~CharacterAnimated() {};
         
         virtual void move(const std::list<int>& i_list);
         //virtual void born(cocos2d::Layer *io_layer, size_t ix, size_t iy);

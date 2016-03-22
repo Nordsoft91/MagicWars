@@ -17,7 +17,9 @@ namespace UI_NS {
     class Condition
     {
     public:
-        virtual ~Condition() = default;
+        
+        Condition() {}//cocos2d::log("Condition constructor");}
+        virtual ~Condition() {}//cocos2d::log("Condition destructor");}
         
         virtual bool get() const = 0;
     };
