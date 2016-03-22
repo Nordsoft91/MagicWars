@@ -38,25 +38,24 @@ namespace MagicWars_NS {
     class Tileset
     {
     public:
-        Tileset(const std::string i_picture, const TileGrid i_grid): d_tileParameters(i_grid)
+        Tileset(const std::string i_picture, const TileGrid i_grid): d_tileParameters(i_grid), d_picture(i_picture)
         {
-            d_image = cocos2d::Sprite::create(i_picture);
-            d_image->retain();
+            auto s = cocos2d::Sprite::create(i_picture);
+            d_contentSize = s->getContentSize();
         }
         
         ~Tileset()
         {
-            d_image->release();
         }
         
         size_t getTilesetWidth() const
         {
-            return (d_image->getContentSize().width - d_tileParameters.d_offWidth) / (d_tileParameters.d_tileWidth + d_tileParameters.d_sepWidth);
+            return (d_contentSize.width - d_tileParameters.d_offWidth) / (d_tileParameters.d_tileWidth + d_tileParameters.d_sepWidth);
         }
         
         size_t getTilesetHeight() const
         {
-            return (d_image->getContentSize().height - d_tileParameters.d_offHeight) / (d_tileParameters.d_tileHeight + d_tileParameters.d_sepHeight);
+            return (d_contentSize.height - d_tileParameters.d_offHeight) / (d_tileParameters.d_tileHeight + d_tileParameters.d_sepHeight);
         }
         
         size_t getTileWidth() const
@@ -73,12 +72,13 @@ namespace MagicWars_NS {
         {
             cocos2d::Rect rect(d_tileParameters.getCoordX(i_tilex), d_tileParameters.getCoordY(i_tiley), d_tileParameters.d_tileWidth, d_tileParameters.d_tileHeight);
             
-            return cocos2d::Sprite::createWithTexture(d_image->getTexture(), rect);
+            return cocos2d::Sprite::create(d_picture, rect);
         }
         
     protected:
         const TileGrid d_tileParameters;
-        cocos2d::Sprite* d_image;
+        const std::string d_picture;
+        cocos2d::Size d_contentSize;
     };
 }
 

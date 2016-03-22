@@ -36,19 +36,6 @@ namespace MagicWars_NS {
         
         ~TouchControl()
         {
-            delete d_terrainMap;
-            for(auto i : d_arrTerrainTilesets)
-                delete i;
-            for(auto i : d_persons)
-            {
-                i->kill();
-                delete i;
-            }
-            for(auto i : d_mapObjects)
-            {
-                i->kill();
-                delete i;
-            }
         }
         
         void initialize(cocos2d::Scene* i_scene, Interface& i_interaface, const CampaignReader::Mission& i_mission);

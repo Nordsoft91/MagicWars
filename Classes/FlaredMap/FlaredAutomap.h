@@ -25,6 +25,8 @@ namespace Flared_NS {
         
         static std::list<std::string> log();
         
+        static void clear();
+        
     private:
         static AutomapLog& instance();
         

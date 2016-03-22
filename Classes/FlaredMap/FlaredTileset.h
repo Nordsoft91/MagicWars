@@ -20,10 +20,7 @@ namespace Flared_NS {
     {
     public:
         Tileset( const std::string& i_path, size_t i_tW, size_t i_tH);
-        ~Tileset()
-        {
-            //d_img->autorelease();
-        }
+        ~Tileset();
         
         const size_t getCount() const {return d_count;}
         
@@ -51,9 +48,6 @@ namespace Flared_NS {
         size_t d_countX, d_countY;
         const size_t d_tileWidth, d_tileHeight;
         const size_t d_tileSepX, d_tileSepY;
-        
-    private:
-        cocos2d::Sprite* d_img;
     };
     
     using TilesetList = std::list<Tileset*>;

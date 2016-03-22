@@ -108,6 +108,8 @@ namespace UI_NS {
             cocos2d::UserDefault::getInstance()->setIntegerForKey((i->getName()+"_experience_"+std::to_string(level)).c_str(), i->getExperience());
         }
         
+        //MagicWars_NS::TouchControl::instance().destroy();
+        
         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
         auto scene = MagicWars_NS::TravelScene::create();
         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));

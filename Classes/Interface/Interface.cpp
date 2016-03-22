@@ -25,7 +25,7 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
 
 Interface::~Interface()
 {
-    menuClose();
+
 }
 
 void Interface::addButton(cocos2d::MenuItemImage* i_item, cocos2d::Vec2 i_pos)

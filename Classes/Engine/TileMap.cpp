@@ -23,7 +23,7 @@ TileMap::TileMap(Tileset* i_tileset, size_t i_width, size_t i_height): d_pTilese
 TileMap::~TileMap()
 {
     clean();
-    //d_layer->release();
+    d_layer->release();
 }
 
 void TileMap::eraseFromMap(const std::string i_fillWith)

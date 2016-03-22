@@ -412,6 +412,7 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, Interface& i_interface, c
     SquareControl::instance().toScene(d_highLayer);
 	for (std::string& s : Flared_NS::AutomapLog::log())
 		cocos2d::log(s.c_str());
+    Flared_NS::AutomapLog::clear();
 }
 
 Magican* TouchControl::createMagican(int i_x, int i_y, const std::string &i_group, const std::string &i_name)
@@ -441,10 +442,20 @@ void TouchControl::destroy()
     for( auto i : d_arrTerrainTilesets)
         delete i;
     
+    d_mapObjects.clear();
+    d_persons.clear();
+    d_arrTerrainTilesets.clear();
+    
     if(d_map)
+    {
         delete d_map;
+        d_map = nullptr;
+    }
     
     if(d_terrainMap)
+    {
         delete d_terrainMap;
+        d_terrainMap = nullptr;
+    }
 }
 

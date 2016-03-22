@@ -347,7 +347,6 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
 
 double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_action)
 {
-    //std::string spellStr = "spell_fireball";
     Magican* pMag = TouchControl::instance().getTurnController().getTurn();
     Magican* pGoal = nullptr;
     double w = 0.0;

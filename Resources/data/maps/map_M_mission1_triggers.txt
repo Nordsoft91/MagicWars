@@ -16,6 +16,7 @@ Event Message
 {
 Где-то на пути в Фрюмент
 }
+Event Win
 Event HeapOfEvents
 Event Move Braves 4 0
 Event Move Dog 5 -1

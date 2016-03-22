@@ -21,6 +21,11 @@ namespace Flared_NS {
         return instance().d_log;
     }
     
+    void AutomapLog::clear()
+    {
+        instance().d_log.clear();
+    }
+    
     Pattern Pattern::rotate() const
     {
         Pattern p(d_h,d_w);
