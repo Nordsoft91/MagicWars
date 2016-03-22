@@ -194,4 +194,13 @@ namespace MagicWars_NS {
         }
         
     }
+    
+    void TurnController::reset()
+    {
+        d_persons.clear();
+        d_sides.clear();
+        d_turn = nullptr;
+        d_turnNumber = 1;
+        relationships.reset();
+    }
 }

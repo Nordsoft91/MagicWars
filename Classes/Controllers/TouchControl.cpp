@@ -458,16 +458,12 @@ void TouchControl::destroy()
         d_terrainMap = nullptr;
     }
     
-    /*if(d_highLayer)
-    {
-        d_highLayer->removeFromParent();
-        d_highLayer = nullptr;
-    }*/
-    
     if(d_interface)
     {
         delete d_interface;
         d_interface = nullptr;
     }
+    
+    d_turnControl.reset();
 }
 

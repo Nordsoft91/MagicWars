@@ -63,6 +63,8 @@ namespace MagicWars_NS {
         
         TeamRelationships relationships;
         
+        void reset();
+        
     private:
         
         std::map<Magican*, TurnInfo> d_persons;

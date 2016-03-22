@@ -5,5 +5,4 @@ Event Message
 {
 msg1
 }
-Event Win
 EndOfChain

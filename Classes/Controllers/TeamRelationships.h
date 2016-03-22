@@ -68,6 +68,11 @@ namespace MagicWars_NS {
             return i->getType();
         }
         
+        void reset()
+        {
+            d_rels.clear();
+        }
+        
     private:
         
         std::vector<Relationships>::const_iterator find(const std::string& i_team1, const std::string& i_team2) const
