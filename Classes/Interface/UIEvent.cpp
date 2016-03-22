@@ -56,8 +56,7 @@ namespace UI_NS {
     
     void EventHeap::throwEvent()
     {
-        auto events = d_events;
-        for(auto* i : events)
+        for(auto* i : d_events)
         {
             i->throwEvent();
         }
