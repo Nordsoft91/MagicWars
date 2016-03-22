@@ -51,6 +51,26 @@ namespace MagicWars_NS {
         
         const cocos2d::Vec2 SCREEN_CENTER;
         
+    public:
+        std::pair<float, float> getPositionAround(float i_radius, size_t i_max, size_t n);
+        
+        void menuOpen(Magican* i_obj);
+        
+        void menuClose();
+        
+        void menuClear();
+        
+        void menuAddItem(cocos2d::MenuItemImage& i_item);
+        
+        cocos2d::MenuItemImage* createMenuItem(const std::string& i_str, bool i_isEnabled, const cocos2d::ccMenuCallback& i_callback);
+        
+        void makeRegularMenu(Magican* i_obj);
+        void makeSpellsMenu();
+        void makeTricksMenu();
+        
+    protected:
+        Magican* d_pMagican = nullptr;
+        
     protected:
         cocos2d::Menu* d_pMenu = nullptr;
         cocos2d::ui::Widget* d_pScreen = nullptr;

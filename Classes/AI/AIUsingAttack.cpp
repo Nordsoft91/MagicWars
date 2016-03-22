@@ -32,8 +32,11 @@ bool AIUsingAttack::selectPerson()
     removeDead(d_possibleMove);
     if(!d_possibleMove.empty())
     {
-        TouchControl::instance().pressAction(d_possibleMove.front()->x, d_possibleMove.front()->y);
-        return true;
+        if(TouchControl::instance().getTurnController().beginTurn(d_possibleMove.front(), TURN_ANY))
+        {
+            TouchControl::instance().createSquaresMove(d_possibleMove.front());
+            return true;
+        }
     }
     return false;
 }

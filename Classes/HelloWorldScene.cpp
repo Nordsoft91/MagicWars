@@ -23,14 +23,14 @@ MagicWars_NS::Interface& HelloWorld::createInterface()
 {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     
-    auto closeItem = MenuItemImage::create(
+    /*auto closeItem = MenuItemImage::create(
                                            RES("menu","CloseNormal.png"),
                                            RES("menu","CloseSelected.png"),
-                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
+                                           CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));*/
     
     d_interface.reset( new MagicWars_NS::Interface(this) );
-    d_interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
-                                         closeItem->getContentSize().height/2));
+    //d_interface->addButton(closeItem, Vec2(visibleSize.width - closeItem->getContentSize().width/2 ,
+    //                                     closeItem->getContentSize().height/2));
     
     return *d_interface;
 }

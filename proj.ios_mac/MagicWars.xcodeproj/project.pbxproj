@@ -116,6 +116,14 @@
 		844535B71C9F667600C523A1 /* laserburn.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535B51C9F667600C523A1 /* laserburn.png */; };
 		844535B91C9F75FF00C523A1 /* pocket-bow.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535B81C9F75FF00C523A1 /* pocket-bow.png */; };
 		844535BA1C9F75FF00C523A1 /* pocket-bow.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535B81C9F75FF00C523A1 /* pocket-bow.png */; };
+		844535BC1CA0B29F00C523A1 /* boot-prints.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535BB1CA0B29F00C523A1 /* boot-prints.png */; };
+		844535BD1CA0B29F00C523A1 /* boot-prints.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535BB1CA0B29F00C523A1 /* boot-prints.png */; };
+		844535C11CA0B88200C523A1 /* roundButton_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535BE1CA0B88200C523A1 /* roundButton_disable.png */; };
+		844535C21CA0B88200C523A1 /* roundButton_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535BE1CA0B88200C523A1 /* roundButton_disable.png */; };
+		844535C31CA0B88200C523A1 /* roundButton_none.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535BF1CA0B88200C523A1 /* roundButton_none.png */; };
+		844535C41CA0B88200C523A1 /* roundButton_none.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535BF1CA0B88200C523A1 /* roundButton_none.png */; };
+		844535C51CA0B88200C523A1 /* roundButton_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535C01CA0B88200C523A1 /* roundButton_select.png */; };
+		844535C61CA0B88200C523A1 /* roundButton_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535C01CA0B88200C523A1 /* roundButton_select.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -816,6 +824,10 @@
 		844535B01C9EBD6000C523A1 /* 050-Soldier02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "050-Soldier02.png"; sourceTree = "<group>"; };
 		844535B51C9F667600C523A1 /* laserburn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = laserburn.png; path = icons/laserburn.png; sourceTree = "<group>"; };
 		844535B81C9F75FF00C523A1 /* pocket-bow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pocket-bow.png"; path = "icons/pocket-bow.png"; sourceTree = "<group>"; };
+		844535BB1CA0B29F00C523A1 /* boot-prints.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "boot-prints.png"; path = "icons/boot-prints.png"; sourceTree = "<group>"; };
+		844535BE1CA0B88200C523A1 /* roundButton_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_disable.png; sourceTree = "<group>"; };
+		844535BF1CA0B88200C523A1 /* roundButton_none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_none.png; sourceTree = "<group>"; };
+		844535C01CA0B88200C523A1 /* roundButton_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_select.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1380,6 +1392,7 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				844535BB1CA0B29F00C523A1 /* boot-prints.png */,
 				844535B81C9F75FF00C523A1 /* pocket-bow.png */,
 				844535B51C9F667600C523A1 /* laserburn.png */,
 				84A07C001C98CB45001300B0 /* checked-shield.png */,
@@ -1640,6 +1653,9 @@
 		84B520DE1BFFC41D004A6CA0 /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				844535BE1CA0B88200C523A1 /* roundButton_disable.png */,
+				844535BF1CA0B88200C523A1 /* roundButton_none.png */,
+				844535C01CA0B88200C523A1 /* roundButton_select.png */,
 				84A07BFD1C98C50F001300B0 /* roundButton.png */,
 				843D4A141C00D2AA00835492 /* icons */,
 				84B520DF1BFFC41D004A6CA0 /* icon0_disable.png */,
@@ -2064,6 +2080,7 @@
 				84B522B91BFFC41E004A6CA0 /* 030-Sn_Ground01.png in Resources */,
 				84B522191BFFC41E004A6CA0 /* CloseNormal.png in Resources */,
 				84B521FF1BFFC41E004A6CA0 /* icon_fire.png in Resources */,
+				844535C51CA0B88200C523A1 /* roundButton_select.png in Resources */,
 				84B5219F1BFFC41E004A6CA0 /* automap in Resources */,
 				84B522C11BFFC41E004A6CA0 /* 032-T_Ocean01.png in Resources */,
 				84F152791C95707E00B57942 /* map_M_intro.txt in Resources */,
@@ -2154,6 +2171,7 @@
 				84B5225B1BFFC41E004A6CA0 /* 007-Grass_Undulation01.png in Resources */,
 				84B522D51BFFC41E004A6CA0 /* 037-Tree02.png in Resources */,
 				84B522171BFFC41E004A6CA0 /* mapW_M_myDemoMap01.txt in Resources */,
+				844535C31CA0B88200C523A1 /* roundButton_none.png in Resources */,
 				84B72CEA1C88E4A600660898 /* camp1.png in Resources */,
 				843D4A231C00FAEE00835492 /* crossed-swords.png in Resources */,
 				84F152851C95BFA600B57942 /* map_M_mission1_triggers.txt in Resources */,
@@ -2208,6 +2226,7 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				84B521CF1BFFC41E004A6CA0 /* LightningBolt.png in Resources */,
 				84B523471BFFC41E004A6CA0 /* 081-B_Ground02.png in Resources */,
+				844535C11CA0B88200C523A1 /* roundButton_disable.png in Resources */,
 				84B5220D1BFFC41E004A6CA0 /* Squares.png in Resources */,
 				84B521E71BFFC41E004A6CA0 /* icon1.gif in Resources */,
 				84B522731BFFC41E004A6CA0 /* 013-G2_Swamp02.png in Resources */,
@@ -2275,6 +2294,7 @@
 				84B522B51BFFC41E004A6CA0 /* 029-Sn_Shadow01.png in Resources */,
 				843D4A381C01D95300835492 /* mapRule_Cave02.txt in Resources */,
 				843D4A3D1C01FF3100835492 /* warrior02.png in Resources */,
+				844535BC1CA0B29F00C523A1 /* boot-prints.png in Resources */,
 				843D4A321C011C5100835492 /* plain-dagger.png in Resources */,
 				84B522911BFFC41E004A6CA0 /* 020-Sa_Grass03.png in Resources */,
 				84B523051BFFC41E004A6CA0 /* 049-St_Shadow01.png in Resources */,
@@ -2408,6 +2428,7 @@
 				84B521E01BFFC41E004A6CA0 /* Marker Felt.ttf in Resources */,
 				843D4A171C00D2FF00835492 /* Icons in Resources */,
 				84B5221C1BFFC41E004A6CA0 /* CloseSelected.png in Resources */,
+				844535C61CA0B88200C523A1 /* roundButton_select.png in Resources */,
 				84B5221E1BFFC41E004A6CA0 /* playbutton_desktop_180.png in Resources */,
 				84B522401BFFC41E004A6CA0 /* tilesWater.png in Resources */,
 				84B522F21BFFC41E004A6CA0 /* 044-Road01.png in Resources */,
@@ -2427,6 +2448,7 @@
 				84F1527A1C95707E00B57942 /* map_M_intro.txt in Resources */,
 				84B521D41BFFC41E004A6CA0 /* Melee2.png in Resources */,
 				84B521F21BFFC41E004A6CA0 /* icon3.gif in Resources */,
+				844535C41CA0B88200C523A1 /* roundButton_none.png in Resources */,
 				84B522081BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
 				84B523401BFFC41E004A6CA0 /* 077-CW_Grass02.png in Resources */,
 				84B522C61BFFC41E004A6CA0 /* 033-Waterfall01.png in Resources */,
@@ -2479,6 +2501,7 @@
 				84F152971C962E0700B57942 /* Blaze.png in Resources */,
 				84B522021BFFC41E004A6CA0 /* icon_firewall.png in Resources */,
 				84B522A41BFFC41E004A6CA0 /* 025-Castle01.png in Resources */,
+				844535C21CA0B88200C523A1 /* roundButton_disable.png in Resources */,
 				844535B71C9F667600C523A1 /* laserburn.png in Resources */,
 				84B521F41BFFC41E004A6CA0 /* icon3_disable.png in Resources */,
 				84B522121BFFC41E004A6CA0 /* mapRule_Grassland01.txt in Resources */,
@@ -2603,6 +2626,7 @@
 				84A07BF31C974451001300B0 /* mapObjects in Resources */,
 				84B5229A1BFFC41E004A6CA0 /* 022-SnowTown02.png in Resources */,
 				84B522BA1BFFC41E004A6CA0 /* 030-Sn_Ground01.png in Resources */,
+				844535BD1CA0B29F00C523A1 /* boot-prints.png in Resources */,
 				844535A51C9DDA3400C523A1 /* 124-Civilian24.png in Resources */,
 				84B522841BFFC41E004A6CA0 /* 017-MineTown01.png in Resources */,
 				84B522EC1BFFC41E004A6CA0 /* 043-Cave01.png in Resources */,

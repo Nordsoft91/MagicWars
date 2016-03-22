@@ -202,6 +202,7 @@ void TouchControl::spellAction(const std::string& i_spell)
         SquareControl::instance().createSquares(pnts, color);
         d_spellCurrent = i_spell;
     }
+    d_interface->menuClose();
 }
 
 void TouchControl::endTurnAction()
@@ -253,39 +254,39 @@ void TouchControl::prepareMovingStructure(MagicWars_NS::MovingStructure& io_stru
         }
 }
 
+void TouchControl::createSquaresMove(Magican* i_object)
+{
+    d_interface->menuClose();
+    if( d_turnControl.beginTurn(i_object, TURN_MOVE))
+    {
+        if(d_move)
+            delete d_move;
+        //we need it finder until tun overs
+        d_move = new MovingStructure(i_object, i_object->x, i_object->y, i_object->getSpeed() );
+        prepareMovingStructure(*d_move);
+        
+        //filling finder
+        SquareControl::instance().deleteSquares();
+        SquareControl::instance().createSquares(SquareControl::instance().getSquare(i_object->x, i_object->y, *d_move->d_finder), "blue");
+        d_targetCursor.first = std::numeric_limits<size_t>::max();
+        d_targetCursor.second = std::numeric_limits<size_t>::max();
+    }
+}
+
 void TouchControl::pressAction(size_t clickX, size_t clickY)
 {
     GameObj* basobj = ContainUtils::findObject(d_persons, clickX, clickY);
-    Magican* obj = dynamic_cast<Magican*>(basobj);
-    
-    if( obj && !SquareControl::instance().isSquared(clickX, clickY, "green") && !SquareControl::instance().isSquared(clickX, clickY, "red") && !SquareControl::instance().isSquared(clickX, clickY, "orange"))
+    if(Magican* obj = dynamic_cast<Magican*>(basobj))
     {
-        d_interface->removeButtons();
-        obj->showStatus(true, 2.0);
-        d_turnControl.beginTurn(obj, TURN_ANY);
-        d_interface->disableActionButtons(!d_turnControl.beginTurn(obj, TURN_ATTACK));
-        if( d_turnControl.beginTurn(obj, TURN_MOVE))
-        {
-            //centralizeOn(cocos2d::Vec2(obj->x*d_sizeWidth, obj->y*d_sizeHeight));
-            if(d_move)
-                delete d_move;
-            //we need it finder until tun overs
-            d_move = new MovingStructure(obj, clickX, clickY, obj->getSpeed() );
-            prepareMovingStructure(*d_move);
-        
-            //filling finder
-            SquareControl::instance().deleteSquares();
-            SquareControl::instance().createSquares(SquareControl::instance().getSquare(obj->x, obj->y, *d_move->d_finder), "blue");
-            d_targetCursor.first = std::numeric_limits<size_t>::max();
-            d_targetCursor.second = std::numeric_limits<size_t>::max();
-            return;
-        }
+        obj->showStatus(true, d_turnControl.beginTurn(obj, TURN_ANY) ? std::numeric_limits<double>::max() : 2);
+        if(d_turnControl.beginTurn(obj, TURN_ANY))
+           d_interface->makeRegularMenu(obj);
     }
     else
     {
-        Magican* mobj = d_turnControl.getTurn();
-        if(mobj)
-            mobj->showStatus(false);
+        d_interface->menuClose();
+        if(d_turnControl.getTurn())
+            d_turnControl.getTurn()->showStatus(false);
     }
     //move
     if(d_move && SquareControl::instance().isSquared(clickX, clickY, "blue"))
@@ -306,7 +307,6 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     {
         performSpell(d_turnControl.getTurn(), clickX, clickY, d_spellCurrent);
         d_turnControl.getTurn()->decreaseMind(int(Consts::get("mind", d_spellCurrent)));
-        d_interface->disableActionButtons(true);
         d_turnControl.endTurn(TURN_ATTACK);
     }
     SquareControl::instance().deleteSquares();
@@ -332,6 +332,13 @@ void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
     sz.y -= d_sizeHeight;
     d_mapLayer->setPosition(sz - i_center);
     d_highLayer->setPosition(sz - i_center);
+}
+
+void TouchControl::centralizeOn(GameObj* i_object)
+{
+    cocos2d::Vec2 v(i_object->getSprite()->getPosition());
+    v -= {32, 32};
+    centralizeOn(v);
 }
 
 void TouchControl::initialize(cocos2d::Scene* i_scene, Interface& i_interface, const CampaignReader::Mission& i_mission)

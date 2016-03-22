@@ -82,7 +82,7 @@ void AIController::nextStage()
             {
             if(d_engines[d_team]->selectPerson())
             {
-                TouchControl::instance().centralizeOn(cocos2d::Vec2(TouchControl::instance().getTurn()->x * size_t(Consts::get("mapCellWidth")), TouchControl::instance().getTurn()->y * size_t(Consts::get("mapCellHeight"))));
+                TouchControl::instance().centralizeOn(TouchControl::instance().getTurn());
                 d_timer = 0.2;
                 d_stage++;
             }

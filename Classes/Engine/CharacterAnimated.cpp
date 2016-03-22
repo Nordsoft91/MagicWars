@@ -10,8 +10,8 @@
 
 using namespace MagicWars_NS;
 
-const double speed = 0.01;
-//const double speed = 0.4;
+//const double speed = 0.01;
+const double speed = 0.4;
 
 CharacterAnimated::CharacterAnimated(const std::string& i_group): Magican(i_group), d_group(i_group)
 {

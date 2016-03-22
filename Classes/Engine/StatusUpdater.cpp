@@ -50,10 +50,9 @@ void StatusUpdater::update(float delta)
         if(d_forceTime>0)
             d_forceTime-=delta;
         else if(d_force)
-        {
             d_force = false;
+        if(!d_force)
             removeAllChildren();
-        }
     }
 }
 
