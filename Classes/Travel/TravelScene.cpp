@@ -120,13 +120,19 @@ namespace MagicWars_NS {
                     cocos2d::CallFunc::create([&, i]()
                     {
                         d_currentPlace = i.first;
+                        size_t level = 0;
+                        for( std::string p = d_points[d_currentPlace].second.prevMission; p!="null"; p=d_points[p].second.prevMission) { ++level; }
+                        cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
+                        auto scene = Menu_NS::MissionBrief::create("WizardWay", level);
+                        cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                     }), NULL );
                     d_chip->runAction(seq);
                     break;
                 }
             }
             
-            if(!d_currentPlace.empty())
+            //uncomment this code if you want to enable additional tap to start mission
+            /*if(!d_currentPlace.empty())
             {
                 cocos2d::Rect r(d_chip->getPosition(), {100,100});
                 if(r.containsPoint(touch->getLocation()))
@@ -137,7 +143,7 @@ namespace MagicWars_NS {
                     auto scene = Menu_NS::MissionBrief::create("WizardWay", level);
                     cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                 }
-            }
+            }*/
         };
         
         cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(listener, 30);
