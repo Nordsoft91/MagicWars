@@ -102,9 +102,12 @@ namespace Flared_NS {
         const size_t getGridX() const { return d_gridX; }
         const size_t getGridY() const { return d_gridY; }
         
+        const int getOrder() const { return d_order; }
+        void setOrder(int i_order) { d_order = i_order; }
+        
     private:
         TileInfo d_info;
-        
+        int d_order = 0;
         size_t d_gridX, d_gridY;
     };
 }

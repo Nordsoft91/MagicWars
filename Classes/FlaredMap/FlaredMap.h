@@ -41,6 +41,7 @@ namespace Flared_NS {
         
         //blocks initialization
         void addLayer(const std::string& i_layerName);
+        void removeLayer(const std::string& i_layerName);
         
         bool isLayerExist(const std::string& i_layerName);
         std::string getLayerSimilar(const std::string& i_layerName);
@@ -54,6 +55,8 @@ namespace Flared_NS {
         std::vector<Character> getCharacters() const;
         
         void addCharacter(Character i_ch);
+        
+        void decreaseOrder(const std::string& i_referenceLayer);
         
         //convert map to cocos nodes tree
         void addMapToLayer(cocos2d::Layer& i_layer);

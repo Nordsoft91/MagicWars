@@ -380,12 +380,14 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
 	Flared_NS::Map mapRule;
 	ruleParse.construct(mapRule);
 	Flared_NS::registerMapRules(mapRule, "layerObjects", "layerSolid", automap);
+    Flared_NS::registerMapRules(mapRule, "layerObjects", "layerOrder", automap);
 
     //MAP NAME
     Flared_NS::Parser parser(i_mission.mapFile);
     Flared_NS::Map flaredSet, flaredMap;
     parser.construct(flaredSet);
     automap.process(flaredSet, flaredMap);
+    flaredMap.decreaseOrder("layerOrder");
 
     d_mapWidth = flaredMap.getWidth();
     d_mapHeight = flaredMap.getHeight();

@@ -53,6 +53,15 @@ void Flared_NS::Map::addLayer(const std::string& i_layerName)
     d_layerMap.push_back({i_layerName, Flared_NS::Layer(tlist, d_width, d_height)});
 }
 
+void Flared_NS::Map::removeLayer(const std::string &i_layerName)
+{
+    for(auto i = d_layerMap.begin(); i!=d_layerMap.end(); )
+        if(i->first==i_layerName)
+            i = d_layerMap.erase(i);
+        else
+            ++i;
+}
+
 bool Flared_NS::Map::isLayerExist(const std::string& i_layerName)
 {
     for(auto& i : d_layerMap)
@@ -185,7 +194,7 @@ void Flared_NS::Map::addMapToLayer(cocos2d::Layer& i_layer)
                     //should be inverted by Y axis
                     int cy = (d_height - 1 - y);
                     t->setPosition(x*d_tileWidth, cy*d_tileHeight);
-                    i_layer.addChild(t, zOrder - cy);
+                    i_layer.addChild(t, zOrder - cy + i.second(x,y).getOrder());
                 }
             }
         }
@@ -201,4 +210,29 @@ std::vector<Flared_NS::Map::Character> Flared_NS::Map::getCharacters() const
 void Flared_NS::Map::addCharacter(Flared_NS::Map::Character i_ch)
 {
     d_characters.push_back(i_ch);
+}
+
+void Flared_NS::Map::decreaseOrder(const std::string &i_referenceLayer)
+{
+    if(!isLayerExist(i_referenceLayer))
+        return;
+    
+    Layer& layer = getLayer(i_referenceLayer);
+    for(size_t j = 0; j<d_height; ++j)
+    {
+        for(size_t i = 0; i<d_width; ++i)
+        {
+            for(auto& l : d_layerMap)
+            {
+                if(l.first==i_referenceLayer)
+                    continue;
+                
+                if(!layer(i,j).info().name().empty())
+                {
+                    l.second(i,j).setOrder(-1);
+                }
+            }
+        }
+    }
+    removeLayer(i_referenceLayer);
 }
