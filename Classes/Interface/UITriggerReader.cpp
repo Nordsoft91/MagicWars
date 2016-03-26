@@ -171,19 +171,7 @@ namespace UI_NS
         }
         if (type == "TutorialPressButton")
         {
-            std::string name;
-            size_t idx = 0;
-            io_stream >> name;
-            MagicWars_NS::Interface::Button but = MagicWars_NS::Interface::Button::End;
-            if(name=="TRICK") but = MagicWars_NS::Interface::Button::Trick;
-            if(name=="SPELL") but = MagicWars_NS::Interface::Button::Spell;
-            if(name=="END") but = MagicWars_NS::Interface::Button::End;
-            if(name=="CUSTOM")
-            {
-                but = MagicWars_NS::Interface::Button::Custom;
-                io_stream >> idx;
-            }
-            return new UI_NS::EventOneButtonAllow(d_layer, but, idx);
+            return new UI_NS::EventOneButtonAllow(d_layer, readObject(io_stream));
         }
 		if (type == "Activator")
 		{

@@ -19,10 +19,21 @@
 <group> hero02_level02 <override> hero02_level01
 {
     health = 125
-    concentrate = 8
-    mind = 25
-    wisdom = 14
-    speed = 2
+    concentrate = 7
+    mind = 22
+    wisdom = 13
     expirience = 350
-    trickSkills = { trick_shoot trick_doubleshoot }
+    trickSkills = { trick_shoot trick_strongshoot }
+    promotionGroup = hero02_level03
+}
+
+<group> hero02_level03 <override> hero02_level01
+{
+    health = 180
+    concentrate = 9
+    mind = 29
+    wisdom = 17
+    speed = 3
+    expirience = 800
+    trickSkills = { trick_shoot trick_strongshoot trick_doubleshoot }
 }

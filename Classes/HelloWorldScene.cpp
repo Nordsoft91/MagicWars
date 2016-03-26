@@ -36,6 +36,7 @@ bool HelloWorld::init()
     
     MagicWars_NS::AIController* controller = MagicWars_NS::AIController::create();
     
+    //new is wrapped by unique_ptr
     controller->setSideAI("Dark", new MagicWars_NS::AIMovable);
     controller->setSideAI("Neutral", new MagicWars_NS::AIMovable);
     controller->setSideAI("Tutor", new MagicWars_NS::AIEngine);

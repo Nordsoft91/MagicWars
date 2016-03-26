@@ -5,9 +5,7 @@ Event Message
 {
 Добро пожаловать в Magic Wars! Это обучающий уровень. Нажмите, чтобы продолжить.
 Поздравляем! Вы начинающий маг. Сейчас вы обучитесь основам управления и ведения магического боя.
-Нажмите на своего персонажа, чтобы выделить его.
 }
-Event TutorialPressObject Braves
 Event Dialog Braves
 {
 Ооох, что за шум, сейчас же раннее утро!
@@ -31,6 +29,16 @@ Event Dialog Friend
 Event Message
 {
 Итак, ты получил свое первое боевое задание, давай достойно с ним справимся.
+Нажми на своего персонажа чтобы посмотреть список доступных действий
+}
+Event TutorialPressObject Braves
+Event Message
+{
+Выбери движение из списка
+}
+Event TutorialPressButton move
+Event Message
+{
 Синие клетки вокруг персонажа - возможные варианты передвижения. Для начала отойдем от палатки.
 }
 Event TutorialPressObjectRelative Braves 2 -2
@@ -38,8 +46,10 @@ Event Message
 {
 За один ход ты можешь передвинуть один раз каждого из персонажей под твоим управлением.
 Теперь давай завершим ход и посмотрим за действиями противника.
+Для этого выдели своег оперсонажа снова и нажми кнопку завершения его хода.
 }
-Event TutorialPressButton END
+Event TutorialPressObject Braves
+Event TutorialPressButton finish
 EndOfChain
 
 Trigger Name WolfNear Active
@@ -52,8 +62,8 @@ Event Message
 Выбери своего персонажа и посмотри список доступных тебе заклинаний нажав на кнопку с книгой.
 }
 Event TutorialPressObject Braves
-Event TutorialPressButton SPELL
-Event TutorialPressButton CUSTOM 0
+Event TutorialPressButton spells
+Event TutorialPressButton spell_fireball
 Event Message
 {
 Красные клетки - возможные цели для заклинания. Когда ты нажмешь на клетку, клетки, находящиеся в зоне поражения станут оранжевыми. Нажми на клетку с волком
@@ -71,6 +81,7 @@ Event Message
 Ты еще можешь двигаться. Самое время отойти подальше.
 }
 Event TutorialPressObject Braves
+Event TutorialPressButton move
 Event TutorialPressObjectRelative Braves -2 0
 EndOfChain
 
@@ -95,12 +106,12 @@ Event Message
 Кнопка в левом верхнем углу - это трюки, которыми персонаж владеет. Выдели персонажа и нажми на нее.
 }
 Event TutorialPressObject Braves
-Event TutorialPressButton TRICK
+Event TutorialPressButton tricks
 Event Message
 {
 Пока что ты можешь только ударить врага посохом. Что же, давай так и сделаем.
 }
-Event TutorialPressButton CUSTOM 0
+Event TutorialPressButton attack
 Event TutorialPressObjectRelative Braves 1 0
 Event TutorialPressObjectRelative Braves 1 0
 Event Message

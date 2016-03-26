@@ -24,5 +24,17 @@
     wisdom = 18
     speed = 2
     expirience = 350
-    spellBook = { spell_fireball spell_lighting spell_ray }
+    spellBook = { spell_fireball spell_lighting spell_ray spell_shield }
+    promotionGroup = hero01_level03
+}
+
+<group> hero01_level03 <override> hero01_level01
+{
+    health = 165
+    concentrate = 13
+    mind = 63
+    wisdom = 25
+    speed = 2
+    expirience = 800
+    spellBook = { spell_fireball spell_lighting spell_ray spell_shield spell_thunderbolt spell_icicles spell_firewall }
 }

@@ -38,16 +38,30 @@ recover = 2
     recover = 1
 }
 
-<group> trick_doubleshoot
+<group> trick_strongshoot
 {
 type = DAMMAGE
 radius = 2
 gridType = BORDER
+coverType = POINT
+effectType = FOLLOW
+sprite_fly = Arrow1.png
+sprite_fly_size = 10
+force = 34
+recover = 2
+}
+
+<group> trick_doubleshoot
+{
+type = DAMMAGE
+radius = 2
+minRadius = 2
+gridType = STAR
 coverType = LINE
 coverRadius = 2
-effectType = APPEAR
-sprite = Melee1.png
-sprite_size = 10
-force = 21
-recover = 2
+effectType = FOLLOW
+sprite_fly = Arrow1.png
+sprite_fly_size = 10
+force = 36
+recover = 3
 }

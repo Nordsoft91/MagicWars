@@ -10,6 +10,7 @@
 #define __MagicWars__AIController__
 
 #include "AIEngine.h"
+#include <memory>
 
 namespace MagicWars_NS {
     class AIController: public cocos2d::Node
@@ -44,7 +45,7 @@ namespace MagicWars_NS {
         AIController() = default;
         
     protected:
-        std::map<std::string, AIEngine*> d_engines;
+        std::map<std::string, std::unique_ptr<AIEngine>> d_engines;
         int d_stage = 0;
         float d_timer = 0;
         std::string d_team;

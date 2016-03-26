@@ -11,7 +11,7 @@ tileset=../tiles/vx_map02/016-ForestTown02.png,64,64,0,0
 
 [characters]
 character=Light,hero01_level01,4,3,Braves
-character=Neutral,hero02_level01,3,3,Erson
+character=Light,hero02_level01,3,3,Erson
 character=Neutral,hero03_level01,17,17,Dolor
 character=Tutor,civil01,11,15,c1
 character=Dark,civil02,12,10,c2
@@ -19,7 +19,7 @@ character=Tutor,civil03,14,17,c3
 character=Dark,civil04,13,11,c4
 character=Tutor,civil05,17,10,c5
 character=Tutor,civil06,19,11,c6
-character=Dark,cooker,10,17,cooker
+character=Tutor,cooker,10,17,cooker
 
 [layer]
 type=layerSet

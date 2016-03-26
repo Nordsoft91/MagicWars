@@ -126,6 +126,26 @@
 		844535C61CA0B88200C523A1 /* roundButton_select.png in Resources */ = {isa = PBXBuildFile; fileRef = 844535C01CA0B88200C523A1 /* roundButton_select.png */; };
 		844535C81CA1FE1E00C523A1 /* map_sandbox_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 844535C71CA1FE1E00C523A1 /* map_sandbox_triggers.txt */; };
 		844535C91CA1FE1E00C523A1 /* map_sandbox_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 844535C71CA1FE1E00C523A1 /* map_sandbox_triggers.txt */; };
+		8475EF801CA35D3A00738297 /* mapRule_frument.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF7D1CA35D3A00738297 /* mapRule_frument.txt */; };
+		8475EF811CA35D3A00738297 /* mapRule_frument.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF7D1CA35D3A00738297 /* mapRule_frument.txt */; };
+		8475EF831CA4745500738297 /* map_L_frument.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF821CA4745500738297 /* map_L_frument.txt */; };
+		8475EF841CA4745500738297 /* map_L_frument.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF821CA4745500738297 /* map_L_frument.txt */; };
+		8475EF861CA47B0E00738297 /* 127-Noble02.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF851CA47B0E00738297 /* 127-Noble02.png */; };
+		8475EF871CA47B0E00738297 /* 127-Noble02.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF851CA47B0E00738297 /* 127-Noble02.png */; };
+		8475EF891CA5B63400738297 /* map_L_frument_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF881CA5B63400738297 /* map_L_frument_triggers.txt */; };
+		8475EF8A1CA5B63400738297 /* map_L_frument_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF881CA5B63400738297 /* map_L_frument_triggers.txt */; };
+		8475EF8C1CA5EDE500738297 /* lightning-branches.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF8B1CA5EDE500738297 /* lightning-branches.png */; };
+		8475EF8D1CA5EDE500738297 /* lightning-branches.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF8B1CA5EDE500738297 /* lightning-branches.png */; };
+		8475EF901CA5EECD00738297 /* fire-ring.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF8E1CA5EECD00738297 /* fire-ring.png */; };
+		8475EF911CA5EECD00738297 /* fire-ring.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF8E1CA5EECD00738297 /* fire-ring.png */; };
+		8475EF921CA5EECD00738297 /* radial-balance.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF8F1CA5EECD00738297 /* radial-balance.png */; };
+		8475EF931CA5EECD00738297 /* radial-balance.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF8F1CA5EECD00738297 /* radial-balance.png */; };
+		8475EF951CA5F38A00738297 /* broadsword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF941CA5F38A00738297 /* broadsword.png */; };
+		8475EF961CA5F38A00738297 /* broadsword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF941CA5F38A00738297 /* broadsword.png */; };
+		8475EF981CA5F51900738297 /* croc-sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF971CA5F51900738297 /* croc-sword.png */; };
+		8475EF991CA5F51900738297 /* croc-sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF971CA5F51900738297 /* croc-sword.png */; };
+		8475EF9B1CA5F5B000738297 /* double-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF9A1CA5F5B000738297 /* double-shot.png */; };
+		8475EF9C1CA5F5B000738297 /* double-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF9A1CA5F5B000738297 /* double-shot.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -831,6 +851,16 @@
 		844535BF1CA0B88200C523A1 /* roundButton_none.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_none.png; sourceTree = "<group>"; };
 		844535C01CA0B88200C523A1 /* roundButton_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_select.png; sourceTree = "<group>"; };
 		844535C71CA1FE1E00C523A1 /* map_sandbox_triggers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_sandbox_triggers.txt; sourceTree = "<group>"; };
+		8475EF7D1CA35D3A00738297 /* mapRule_frument.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapRule_frument.txt; sourceTree = "<group>"; };
+		8475EF821CA4745500738297 /* map_L_frument.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_L_frument.txt; sourceTree = "<group>"; };
+		8475EF851CA47B0E00738297 /* 127-Noble02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "127-Noble02.png"; sourceTree = "<group>"; };
+		8475EF881CA5B63400738297 /* map_L_frument_triggers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_L_frument_triggers.txt; sourceTree = "<group>"; };
+		8475EF8B1CA5EDE500738297 /* lightning-branches.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lightning-branches.png"; path = "icons/lightning-branches.png"; sourceTree = "<group>"; };
+		8475EF8E1CA5EECD00738297 /* fire-ring.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fire-ring.png"; path = "icons/fire-ring.png"; sourceTree = "<group>"; };
+		8475EF8F1CA5EECD00738297 /* radial-balance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "radial-balance.png"; path = "icons/radial-balance.png"; sourceTree = "<group>"; };
+		8475EF941CA5F38A00738297 /* broadsword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = broadsword.png; path = icons/broadsword.png; sourceTree = "<group>"; };
+		8475EF971CA5F51900738297 /* croc-sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "croc-sword.png"; path = "icons/croc-sword.png"; sourceTree = "<group>"; };
+		8475EF9A1CA5F5B000738297 /* double-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "double-shot.png"; path = "icons/double-shot.png"; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1395,6 +1425,12 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				8475EF9A1CA5F5B000738297 /* double-shot.png */,
+				8475EF971CA5F51900738297 /* croc-sword.png */,
+				8475EF941CA5F38A00738297 /* broadsword.png */,
+				8475EF8E1CA5EECD00738297 /* fire-ring.png */,
+				8475EF8F1CA5EECD00738297 /* radial-balance.png */,
+				8475EF8B1CA5EDE500738297 /* lightning-branches.png */,
 				844535BB1CA0B29F00C523A1 /* boot-prints.png */,
 				844535B81C9F75FF00C523A1 /* pocket-bow.png */,
 				844535B51C9F667600C523A1 /* laserburn.png */,
@@ -1699,6 +1735,9 @@
 		84B520F71BFFC41D004A6CA0 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				8475EF821CA4745500738297 /* map_L_frument.txt */,
+				8475EF881CA5B63400738297 /* map_L_frument_triggers.txt */,
+				8475EF7D1CA35D3A00738297 /* mapRule_frument.txt */,
 				844535941C9DD66500C523A1 /* map_M_tavern1.txt */,
 				844535AC1C9DE25D00C523A1 /* map_M_tavern1_triggers.txt */,
 				84A07C031C9B5639001300B0 /* map_S_tavern.txt */,
@@ -1788,6 +1827,7 @@
 		84B5210D1BFFC41D004A6CA0 /* people */ = {
 			isa = PBXGroup;
 			children = (
+				8475EF851CA47B0E00738297 /* 127-Noble02.png */,
 				844535AF1C9EBD6000C523A1 /* 049-Soldier01.png */,
 				844535B01C9EBD6000C523A1 /* 050-Soldier02.png */,
 				844535A61C9DDA7600C523A1 /* 138-Cook01.png */,
@@ -2097,6 +2137,7 @@
 				84B72D0B1C88F90500660898 /* WizardWay in Resources */,
 				84B521E91BFFC41E004A6CA0 /* icon1_disable.png in Resources */,
 				84B522B71BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
+				8475EF861CA47B0E00738297 /* 127-Noble02.png in Resources */,
 				84B522071BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
 				84B522B11BFFC41E004A6CA0 /* 028-Sn_Water01.png in Resources */,
 				84B522531BFFC41E004A6CA0 /* 005-Beach01.png in Resources */,
@@ -2173,6 +2214,7 @@
 				84B522451BFFC41E004A6CA0 /* 001_Grassland01.png in Resources */,
 				84B5221D1BFFC41E004A6CA0 /* playbutton_desktop_180.png in Resources */,
 				84B5225B1BFFC41E004A6CA0 /* 007-Grass_Undulation01.png in Resources */,
+				8475EF921CA5EECD00738297 /* radial-balance.png in Resources */,
 				84B522D51BFFC41E004A6CA0 /* 037-Tree02.png in Resources */,
 				84B522171BFFC41E004A6CA0 /* mapW_M_myDemoMap01.txt in Resources */,
 				844535C31CA0B88200C523A1 /* roundButton_none.png in Resources */,
@@ -2180,6 +2222,7 @@
 				843D4A231C00FAEE00835492 /* crossed-swords.png in Resources */,
 				84F152851C95BFA600B57942 /* map_M_mission1_triggers.txt in Resources */,
 				84B522971BFFC41E004A6CA0 /* 022-Roof01.png in Resources */,
+				8475EF8C1CA5EDE500738297 /* lightning-branches.png in Resources */,
 				84A07C011C98CB45001300B0 /* checked-shield.png in Resources */,
 				84B522851BFFC41E004A6CA0 /* 017-Sa_Grass01.png in Resources */,
 				84B521E11BFFC41E004A6CA0 /* icon0_disable.png in Resources */,
@@ -2190,10 +2233,12 @@
 				84B522C51BFFC41E004A6CA0 /* 033-Waterfall01.png in Resources */,
 				84B521D11BFFC41E004A6CA0 /* Ray.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
+				8475EF831CA4745500738297 /* map_L_frument.txt in Resources */,
 				84B523391BFFC41E004A6CA0 /* 074-CW_Water01.png in Resources */,
 				84B522391BFFC41E004A6CA0 /* sheetMisc.png in Resources */,
 				84B522831BFFC41E004A6CA0 /* 017-MineTown01.png in Resources */,
 				84B72D121C8905F100660898 /* Victorian Gothic One.ttf in Resources */,
+				8475EF9B1CA5F5B000738297 /* double-shot.png in Resources */,
 				84B522151BFFC41E004A6CA0 /* mapT_S_tutorial01.txt in Resources */,
 				84B522E31BFFC41E004A6CA0 /* 041-EvilCastle01.png in Resources */,
 				844535C81CA1FE1E00C523A1 /* map_sandbox_triggers.txt in Resources */,
@@ -2230,6 +2275,7 @@
 				84B522871BFFC41E004A6CA0 /* 018-MineTown02.png in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				84B521CF1BFFC41E004A6CA0 /* LightningBolt.png in Resources */,
+				8475EF901CA5EECD00738297 /* fire-ring.png in Resources */,
 				84B523471BFFC41E004A6CA0 /* 081-B_Ground02.png in Resources */,
 				844535C11CA0B88200C523A1 /* roundButton_disable.png in Resources */,
 				84B5220D1BFFC41E004A6CA0 /* Squares.png in Resources */,
@@ -2255,6 +2301,7 @@
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				84B5225D1BFFC41E004A6CA0 /* 007-Swamp01.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				8475EF981CA5F51900738297 /* croc-sword.png in Resources */,
 				84B521F91BFFC41E004A6CA0 /* icon4.gif in Resources */,
 				84B5231D1BFFC41E004A6CA0 /* 060-CE_Grass01.png in Resources */,
 				84B523191BFFC41E004A6CA0 /* 058-CE_Ground01.png in Resources */,
@@ -2303,6 +2350,8 @@
 				843D4A321C011C5100835492 /* plain-dagger.png in Resources */,
 				84B522911BFFC41E004A6CA0 /* 020-Sa_Grass03.png in Resources */,
 				84B523051BFFC41E004A6CA0 /* 049-St_Shadow01.png in Resources */,
+				8475EF951CA5F38A00738297 /* broadsword.png in Resources */,
+				8475EF891CA5B63400738297 /* map_L_frument_triggers.txt in Resources */,
 				84B521F51BFFC41E004A6CA0 /* icon3_none.png in Resources */,
 				844535B31C9EBD6000C523A1 /* 050-Soldier02.png in Resources */,
 				8445359E1C9DDA3400C523A1 /* 108-Civilian08.png in Resources */,
@@ -2316,6 +2365,7 @@
 				84B521B91BFFC41E004A6CA0 /* superhero in Resources */,
 				84B522FD1BFFC41E004A6CA0 /* 047-Mine01.png in Resources */,
 				84B522091BFFC41E004A6CA0 /* icon_ray.png in Resources */,
+				8475EF801CA35D3A00738297 /* mapRule_frument.txt in Resources */,
 				84B521C51BFFC41E004A6CA0 /* Fireball.png in Resources */,
 				843D4A2E1C0105F600835492 /* bowman.png in Resources */,
 				84B5224B1BFFC41E004A6CA0 /* 003_Forest01.png in Resources */,
@@ -2460,8 +2510,10 @@
 				848F6EA71C86120C005B928E /* Washington.ttf in Resources */,
 				84B523461BFFC41E004A6CA0 /* 080-B_Ground01.png in Resources */,
 				84B521EE1BFFC41E004A6CA0 /* icon1_select.png in Resources */,
+				8475EF811CA35D3A00738297 /* mapRule_frument.txt in Resources */,
 				84B522101BFFC41E004A6CA0 /* map_XS_demo01.txt in Resources */,
 				84B522B81BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
+				8475EF991CA5F51900738297 /* croc-sword.png in Resources */,
 				84B522B41BFFC41E004A6CA0 /* 029-Church02.png in Resources */,
 				84B72D0C1C88F90500660898 /* WizardWay in Resources */,
 				844535A31C9DDA3400C523A1 /* 118-Civilian18.png in Resources */,
@@ -2471,6 +2523,7 @@
 				84B5233E1BFFC41E004A6CA0 /* 076-CW_Grass01.png in Resources */,
 				84B5231A1BFFC41E004A6CA0 /* 058-CE_Ground01.png in Resources */,
 				84B523121BFFC41E004A6CA0 /* 054-Wall02.png in Resources */,
+				8475EF911CA5EECD00738297 /* fire-ring.png in Resources */,
 				84B523241BFFC41E004A6CA0 /* 063-CF_Shadow01.png in Resources */,
 				84B5223C1BFFC41E004A6CA0 /* Solid.png in Resources */,
 				84B522E81BFFC41E004A6CA0 /* 042-EvilCastle02.png in Resources */,
@@ -2494,6 +2547,7 @@
 				84B5233A1BFFC41E004A6CA0 /* 074-CW_Water01.png in Resources */,
 				84B522761BFFC41E004A6CA0 /* 013-PostTown01.png in Resources */,
 				84B522301BFFC41E004A6CA0 /* civil01.png in Resources */,
+				8475EF8D1CA5EDE500738297 /* lightning-branches.png in Resources */,
 				84B521C21BFFC41E004A6CA0 /* Christmas 2.png in Resources */,
 				84B522DC1BFFC41E004A6CA0 /* 039-Tower01.png in Resources */,
 				84B5221A1BFFC41E004A6CA0 /* CloseNormal.png in Resources */,
@@ -2544,6 +2598,7 @@
 				84B522F61BFFC41E004A6CA0 /* 045-Road02.png in Resources */,
 				843D4A2A1C00FCD700835492 /* fire-tail.png in Resources */,
 				84B521CC1BFFC41E004A6CA0 /* Icicles.png in Resources */,
+				8475EF9C1CA5F5B000738297 /* double-shot.png in Resources */,
 				84B523261BFFC41E004A6CA0 /* 064-CF_Ground01.png in Resources */,
 				843D4A4A1C0202D800835492 /* undead03.png in Resources */,
 				84B5234B1BFFC48F004A6CA0 /* stub.png in Resources */,
@@ -2559,9 +2614,11 @@
 				84B522B21BFFC41E004A6CA0 /* 028-Sn_Water01.png in Resources */,
 				84B523201BFFC41E004A6CA0 /* 061-CE_Road01.png in Resources */,
 				84B523321BFFC41E004A6CA0 /* 070-CI_Snow01.png in Resources */,
+				8475EF931CA5EECD00738297 /* radial-balance.png in Resources */,
 				84B522CC1BFFC41E004A6CA0 /* 035-Ruins01.png in Resources */,
 				84B522621BFFC41E004A6CA0 /* 008-Snowfield01.png in Resources */,
 				843D4A3B1C01D95300835492 /* mapT_M_prologue.txt in Resources */,
+				8475EF961CA5F38A00738297 /* broadsword.png in Resources */,
 				84B522941BFFC41E004A6CA0 /* 021-Sa_Road01.png in Resources */,
 				84B522601BFFC41E004A6CA0 /* 008-Grass_Undulation02.png in Resources */,
 				84B5224C1BFFC41E004A6CA0 /* 003_Forest01.png in Resources */,
@@ -2576,6 +2633,7 @@
 				84B5225E1BFFC41E004A6CA0 /* 007-Swamp01.png in Resources */,
 				84B522B01BFFC41E004A6CA0 /* 028-Church01.png in Resources */,
 				84B521FE1BFFC41E004A6CA0 /* icon4_select.png in Resources */,
+				8475EF841CA4745500738297 /* map_L_frument.txt in Resources */,
 				84A07BF61C98C014001300B0 /* ArmorBoost.png in Resources */,
 				84B522D01BFFC41E004A6CA0 /* 036-Shop01.png in Resources */,
 				84B72D131C8905F100660898 /* Victorian Gothic One.ttf in Resources */,
@@ -2628,6 +2686,7 @@
 				84B72CF71C88E4A600660898 /* camp4.png in Resources */,
 				84B522B61BFFC41E004A6CA0 /* 029-Sn_Shadow01.png in Resources */,
 				84B523041BFFC41E004A6CA0 /* 049-InnerBody01.png in Resources */,
+				8475EF871CA47B0E00738297 /* 127-Noble02.png in Resources */,
 				84B522F41BFFC41E004A6CA0 /* 045-Cave03.png in Resources */,
 				84A07BF31C974451001300B0 /* mapObjects in Resources */,
 				84B5229A1BFFC41E004A6CA0 /* 022-SnowTown02.png in Resources */,
@@ -2637,6 +2696,7 @@
 				84B522841BFFC41E004A6CA0 /* 017-MineTown01.png in Resources */,
 				84B522EC1BFFC41E004A6CA0 /* 043-Cave01.png in Resources */,
 				84B521AA1BFFC41E004A6CA0 /* hero03 in Resources */,
+				8475EF8A1CA5B63400738297 /* map_L_frument_triggers.txt in Resources */,
 				84B522421BFFC41E004A6CA0 /* tsSurfaces.png in Resources */,
 				84B522241BFFC41E004A6CA0 /* Logo.png in Resources */,
 				84B72CF91C88E4A600660898 /* camp4_d.png in Resources */,

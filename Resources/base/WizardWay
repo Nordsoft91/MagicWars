@@ -29,3 +29,11 @@ triggers map_M_tavern1_triggers.txt
 rules    mapRule_forestTown.txt
 previous Голодные
 position 380 220
+
+mission  Фрюмент
+brief    null
+map      map_L_frument.txt
+triggers map_L_frument_triggers.txt
+rules    mapRule_frument.txt
+previous Таверна
+position 300 220

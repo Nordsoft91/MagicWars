@@ -36,12 +36,12 @@ namespace UI_NS {
     class TutorialPressButton: public cocos2d::Node
     {
     public:
-        static TutorialPressButton* create(const MagicWars_NS::Interface::Button i_but, size_t i_idx = 0);
+        static TutorialPressButton* create(const std::string& i_but);
         
     protected:
         TutorialPressButton() = default;
         
-        virtual bool init(const MagicWars_NS::Interface::Button i_but, size_t i_idx);
+        virtual bool init(const std::string& i_but);
     };
 }
 

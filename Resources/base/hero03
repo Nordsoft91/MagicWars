@@ -9,8 +9,23 @@ concentrate = 12
 mind = 5
 wisdom = 3
 speed = 2
-expirience = 15000
-weapon = weapon_staff
+expirience = 400
+weapon = weapon_broadsword
+spellBook = { }
+trickSkills = { trick_strongAttack }
+}
+
+<group> hero03_level02
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = 027-Cleric03.png
+animationParams = charAnimation4
+health = 210
+concentrate = 14
+mind = 9
+wisdom = 4
+expirience = 1000
 spellBook = { }
 trickSkills = { trick_strongAttack }
 }

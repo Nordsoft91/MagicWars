@@ -102,7 +102,7 @@ namespace UI_NS {
     
     void EventOneButtonAllow::throwEvent()
     {
-        auto tutor = TutorialPressButton::create(d_but, d_idx);
+        auto tutor = TutorialPressButton::create(d_but);
         d_scene->addChild(tutor);
     }
     

@@ -17,6 +17,9 @@
 #define BUTTON_NAME_FULL(T) RES("interface",T"_none.png"), RES("interface",T"_select.png"), RES("interface",T"_disable.png")
 
 namespace MagicWars_NS {
+    
+    bool isInterfaceAvailable();
+    
     class Interface
     {
     public:
@@ -30,24 +33,28 @@ namespace MagicWars_NS {
         Interface(cocos2d::Scene* io_scene);
         ~Interface();
         
-        void addButton(cocos2d::MenuItemImage* i_item, cocos2d::Vec2 i_pos);
-        void addButton(cocos2d::MenuItemImage* i_item, float, float);
+        //void addButton(cocos2d::MenuItemImage* i_item, cocos2d::Vec2 i_pos);
+        //void addButton(cocos2d::MenuItemImage* i_item, float, float);
         
         cocos2d::ui::Widget* getScreenNode() const;
         
-        void createSpellMenu(Magican* i_mag);
-        void createTrickMenu(Magican* i_mag);
+        //void createSpellMenu(Magican* i_mag);
+        //void createTrickMenu(Magican* i_mag);
         
-        void createButton(const std::string& i_str, bool i_enabled);
+        //void createButton(const std::string& i_str, bool i_enabled);
         
-        void removeButtons();
+        //void removeButtons();
         
-        void disableActionButtons(bool i_disable = true);
-        void disableAllButtons(bool i_disable = true);
+        //void disableActionButtons(bool i_disable = true);
+        //void disableAllButtons(bool i_disable = true);
         //call RemoveFromParent for MenuItemImage for delete button
         
-        bool disableButton(const Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx = 0);
-        bool enableButton(const Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx = 0);
+        //bool disableButton(const Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx = 0);
+        //bool enableButton(const Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx = 0);
+        
+        void disableButton(const std::string& i_but);
+        void enableButton(const std::string& i_but);
+        void disableAllButtons();
         
         const cocos2d::Vec2 SCREEN_CENTER;
         
@@ -60,7 +67,7 @@ namespace MagicWars_NS {
         
         void menuClear();
         
-        void menuAddItem(cocos2d::MenuItemImage& i_item);
+        void menuAddItem(cocos2d::MenuItemImage& i_item, const std::string& i_name);
         
         cocos2d::MenuItemImage* createMenuItem(const std::string& i_str, bool i_isEnabled, const cocos2d::ccMenuCallback& i_callback);
         
@@ -79,7 +86,7 @@ namespace MagicWars_NS {
         cocos2d::MenuItemImage* d_pSpellItem = nullptr;
         cocos2d::MenuItemImage* d_pEndItem = nullptr;
         
-        std::vector<cocos2d::MenuItemImage*> d_buttons;
+        std::vector<std::pair<cocos2d::MenuItemImage*, std::string>> d_buttons;
     };
 }
 

@@ -122,10 +122,10 @@ void TutorialPressOnMap::callback(cocos2d::Touch *touch)
     }
 }
 
-TutorialPressButton* TutorialPressButton::create(const MagicWars_NS::Interface::Button i_pos, size_t i_idx)
+TutorialPressButton* TutorialPressButton::create(const std::string& i_but)
 {
     TutorialPressButton *pRet = new TutorialPressButton;
-    if (pRet && pRet->init(i_pos, i_idx))
+    if (pRet && pRet->init(i_but))
     {
         pRet->autorelease();
         return pRet;
@@ -138,17 +138,14 @@ TutorialPressButton* TutorialPressButton::create(const MagicWars_NS::Interface::
     }
 }
 
-bool TutorialPressButton::init(const MagicWars_NS::Interface::Button i_pos, size_t i_idx)
+bool TutorialPressButton::init(const std::string& i_but)
 {
     if(!cocos2d::Node::init())
         return false;
     
-    cocos2d::Vec2 r;
     MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Map);
     MagicWars_NS::TouchControl::instance().getInterface().disableAllButtons();
-    MagicWars_NS::TouchControl::instance().getInterface().enableButton(i_pos, r, i_idx);
-    setAnchorPoint(cocos2d::Vec2::ZERO);
-    setPosition(r);
-    
+    MagicWars_NS::TouchControl::instance().getInterface().enableButton(i_but);
+
     return true;
 }

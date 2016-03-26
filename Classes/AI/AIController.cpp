@@ -23,7 +23,7 @@ void AIController::update(float d)
 {
     if(!d_stage)
     {
-        for(auto engine : d_engines)
+        for(auto& engine : d_engines)
         {
             if(TouchControl::instance().getTurnController().getTurnSide() == engine.first)
             {
@@ -46,7 +46,7 @@ void AIController::update(float d)
 
 void AIController::setSideAI(const std::string& i_side, AIEngine* i_engine)
 {
-    d_engines[i_side] = i_engine;
+    d_engines[i_side].reset(i_engine);
 }
 
 void AIController::startTurn()
@@ -58,7 +58,7 @@ void AIController::startTurn()
 void AIController::nextStage()
 {
     bool justChanged = true;
-    for( auto i : d_engines)
+    for( auto& i : d_engines)
     {
         if(i.first == TouchControl::instance().getTurnController().getTurnSide())
             justChanged = false;

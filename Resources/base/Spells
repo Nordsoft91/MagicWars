@@ -70,9 +70,10 @@ gridType = POINT
 coverType = BORDER
 coverRadius = 2
 effectType = APPEAR
+createObject = regularFire
 sprite = Firewall.png
 sprite_size = 30
-force = 35
+force = 39
 mind = 29
 wisdom = 10
 }
@@ -80,7 +81,6 @@ wisdom = 10
 <group> spell_super_firewall
 {
 type = DAMMAGE
-icon = icon_firewall.png
 radius = 0
 gridType = POINT
 coverType = BORDER
@@ -89,19 +89,17 @@ effectType = APPEAR
 createObject = regularFire
 sprite = Firewall.png
 sprite_size = 30
-force = 35
+force = 32
 mind = 29
 wisdom = 10
 }
 
-<group> spell_lightingbolt
+<group> spell_thunderbolt
 {
 type = DAMMAGE
-icon = icon_thunderbolt.png
-radius = 0
-gridType = POINT
-coverType = SQUAD
-coverRadius = 2
+radius = 3
+gridType = SQUAD
+coverType = POINT
 effectType = APPEAR
 sprite = LightningBolt.png
 sprite_size = 20
@@ -113,16 +111,16 @@ wisdom = 16
 <group> spell_icicles
 {
 type = DAMMAGE
-icon = icon_icy.png
 radius = 3
+minRadius = 1
 gridType = CROSS
 coverType = SQUAD
 coverRadius = 1
 effectType = APPEAR_ONCE
 sprite = Icicles.png
 sprite_size = 15
-force = 56
-mind = 41
+force = 37
+mind = 54
 wisdom = 16
 }
 

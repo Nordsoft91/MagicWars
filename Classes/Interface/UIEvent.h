@@ -53,17 +53,17 @@ namespace UI_NS {
         int d_x, d_y;
     };
     
+    //EventOneButtonAllow
     class EventOneButtonAllow: public Event
     {
     public:
-        EventOneButtonAllow(cocos2d::Node* io_scene, const MagicWars_NS::Interface::Button i_but, size_t i_idx): d_scene(io_scene), d_but(i_but), d_idx(i_idx) {}
+        EventOneButtonAllow(cocos2d::Node* io_scene, const std::string& i_but): d_scene(io_scene), d_but(i_but) {}
         
         virtual void throwEvent() override;
         
     private:
         cocos2d::Node* d_scene = nullptr;
-        MagicWars_NS::Interface::Button d_but;
-        size_t d_idx;
+        const std::string d_but;
     };
     
     //EventHeap

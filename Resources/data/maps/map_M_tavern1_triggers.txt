@@ -309,3 +309,25 @@ Event Dialog Soldier1
 Взять их!
 }
 EndOfChain
+
+Trigger Active
+ConditionKillTeam Dark
+ChainOfEvents
+Event Message
+{
+ПОБЕДА
+}
+Event Win
+EndOfChain
+
+Trigger Active
+ConditionDeathPerson Braves
+Event Lose
+
+Trigger Active
+ConditionDeathPerson Erson
+Event Lose
+
+Trigger Active
+ConditionDeathPerson Dolor
+Event Lose

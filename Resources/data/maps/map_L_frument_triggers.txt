@@ -1,0 +1,107 @@
+Trigger Active
+NoCondition
+ChainOfEvents
+Event LoadPersons
+Event Centralize Braves
+Event Dialog c5
+{
+Вот они! Это с них все началось!
+}
+Event Dialog Officer
+{
+Вы арестованы! Долор и все вы обвиняетесь в пособничестве злу и пользованию черной магией!
+Пройдите с нами в гарнизон добровольно, и мы гарантируем вам поминование!
+}
+Event Dialog Braves
+{
+За черную магию должен судить консилиум магов!
+}
+Event Dialog Officer
+{
+Гарнизон не доверяет консилиуму, мы проводим суд самостоятельно
+}
+Event Dialog Dolor
+{
+Не слушайте их! Нам всем грозит казнь если сдадимся!
+}
+Event Dialog Erson
+{
+Какое наказание предполагается за наши "преступления"?
+}
+Event Dialog Officer
+{
+Я не судья, но если вы сдадитесь, будет справедливый суд!
+Если судья смиловится, то вы будете изнанны в Мортеис.
+}
+Event Dialog Erson
+{
+Мортис? Это который город смерти?
+}
+Event Dialog Dolor
+{
+Никто никогда не видел Мортис изнутри.
+Все, кто входил, не возвращались оттуда.
+По легенде, души вошедших становятся узниками демонов, живущих там, а их тела становятся для демонов едой!
+Уж лучше умереть здесь...
+}
+Event Dialog Officer
+{
+Хватит болтать! Сдавайтесь сейчас же!
+}
+Event Dialog Erson
+{
+Брайв, их не так много, мы прорвемся, мы почти у входа в город
+}
+Event Dialog Braves
+{
+Нас будут искать! Был бы здесь Даррис...
+}
+Event Dialog Erson
+{
+Брайв, хватит! Нужно принимать решение!
+}
+Event Dialog Dolor
+{
+Я уже принял решение!
+Гарнизон, уйдите с дороги или умрете!
+}
+Event Dialog Officer
+{
+Взять их живыми или мертвыми!
+}
+EndOfChain
+
+Trigger Active
+ConditionKillTeam Dark
+ChainOfEvents
+Event Message
+{
+ПОБЕДА
+}
+Event Win
+EndOfChain
+
+Trigger Active
+ConditionDeathPerson Braves
+Event Lose
+
+Trigger Active
+ConditionDeathPerson Erson
+Event Lose
+
+Trigger Active
+ConditionDeathPerson Dolor
+Event Lose
+
+Trigger Active
+ConditionDeathPerson Dog
+ChainOfEvents
+Event Dialog Braves
+{
+Скиф, нет!!!!
+}
+Event Message
+{
+Вы потеряли персонажа
+}
+EndOfChain
