@@ -54,6 +54,7 @@ namespace MagicWars_NS
         void setActive(bool i_act);
         
         virtual void onEndOfMove(size_t ix, size_t iy) override;
+        virtual void onStartNewTurn();
         
         virtual void kill() override;
         

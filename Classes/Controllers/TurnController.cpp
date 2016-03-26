@@ -181,15 +181,7 @@ namespace MagicWars_NS {
             auto lst = ContainUtils::findObjectsByType<Magican>( MagicWars_NS::TouchControl::instance().getAllPersons() );
             for( auto* i : lst)
             {
-                for( auto& t : i->d_tricks)
-                    if(t.second)
-                        --t.second;
-                
-                for( auto it = i->d_states.begin(); it!=i->d_states.end();)
-                    if(--(it->second) == 0)
-                        it = i->d_states.erase(it);
-                    else
-                        ++it;
+                i->onStartNewTurn();
             }
         }
         

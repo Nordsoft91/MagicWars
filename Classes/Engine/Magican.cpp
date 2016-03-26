@@ -56,8 +56,6 @@ void Magican::metamorph(const std::string i_group)
 {
     //throw std::runtime_error("metamorph is depreciated");
     
-    auto node = dynamic_cast<cocos2d::Layer*>(d_sprite->getParent());
-    
     /*if(d_sprite)
     {
         d_sprite->removeFromParent();
@@ -94,8 +92,8 @@ void Magican::metamorph(const std::string i_group)
     d_weapon = (std::string)Consts::get("weapon", i_group);
     
     //fix parameters
-    d_health += d_healthMax - currHealth;
-    d_mana += d_mind - currMind;
+    increaseHealth(d_healthMax - currHealth);
+    increaseMind(d_mind - currMind);
     
 	//setSprite(RES("persons", (std::string)Consts::get("spriteName", i_group)));
     
@@ -274,4 +272,17 @@ void Magican::onEndOfMove(size_t ix, size_t iy)
     {
         collide->collisionWithMagican(this);
     }
+}
+
+void Magican::onStartNewTurn()
+{
+    for( auto& t : d_tricks)
+        if(t.second)
+            --t.second;
+    
+    for( auto it = d_states.begin(); it!=d_states.end();)
+        if(--(it->second) == 0)
+            it = d_states.erase(it);
+        else
+            ++it;
 }
