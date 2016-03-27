@@ -87,8 +87,12 @@ namespace MagicWars_NS {
     
     void Portrait::onPress()
     {
-        TouchControl::instance().centralizeOn(d_magican);
-        TouchControl::instance().getInterface().menuClose();
+        if(!Blocker::stateIgnore(Pause::Map))
+        {
+            TouchControl::instance().centralizeOn(d_magican);
+            TouchControl::instance().getInterface().menuClose();
+            TouchControl::instance().getInterface().makeRegularMenu(d_magican);
+        }
     }
     
     void Portrait::update(float i_delta)

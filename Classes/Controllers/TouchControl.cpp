@@ -90,9 +90,6 @@ void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::
     if(std::string(Consts::get("effectType", i_spell)) == "FOLLOW")
         myEff = Effect::create(Consts::get("sprite_fly", i_spell), Consts::get("sprite_fly_size", i_spell), Vec2((d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight),Vec2((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight));
     
-    if(!myEff)
-        throw std::runtime_error("Error in effect creating");
-    
     if(std::string(Consts::get("effectType", i_spell)) != "APPEAR_ONCE")
         d_mapLayer->addChild(myEff);
     
@@ -279,8 +276,12 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     if(Magican* obj = dynamic_cast<Magican*>(basobj))
     {
         obj->showStatus(true, d_turnControl.beginTurn(obj, TURN_ANY) ? std::numeric_limits<double>::max() : 2);
-        if(d_turnControl.beginTurn(obj, TURN_ANY))
-           d_interface->makeRegularMenu(obj);
+        //check if can make turn but be sure that do not try to select target for blessing
+        if(d_turnControl.beginTurn(obj, TURN_ANY) && !SquareControl::instance().isSquared(clickX, clickY, "green"))
+        {
+            SquareControl::instance().deleteSquares();
+            d_interface->makeRegularMenu(obj);
+        }
     }
     else
     {
@@ -345,7 +346,8 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
 {
     destroy();
     
-    if(!i_mission.musicName.empty())
+    bool soundEnabled = cocos2d::UserDefault::getInstance()->getBoolForKey("isSoundEnabled", true);
+    if(soundEnabled && !i_mission.musicName.empty())
     {
         CocosDenshion::SimpleAudioEngine* audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
         audioEngine->playBackgroundMusic(i_mission.musicName.c_str(), true);

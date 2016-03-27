@@ -63,10 +63,6 @@ namespace Menu_NS {
 #ifdef SANDBOX
         auto sandboxButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
                                                            {
-                                                               //std::string missionName, mapFile, triggersFile, rulesFile, prevMission;
-                                                               //std::list<std::string> briefing;
-                                                               //size_t x, y;
-                                                               
                                                                CampaignReader::Mission mission{"Песочница", "map_L_frument.txt", "map_sandbox_triggers.txt", "mapRule_frument.txt", "", "", {}, 0, 0};
                                                                
                                                                auto scene = HelloWorld::createScene(mission);
@@ -76,6 +72,18 @@ namespace Menu_NS {
         sandboxButton->setPosition(0, 300);
         menu->addChild(sandboxButton);
 #endif
+        
+        bool soundEnabled = cocos2d::UserDefault::getInstance()->getBoolForKey("isSoundEnabled", true);
+        std::string soundIcon = soundEnabled ? "icon_speaker.png" : "icon_mute.png";
+        cocos2d::MenuItemImage* muteButton = cocos2d::MenuItemImage::create(RES("menu", soundIcon), RES("menu", soundIcon), [](cocos2d::Ref* pSender)
+        {
+            bool soundEnabled = !cocos2d::UserDefault::getInstance()->getBoolForKey("isSoundEnabled", true);
+            std::string soundIcon = soundEnabled ? "icon_speaker.png" : "icon_mute.png";
+            cocos2d::UserDefault::getInstance()->setBoolForKey("isSoundEnabled", soundEnabled);
+            static_cast<cocos2d::MenuItemImage*>(pSender)->setNormalImage(cocos2d::Sprite::create(RES("menu", soundIcon)));
+        });
+        muteButton->setPosition(-300, -300);
+        menu->addChild(muteButton);
         
         addChild(background);
         

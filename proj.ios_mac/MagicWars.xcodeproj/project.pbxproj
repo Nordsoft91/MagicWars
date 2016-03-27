@@ -168,6 +168,10 @@
 		8475EFBD1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFAA1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 */; };
 		8475EFBE1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */; };
 		8475EFBF1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */; };
+		8475EFC21CA86F0600738297 /* icon_mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC01CA86F0600738297 /* icon_mute.png */; };
+		8475EFC31CA86F0600738297 /* icon_mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC01CA86F0600738297 /* icon_mute.png */; };
+		8475EFC41CA86F0600738297 /* icon_speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC11CA86F0600738297 /* icon_speaker.png */; };
+		8475EFC51CA86F0600738297 /* icon_speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC11CA86F0600738297 /* icon_speaker.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -895,6 +899,8 @@
 		8475EFA91CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "624141_Facing-the-Stormy-Sea.mp3"; path = "music/624141_Facing-the-Stormy-Sea.mp3"; sourceTree = "<group>"; };
 		8475EFAA1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "661428_Entering-the-Dark.mp3"; path = "music/661428_Entering-the-Dark.mp3"; sourceTree = "<group>"; };
 		8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "672090_Ancient-Empires.mp3"; path = "music/672090_Ancient-Empires.mp3"; sourceTree = "<group>"; };
+		8475EFC01CA86F0600738297 /* icon_mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_mute.png; path = ../interface/icon_mute.png; sourceTree = "<group>"; };
+		8475EFC11CA86F0600738297 /* icon_speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_speaker.png; path = ../interface/icon_speaker.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1816,6 +1822,8 @@
 		84B520FD1BFFC41D004A6CA0 /* menu */ = {
 			isa = PBXGroup;
 			children = (
+				8475EFC01CA86F0600738297 /* icon_mute.png */,
+				8475EFC11CA86F0600738297 /* icon_speaker.png */,
 				84B72D031C88EDE700660898 /* background1.jpg */,
 				84B72CFC1C88E58500660898 /* frame.png */,
 				84B72CE11C88E4A500660898 /* camp1.png */,
@@ -2454,6 +2462,7 @@
 				84F1529A1C962FF700B57942 /* natureEffects.png in Resources */,
 				84B522331BFFC41E004A6CA0 /* farmer01.png in Resources */,
 				84B522231BFFC41E004A6CA0 /* Logo.png in Resources */,
+				8475EFC21CA86F0600738297 /* icon_mute.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				848F6EA61C86120C005B928E /* Washington.ttf in Resources */,
 				84B521D91BFFC41E004A6CA0 /* Melee 5.png in Resources */,
@@ -2467,6 +2476,7 @@
 				84B522DF1BFFC41E004A6CA0 /* 040-Ground01.png in Resources */,
 				84B5221B1BFFC41E004A6CA0 /* CloseSelected.png in Resources */,
 				84B5227D1BFFC41E004A6CA0 /* 015-Sa_Water01.png in Resources */,
+				8475EFC41CA86F0600738297 /* icon_speaker.png in Resources */,
 				84B523431BFFC41E004A6CA0 /* 079-CW_Grass03.png in Resources */,
 				84B522791BFFC41E004A6CA0 /* 014-PostTown02.png in Resources */,
 				84B522EF1BFFC41E004A6CA0 /* 044-Cave02.png in Resources */,
@@ -2724,6 +2734,7 @@
 				84B522201BFFC41E004A6CA0 /* Sphash.jpg in Resources */,
 				844535B21C9EBD6000C523A1 /* 049-Soldier01.png in Resources */,
 				84B522041BFFC41E004A6CA0 /* icon_healing.png in Resources */,
+				8475EFC31CA86F0600738297 /* icon_mute.png in Resources */,
 				84B521DA1BFFC41E004A6CA0 /* Melee 5.png in Resources */,
 				84B523441BFFC41E004A6CA0 /* 079-CW_Grass03.png in Resources */,
 				84B5229E1BFFC41E004A6CA0 /* 023-Sa_Undulation01.png in Resources */,
@@ -2764,6 +2775,7 @@
 				84B522F41BFFC41E004A6CA0 /* 045-Cave03.png in Resources */,
 				84A07BF31C974451001300B0 /* mapObjects in Resources */,
 				84B5229A1BFFC41E004A6CA0 /* 022-SnowTown02.png in Resources */,
+				8475EFC51CA86F0600738297 /* icon_speaker.png in Resources */,
 				84B522BA1BFFC41E004A6CA0 /* 030-Sn_Ground01.png in Resources */,
 				844535BD1CA0B29F00C523A1 /* boot-prints.png in Resources */,
 				844535A51C9DDA3400C523A1 /* 124-Civilian24.png in Resources */,
