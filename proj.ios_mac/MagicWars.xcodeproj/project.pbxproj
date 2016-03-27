@@ -174,6 +174,8 @@
 		8475EFC51CA86F0600738297 /* icon_speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC11CA86F0600738297 /* icon_speaker.png */; };
 		8475EFC71CA8845600738297 /* roundButton_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC61CA8845600738297 /* roundButton_highlight.png */; };
 		8475EFC81CA8845600738297 /* roundButton_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC61CA8845600738297 /* roundButton_highlight.png */; };
+		8475EFCA1CA89EE500738297 /* blade-fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC91CA89EE500738297 /* blade-fall.png */; };
+		8475EFCB1CA89EE500738297 /* blade-fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC91CA89EE500738297 /* blade-fall.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -904,6 +906,7 @@
 		8475EFC01CA86F0600738297 /* icon_mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_mute.png; path = ../interface/icon_mute.png; sourceTree = "<group>"; };
 		8475EFC11CA86F0600738297 /* icon_speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_speaker.png; path = ../interface/icon_speaker.png; sourceTree = "<group>"; };
 		8475EFC61CA8845600738297 /* roundButton_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_highlight.png; sourceTree = "<group>"; };
+		8475EFC91CA89EE500738297 /* blade-fall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blade-fall.png"; path = "icons/blade-fall.png"; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1468,6 +1471,7 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				8475EFC91CA89EE500738297 /* blade-fall.png */,
 				8475EF9A1CA5F5B000738297 /* double-shot.png */,
 				8475EF971CA5F51900738297 /* croc-sword.png */,
 				8475EF941CA5F38A00738297 /* broadsword.png */,
@@ -2303,6 +2307,7 @@
 				84B5223B1BFFC41E004A6CA0 /* Solid.png in Resources */,
 				84B522F31BFFC41E004A6CA0 /* 045-Cave03.png in Resources */,
 				84B522C51BFFC41E004A6CA0 /* 033-Waterfall01.png in Resources */,
+				8475EFCA1CA89EE500738297 /* blade-fall.png in Resources */,
 				84B521D11BFFC41E004A6CA0 /* Ray.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				8475EF831CA4745500738297 /* map_L_frument.txt in Resources */,
@@ -2564,6 +2569,7 @@
 				84B521E01BFFC41E004A6CA0 /* Marker Felt.ttf in Resources */,
 				843D4A171C00D2FF00835492 /* Icons in Resources */,
 				84B5221C1BFFC41E004A6CA0 /* CloseSelected.png in Resources */,
+				8475EFCB1CA89EE500738297 /* blade-fall.png in Resources */,
 				844535C61CA0B88200C523A1 /* roundButton_select.png in Resources */,
 				84B5221E1BFFC41E004A6CA0 /* playbutton_desktop_180.png in Resources */,
 				84B522401BFFC41E004A6CA0 /* tilesWater.png in Resources */,

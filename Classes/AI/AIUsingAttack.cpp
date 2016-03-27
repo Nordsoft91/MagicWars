@@ -21,7 +21,7 @@ void AIUsingAttack::startTurn()
     for(auto i : d_enemies)
     {
         double w = 0;
-        w = (2.0-i->getPercentHealth())*double(i->getHealth());
+        w = (2.0-i->getPercentHealth());//*double(i->getHealth());
         d_goals[i] = w;
     }
 }
@@ -348,8 +348,8 @@ double AIUsingAttack::useFirewall(int x, int y, bool i_action)
 double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_action)
 {
     Magican* pMag = TouchControl::instance().getTurnController().getTurn();
-    Magican* pGoal = nullptr;
-    double w = 0.0;
+    int goal_x = 0, goal_y = 0;
+    double w = 0;
     //spell params
     double force = Consts::get("force", i_trick);
     int radius = Consts::get("radius", i_trick);
@@ -374,23 +374,61 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
     
     for( auto i : pnts)
     {
-        Magican* p = ContainUtils::findMagican(d_enemies, i.first, i.second);
-        if(p && d_goals[p] > w)
+        //check cover area
+        std::string coverSquareType = Consts::get("coverType", i_trick);
+        int coverRadius = Consts::isExist("coverRadius", i_trick) ? Consts::get("coverRadius", i_trick) : 0;
+        int coverMinRadius = Consts::isExist("coverMinRadius", i_trick) ? Consts::get("coverMinRadius", i_trick) : 0;
+        SquareControl::Points cover;
+        if(coverSquareType=="POINT")
+            cover = SquareControl::instance().getPoint(i.first, i.second);
+        if(coverSquareType=="BORDER")
+            cover = SquareControl::instance().getBorder(i.first, i.second, coverRadius);
+        if(coverSquareType=="SQUAD")
+            cover = SquareControl::instance().getSquare(i.first, i.second, coverRadius, true);
+        if(coverSquareType=="CROSS")
+            cover = SquareControl::instance().getCross(i.first, i.second, coverMinRadius, coverRadius, true);
+        if(coverSquareType=="STAR")
+            cover = SquareControl::instance().getStar(i.first, i.second, coverMinRadius, coverRadius, true);
+        if(coverSquareType=="LINE")
+            cover = SquareControl::instance().getLine(x, y, i.first, i.second, coverRadius);
+        if(coverSquareType=="TSHAPE")
+            cover = SquareControl::instance().getTShape(x, y, i.first, i.second, coverRadius, coverMinRadius);
+        
+        double currentCombintaion = 0;
+        for(auto j : cover)
         {
-            w = d_goals[p] * force;
-            pGoal = p;
+            //TODO: use j instead of i
+            if(Magican* p = ContainUtils::findMagican(d_enemies, j.first, j.second))
+            {
+                if(d_goals[p]>0)
+                {
+                    currentCombintaion += d_goals[p]*force;
+                }
+                else
+                {
+                    currentCombintaion -= 3*force;
+                }
+            }
+        }
+        
+        if(currentCombintaion>w)
+        {
+            w = currentCombintaion;
+            goal_x = i.first;
+            goal_y = i.second;
         }
     }
     
-    w *= 3.0;
     
-    if(!i_action || !pGoal)
+    w *= 3.0 / fmax(1, sqrt(Consts::get("recover", i_trick)));
+    
+    if(!i_action)
         return w;
     
     //attack
-    TouchControl::instance().centralizeOn(cocos2d::Vec2(pGoal->x * size_t(Consts::get("mapCellWidth")), pGoal->y * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(goal_x * size_t(Consts::get("mapCellWidth")), goal_y * size_t(Consts::get("mapCellHeight"))));
     TouchControl::instance().spellAction(i_trick);
-    TouchControl::instance().pressAction(pGoal->x, pGoal->y);
-    setGoal(pGoal->x, pGoal->y);
+    TouchControl::instance().pressAction(goal_x, goal_y);
+    setGoal(goal_x, goal_y);
     return w;
 }

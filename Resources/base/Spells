@@ -19,22 +19,6 @@ wisdom = 6
 <group> spell_lighting
 {
 type = DAMMAGE
-radius = 1
-gridType = CROSS
-coverType = TSHAPE
-coverRadius = 3
-coverMinRadius = 2
-effectType = APPEAR
-sprite = Ray.png
-sprite_size = 25
-force = 34
-mind = 26
-wisdom = 10
-}
-
-<group> spell_lighting1
-{
-type = DAMMAGE
 radius = 2
 gridType = SQUAD
 coverType = POINT

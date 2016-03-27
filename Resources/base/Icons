@@ -17,6 +17,7 @@ trick_shoot = { bowman.png 125 90 0 }
 trick_strongshoot = { pocket-bow.png 160 40 100 }
 trick_doubleshoot = { double-shot.png 100 40 160 }
 trick_strongAttack = { croc-sword.png 160 40 100 }
+trick_blade = { blade-fall.png 120 150 130 }
 
 weapon_dagger = { plain-dagger.png 0 0 0 }
 weapon_staff = { wizard-staff.png 0 0 0 }

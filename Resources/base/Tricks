@@ -20,8 +20,23 @@ coverType = POINT
 effectType = APPEAR
 sprite = Melee2.png
 sprite_size = 10
-force = 25
+force = 30
 recover = 2
+}
+
+<group> trick_blade
+{
+type = DAMMAGE
+radius = 1
+gridType = CROSS
+coverType = TSHAPE
+coverRadius = 1
+coverMinRadius = 2
+effectType = APPEAR
+sprite = Melee2.png
+sprite_size = 10
+force = 39
+recover = 3
 }
 
 <group> trick_shoot

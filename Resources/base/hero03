@@ -27,5 +27,5 @@ mind = 9
 wisdom = 4
 expirience = 1000
 spellBook = { }
-trickSkills = { trick_strongAttack }
+trickSkills = { trick_strongAttack trick_blade }
 }
