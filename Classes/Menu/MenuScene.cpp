@@ -9,6 +9,7 @@
 #include "MenuScene.h"
 #include "HelloWorldScene.h"
 #include <Travel/TravelScene.h>
+#include <cocos/audio/include/SimpleAudioEngine.h>
 
 #define SANDBOX
 
@@ -66,7 +67,7 @@ namespace Menu_NS {
                                                                //std::list<std::string> briefing;
                                                                //size_t x, y;
                                                                
-                                                               CampaignReader::Mission mission{"Песочница", "map_L_frument.txt", "map_sandbox_triggers.txt", "mapRule_frument.txt", "", {}, 0, 0};
+                                                               CampaignReader::Mission mission{"Песочница", "map_L_frument.txt", "map_sandbox_triggers.txt", "mapRule_frument.txt", "", "", {}, 0, 0};
                                                                
                                                                auto scene = HelloWorld::createScene(mission);
                                                                

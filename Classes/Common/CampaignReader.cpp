@@ -44,6 +44,10 @@ CampaignReader::CampaignReader(const std::string& i_file)
         {
             f >> d_missions.back().x >> d_missions.back().y;
         }
+        if(key=="music")
+        {
+            f >> d_missions.back().musicName;
+        }
     }
 }
 

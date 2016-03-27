@@ -18,7 +18,7 @@ class CampaignReader
 public:
     struct Mission
     {
-        std::string missionName, mapFile, triggersFile, rulesFile, prevMission;
+        std::string missionName, mapFile, triggersFile, rulesFile, prevMission, musicName;
         std::list<std::string> briefing;
         size_t x, y;
     };

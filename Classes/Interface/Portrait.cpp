@@ -61,11 +61,7 @@ namespace MagicWars_NS {
         d_healthLabel->setHorizontalAlignment(cocos2d::TextHAlignment::RIGHT);
         d_manaLabel->setHorizontalAlignment(cocos2d::TextHAlignment::RIGHT);
         d_expaLabel->setHorizontalAlignment(cocos2d::TextHAlignment::RIGHT);
-        
-        //d_healthLabel->setContentSize(d_enabledSprite->getContentSize());
-        //d_manaLabel->setContentSize(d_enabledSprite->getContentSize());
-        //d_expaLabel->setContentSize(d_enabledSprite->getContentSize());
-        
+
         d_healthLabel->setPositionX(d_enabledSprite->getContentSize().width*0.4);
         d_manaLabel->setPositionX(d_enabledSprite->getContentSize().width*0.4);
         d_expaLabel->setPositionX(d_enabledSprite->getContentSize().width*0.4);
@@ -73,10 +69,6 @@ namespace MagicWars_NS {
         d_healthLabel->setPositionY(d_enabledSprite->getContentSize().height*0.8);
         d_manaLabel->setPositionY(d_enabledSprite->getContentSize().height*0.8-15);
         d_expaLabel->setPositionY(d_enabledSprite->getContentSize().height*0.8-30);
-        
-        /*d_healthLabel->setPositionY(30);
-        d_manaLabel->setPositionY(15);
-        d_expaLabel->setPositionY(0);*/
         
         d_healthLabel->setAnchorPoint(cocos2d::Vec2::ZERO);
         d_manaLabel->setAnchorPoint(cocos2d::Vec2::ZERO);

@@ -10,6 +10,7 @@
 #define MagicWars_TouchControl_h
 
 #include <cocos2d.h>
+#include <cocos/audio/include/SimpleAudioEngine.h>
 #include <Engine/CharacterAnimated.h>
 #include <Engine/BaseWall.h>
 #include <Engine/TileMap.h>

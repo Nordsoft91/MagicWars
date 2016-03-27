@@ -148,6 +148,26 @@
 		8475EF9C1CA5F5B000738297 /* double-shot.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EF9A1CA5F5B000738297 /* double-shot.png */; };
 		8475EF9F1CA8180B00738297 /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8475EF9D1CA8180B00738297 /* Portrait.cpp */; };
 		8475EFA01CA8180B00738297 /* Portrait.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8475EF9D1CA8180B00738297 /* Portrait.cpp */; };
+		8475EFAC1CA8471D00738297 /* 306160_Hero_s_Courage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA21CA8471D00738297 /* 306160_Hero_s_Courage.mp3 */; };
+		8475EFAD1CA8471D00738297 /* 306160_Hero_s_Courage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA21CA8471D00738297 /* 306160_Hero_s_Courage.mp3 */; };
+		8475EFAE1CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA31CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 */; };
+		8475EFAF1CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA31CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 */; };
+		8475EFB01CA8471D00738297 /* 489489_Lights-Justice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA41CA8471D00738297 /* 489489_Lights-Justice.mp3 */; };
+		8475EFB11CA8471D00738297 /* 489489_Lights-Justice.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA41CA8471D00738297 /* 489489_Lights-Justice.mp3 */; };
+		8475EFB21CA8471D00738297 /* 519584_On-The-Horizon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA51CA8471D00738297 /* 519584_On-The-Horizon.mp3 */; };
+		8475EFB31CA8471D00738297 /* 519584_On-The-Horizon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA51CA8471D00738297 /* 519584_On-The-Horizon.mp3 */; };
+		8475EFB41CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA61CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 */; };
+		8475EFB51CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA61CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 */; };
+		8475EFB61CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA71CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 */; };
+		8475EFB71CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA71CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 */; };
+		8475EFB81CA8471D00738297 /* 602072_Castle-Theme-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA81CA8471D00738297 /* 602072_Castle-Theme-1.mp3 */; };
+		8475EFB91CA8471D00738297 /* 602072_Castle-Theme-1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA81CA8471D00738297 /* 602072_Castle-Theme-1.mp3 */; };
+		8475EFBA1CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA91CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 */; };
+		8475EFBB1CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFA91CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 */; };
+		8475EFBC1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFAA1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 */; };
+		8475EFBD1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFAA1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 */; };
+		8475EFBE1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */; };
+		8475EFBF1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -865,6 +885,16 @@
 		8475EF9A1CA5F5B000738297 /* double-shot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "double-shot.png"; path = "icons/double-shot.png"; sourceTree = "<group>"; };
 		8475EF9D1CA8180B00738297 /* Portrait.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Portrait.cpp; sourceTree = "<group>"; };
 		8475EF9E1CA8180B00738297 /* Portrait.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Portrait.h; sourceTree = "<group>"; };
+		8475EFA21CA8471D00738297 /* 306160_Hero_s_Courage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 306160_Hero_s_Courage.mp3; path = music/306160_Hero_s_Courage.mp3; sourceTree = "<group>"; };
+		8475EFA31CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 348286_wizard_in_the_rain_LQ.mp3; path = music/348286_wizard_in_the_rain_LQ.mp3; sourceTree = "<group>"; };
+		8475EFA41CA8471D00738297 /* 489489_Lights-Justice.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "489489_Lights-Justice.mp3"; path = "music/489489_Lights-Justice.mp3"; sourceTree = "<group>"; };
+		8475EFA51CA8471D00738297 /* 519584_On-The-Horizon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "519584_On-The-Horizon.mp3"; path = "music/519584_On-The-Horizon.mp3"; sourceTree = "<group>"; };
+		8475EFA61CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "594085_quotShadows-Bladequot---In.mp3"; path = "music/594085_quotShadows-Bladequot---In.mp3"; sourceTree = "<group>"; };
+		8475EFA71CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "600122_Over-the-Rooftops.mp3"; path = "music/600122_Over-the-Rooftops.mp3"; sourceTree = "<group>"; };
+		8475EFA81CA8471D00738297 /* 602072_Castle-Theme-1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "602072_Castle-Theme-1.mp3"; path = "music/602072_Castle-Theme-1.mp3"; sourceTree = "<group>"; };
+		8475EFA91CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "624141_Facing-the-Stormy-Sea.mp3"; path = "music/624141_Facing-the-Stormy-Sea.mp3"; sourceTree = "<group>"; };
+		8475EFAA1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "661428_Entering-the-Dark.mp3"; path = "music/661428_Entering-the-Dark.mp3"; sourceTree = "<group>"; };
+		8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "672090_Ancient-Empires.mp3"; path = "music/672090_Ancient-Empires.mp3"; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1454,6 +1484,23 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
+		8475EFA11CA8471100738297 /* music */ = {
+			isa = PBXGroup;
+			children = (
+				8475EFA21CA8471D00738297 /* 306160_Hero_s_Courage.mp3 */,
+				8475EFA31CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 */,
+				8475EFA41CA8471D00738297 /* 489489_Lights-Justice.mp3 */,
+				8475EFA51CA8471D00738297 /* 519584_On-The-Horizon.mp3 */,
+				8475EFA61CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 */,
+				8475EFA71CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 */,
+				8475EFA81CA8471D00738297 /* 602072_Castle-Theme-1.mp3 */,
+				8475EFA91CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 */,
+				8475EFAA1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 */,
+				8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */,
+			);
+			name = music;
+			sourceTree = "<group>";
+		};
 		84B520131BFFC2C1004A6CA0 /* AI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1636,6 +1683,7 @@
 		84B520C91BFFC41D004A6CA0 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				8475EFA11CA8471100738297 /* music */,
 				84F152981C962FEC00B57942 /* objects */,
 				8438F0011C8B5C0400087593 /* travel */,
 				84B523491BFFC48F004A6CA0 /* stub.png */,
@@ -2132,6 +2180,7 @@
 				84B521FF1BFFC41E004A6CA0 /* icon_fire.png in Resources */,
 				844535C51CA0B88200C523A1 /* roundButton_select.png in Resources */,
 				84B5219F1BFFC41E004A6CA0 /* automap in Resources */,
+				8475EFB41CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 in Resources */,
 				84B522C11BFFC41E004A6CA0 /* 032-T_Ocean01.png in Resources */,
 				84F152791C95707E00B57942 /* map_M_intro.txt in Resources */,
 				84B5229D1BFFC41E004A6CA0 /* 023-Sa_Undulation01.png in Resources */,
@@ -2143,6 +2192,7 @@
 				84B72D0B1C88F90500660898 /* WizardWay in Resources */,
 				84B521E91BFFC41E004A6CA0 /* icon1_disable.png in Resources */,
 				84B522B71BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
+				8475EFB21CA8471D00738297 /* 519584_On-The-Horizon.mp3 in Resources */,
 				8475EF861CA47B0E00738297 /* 127-Noble02.png in Resources */,
 				84B522071BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
 				84B522B11BFFC41E004A6CA0 /* 028-Sn_Water01.png in Resources */,
@@ -2153,6 +2203,7 @@
 				84B521C91BFFC41E004A6CA0 /* Healing1.png in Resources */,
 				84B521B31BFFC41E004A6CA0 /* regularPersons in Resources */,
 				844535951C9DD66500C523A1 /* map_M_tavern1.txt in Resources */,
+				8475EFBC1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 in Resources */,
 				84A07C071C9B58D2001300B0 /* mapRule_forestTown.txt in Resources */,
 				84B522371BFFC41E004A6CA0 /* varvar01.png in Resources */,
 				84B522CF1BFFC41E004A6CA0 /* 036-Shop01.png in Resources */,
@@ -2164,6 +2215,7 @@
 				84B522011BFFC41E004A6CA0 /* icon_firewall.png in Resources */,
 				84B5226D1BFFC41E004A6CA0 /* 011-PortTown01.png in Resources */,
 				8438F0091C8B5C3A00087593 /* points.png in Resources */,
+				8475EFAC1CA8471D00738297 /* 306160_Hero_s_Courage.mp3 in Resources */,
 				84B522031BFFC41E004A6CA0 /* icon_healing.png in Resources */,
 				84B72CEC1C88E4A600660898 /* camp1_d.png in Resources */,
 				84B522AF1BFFC41E004A6CA0 /* 028-Church01.png in Resources */,
@@ -2184,6 +2236,7 @@
 				84B522A71BFFC41E004A6CA0 /* 026-Castle02.png in Resources */,
 				84B5222B1BFFC41E004A6CA0 /* hero03.png in Resources */,
 				84B521DB1BFFC41E004A6CA0 /* Melee1.png in Resources */,
+				8475EFB81CA8471D00738297 /* 602072_Castle-Theme-1.mp3 in Resources */,
 				84B523091BFFC41E004A6CA0 /* 050-Roof02.png in Resources */,
 				84B522711BFFC41E004A6CA0 /* 012-PortTown02.png in Resources */,
 				84B522411BFFC41E004A6CA0 /* tsSurfaces.png in Resources */,
@@ -2211,6 +2264,7 @@
 				84B522C91BFFC41E004A6CA0 /* 034-Waterfall02.png in Resources */,
 				84B522491BFFC41E004A6CA0 /* 002_Woods01.png in Resources */,
 				84B522BB1BFFC41E004A6CA0 /* 031-Ship02.png in Resources */,
+				8475EFB01CA8471D00738297 /* 489489_Lights-Justice.mp3 in Resources */,
 				84B5227F1BFFC41E004A6CA0 /* 016-ForestTown02.png in Resources */,
 				84B522E11BFFC41E004A6CA0 /* 040-Tower02.png in Resources */,
 				84B522951BFFC41E004A6CA0 /* 021-SnowTown01.png in Resources */,
@@ -2279,6 +2333,7 @@
 				84B5232D1BFFC41E004A6CA0 /* 068-CI_Water01.png in Resources */,
 				84B522991BFFC41E004A6CA0 /* 022-SnowTown02.png in Resources */,
 				84B522871BFFC41E004A6CA0 /* 018-MineTown02.png in Resources */,
+				8475EFBE1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				84B521CF1BFFC41E004A6CA0 /* LightningBolt.png in Resources */,
 				8475EF901CA5EECD00738297 /* fire-ring.png in Resources */,
@@ -2305,6 +2360,7 @@
 				84B522BD1BFFC41E004A6CA0 /* 031-Sn_Undulation01.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
+				8475EFAE1CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 in Resources */,
 				84B5225D1BFFC41E004A6CA0 /* 007-Swamp01.png in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				8475EF981CA5F51900738297 /* croc-sword.png in Resources */,
@@ -2316,6 +2372,7 @@
 				84B5228D1BFFC41E004A6CA0 /* 019-Sa_Grass02.png in Resources */,
 				84B523111BFFC41E004A6CA0 /* 054-Wall02.png in Resources */,
 				84B522051BFFC41E004A6CA0 /* icon_icy.png in Resources */,
+				8475EFBA1CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 in Resources */,
 				84B522131BFFC41E004A6CA0 /* mapT_M_template.txt in Resources */,
 				84F1527C1C95726300B57942 /* map_M_intro_triggers.txt in Resources */,
 				844535B91C9F75FF00C523A1 /* pocket-bow.png in Resources */,
@@ -2360,6 +2417,7 @@
 				8475EF891CA5B63400738297 /* map_L_frument_triggers.txt in Resources */,
 				84B521F51BFFC41E004A6CA0 /* icon3_none.png in Resources */,
 				844535B31C9EBD6000C523A1 /* 050-Soldier02.png in Resources */,
+				8475EFB61CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 in Resources */,
 				8445359E1C9DDA3400C523A1 /* 108-Civilian08.png in Resources */,
 				84B523131BFFC41E004A6CA0 /* 055-Wall03.png in Resources */,
 				84B522A51BFFC41E004A6CA0 /* 025-Ocean02.png in Resources */,
@@ -2447,6 +2505,7 @@
 				8497C9E91C1DC3E9005C334C /* mapT_S_tutorial01_triggers.txt in Resources */,
 				84B522E01BFFC41E004A6CA0 /* 040-Ground01.png in Resources */,
 				84B5226A1BFFC41E004A6CA0 /* 010-G2_Ground01.png in Resources */,
+				8475EFB31CA8471D00738297 /* 519584_On-The-Horizon.mp3 in Resources */,
 				84B522781BFFC41E004A6CA0 /* 014-G2_Swamp03.png in Resources */,
 				843D4A331C011C5100835492 /* plain-dagger.png in Resources */,
 				84B5233C1BFFC41E004A6CA0 /* 075-CW_Shadow01.png in Resources */,
@@ -2466,6 +2525,7 @@
 				84B522AE1BFFC41E004A6CA0 /* 027-Ocean04.png in Resources */,
 				84B522A21BFFC41E004A6CA0 /* 024-Ocean01.png in Resources */,
 				84B72CEB1C88E4A600660898 /* camp1.png in Resources */,
+				8475EFB71CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 in Resources */,
 				84B5220E1BFFC41E004A6CA0 /* Squares.png in Resources */,
 				84B522C01BFFC41E004A6CA0 /* 032-Heaven01.png in Resources */,
 				84B522C41BFFC41E004A6CA0 /* 033-Heaven02.png in Resources */,
@@ -2508,6 +2568,7 @@
 				843D4A261C00FAEE00835492 /* flying-flag.png in Resources */,
 				84F1527A1C95707E00B57942 /* map_M_intro.txt in Resources */,
 				84B521D41BFFC41E004A6CA0 /* Melee2.png in Resources */,
+				8475EFBD1CA8471D00738297 /* 661428_Entering-the-Dark.mp3 in Resources */,
 				84B521F21BFFC41E004A6CA0 /* icon3.gif in Resources */,
 				844535C41CA0B88200C523A1 /* roundButton_none.png in Resources */,
 				84B522081BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
@@ -2517,6 +2578,7 @@
 				84B523461BFFC41E004A6CA0 /* 080-B_Ground01.png in Resources */,
 				84B521EE1BFFC41E004A6CA0 /* icon1_select.png in Resources */,
 				8475EF811CA35D3A00738297 /* mapRule_frument.txt in Resources */,
+				8475EFB51CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 in Resources */,
 				84B522101BFFC41E004A6CA0 /* map_XS_demo01.txt in Resources */,
 				84B522B81BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
 				8475EF991CA5F51900738297 /* croc-sword.png in Resources */,
@@ -2531,6 +2593,7 @@
 				84B523121BFFC41E004A6CA0 /* 054-Wall02.png in Resources */,
 				8475EF911CA5EECD00738297 /* fire-ring.png in Resources */,
 				84B523241BFFC41E004A6CA0 /* 063-CF_Shadow01.png in Resources */,
+				8475EFBB1CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 in Resources */,
 				84B5223C1BFFC41E004A6CA0 /* Solid.png in Resources */,
 				84B522E81BFFC41E004A6CA0 /* 042-EvilCastle02.png in Resources */,
 				84B522181BFFC41E004A6CA0 /* mapW_M_myDemoMap01.txt in Resources */,
@@ -2550,6 +2613,7 @@
 				84B521F81BFFC41E004A6CA0 /* icon3_select.png in Resources */,
 				84B522561BFFC41E004A6CA0 /* 005-Grass_Road01.png in Resources */,
 				843D4A2F1C0105F600835492 /* bowman.png in Resources */,
+				8475EFBF1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */,
 				84B5233A1BFFC41E004A6CA0 /* 074-CW_Water01.png in Resources */,
 				84B522761BFFC41E004A6CA0 /* 013-PostTown01.png in Resources */,
 				84B522301BFFC41E004A6CA0 /* civil01.png in Resources */,
@@ -2565,6 +2629,7 @@
 				84B5228A1BFFC41E004A6CA0 /* 018-Sa_Ground01.png in Resources */,
 				84F152971C962E0700B57942 /* Blaze.png in Resources */,
 				84B522021BFFC41E004A6CA0 /* icon_firewall.png in Resources */,
+				8475EFB91CA8471D00738297 /* 602072_Castle-Theme-1.mp3 in Resources */,
 				84B522A41BFFC41E004A6CA0 /* 025-Castle01.png in Resources */,
 				844535C21CA0B88200C523A1 /* roundButton_disable.png in Resources */,
 				844535B71C9F667600C523A1 /* laserburn.png in Resources */,
@@ -2620,6 +2685,7 @@
 				84B522B21BFFC41E004A6CA0 /* 028-Sn_Water01.png in Resources */,
 				84B523201BFFC41E004A6CA0 /* 061-CE_Road01.png in Resources */,
 				84B523321BFFC41E004A6CA0 /* 070-CI_Snow01.png in Resources */,
+				8475EFAF1CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 in Resources */,
 				8475EF931CA5EECD00738297 /* radial-balance.png in Resources */,
 				84B522CC1BFFC41E004A6CA0 /* 035-Ruins01.png in Resources */,
 				84B522621BFFC41E004A6CA0 /* 008-Snowfield01.png in Resources */,
@@ -2638,12 +2704,14 @@
 				84B5232A1BFFC41E004A6CA0 /* 066-CF_Ground03.png in Resources */,
 				84B5225E1BFFC41E004A6CA0 /* 007-Swamp01.png in Resources */,
 				84B522B01BFFC41E004A6CA0 /* 028-Church01.png in Resources */,
+				8475EFAD1CA8471D00738297 /* 306160_Hero_s_Courage.mp3 in Resources */,
 				84B521FE1BFFC41E004A6CA0 /* icon4_select.png in Resources */,
 				8475EF841CA4745500738297 /* map_L_frument.txt in Resources */,
 				84A07BF61C98C014001300B0 /* ArmorBoost.png in Resources */,
 				84B522D01BFFC41E004A6CA0 /* 036-Shop01.png in Resources */,
 				84B72D131C8905F100660898 /* Victorian Gothic One.ttf in Resources */,
 				84B522001BFFC41E004A6CA0 /* icon_fire.png in Resources */,
+				8475EFB11CA8471D00738297 /* 489489_Lights-Justice.mp3 in Resources */,
 				84B522AC1BFFC41E004A6CA0 /* 027-Castle03.png in Resources */,
 				84B522E41BFFC41E004A6CA0 /* 041-EvilCastle01.png in Resources */,
 				843D4A411C01FF3F00835492 /* hero04.png in Resources */,

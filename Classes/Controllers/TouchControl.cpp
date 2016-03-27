@@ -345,6 +345,12 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
 {
     destroy();
     
+    if(!i_mission.musicName.empty())
+    {
+        CocosDenshion::SimpleAudioEngine* audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
+        audioEngine->playBackgroundMusic(i_mission.musicName.c_str(), true);
+    }
+    
     d_interface = new MagicWars_NS::Interface(i_scene);
     d_mapLayer = cocos2d::Layer::create();
     d_highLayer = cocos2d::Layer::create();
@@ -439,6 +445,9 @@ void TouchControl::enableAll()
 
 void TouchControl::destroy()
 {
+    CocosDenshion::SimpleAudioEngine* audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
+    audioEngine->stopBackgroundMusic();
+    
     for( auto i : d_mapObjects )
         i->kill();
     for( auto i : d_persons )
