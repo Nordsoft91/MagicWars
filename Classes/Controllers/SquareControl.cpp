@@ -142,6 +142,11 @@ SquareControl::Points SquareControl::getSquare(size_t x, size_t y, WavePathFinde
     return pnts;
 }
 
+bool SquareControl::isSquared(size_t x, size_t y)
+{
+    return d_pSquares->isTiled(x, y);
+}
+
 bool SquareControl::isSquared(size_t x, size_t y, const std::string i_color)
 {
     return d_pSquares->isTiled(x,y,i_color);

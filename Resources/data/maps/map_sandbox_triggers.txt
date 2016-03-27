@@ -1,6 +1,7 @@
 Trigger Active
 NoCondition
 ChainOfEvents
+Event LoadPersons
 Event Message
 {
 msg1

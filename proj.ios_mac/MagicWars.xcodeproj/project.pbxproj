@@ -172,6 +172,8 @@
 		8475EFC31CA86F0600738297 /* icon_mute.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC01CA86F0600738297 /* icon_mute.png */; };
 		8475EFC41CA86F0600738297 /* icon_speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC11CA86F0600738297 /* icon_speaker.png */; };
 		8475EFC51CA86F0600738297 /* icon_speaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC11CA86F0600738297 /* icon_speaker.png */; };
+		8475EFC71CA8845600738297 /* roundButton_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC61CA8845600738297 /* roundButton_highlight.png */; };
+		8475EFC81CA8845600738297 /* roundButton_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC61CA8845600738297 /* roundButton_highlight.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -901,6 +903,7 @@
 		8475EFAB1CA8471D00738297 /* 672090_Ancient-Empires.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "672090_Ancient-Empires.mp3"; path = "music/672090_Ancient-Empires.mp3"; sourceTree = "<group>"; };
 		8475EFC01CA86F0600738297 /* icon_mute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_mute.png; path = ../interface/icon_mute.png; sourceTree = "<group>"; };
 		8475EFC11CA86F0600738297 /* icon_speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_speaker.png; path = ../interface/icon_speaker.png; sourceTree = "<group>"; };
+		8475EFC61CA8845600738297 /* roundButton_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_highlight.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1752,6 +1755,7 @@
 		84B520DE1BFFC41D004A6CA0 /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				8475EFC61CA8845600738297 /* roundButton_highlight.png */,
 				844535BE1CA0B88200C523A1 /* roundButton_disable.png */,
 				844535BF1CA0B88200C523A1 /* roundButton_none.png */,
 				844535C01CA0B88200C523A1 /* roundButton_select.png */,
@@ -2450,6 +2454,7 @@
 				844535A41C9DDA3400C523A1 /* 124-Civilian24.png in Resources */,
 				84B522AD1BFFC41E004A6CA0 /* 027-Ocean04.png in Resources */,
 				84B521BD1BFFC41E004A6CA0 /* Tricks in Resources */,
+				8475EFC71CA8845600738297 /* roundButton_highlight.png in Resources */,
 				84B5229B1BFFC41E004A6CA0 /* 023-FarmVillage01.png in Resources */,
 				84B5220B1BFFC41E004A6CA0 /* icon_thunderbolt.png in Resources */,
 				84B521EB1BFFC41E004A6CA0 /* icon1_none.png in Resources */,
@@ -2694,6 +2699,7 @@
 				84B523281BFFC41E004A6CA0 /* 065-CF_Ground02.png in Resources */,
 				84B522B21BFFC41E004A6CA0 /* 028-Sn_Water01.png in Resources */,
 				84B523201BFFC41E004A6CA0 /* 061-CE_Road01.png in Resources */,
+				8475EFC81CA8845600738297 /* roundButton_highlight.png in Resources */,
 				84B523321BFFC41E004A6CA0 /* 070-CI_Snow01.png in Resources */,
 				8475EFAF1CA8471D00738297 /* 348286_wizard_in_the_rain_LQ.mp3 in Resources */,
 				8475EF931CA5EECD00738297 /* radial-balance.png in Resources */,

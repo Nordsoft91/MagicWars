@@ -77,6 +77,19 @@ void Interface::disableAllButtons()
     }
 }
 
+void Interface::tutorialHighlightButton(const std::string& i_but)
+{
+    for(auto& i : d_buttons)
+    {
+        if(i.second==i_but)
+        {
+            auto highlight = cocos2d::Sprite::create("roundButton_highlight.png");
+            highlight->setAnchorPoint(cocos2d::Vec2::ZERO);
+            i.first->addChild(highlight);
+        }
+    }
+}
+
 std::pair<float, float> Interface::getPositionAround(float i_radius, size_t i_max, size_t n)
 {
     if(n>=i_max)

@@ -55,6 +55,7 @@ namespace MagicWars_NS {
         void createSquare(size_t x, size_t y, WavePathFinder& i_finder, const std::string i_color);*/
         
         bool isSquared(size_t x, size_t y, const std::string i_color);
+        bool isSquared(size_t x, size_t y);
         Points getSquared(const std::string i_color);
         
         void deleteSquares(const std::string i_color);

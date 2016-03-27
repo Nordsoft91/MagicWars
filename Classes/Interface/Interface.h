@@ -40,6 +40,8 @@ namespace MagicWars_NS {
         void enableButton(const std::string& i_but);
         void disableAllButtons();
         
+        void tutorialHighlightButton(const std::string& i_but);
+        
         const cocos2d::Vec2 SCREEN_CENTER;
         
         std::pair<float, float> getPositionAround(float i_radius, size_t i_max, size_t n);

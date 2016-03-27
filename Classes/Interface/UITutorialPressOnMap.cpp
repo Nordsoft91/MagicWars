@@ -146,6 +146,7 @@ bool TutorialPressButton::init(const std::string& i_but)
     MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Map);
     MagicWars_NS::TouchControl::instance().getInterface().disableAllButtons();
     MagicWars_NS::TouchControl::instance().getInterface().enableButton(i_but);
+    MagicWars_NS::TouchControl::instance().getInterface().tutorialHighlightButton(i_but);
 
     return true;
 }

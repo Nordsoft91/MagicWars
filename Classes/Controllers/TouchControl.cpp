@@ -275,10 +275,10 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     GameObj* basobj = ContainUtils::findObject(d_persons, clickX, clickY);
     if(Magican* obj = dynamic_cast<Magican*>(basobj))
     {
-        obj->showStatus(true, d_turnControl.beginTurn(obj, TURN_ANY) ? std::numeric_limits<double>::max() : 2);
-        //check if can make turn but be sure that do not try to select target for blessing
-        if(d_turnControl.beginTurn(obj, TURN_ANY) && !SquareControl::instance().isSquared(clickX, clickY, "green"))
+        obj->showStatus(true, d_turnControl.isTurn(obj, TURN_ANY) ? std::numeric_limits<double>::max() : 2);
+        if(d_turnControl.isTurn(obj, TURN_ANY) && !SquareControl::instance().isSquared(clickX, clickY))
         {
+            d_turnControl.beginTurn(obj, TURN_ANY);
             SquareControl::instance().deleteSquares();
             d_interface->makeRegularMenu(obj);
         }
