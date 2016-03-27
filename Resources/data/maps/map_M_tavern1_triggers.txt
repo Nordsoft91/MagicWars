@@ -127,7 +127,7 @@ Event Dialog Dolor
 Посидим, выпьем, пообщаемся!
 }
 Event Centralize Erson
-Event Move Erson 0 3
+Event Move Erson 0 4
 Event Dialog Erson
 {
 Спасибо, но нам нужно идти.
@@ -144,7 +144,7 @@ Event Dialog Braves
 }
 Event HeapOfEvents
 Event Move Braves 10 11
-Event Move Erson 11 10
+Event Move Erson 11 9
 EndOfHeap
 Event Dialog Dolor
 {
@@ -238,7 +238,7 @@ Event Move Dolor -2 -8
 Event Move Erson -5 -4
 Event Move Braves -6 -5
 Event Move c4 12 5
-Event Move c2 9 3
+Event Move c2 10 5
 EndOfHeap
 Event Dialog c4
 {
