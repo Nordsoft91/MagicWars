@@ -42,6 +42,7 @@ namespace MagicWars_NS {
         Points getStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center = false);
         Points getLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius);
         Points getSquare(size_t x, size_t y, WavePathFinder& i_finder);
+        Points getTShape(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, size_t i_minRadius);
         
         void createSquares(const Points& i_points, const std::string i_color);
         

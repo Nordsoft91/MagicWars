@@ -40,5 +40,5 @@ map      map_L_frument.txt
 triggers map_L_frument_triggers.txt
 rules    mapRule_frument.txt
 previous Таверна
-position 300 220
+position 300 300
 music    306160_Hero_s_Courage.mp3

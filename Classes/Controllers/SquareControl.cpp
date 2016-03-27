@@ -142,6 +142,28 @@ SquareControl::Points SquareControl::getSquare(size_t x, size_t y, WavePathFinde
     return pnts;
 }
 
+SquareControl::Points SquareControl::getTShape(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, size_t i_minRadius)
+{
+    SquareControl::Points pnts = getLine(xs, ys, xd, yd, i_radius);
+    double ydiff = int(xd)-int(xs);
+    double xdiff = int(yd)-int(ys);
+    double sum = std::max(abs(xdiff),abs(ydiff));
+    xdiff /= sum;
+    ydiff /= sum;
+    
+    int xes = pnts.back().first;
+    int yes = pnts.back().second;
+    
+    for(int i = -int(i_minRadius)+1; i<int(i_minRadius); ++i)
+    {
+        int xp = xes+xdiff*i;
+        int yp = yes+ydiff*i;
+        if(xp>=0 && yp>=0 && xp<d_pSquares->width() && yp<d_pSquares->height())
+            pnts.push_back({xp, yp});
+    }
+    return pnts;
+}
+
 bool SquareControl::isSquared(size_t x, size_t y)
 {
     return d_pSquares->isTiled(x, y);

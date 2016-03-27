@@ -58,6 +58,8 @@ void TouchControl::coverRange(std::vector<std::pair<size_t, size_t>> coord, cons
         pnts = SquareControl::instance().getStar(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), center);
     if(squareType=="LINE")
         pnts = SquareControl::instance().getLine(coord[0].first, coord[0].second, coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell));
+    if(squareType=="TSHAPE")
+        pnts = SquareControl::instance().getTShape(coord[0].first, coord[0].second, coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), minRadius);
     SquareControl::instance().createSquares(pnts, "orange");
 }
 
