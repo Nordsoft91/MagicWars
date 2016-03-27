@@ -32,6 +32,8 @@ namespace MagicWars_NS {
         cocos2d::Sprite* getSprite() { return d_sprite;}
         cocos2d::Sprite* getHighSprite() { return d_highSprite; }
         
+        virtual cocos2d::Sprite* createPicture();
+        
         void jump(size_t ix, size_t iy);
         
         virtual void move(char i_direction);

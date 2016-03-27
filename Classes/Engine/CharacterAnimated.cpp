@@ -32,6 +32,11 @@ CharacterAnimated::CharacterAnimated(const std::string& i_group): Magican(i_grou
     d_highSprite->addChild(d_highAnimation);
 }
 
+cocos2d::Sprite* CharacterAnimated::createPicture()
+{
+    return Animated::create(RES("persons", (std::string)Consts::get("animationName", d_group)), Consts::get("animationParams", d_group), { 0 });
+}
+
 void CharacterAnimated::move(const std::list<int>& i_list)
 {
     cocos2d::Vector<cocos2d::FiniteTimeAction*> seq, seqHigh;

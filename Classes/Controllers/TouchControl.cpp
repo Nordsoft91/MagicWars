@@ -411,6 +411,8 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
         trRead.read(trStream);
     }
     
+    d_interface->createPortraits();
+    
     SquareControl::instance().toScene(d_highLayer);
 	for (std::string& s : Flared_NS::AutomapLog::log())
 		cocos2d::log(s.c_str());

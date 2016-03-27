@@ -25,6 +25,8 @@ namespace MagicWars_NS {
         
         void onDeath();
         
+        virtual cocos2d::Sprite* createPicture() override;
+        
     protected:
         Animated *d_animation = nullptr;
         Animated *d_highAnimation = nullptr;

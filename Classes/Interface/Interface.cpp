@@ -28,151 +28,26 @@ Interface::~Interface()
 
 }
 
-/*void Interface::addButton(cocos2d::MenuItemImage* i_item, cocos2d::Vec2 i_pos)
+void Interface::createPortraits()
 {
-    i_item->setPosition(i_pos);
-    d_pMenu->addChild(i_item);
-}
-
-void Interface::addButton(cocos2d::MenuItemImage* i_item, float i_x, float i_y)
-{
-    addButton(i_item, cocos2d::Vec2(i_x,i_y));
-}
-
-void Interface::removeButtons()
-{
-    for(auto i : d_buttons)
+    auto menu = cocos2d::Menu::create();
+    menu->setPosition(cocos2d::Vec2::ZERO);
+    auto arr = TouchControl::instance().getTurnController().sideArray("Light");
+    for( size_t i = 0; i<arr.size(); ++i)
     {
-        i->removeFromParent();
+        auto port = Portrait::create(arr[i]);
+        port->setPositionX(i*100);
+        port->setAnchorPoint(cocos2d::Vec2::ZERO);
+        menu->addChild(port);
     }
-    d_buttons.clear();
-}
-
-void Interface::createSpellMenu(Magican* i_mag)
-{
-    if(i_mag)
-    {
-        for(auto spellstr : i_mag->d_spells)
-        {
-            createButton(spellstr, i_mag->getMind()>=int(Consts::get("mind", spellstr)));
-        }
-    }
-}
-
-void Interface::createTrickMenu(MagicWars_NS::Magican *i_mag)
-{
-    if(i_mag)
-    {
-        static cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
-        auto but = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
-                                                  [&](cocos2d::Ref* pSender)
-                                                  {
-                                                      if( !Blocker::stateIgnore(Pause::Map) )
-                                                      {
-                                                          disableAllButtons(false);
-                                                          Blocker::release(Pause::Map);
-                                                          TouchControl::instance().spellAction("attack");
-                                                          removeButtons();
-                                                      }
-                                                  });
-        but->setOpacity(190);
-        but->addChild(UI_NS::Icon::createFromConsts(i_mag->d_weapon));
-        int maxTricksInString = visibleSize.width / but->getContentSize().width - 4;
-        int xPosition = d_buttons.size() % maxTricksInString;
-        int yPosition = d_buttons.size() / maxTricksInString;
-        addButton(but, but->getContentSize().width*(4+xPosition), visibleSize.height - but->getContentSize().height/2 - but->getContentSize().height * yPosition );
-        d_buttons.push_back(but);
-        
-        for(auto& trickstr : i_mag->d_tricks)
-        {
-            if(!trickstr.first.empty())
-                createButton(trickstr.first, trickstr.second==0);
-        }
-    }
-}
-
-void Interface::createButton(const std::string& i_str, bool i_enabled)
-{
-    static cocos2d::Size visibleSize = cocos2d::Director::getInstance()->getVisibleSize();
-	//const std::string str = i_str;
-	auto but = cocos2d::MenuItemImage::create(BUTTON_NAME_FULL("icon0"),
-                                                [this, i_str](cocos2d::Ref* pSender)
-                                                {
-                                                    if( !Blocker::stateIgnore(Pause::Map) )
-                                                    {
-                                                        disableAllButtons(false);
-                                                        Blocker::release(Pause::Map);
-                                                        TouchControl::instance().spellAction(i_str);
-														removeButtons();
-                                                    }
-                                                });
     
-    but->addChild(UI_NS::Icon::createFromConsts(i_str));
-    but->setOpacity(190);
-    but->setEnabled(i_enabled);
-    
-    int maxTricksInString = visibleSize.width / but->getContentSize().width - 4;
-    int xPosition = d_buttons.size() % maxTricksInString;
-    int yPosition = d_buttons.size() / maxTricksInString;
-    
-    addButton(but, but->getContentSize().width*(4+xPosition), visibleSize.height - but->getContentSize().height/2 - but->getContentSize().height * yPosition );
-    d_buttons.push_back(but);
+    d_pScreen->addChild(menu);
 }
-
-void Interface::disableActionButtons(bool i_disable)
-{
-    d_pAttackItem->setEnabled(!i_disable);
-    d_pSpellItem->setEnabled(!i_disable);
-}
-
-void Interface::disableAllButtons(bool i_disable)
-{
-    d_pAttackItem->setEnabled(!i_disable);
-    d_pSpellItem->setEnabled(!i_disable);
-    d_pEndItem->setEnabled(!i_disable);
-    for(auto* i : d_buttons)
-        i->setEnabled(!i_disable);
-}
-
-bool Interface::disableButton(const Interface::Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx)
-{
-    cocos2d::MenuItemImage* sel = nullptr;
-    switch(i_desc)
-    {
-        case Button::Trick: sel = d_pAttackItem; break;
-        case Button::Spell: sel = d_pSpellItem; break;
-        case Button::End: sel = d_pEndItem; break;
-        case Button::Custom: sel = d_buttons.at(i_idx); break;
-        default: return false;
-    }
-    bool en = sel->isEnabled();
-    sel->setEnabled(false);
-    o_pos = sel->getPosition();
-    return en;
-}
-
-bool Interface::enableButton(const Interface::Button i_desc, cocos2d::Vec2& o_pos, size_t i_idx)
-{
-    cocos2d::MenuItemImage* sel = nullptr;
-    switch(i_desc)
-    {
-        case Button::Trick: sel = d_pAttackItem; break;
-        case Button::Spell: sel = d_pSpellItem; break;
-        case Button::End: sel = d_pEndItem; break;
-        case Button::Custom: sel = d_buttons.at(i_idx); break;
-        default: return false;
-    }
-    bool en = sel->isEnabled();
-    sel->setEnabled(true);
-    o_pos = sel->getPosition();
-    return en;
-}*/
 
 cocos2d::ui::Widget* Interface::getScreenNode() const
 {
     return d_pScreen;
 }
-
 
 //////////interface V2
 
@@ -338,6 +213,7 @@ void Interface::makeTricksMenu()
 
 bool MagicWars_NS::isInterfaceAvailable()
 {
+    Blocker::release(Pause::Interface);
     if( !Blocker::stateIgnore(Pause::Map) )
     {
         Blocker::release(Pause::Map);

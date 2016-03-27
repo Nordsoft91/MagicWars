@@ -10,6 +10,8 @@
 #include "HelloWorldScene.h"
 #include <Travel/TravelScene.h>
 
+#define SANDBOX
+
 namespace Menu_NS {
     MainMenu* MainMenu::create()
     {
@@ -57,7 +59,8 @@ namespace Menu_NS {
         background->addChild(menu);
         
         //sandbox
-        /*auto sandboxButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
+#ifdef SANDBOX
+        auto sandboxButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
                                                            {
                                                                //std::string missionName, mapFile, triggersFile, rulesFile, prevMission;
                                                                //std::list<std::string> briefing;
@@ -69,8 +72,9 @@ namespace Menu_NS {
                                                                
                                                                cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
                                                            });
-        sandboxButton->setPosition(100, 100);
-        menu->addChild(sandboxButton);*/
+        sandboxButton->setPosition(0, 300);
+        menu->addChild(sandboxButton);
+#endif
         
         addChild(background);
         

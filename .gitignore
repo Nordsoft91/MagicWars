@@ -56,6 +56,8 @@ proj.win32/game.aps
 
 *.jpg
 
+*.mp3
+
 Resources/data/fonts/Marker Felt.ttf
 
 Resources.zip

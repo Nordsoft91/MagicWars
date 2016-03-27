@@ -31,6 +31,11 @@ GameObj::~GameObj()
     d_highSprite->release();
 }
 
+cocos2d::Sprite* GameObj::createPicture()
+{
+    return cocos2d::Sprite::createWithTexture(d_sprite->getTexture());
+}
+
 void GameObj::setSprite(const std::string i_spr)
 {
     if(d_sprite || d_highSprite)
