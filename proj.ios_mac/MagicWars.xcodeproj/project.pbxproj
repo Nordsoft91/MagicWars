@@ -708,6 +708,10 @@
 		84B523481BFFC41E004A6CA0 /* 081-B_Ground02.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B5219C1BFFC41E004A6CA0 /* 081-B_Ground02.png */; };
 		84B5234A1BFFC48F004A6CA0 /* stub.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B523491BFFC48F004A6CA0 /* stub.png */; };
 		84B5234B1BFFC48F004A6CA0 /* stub.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B523491BFFC48F004A6CA0 /* stub.png */; };
+		84B552671CAFF88F00ED0431 /* InventoryItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B552651CAFF88F00ED0431 /* InventoryItem.cpp */; };
+		84B552681CAFF88F00ED0431 /* InventoryItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B552651CAFF88F00ED0431 /* InventoryItem.cpp */; };
+		84B5526B1CB01B7F00ED0431 /* UIInformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B552691CB01B7F00ED0431 /* UIInformation.cpp */; };
+		84B5526C1CB01B7F00ED0431 /* UIInformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B552691CB01B7F00ED0431 /* UIInformation.cpp */; };
 		84B72CEA1C88E4A600660898 /* camp1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE11C88E4A500660898 /* camp1.png */; };
 		84B72CEB1C88E4A600660898 /* camp1.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE11C88E4A500660898 /* camp1.png */; };
 		84B72CEC1C88E4A600660898 /* camp1_d.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B72CE21C88E4A500660898 /* camp1_d.png */; };
@@ -1229,6 +1233,10 @@
 		84B5219B1BFFC41D004A6CA0 /* 080-B_Ground01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "080-B_Ground01.png"; sourceTree = "<group>"; };
 		84B5219C1BFFC41E004A6CA0 /* 081-B_Ground02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "081-B_Ground02.png"; sourceTree = "<group>"; };
 		84B523491BFFC48F004A6CA0 /* stub.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stub.png; sourceTree = "<group>"; };
+		84B552651CAFF88F00ED0431 /* InventoryItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InventoryItem.cpp; sourceTree = "<group>"; };
+		84B552661CAFF88F00ED0431 /* InventoryItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InventoryItem.h; sourceTree = "<group>"; };
+		84B552691CB01B7F00ED0431 /* UIInformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIInformation.cpp; sourceTree = "<group>"; };
+		84B5526A1CB01B7F00ED0431 /* UIInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIInformation.h; sourceTree = "<group>"; };
 		84B72CE11C88E4A500660898 /* camp1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp1.png; sourceTree = "<group>"; };
 		84B72CE21C88E4A500660898 /* camp1_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp1_d.png; sourceTree = "<group>"; };
 		84B72CE31C88E4A500660898 /* camp2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camp2.png; sourceTree = "<group>"; };
@@ -1606,6 +1614,8 @@
 				84B520461BFFC2C2004A6CA0 /* StatusUpdater.h */,
 				84B520471BFFC2C2004A6CA0 /* TileMap.cpp */,
 				84B520481BFFC2C2004A6CA0 /* TileMap.h */,
+				84B552651CAFF88F00ED0431 /* InventoryItem.cpp */,
+				84B552661CAFF88F00ED0431 /* InventoryItem.h */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -1657,6 +1667,8 @@
 				848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */,
 				8475EF9D1CA8180B00738297 /* Portrait.cpp */,
 				8475EF9E1CA8180B00738297 /* Portrait.h */,
+				84B552691CB01B7F00ED0431 /* UIInformation.cpp */,
+				84B5526A1CB01B7F00ED0431 /* UIInformation.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -2843,6 +2855,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84B520B31BFFC2C2004A6CA0 /* UITrigger.cpp in Sources */,
+				84B552671CAFF88F00ED0431 /* InventoryItem.cpp in Sources */,
 				84B520A71BFFC2C2004A6CA0 /* FlaredTileset.cpp in Sources */,
 				84B520AB1BFFC2C2004A6CA0 /* UICondition.cpp in Sources */,
 				84B520871BFFC2C2004A6CA0 /* Animated.cpp in Sources */,
@@ -2891,6 +2904,7 @@
 				84B520A31BFFC2C2004A6CA0 /* FlaredParser.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				84B5206F1BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */,
+				84B5526B1CB01B7F00ED0431 /* UIInformation.cpp in Sources */,
 				84B5209B1BFFC2C2004A6CA0 /* FlaredAutomapRules.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2904,6 +2918,7 @@
 				8475EFA01CA8180B00738297 /* Portrait.cpp in Sources */,
 				84B520B61BFFC2C2004A6CA0 /* MenuScene.cpp in Sources */,
 				843D49EF1C00CECD00835492 /* UIIcon.cpp in Sources */,
+				84B552681CAFF88F00ED0431 /* InventoryItem.cpp in Sources */,
 				84F152911C9626EF00B57942 /* AnimatedObject.cpp in Sources */,
 				84B520B01BFFC2C2004A6CA0 /* UIMessage.cpp in Sources */,
 				84B520881BFFC2C2004A6CA0 /* Animated.cpp in Sources */,
@@ -2944,6 +2959,7 @@
 				84B5208E1BFFC2C2004A6CA0 /* Effect.cpp in Sources */,
 				84B520A21BFFC2C2004A6CA0 /* FlaredMap.cpp in Sources */,
 				84B520B41BFFC2C2004A6CA0 /* UITrigger.cpp in Sources */,
+				84B5526C1CB01B7F00ED0431 /* UIInformation.cpp in Sources */,
 				84B5209C1BFFC2C2004A6CA0 /* FlaredAutomapRules.cpp in Sources */,
 				84B520AE1BFFC2C2004A6CA0 /* UIEvent.cpp in Sources */,
 				84B520A01BFFC2C2004A6CA0 /* FlaredLayer.cpp in Sources */,
