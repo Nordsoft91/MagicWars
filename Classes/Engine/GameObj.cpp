@@ -125,3 +125,66 @@ void GameObj::onEndOfMove(size_t ix, size_t iy)
     d_sprite->setZOrder(98-iy);
     d_highSprite->setZOrder(198-iy);
 }
+
+void GameObj::addInventoryItem(const std::string& i_name, size_t i_count)
+{
+    assert(i_count>0);
+    if(auto* item = findInventoryItem(i_name))
+    {
+        assert(item->getCount()>0);
+        item->setCount(item->getCount()+i_count);
+    }
+    else
+    {
+        d_equipment.emplace_back(i_name, i_count);
+    }
+}
+void GameObj::useInventoryItem(const std::string& i_name, size_t i_count)
+{
+    assert(i_count>0);
+    auto iter = std::find_if(d_equipment.begin(), d_equipment.end(), [i_name](const InventoryItem& v)
+                          {
+                              return v.getName() == i_name;
+                          });
+    if(iter != d_equipment.end())
+    {
+        if(iter->getCount()==i_count)
+        {
+            d_equipment.erase(iter);
+            return;
+        }
+        
+        if(iter->getCount()>i_count)
+            iter->setCount(iter->getCount()-i_count);
+    }
+    throw std::logic_error("Item doesn't exists");
+}
+InventoryItem& GameObj::getInventoryItem(const std::string& i_name)
+{
+    if(auto* item = findInventoryItem(i_name))
+        return *item;
+    throw std::logic_error("Item doesn't exists");
+}
+InventoryItem& GameObj::getInventoryItem(size_t ind)
+{
+    return d_equipment.at(ind);
+}
+InventoryItem* GameObj::findInventoryItem(const std::string& i_name)
+{
+    auto iter = std::find_if(d_equipment.begin(), d_equipment.end(), [i_name](const InventoryItem& v)
+                          {
+                              return v.getName() == i_name;
+                          });
+    if(iter == d_equipment.end())
+        return nullptr;
+    return &*iter;
+}
+bool GameObj::isInventoryItemExists(const std::string& i_name, size_t i_count)
+{
+    assert(i_count>0);
+    auto iter = std::find_if(d_equipment.begin(), d_equipment.end(), [i_name](const InventoryItem& v)
+                          {
+                              return v.getName() == i_name;
+                          });
+    return iter != d_equipment.end() && iter->getCount() >= i_count;
+}

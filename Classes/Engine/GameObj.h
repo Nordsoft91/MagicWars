@@ -12,6 +12,7 @@
 #include <cocos2d.h>
 #include <string>
 #include <Common/Consts.h>
+#include "InventoryItem.h"
 
 namespace MagicWars_NS {
     
@@ -45,12 +46,20 @@ namespace MagicWars_NS {
         void setName(const std::string& i_name) {d_name=i_name;}
         const std::string& getName() const {return d_name;}
         
+        void addInventoryItem(const std::string& i_name, size_t i_count = 1);
+        void useInventoryItem(const std::string& i_name, size_t i_count = 1);
+        InventoryItem& getInventoryItem(const std::string& i_name);
+        InventoryItem& getInventoryItem(size_t ind);
+        InventoryItem* findInventoryItem(const std::string& i_name);
+        bool isInventoryItemExists(const std::string& i_name, size_t i_count = 1);
+        
         size_t x,y;
         
     protected:
         cocos2d::Sprite *d_sprite = nullptr;
         cocos2d::Sprite *d_highSprite = nullptr;
         std::string d_name;
+        std::vector<InventoryItem> d_equipment;
         int d_id;
     };
 
