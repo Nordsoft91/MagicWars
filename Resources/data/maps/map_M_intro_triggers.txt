@@ -2,6 +2,7 @@ Trigger Active
 NoCondition
 ChainOfEvents
 Event LoadPersons
+Event PlayTheme
 Event Dialog Braves
 {
 Что это за место? Кажется, что тут регулярно кто-то бывает.

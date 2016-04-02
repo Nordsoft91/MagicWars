@@ -69,6 +69,7 @@ Event Dialog Officer
 {
 Взять их живыми или мертвыми!
 }
+Event PlayTheme
 EndOfChain
 
 Trigger Active
