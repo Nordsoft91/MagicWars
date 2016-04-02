@@ -177,6 +177,7 @@ namespace Menu_NS {
         const CampaignReader::Mission& mission = reader.getMission(level);
         
         auto label = cocos2d::Label::createWithTTF("Уровень "+std::to_string(level+1)+"\n"+mission.missionName, RES("fonts","Washington.ttf"), 120);
+        label->setAlignment(cocos2d::TextHAlignment::CENTER);
         label->setPosition(sz.width/2, sz.height/2);
         background->addChild(label);
         

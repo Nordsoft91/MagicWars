@@ -16,7 +16,7 @@ previous Обучение
 position 250 180
 music    600122_Over-the-Rooftops.mp3
 
-mission  Голодные
+mission  Голодные звери
 brief    null
 map      map_M_mission1.txt
 triggers map_M_mission1_triggers.txt
@@ -30,7 +30,7 @@ brief    null
 map      map_M_tavern1.txt
 triggers map_M_tavern1_triggers.txt
 rules    mapRule_forestTown.txt
-previous Голодные
+previous Голодные звери
 position 380 220
 music    594085_quotShadows-Bladequot---In.mp3
 

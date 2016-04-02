@@ -20,7 +20,10 @@ CampaignReader::CampaignReader(const std::string& i_file)
         if(key=="mission")
         {
             Mission m;
-            f >> m.missionName;
+            char missionNameBuf[255];
+            for(missionNameBuf[0]=' ';missionNameBuf[0]==' ';missionNameBuf[0]=f.get()) {}
+            f.getline(&missionNameBuf[1], 255, '\n');
+            m.missionName = missionNameBuf;
             d_missions.push_back(m);
         }
         if(key=="brief")
@@ -39,7 +42,12 @@ CampaignReader::CampaignReader(const std::string& i_file)
         if(key=="rules")
             f >> d_missions.back().rulesFile;
         if(key=="previous")
-            f >> d_missions.back().prevMission;
+        {
+            char missionNameBuf[255];
+            for(missionNameBuf[0]=' ';missionNameBuf[0]==' ';missionNameBuf[0]=f.get()) {}
+            f.getline(&missionNameBuf[1], 255, '\n');
+            d_missions.back().prevMission = missionNameBuf;
+        }
         if(key=="position")
         {
             f >> d_missions.back().x >> d_missions.back().y;
