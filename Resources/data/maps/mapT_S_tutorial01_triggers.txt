@@ -1,6 +1,7 @@
 Trigger Name Intro Active
 NoCondition
 ChainOfEvents
+Event PlayTheme
 Event Message
 {
 Добро пожаловать в Magic Wars! Это обучающий уровень. Нажмите, чтобы продолжить.
