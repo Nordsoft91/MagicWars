@@ -356,6 +356,7 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
     {
         CocosDenshion::SimpleAudioEngine* audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
         audioEngine->playBackgroundMusic(i_mission.musicName.c_str(), true);
+        audioEngine->pauseBackgroundMusic();
     }
     
     d_interface = new MagicWars_NS::Interface(i_scene);
