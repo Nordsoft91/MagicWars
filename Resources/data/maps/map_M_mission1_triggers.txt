@@ -76,6 +76,7 @@ Event Dialog Erson
 {
 Поджарь их своей магией
 }
+Event PlayTheme
 Event Centralize Dog
 Event Message
 {

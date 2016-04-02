@@ -308,6 +308,7 @@ Event Dialog Soldier1
 Вы арестованы за нападние, пользование черной магией и шпионаж!
 Взять их!
 }
+Event PlayTheme
 EndOfChain
 
 Trigger Active
