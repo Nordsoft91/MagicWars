@@ -77,7 +77,7 @@ void CharacterAnimated::move(const std::list<int>& i_list)
 
 void CharacterAnimated::kill()
 {
-    Blocker::block(Pause::Animation);
+    Blocker::block(Pause::Map);
     d_animation->runAction(
                     cocos2d::Sequence::create(
                                               cocos2d::FadeOut::create(3),
@@ -93,6 +93,6 @@ void CharacterAnimated::kill()
                     
 void CharacterAnimated::onDeath()
 {
-    Blocker::release(Pause::Animation);
     Magican::kill();
+    Blocker::release(Pause::Map);
 }
