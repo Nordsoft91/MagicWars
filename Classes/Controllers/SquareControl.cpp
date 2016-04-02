@@ -78,13 +78,14 @@ SquareControl::Points SquareControl::getBorder(size_t x, size_t y, size_t i_radi
     return pnts;
 }
 
-SquareControl::Points SquareControl::getSquare(size_t x, size_t y, size_t i_radius, bool i_center )
+SquareControl::Points SquareControl::getSquare(size_t x, size_t y, size_t i_minRadius, size_t i_radius, bool i_center )
 {
     SquareControl::Points pnts;
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
+            if(abs(i-int(x))>=i_minRadius || abs(j-int(y))>=i_minRadius)
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
                 pnts.push_back({i,j});
         }
@@ -92,14 +93,14 @@ SquareControl::Points SquareControl::getSquare(size_t x, size_t y, size_t i_radi
     return pnts;
 }
 
-SquareControl::Points SquareControl::getStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center )
+SquareControl::Points SquareControl::getStar(size_t x, size_t y, size_t i_minRadius, size_t i_radius, bool i_center )
 {
     SquareControl::Points pnts;
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
-            if(abs(i-int(x))>=i_minradius || abs(j-int(y))>=i_minradius)
+            if(abs(i-int(x))>=i_minRadius || abs(j-int(y))>=i_minRadius)
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {
                 if(i==x || j==y || i-int(x)==j-int(y) || i-int(x)==int(y)-j)
@@ -110,14 +111,14 @@ SquareControl::Points SquareControl::getStar(size_t x, size_t y, size_t i_minrad
     return pnts;
 }
 
-SquareControl::Points SquareControl::getCross(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center )
+SquareControl::Points SquareControl::getCross(size_t x, size_t y, size_t i_minRadius, size_t i_radius, bool i_center )
 {
     SquareControl::Points pnts;
     for( int j = int(y)-int(i_radius); j<=int(y+i_radius); ++j)
     {
         for( int i = int(x)-int(i_radius); i<=int(x+i_radius); ++i)
         {
-            if(abs(i)>=i_minradius || abs(j)>=i_minradius)
+            if(abs(i-int(x))>=i_minRadius || abs(j-int(y))>=i_minRadius)
             if((i_center || i!=x || j!=y) && i>=0 && j>=0 && i<d_pSquares->width() && j<d_pSquares->height())
             {
                 if(i==x || j==y)

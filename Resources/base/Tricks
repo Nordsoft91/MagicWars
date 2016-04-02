@@ -39,6 +39,34 @@ force = 39
 recover = 3
 }
 
+<group> trick_spinsword
+{
+type = DAMMAGE
+radius = 0
+gridType = POINT
+coverType = BORDER
+coverRadius = 1
+effectType = APPEAR
+sprite = Melee2.png
+sprite_size = 10
+force = 51
+recover = 4
+}
+
+<group> trick_shardsword
+{
+type = DAMMAGE
+radius = 1
+gridType = SQUAD
+coverType = LINE
+coverRadius = 2
+effectType = FOLLOW
+sprite = Melee2.png
+sprite_size = 10
+force = 65
+recover = 3
+}
+
 <group> trick_shoot
 {
     type = DAMMAGE
@@ -79,4 +107,32 @@ sprite_fly = Arrow1.png
 sprite_fly_size = 10
 force = 36
 recover = 3
+}
+
+<group> trick_anyshoot
+{
+type = DAMMAGE
+radius = 4
+minRadius = 2
+gridType = SQUAD
+coverType = POINT
+effectType = FOLLOW
+sprite_fly = Arrow1.png
+sprite_fly_size = 10
+force = 53
+recover = 4
+}
+
+<group> trick_snipershoot
+{
+type = DAMMAGE
+radius = 5
+minRadius = 3
+gridType = CROSS
+coverType = POINT
+effectType = FOLLOW
+sprite_fly = Arrow1.png
+sprite_fly_size = 10
+force = 64
+recover = 4
 }

@@ -13,9 +13,10 @@ expirience = 400
 weapon = weapon_broadsword
 spellBook = { }
 trickSkills = { trick_strongAttack }
+promotionGroup = hero03_level02
 }
 
-<group> hero03_level02
+<group> hero03_level02 <override> hero03_level01
 {
 spriteType = ANIMATED
 spriteName = stub.png
@@ -25,7 +26,25 @@ health = 210
 concentrate = 14
 mind = 9
 wisdom = 4
+speed = 2
 expirience = 1000
 spellBook = { }
 trickSkills = { trick_strongAttack trick_blade }
+promotionGroup = hero03_level03
+}
+
+<group> hero03_level03 <override> hero03_level02
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = 027-Cleric03.png
+animationParams = charAnimation4
+health = 285
+concentrate = 17
+mind = 14
+wisdom = 6
+speed = 3
+expirience = 1700
+spellBook = { }
+trickSkills = { trick_strongAttack trick_blade trick_spinsword trick_shardsword }
 }

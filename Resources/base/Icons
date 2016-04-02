@@ -16,8 +16,13 @@ spell_thunderbolt = { lightning-branches.png 10 30 250 }
 trick_shoot = { bowman.png 125 90 0 }
 trick_strongshoot = { pocket-bow.png 160 40 100 }
 trick_doubleshoot = { double-shot.png 100 40 160 }
+trick_anyshoot = { arrow-dunk.png 10 120 30 }
+trick_snipershoot = { crosshair-arrow.png 90 10 200 }
 trick_strongAttack = { croc-sword.png 160 40 100 }
 trick_blade = { blade-fall.png 120 150 130 }
+trick_spinsword = { sword-spin.png 200 150 240 }
+trick_shardsword = { shard-sword.png 90 200 10 }
+
 
 weapon_dagger = { plain-dagger.png 0 0 0 }
 weapon_staff = { wizard-staff.png 0 0 0 }

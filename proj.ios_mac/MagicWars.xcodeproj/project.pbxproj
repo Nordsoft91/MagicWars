@@ -176,6 +176,14 @@
 		8475EFC81CA8845600738297 /* roundButton_highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC61CA8845600738297 /* roundButton_highlight.png */; };
 		8475EFCA1CA89EE500738297 /* blade-fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC91CA89EE500738297 /* blade-fall.png */; };
 		8475EFCB1CA89EE500738297 /* blade-fall.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFC91CA89EE500738297 /* blade-fall.png */; };
+		8475EFCE1CAF41C800738297 /* arrow-dunk.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFCC1CAF41C800738297 /* arrow-dunk.png */; };
+		8475EFCF1CAF41C800738297 /* arrow-dunk.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFCC1CAF41C800738297 /* arrow-dunk.png */; };
+		8475EFD01CAF41C800738297 /* crosshair-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFCD1CAF41C800738297 /* crosshair-arrow.png */; };
+		8475EFD11CAF41C800738297 /* crosshair-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFCD1CAF41C800738297 /* crosshair-arrow.png */; };
+		8475EFD41CAF481F00738297 /* shard-sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD21CAF481F00738297 /* shard-sword.png */; };
+		8475EFD51CAF481F00738297 /* shard-sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD21CAF481F00738297 /* shard-sword.png */; };
+		8475EFD61CAF481F00738297 /* sword-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD31CAF481F00738297 /* sword-spin.png */; };
+		8475EFD71CAF481F00738297 /* sword-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD31CAF481F00738297 /* sword-spin.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -907,6 +915,10 @@
 		8475EFC11CA86F0600738297 /* icon_speaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_speaker.png; path = ../interface/icon_speaker.png; sourceTree = "<group>"; };
 		8475EFC61CA8845600738297 /* roundButton_highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundButton_highlight.png; sourceTree = "<group>"; };
 		8475EFC91CA89EE500738297 /* blade-fall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blade-fall.png"; path = "icons/blade-fall.png"; sourceTree = "<group>"; };
+		8475EFCC1CAF41C800738297 /* arrow-dunk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrow-dunk.png"; path = "icons/arrow-dunk.png"; sourceTree = "<group>"; };
+		8475EFCD1CAF41C800738297 /* crosshair-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crosshair-arrow.png"; path = "icons/crosshair-arrow.png"; sourceTree = "<group>"; };
+		8475EFD21CAF481F00738297 /* shard-sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shard-sword.png"; path = "icons/shard-sword.png"; sourceTree = "<group>"; };
+		8475EFD31CAF481F00738297 /* sword-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sword-spin.png"; path = "icons/sword-spin.png"; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1471,6 +1483,10 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				8475EFD21CAF481F00738297 /* shard-sword.png */,
+				8475EFD31CAF481F00738297 /* sword-spin.png */,
+				8475EFCC1CAF41C800738297 /* arrow-dunk.png */,
+				8475EFCD1CAF41C800738297 /* crosshair-arrow.png */,
 				8475EFC91CA89EE500738297 /* blade-fall.png */,
 				8475EF9A1CA5F5B000738297 /* double-shot.png */,
 				8475EF971CA5F51900738297 /* croc-sword.png */,
@@ -2246,6 +2262,7 @@
 				84B522E71BFFC41E004A6CA0 /* 042-EvilCastle02.png in Resources */,
 				84B522891BFFC41E004A6CA0 /* 018-Sa_Ground01.png in Resources */,
 				84B523331BFFC41E004A6CA0 /* 071-CI_Ground01.png in Resources */,
+				8475EFCE1CAF41C800738297 /* arrow-dunk.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				84B523031BFFC41E004A6CA0 /* 049-InnerBody01.png in Resources */,
 				844535B61C9F667600C523A1 /* laserburn.png in Resources */,
@@ -2255,6 +2272,7 @@
 				8475EFB81CA8471D00738297 /* 602072_Castle-Theme-1.mp3 in Resources */,
 				84B523091BFFC41E004A6CA0 /* 050-Roof02.png in Resources */,
 				84B522711BFFC41E004A6CA0 /* 012-PortTown02.png in Resources */,
+				8475EFD01CAF41C800738297 /* crosshair-arrow.png in Resources */,
 				84B522411BFFC41E004A6CA0 /* tsSurfaces.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				843D4A251C00FAEE00835492 /* flying-flag.png in Resources */,
@@ -2263,6 +2281,7 @@
 				84B522E91BFFC41E004A6CA0 /* 042-Ground02.png in Resources */,
 				84B523071BFFC41E004A6CA0 /* 050-DarkSpace01.png in Resources */,
 				84B5222F1BFFC41E004A6CA0 /* civil01.png in Resources */,
+				8475EFD61CAF481F00738297 /* sword-spin.png in Resources */,
 				84B5230B1BFFC41E004A6CA0 /* 051-Carpet01.png in Resources */,
 				84B523151BFFC41E004A6CA0 /* 056-CE_Water01.png in Resources */,
 				843D4A1C1C00F9EC00835492 /* bookmarklet.png in Resources */,
@@ -2453,6 +2472,7 @@
 				843D4A491C0202D800835492 /* undead03.png in Resources */,
 				84B521D31BFFC41E004A6CA0 /* Melee2.png in Resources */,
 				84B523251BFFC41E004A6CA0 /* 064-CF_Ground01.png in Resources */,
+				8475EFD41CAF481F00738297 /* shard-sword.png in Resources */,
 				84B522E51BFFC41E004A6CA0 /* 041-Grass01.png in Resources */,
 				84B522DB1BFFC41E004A6CA0 /* 039-Tower01.png in Resources */,
 				84B5224F1BFFC41E004A6CA0 /* 004-Mountain01.png in Resources */,
@@ -2612,6 +2632,7 @@
 				84B5233E1BFFC41E004A6CA0 /* 076-CW_Grass01.png in Resources */,
 				84B5231A1BFFC41E004A6CA0 /* 058-CE_Ground01.png in Resources */,
 				84B523121BFFC41E004A6CA0 /* 054-Wall02.png in Resources */,
+				8475EFCF1CAF41C800738297 /* arrow-dunk.png in Resources */,
 				8475EF911CA5EECD00738297 /* fire-ring.png in Resources */,
 				84B523241BFFC41E004A6CA0 /* 063-CF_Shadow01.png in Resources */,
 				8475EFBB1CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 in Resources */,
@@ -2664,6 +2685,7 @@
 				84B521A41BFFC41E004A6CA0 /* Girl in Resources */,
 				84B522221BFFC41E004A6CA0 /* basewall.png in Resources */,
 				84B522CA1BFFC41E004A6CA0 /* 034-Waterfall02.png in Resources */,
+				8475EFD11CAF41C800738297 /* crosshair-arrow.png in Resources */,
 				84B5224A1BFFC41E004A6CA0 /* 002_Woods01.png in Resources */,
 				84B522FA1BFFC41E004A6CA0 /* 046-Road03.png in Resources */,
 				84B5225C1BFFC41E004A6CA0 /* 007-Grass_Undulation01.png in Resources */,
@@ -2717,6 +2739,7 @@
 				84B522601BFFC41E004A6CA0 /* 008-Grass_Undulation02.png in Resources */,
 				84B5224C1BFFC41E004A6CA0 /* 003_Forest01.png in Resources */,
 				84B521B41BFFC41E004A6CA0 /* regularPersons in Resources */,
+				8475EFD51CAF481F00738297 /* shard-sword.png in Resources */,
 				84B72D091C88F89500660898 /* Taverna.ttf in Resources */,
 				84F1528C1C95D7BB00B57942 /* Arrow1.png in Resources */,
 				84F152941C962DBD00B57942 /* animations in Resources */,
@@ -2769,6 +2792,7 @@
 				84F1529B1C962FF700B57942 /* natureEffects.png in Resources */,
 				84B523341BFFC41E004A6CA0 /* 071-CI_Ground01.png in Resources */,
 				84B522581BFFC41E004A6CA0 /* 006-Desert01.png in Resources */,
+				8475EFD71CAF481F00738297 /* sword-spin.png in Resources */,
 				844535C91CA1FE1E00C523A1 /* map_sandbox_triggers.txt in Resources */,
 				84B521DC1BFFC41E004A6CA0 /* Melee1.png in Resources */,
 				84B521BE1BFFC41E004A6CA0 /* Tricks in Resources */,

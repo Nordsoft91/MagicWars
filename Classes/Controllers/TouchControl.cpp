@@ -51,7 +51,7 @@ void TouchControl::coverRange(std::vector<std::pair<size_t, size_t>> coord, cons
     if(squareType=="BORDER")
         pnts = SquareControl::instance().getBorder(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell));
     if(squareType=="SQUAD")
-        pnts = SquareControl::instance().getSquare(coord[1].first, coord[1].second, Consts::get("coverRadius", i_spell), center);
+        pnts = SquareControl::instance().getSquare(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), center);
     if(squareType=="CROSS")
         pnts = SquareControl::instance().getCross(coord[1].first, coord[1].second, minRadius, Consts::get("coverRadius", i_spell), center);
     if(squareType=="STAR")
@@ -147,7 +147,7 @@ void TouchControl::attackAction()
             d_move = nullptr;
         }
         
-        SquareControl::instance().createSquares(SquareControl::instance().getSquare(obj->x, obj->y, 1), "red");
+        SquareControl::instance().createSquares(SquareControl::instance().getSquare(obj->x, obj->y, 0, 1), "red");
         d_spellCurrent = "attack";
     }
 }
@@ -193,7 +193,7 @@ void TouchControl::spellAction(const std::string& i_spell)
         if(squareType=="BORDER")
             pnts = SquareControl::instance().getBorder(obj->x, obj->y, Consts::get("radius", i_spell));
         if(squareType=="SQUAD")
-            pnts = SquareControl::instance().getSquare(obj->x, obj->y, Consts::get("radius", i_spell), forme);
+            pnts = SquareControl::instance().getSquare(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), forme);
         if(squareType=="CROSS")
             pnts = SquareControl::instance().getCross(obj->x, obj->y, minRadius, Consts::get("radius", i_spell), forme);
         if(squareType=="STAR")

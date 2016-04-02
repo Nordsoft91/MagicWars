@@ -19,7 +19,7 @@
 <group> hero01_level02 <override> hero01_level01
 {
     health = 110
-    concentrate = 10
+    concentrate = 11
     mind = 45
     wisdom = 18
     speed = 2
@@ -28,13 +28,25 @@
     promotionGroup = hero01_level03
 }
 
-<group> hero01_level03 <override> hero01_level01
+<group> hero01_level03 <override> hero01_level02
 {
     health = 165
-    concentrate = 13
+    concentrate = 15
     mind = 63
     wisdom = 25
     speed = 2
     expirience = 800
     spellBook = { spell_fireball spell_lighting spell_ray spell_shield spell_thunderbolt spell_icicles spell_firewall }
+promotionGroup = hero01_level04
+}
+
+<group> hero01_level04 <override> hero01_level03
+{
+health = 230
+concentrate = 20
+mind = 84
+wisdom = 35
+speed = 3
+expirience = 1550
+spellBook = { spell_fireball spell_lighting spell_ray spell_shield spell_thunderbolt spell_icicles spell_firewall }
 }

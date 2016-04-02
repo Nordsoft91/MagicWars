@@ -235,6 +235,18 @@ namespace UI_NS {
     protected:
         const std::string d_name;
     };
+    
+    class EventCharacteristic: public Event
+    {
+    public:
+        EventCharacteristic(const std::string& i_name, const std::string& i_char, signed int i_value): d_name(i_name), d_char(i_char), d_value(i_value) {}
+        
+        virtual void throwEvent() override;
+        
+    protected:
+        const std::string d_name, d_char;
+        const signed int d_value;
+    };
 
 }
 

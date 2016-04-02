@@ -37,7 +37,7 @@ namespace MagicWars_NS {
         
         Points getBorder(size_t x, size_t y, size_t i_radius);
         Points getPoint(size_t x, size_t y);
-        Points getSquare(size_t x, size_t y, size_t i_radius, bool i_center = false);
+        Points getSquare(size_t x, size_t y, size_t i_minRadius, size_t i_radius, bool i_center = false);
         Points getCross(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center = false);
         Points getStar(size_t x, size_t y, size_t i_minradius, size_t i_radius, bool i_center = false);
         Points getLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius);

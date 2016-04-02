@@ -24,6 +24,12 @@ Flared_NS::Parser::Parser(const std::string& i_filename)
         
         F.get(symbol);
         
+        if(symbol=='#' && !accum && str.empty())
+        {
+            char buffer[255];
+            F.getline(&buffer[0], 255, '\n');
+        }
+        
         if(symbol=='\n')
         {
             if(accum && !str.empty())

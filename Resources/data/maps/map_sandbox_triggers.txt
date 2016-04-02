@@ -2,8 +2,20 @@ Trigger Active
 NoCondition
 ChainOfEvents
 Event LoadPersons
+Event Centralize Braves
 Event Message
 {
 msg1
 }
+Event HeapOfEvents
+Event Characteristic Braves EXPERIENCE 1000
+Event Characteristic Erson EXPERIENCE 1000
+Event Characteristic Dolor EXPERIENCE 1000
+Event Characteristic Braves EXPERIENCE 1000
+Event Characteristic Erson EXPERIENCE 1000
+Event Characteristic Dolor EXPERIENCE 1000
+Event Characteristic Braves EXPERIENCE 1000
+Event Characteristic Erson EXPERIENCE 1000
+Event Characteristic Dolor EXPERIENCE 1000
+EndOfHeap
 EndOfChain

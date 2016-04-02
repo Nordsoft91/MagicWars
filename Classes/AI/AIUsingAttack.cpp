@@ -366,7 +366,7 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
     if(squareType=="BORDER")
         pnts = SquareControl::instance().getBorder(x, y, radius);
     if(squareType=="SQUAD")
-        pnts = SquareControl::instance().getSquare(x, y, radius, false);
+        pnts = SquareControl::instance().getSquare(x, y, minRadius, radius, false);
     if(squareType=="CROSS")
         pnts = SquareControl::instance().getCross(x, y, minRadius, radius, false);
     if(squareType=="STAR")
@@ -384,7 +384,7 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
         if(coverSquareType=="BORDER")
             cover = SquareControl::instance().getBorder(i.first, i.second, coverRadius);
         if(coverSquareType=="SQUAD")
-            cover = SquareControl::instance().getSquare(i.first, i.second, coverRadius, true);
+            cover = SquareControl::instance().getSquare(i.first, i.second, coverMinRadius, coverRadius, true);
         if(coverSquareType=="CROSS")
             cover = SquareControl::instance().getCross(i.first, i.second, coverMinRadius, coverRadius, true);
         if(coverSquareType=="STAR")
@@ -397,7 +397,6 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
         double currentCombintaion = 0;
         for(auto j : cover)
         {
-            //TODO: use j instead of i
             if(Magican* p = ContainUtils::findMagican(d_enemies, j.first, j.second))
             {
                 if(d_goals[p]>0)

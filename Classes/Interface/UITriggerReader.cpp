@@ -252,6 +252,14 @@ namespace UI_NS
         {
             return new UI_NS::EventCentralize(readObject(io_stream));
         }
+        if( type == "Characteristic")
+        {
+            std::string ch;
+            int v = 0;
+            auto n = readObject(io_stream);
+            io_stream >> ch >> v;
+            return new UI_NS::EventCharacteristic(n, ch, v);
+        }
         cocos2d::log("Fatal error in event reading: %s", type.c_str());
 		return nullptr;
 	}

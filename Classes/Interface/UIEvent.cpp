@@ -199,4 +199,13 @@ namespace UI_NS {
             MagicWars_NS::TouchControl::instance().centralizeOn(object->getSprite()->getPosition());
         }
     }
+    
+    void EventCharacteristic::throwEvent()
+    {
+        if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name)))
+        {
+            if(d_char=="HEALTH") d_value>0 ? object->increaseHealth(d_value) : object->decreaseHealth(d_value);
+            if(d_char=="EXPERIENCE" && d_value>0) object->increaseExperience(d_value);
+        }
+    }
 }
