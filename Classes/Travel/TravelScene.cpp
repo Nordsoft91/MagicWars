@@ -17,7 +17,7 @@ namespace MagicWars_NS {
         
         d_point = cocos2d::Sprite::create(RES("travel","points.png"), cocos2d::Rect{0,100,100,100});
         d_point->setAnchorPoint(cocos2d::Vec2::ZERO);
-        addChild(d_point);
+        addChild(d_point, 1);
         
         setVisible(false);
         return true;
@@ -38,7 +38,7 @@ namespace MagicWars_NS {
         removeChild(d_point);
         d_point = cocos2d::Sprite::create(RES("travel","points.png"), cocos2d::Rect{100,100,100,100});
         d_point->setAnchorPoint(cocos2d::Vec2::ZERO);
-        addChild(d_point);
+        addChild(d_point, 1);
         setVisible(true);
     }
     
@@ -56,7 +56,7 @@ namespace MagicWars_NS {
         
         d_chip = cocos2d::Sprite::create(RES("travel","points.png"), cocos2d::Rect{0,0,100,100});
         d_chip->setAnchorPoint(cocos2d::Vec2::ZERO);
-        d_layer->addChild(d_chip);
+        d_layer->addChild(d_chip, 2);
         
         CampaignReader reader("WizardWay");
         const size_t missions = reader.getMissionsCount();
