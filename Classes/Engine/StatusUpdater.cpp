@@ -40,7 +40,7 @@ void StatusUpdater::update(float delta)
         {
             drawSolidCircle(cocos2d::Vec2(d_circleRadius*cos(i), d_circleRadius*sin(i)), 6, 0.6, 6, d_color );
         }
-        d_value-=(d_value-d_status)/100+0.0001f;
+        d_value-=(d_value-d_status)/50+0.0001f;
         d_force = true;
         d_forceTime = 2;
     }
