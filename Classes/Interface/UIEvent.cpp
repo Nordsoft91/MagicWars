@@ -208,4 +208,13 @@ namespace UI_NS {
             if(d_char=="EXPERIENCE" && d_value>0) object->increaseExperience(d_value);
         }
     }
+    
+    void EventPlayMainTheme::throwEvent()
+    {
+        if(cocos2d::UserDefault::getInstance()->getBoolForKey("isSoundEnabled", true))
+        {
+            CocosDenshion::SimpleAudioEngine* audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
+            audioEngine->resumeBackgroundMusic();
+        }
+    }
 }

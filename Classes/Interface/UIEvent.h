@@ -247,6 +247,12 @@ namespace UI_NS {
         const std::string d_name, d_char;
         const signed int d_value;
     };
+    
+    class EventPlayMainTheme: public Event
+    {
+    public:
+        virtual void throwEvent() override;
+    };
 
 }
 

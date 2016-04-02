@@ -260,6 +260,10 @@ namespace UI_NS
             io_stream >> ch >> v;
             return new UI_NS::EventCharacteristic(n, ch, v);
         }
+        if( type == "PlayTheme")
+        {
+            return new UI_NS::EventPlayMainTheme;
+        }
         cocos2d::log("Fatal error in event reading: %s", type.c_str());
 		return nullptr;
 	}
