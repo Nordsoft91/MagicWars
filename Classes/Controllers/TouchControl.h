@@ -42,14 +42,14 @@ namespace MagicWars_NS {
         void initialize(cocos2d::Scene* i_scene, const CampaignReader::Mission& i_mission);
         void destroy();
         
-        void centralizeOn(cocos2d::Vec2 i_center);
+        void centralizeOn(const cocos2d::Vec2& i_center);
         void centralizeOn(GameObj* i_object);
         
         void createSquaresMove(Magican* i_object);
         
         
-        void tapAction(cocos2d::Vec2 i_touch);
-        void moveAction(cocos2d::Vec2 i_touch);
+        void tapAction(const cocos2d::Vec2& i_touch);
+        void moveAction(const cocos2d::Vec2& i_touch);
         void pressAction(size_t clickX, size_t clickY);
         void popupSpellMenu();
         

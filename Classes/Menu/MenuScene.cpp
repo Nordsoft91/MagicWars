@@ -36,16 +36,17 @@ namespace Menu_NS {
             return false;
         
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
+        auto origin = cocos2d::Director::getInstance()->getVisibleOrigin();
         
         //cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",0); //USERDATA
         
         auto* background = cocos2d::Layer::create();
         
 		auto* backgroundImage = cocos2d::Sprite::create(RES("menu","Sphash.jpg"));
-		float scaleFactor = sz.height / backgroundImage->getContentSize().height;
-		backgroundImage->setScale(scaleFactor);
-		backgroundImage->setPosition(sz.width/2, sz.height/2);
-		
+		float scaleFactorH = sz.height / backgroundImage->getContentSize().height;
+        float scaleFactorW = sz.width / backgroundImage->getContentSize().width;
+        backgroundImage->setPosition(sz.width/2+origin.x, sz.height/2+origin.y);
+		backgroundImage->setScale(scaleFactorW, scaleFactorH);
         
         auto* menu = cocos2d::Menu::create();
 		auto* playButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
@@ -82,7 +83,8 @@ namespace Menu_NS {
             cocos2d::UserDefault::getInstance()->setBoolForKey("isSoundEnabled", soundEnabled);
             static_cast<cocos2d::MenuItemImage*>(pSender)->setNormalImage(cocos2d::Sprite::create(RES("menu", soundIcon)));
         });
-        muteButton->setPosition(-300, -300);
+        muteButton->setNormalizedPosition({-0.3, -0.3});
+        //muteButton->setPosition(-300, -300);
         menu->addChild(muteButton);
         
         addChild(background);
@@ -98,19 +100,20 @@ namespace Menu_NS {
         cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true); //USERDATA
 
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
+        auto origin = cocos2d::Director::getInstance()->getVisibleOrigin();
         
         auto* background = cocos2d::Layer::create();
         
         auto* backgroundImage = cocos2d::Sprite::create(RES("menu","background1.jpg"));
-        float scaleFactor = sz.height / backgroundImage->getContentSize().height;
-        backgroundImage->setScale(scaleFactor);
+        float scaleFactorH = sz.height / backgroundImage->getContentSize().height;
+        float scaleFactorW = sz.width / backgroundImage->getContentSize().width;
+        backgroundImage->setScale(scaleFactorW, scaleFactorH);
         backgroundImage->setAnchorPoint(cocos2d::Vec2::ZERO);
-        backgroundImage->setPosition(cocos2d::Vec2::ZERO);
+        backgroundImage->setPosition(origin);
         background->addChild(backgroundImage);
         
         auto* menu = cocos2d::Menu::create();
-        menu->setPosition(cocos2d::Vec2::ZERO);
-        std::vector<cocos2d::Vec2> positions{ {0.3f*sz.width, 0.7f*sz.height}, {0.7f*sz.width, 0.7f*sz.height}, {0.3f*sz.width, 0.3f*sz.height}, {0.7f*sz.width, 0.3f*sz.height} };
+        std::vector<cocos2d::Vec2> positions{ {-0.2f*sz.width, 0.2f*sz.height}, {0.2f*sz.width, 0.2f*sz.height}, {-0.2f*sz.width, -0.2f*sz.height}, {0.2f*sz.width, -0.2f*sz.height} };
         std::vector<bool> enable;
         std::vector<std::string> campaignNames{"WizardWay", "CorpseCollector", "KingHeritage", "EternalSentry"};
         std::vector<std::string> labels{"Путь волшебника","Коллекционер мертвецов","Наследие короля","Вечный часовой"};
@@ -136,7 +139,7 @@ namespace Menu_NS {
                                                                   cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                                                               }
                                                           });
-            float scale = scaleFactor * 0.65;
+            float scale = std::min(scaleFactorH, scaleFactorW) * 0.65;
             campaign_buton->setPosition(positions[i-1]);
             campaign_buton->setEnabled(enable[i-1]);
             campaign_buton->setScale(scale);

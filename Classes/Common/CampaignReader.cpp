@@ -12,7 +12,7 @@
 
 CampaignReader::CampaignReader(const std::string& i_file)
 {
-    std::ifstream f(i_file);
+    std::ifstream f(cocos2d::FileUtils::getInstance()->fullPathForFilename(i_file));
     while(f)
     {
         std::string key;

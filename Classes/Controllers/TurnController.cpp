@@ -170,6 +170,9 @@ namespace MagicWars_NS {
     
     void TurnController::newTurn()
     {
+        Blocker::release(Pause::Intellect);
+        cocos2d::Director::getInstance()->getTextureCache()->removeUnusedTextures();
+        
         //make time objects
         {
             auto lst = ContainUtils::findObjectsByType<ObjectFire>( MagicWars_NS::TouchControl::instance().getAllObjects() );

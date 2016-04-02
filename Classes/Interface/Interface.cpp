@@ -19,7 +19,6 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
     io_scene->cocos2d::Node::addChild(d_pScreen, 1);
     
     d_pMenu = cocos2d::Menu::create();
-    d_pMenu->setPosition(SCREEN_CENTER);
     d_pScreen->addChild(d_pMenu);
 }
 
@@ -31,12 +30,11 @@ Interface::~Interface()
 void Interface::createPortraits()
 {
     auto menu = cocos2d::Menu::create();
-    menu->setPosition(cocos2d::Vec2::ZERO);
     auto arr = TouchControl::instance().getTurnController().sideArray("Light");
     for( size_t i = 0; i<arr.size(); ++i)
     {
         auto port = Portrait::create(arr[i]);
-        port->setPositionX(i*100);
+        port->setPosition(-SCREEN_CENTER.x+i*100, -SCREEN_CENTER.y);
         port->setAnchorPoint(cocos2d::Vec2::ZERO);
         menu->addChild(port);
     }

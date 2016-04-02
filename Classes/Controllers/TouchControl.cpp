@@ -223,7 +223,7 @@ void TouchControl::endTurnAction()
     }
 }
 
-void TouchControl::tapAction(cocos2d::Vec2 i_touch)
+void TouchControl::tapAction(const cocos2d::Vec2& i_touch)
 {
     Vec2 globPos = i_touch - d_mapLayer->getPosition();
     tapLastCellX = globPos.x / d_sizeWidth;
@@ -319,7 +319,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     d_move = nullptr;
 }
 
-void TouchControl::moveAction(cocos2d::Vec2 i_touch)
+void TouchControl::moveAction(const cocos2d::Vec2& i_touch)
 {
     if(!Blocker::state(Pause::Interface))
     {
@@ -328,7 +328,7 @@ void TouchControl::moveAction(cocos2d::Vec2 i_touch)
     }
 }
 
-void TouchControl::centralizeOn(cocos2d::Vec2 i_center)
+void TouchControl::centralizeOn(const cocos2d::Vec2& i_center)
 {
     cocos2d::Vec2 sz = Director::getInstance()->getVisibleSize()*0.5;
     sz.x -= d_sizeWidth;
@@ -347,6 +347,9 @@ void TouchControl::centralizeOn(GameObj* i_object)
 void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mission& i_mission)
 {
     destroy();
+    
+    //Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    //i_scene->setPosition(origin);
     
     bool soundEnabled = cocos2d::UserDefault::getInstance()->getBoolForKey("isSoundEnabled", true);
     if(soundEnabled && !i_mission.musicName.empty())
@@ -417,7 +420,7 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
 
     if(i_mission.triggersFile!="null")
     {
-        std::ifstream trStream(RES("maps", i_mission.triggersFile));
+        std::ifstream trStream(cocos2d::FileUtils::getInstance()->fullPathForFilename(RES("maps", i_mission.triggersFile)));
         trRead.read(trStream);
     }
     
@@ -449,6 +452,7 @@ void TouchControl::enableAll()
 
 void TouchControl::destroy()
 {
+    cocos2d::Director::getInstance()->getTextureCache()->removeUnusedTextures();
     CocosDenshion::SimpleAudioEngine* audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
     audioEngine->stopBackgroundMusic();
     
