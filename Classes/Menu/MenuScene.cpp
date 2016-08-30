@@ -59,7 +59,7 @@ namespace Menu_NS {
         layout->cocos2d::Node::setPosition(sz.width/2+origin.x, sz.height/2+origin.y);
         layout->setScale(scaleFactorW, scaleFactorH);
         
-        auto* box = cocos2d::ui::RelativeBox::create({400,300});
+        auto* box = cocos2d::ui::RelativeBox::create({220,180});
         box->setAnchorPoint({0.5, 0.5});
         box->setBackGroundImage("panel_brown.png", cocos2d::ui::TextureResType::PLIST);
         box->setBackGroundImageScale9Enabled(true);
