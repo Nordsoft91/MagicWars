@@ -15,7 +15,7 @@ using namespace MagicWars_NS;
 
 Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director::getInstance()->getVisibleSize().width/2, cocos2d::Director::getInstance()->getVisibleSize().height/2)
 {
-    d_pScreen = cocos2d::ui::Widget::create();
+    d_pScreen = cocos2d::ui::Layout::create();
     io_scene->cocos2d::Node::addChild(d_pScreen, 1);
     
     d_pMenu = cocos2d::Menu::create();

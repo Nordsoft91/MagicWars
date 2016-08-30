@@ -10,8 +10,12 @@
 #include "HelloWorldScene.h"
 #include <Travel/TravelScene.h>
 #include <cocos/audio/include/SimpleAudioEngine.h>
+#include <cocos/ui/CocosGUI.h>
+#include <SDK/SpriteSheet.h>
 
 #define SANDBOX
+//#define RESET_GAMEPLAY
+//#define ALL_AVAILABLE
 
 namespace Menu_NS {
     MainMenu* MainMenu::create()
@@ -38,56 +42,58 @@ namespace Menu_NS {
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         auto origin = cocos2d::Director::getInstance()->getVisibleOrigin();
         
-        //cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",0); //USERDATA
-        
-        auto* background = cocos2d::Layer::create();
+#ifdef RESET_GAMEPLAY
+        cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",0); //USERDATA
+#endif
+#ifdef ALL_AVAILABLE
+        cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",10); //USERDATA
+#endif
+        loadSpriteSheetFromXml("uipack_rpg_sheet.png", "uipack_rpg_sheet.xml");
         
 		auto* backgroundImage = cocos2d::Sprite::create(RES("menu","Sphash.jpg"));
 		float scaleFactorH = sz.height / backgroundImage->getContentSize().height;
         float scaleFactorW = sz.width / backgroundImage->getContentSize().width;
-        backgroundImage->setPosition(sz.width/2+origin.x, sz.height/2+origin.y);
-		backgroundImage->setScale(scaleFactorW, scaleFactorH);
         
-        auto* menu = cocos2d::Menu::create();
-		auto* playButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
-        {
-            auto scene = CampaignSelect::create();
-            cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1.5, scene));
+        auto* layout = cocos2d::ui::Layout::create();
+        layout->setBackGroundImage(RES("menu","Sphash.jpg"));
+        layout->cocos2d::Node::setPosition(sz.width/2+origin.x, sz.height/2+origin.y);
+        layout->setScale(scaleFactorW, scaleFactorH);
+        
+        auto* box = cocos2d::ui::RelativeBox::create({400,300});
+        box->setAnchorPoint({0.5, 0.5});
+        box->setBackGroundImage("panel_brown.png", cocos2d::ui::TextureResType::PLIST);
+        box->setBackGroundImageScale9Enabled(true);
+        layout->addChild(box);
+        
+        auto buttonNewGame = cocos2d::ui::Button::create("buttonLong_beige.png", "buttonLong_beige_pressed.png", "buttonLong_blue.png", cocos2d::ui::TextureResType::PLIST);
+        buttonNewGame->setTitleText("Play MagicWars");
+        buttonNewGame->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+            if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+            {
+                auto scene = CampaignSelect::create();
+                cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1.5, scene));
+            }
         });
+        buttonNewGame->setPosition({0,50});
+        layout->addChild(buttonNewGame);
         
-        menu->addChild(playButton);
-        
-        background->addChild(backgroundImage);
-        background->addChild(menu);
-        
-        //sandbox
-#ifdef SANDBOX
-        auto sandboxButton = cocos2d::MenuItemImage::create(RES("menu", "playbutton_desktop_180.png"), RES("menu", "playbutton_desktop_180.png"), [](cocos2d::Ref* pSender)
-                                                           {
-                                                               CampaignReader::Mission mission{"Песочница", "map_L_frument.txt", "map_sandbox_triggers.txt", "mapRule_frument.txt", "", "", {}, 0, 0};
-                                                               
-                                                               auto scene = HelloWorld::createScene(mission);
-                                                               
-                                                               cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
-                                                           });
-        sandboxButton->setPosition(0, 300);
-        menu->addChild(sandboxButton);
+        auto buttonSandbox = cocos2d::ui::Button::create("buttonLong_beige.png", "buttonLong_beige_pressed.png", "buttonLong_blue.png", cocos2d::ui::TextureResType::PLIST);
+        buttonSandbox->setTitleText("Sandbox");
+        buttonSandbox->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+            if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+            {
+                CampaignReader::Mission mission{"Песочница", "map_L_frument.txt", "map_sandbox_triggers.txt", "mapRule_frument.txt", "", "", {}, 0, 0};
+                auto scene = HelloWorld::createScene(mission);
+                cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
+            }
+        });
+#ifndef SANDBOX
+        buttonSandbox->setEnabled(false);
 #endif
+        buttonSandbox->setPosition({0,0});
+        layout->addChild(buttonSandbox);
         
-        bool soundEnabled = cocos2d::UserDefault::getInstance()->getBoolForKey("isSoundEnabled", true);
-        std::string soundIcon = soundEnabled ? "icon_speaker.png" : "icon_mute.png";
-        cocos2d::MenuItemImage* muteButton = cocos2d::MenuItemImage::create(RES("menu", soundIcon), RES("menu", soundIcon), [](cocos2d::Ref* pSender)
-        {
-            bool soundEnabled = !cocos2d::UserDefault::getInstance()->getBoolForKey("isSoundEnabled", true);
-            std::string soundIcon = soundEnabled ? "icon_speaker.png" : "icon_mute.png";
-            cocos2d::UserDefault::getInstance()->setBoolForKey("isSoundEnabled", soundEnabled);
-            static_cast<cocos2d::MenuItemImage*>(pSender)->setNormalImage(cocos2d::Sprite::create(RES("menu", soundIcon)));
-        });
-        muteButton->setNormalizedPosition({-0.3, -0.3});
-        //muteButton->setPosition(-300, -300);
-        menu->addChild(muteButton);
-        
-        addChild(background);
+        addChild(layout);
         
         return true;
     }

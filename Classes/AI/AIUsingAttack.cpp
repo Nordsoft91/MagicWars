@@ -23,7 +23,7 @@ void AIUsingAttack::startTurn()
         double availableTricks = 1;
         for(auto& t : i->d_tricks)
             if(t.second==0) availableTricks+=1;
-        double w = i->getHealth()*i->getMind()*availableTricks*(i->d_spells.size()+1);
+        double w = i->getHealth()*availableTricks*(i->d_spells.size()+1);
         d_goals[i] = w;
     }
 }

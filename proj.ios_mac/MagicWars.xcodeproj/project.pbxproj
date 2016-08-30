@@ -48,6 +48,12 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		84150FC21D762049007B1077 /* uipack_rpg_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 84150FC11D762049007B1077 /* uipack_rpg_sheet.png */; };
+		84150FC31D762049007B1077 /* uipack_rpg_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 84150FC11D762049007B1077 /* uipack_rpg_sheet.png */; };
+		84150FDF1D763F76007B1077 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84150FDD1D763F76007B1077 /* SpriteSheet.cpp */; };
+		84150FE01D763F76007B1077 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84150FDD1D763F76007B1077 /* SpriteSheet.cpp */; };
+		84150FE21D76418B007B1077 /* uipack_rpg_sheet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84150FE11D76418B007B1077 /* uipack_rpg_sheet.xml */; };
+		84150FE31D76418B007B1077 /* uipack_rpg_sheet.xml in Resources */ = {isa = PBXBuildFile; fileRef = 84150FE11D76418B007B1077 /* uipack_rpg_sheet.xml */; };
 		8438EFFF1C8B5A9E00087593 /* TravelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8438EFFD1C8B5A9E00087593 /* TravelScene.cpp */; };
 		8438F0001C8B5A9E00087593 /* TravelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8438EFFD1C8B5A9E00087593 /* TravelScene.cpp */; };
 		8438F0071C8B5C3A00087593 /* map1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8438F0051C8B5C3A00087593 /* map1.png */; };
@@ -851,6 +857,10 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		84150FC11D762049007B1077 /* uipack_rpg_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uipack_rpg_sheet.png; sourceTree = "<group>"; };
+		84150FDD1D763F76007B1077 /* SpriteSheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheet.cpp; sourceTree = "<group>"; };
+		84150FDE1D763F76007B1077 /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
+		84150FE11D76418B007B1077 /* uipack_rpg_sheet.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = uipack_rpg_sheet.xml; sourceTree = "<group>"; };
 		8438EFFD1C8B5A9E00087593 /* TravelScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TravelScene.cpp; path = Travel/TravelScene.cpp; sourceTree = "<group>"; };
 		8438EFFE1C8B5A9E00087593 /* TravelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TravelScene.h; path = Travel/TravelScene.h; sourceTree = "<group>"; };
 		8438F0051C8B5C3A00087593 /* map1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map1.png; path = travel/map1.png; sourceTree = "<group>"; };
@@ -1690,6 +1700,8 @@
 				84B5206C1BFFC2C2004A6CA0 /* Uncopyble.h */,
 				843EAB9A1C025526003BC913 /* DBStructure.cpp */,
 				843EAB9B1C025526003BC913 /* DBStructure.h */,
+				84150FDD1D763F76007B1077 /* SpriteSheet.cpp */,
+				84150FDE1D763F76007B1077 /* SpriteSheet.h */,
 			);
 			path = SDK;
 			sourceTree = "<group>";
@@ -1787,6 +1799,8 @@
 		84B520DE1BFFC41D004A6CA0 /* interface */ = {
 			isa = PBXGroup;
 			children = (
+				84150FE11D76418B007B1077 /* uipack_rpg_sheet.xml */,
+				84150FC11D762049007B1077 /* uipack_rpg_sheet.png */,
 				8475EFC61CA8845600738297 /* roundButton_highlight.png */,
 				844535BE1CA0B88200C523A1 /* roundButton_disable.png */,
 				844535BF1CA0B88200C523A1 /* roundButton_none.png */,
@@ -2274,6 +2288,7 @@
 				84B522E71BFFC41E004A6CA0 /* 042-EvilCastle02.png in Resources */,
 				84B522891BFFC41E004A6CA0 /* 018-Sa_Ground01.png in Resources */,
 				84B523331BFFC41E004A6CA0 /* 071-CI_Ground01.png in Resources */,
+				84150FE21D76418B007B1077 /* uipack_rpg_sheet.xml in Resources */,
 				8475EFCE1CAF41C800738297 /* arrow-dunk.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				84B523031BFFC41E004A6CA0 /* 049-InnerBody01.png in Resources */,
@@ -2463,6 +2478,7 @@
 				84B523051BFFC41E004A6CA0 /* 049-St_Shadow01.png in Resources */,
 				8475EF951CA5F38A00738297 /* broadsword.png in Resources */,
 				8475EF891CA5B63400738297 /* map_L_frument_triggers.txt in Resources */,
+				84150FC21D762049007B1077 /* uipack_rpg_sheet.png in Resources */,
 				84B521F51BFFC41E004A6CA0 /* icon3_none.png in Resources */,
 				844535B31C9EBD6000C523A1 /* 050-Soldier02.png in Resources */,
 				8475EFB61CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 in Resources */,
@@ -2665,6 +2681,7 @@
 				84B522281BFFC41E004A6CA0 /* hero01.png in Resources */,
 				8445359D1C9DDA3400C523A1 /* 107-Civilian07.png in Resources */,
 				84B521F81BFFC41E004A6CA0 /* icon3_select.png in Resources */,
+				84150FC31D762049007B1077 /* uipack_rpg_sheet.png in Resources */,
 				84B522561BFFC41E004A6CA0 /* 005-Grass_Road01.png in Resources */,
 				843D4A2F1C0105F600835492 /* bowman.png in Resources */,
 				8475EFBF1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */,
@@ -2779,6 +2796,7 @@
 				84B522361BFFC41E004A6CA0 /* olderman.png in Resources */,
 				84B521C81BFFC41E004A6CA0 /* Firewall.png in Resources */,
 				84B522201BFFC41E004A6CA0 /* Sphash.jpg in Resources */,
+				84150FE31D76418B007B1077 /* uipack_rpg_sheet.xml in Resources */,
 				844535B21C9EBD6000C523A1 /* 049-Soldier01.png in Resources */,
 				84B522041BFFC41E004A6CA0 /* icon_healing.png in Resources */,
 				8475EFC31CA86F0600738297 /* icon_mute.png in Resources */,
@@ -2880,6 +2898,7 @@
 				84B5208F1BFFC2C2004A6CA0 /* GameObj.cpp in Sources */,
 				84B520731BFFC2C2004A6CA0 /* AIUsingAttack.cpp in Sources */,
 				84B520891BFFC2C2004A6CA0 /* CharacterAnimated.cpp in Sources */,
+				84150FDF1D763F76007B1077 /* SpriteSheet.cpp in Sources */,
 				84B520791BFFC2C2004A6CA0 /* ContainUtils.cpp in Sources */,
 				84B5207D1BFFC2C2004A6CA0 /* WavePathFinder.cpp in Sources */,
 				84B520971BFFC2C2004A6CA0 /* TileMap.cpp in Sources */,
@@ -2929,6 +2948,7 @@
 				843EAB9D1C025526003BC913 /* DBStructure.cpp in Sources */,
 				84B5206E1BFFC2C2004A6CA0 /* AIController.cpp in Sources */,
 				84B520901BFFC2C2004A6CA0 /* GameObj.cpp in Sources */,
+				84150FE01D763F76007B1077 /* SpriteSheet.cpp in Sources */,
 				84B5209A1BFFC2C2004A6CA0 /* FlaredAutomap.cpp in Sources */,
 				84B520A61BFFC2C2004A6CA0 /* FlaredTile.cpp in Sources */,
 				84B520701BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */,
