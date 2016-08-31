@@ -33,15 +33,14 @@ namespace UI_NS {
         virtual bool init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string& i_message);
         
     public:
-        virtual void callback(cocos2d::Touch *touch);
+        virtual void callback();
         
         void block( bool i_block );
         
     protected:
         bool d_block = false;
         
-        virtual void drawBackground(cocos2d::Vec2 i_pos1, cocos2d::Vec2 i_pos2, cocos2d::Color4F i_background);
-        virtual void drawText(cocos2d::Vec2 i_pos, const std::string& i_message, cocos2d::Color3B i_color);
+        virtual cocos2d::ui::Text* drawText(cocos2d::Vec2 i_pos, const std::string& i_message, cocos2d::Color3B i_color);
         
         std::list<cocos2d::ui::Text*> d_text;
         cocos2d::DrawNode* d_background = nullptr;

@@ -52,22 +52,14 @@ namespace UI_NS {
         d_block = i_block;
     }
     
-    void Message::drawBackground(cocos2d::Vec2 i_pos1, cocos2d::Vec2 i_pos2, cocos2d::Color4F i_background)
-    {
-        cocos2d::Color4F framecolor(1-i_background.r,1-i_background.g,1-i_background.b,1);
-        d_background = cocos2d::DrawNode::create();
-        d_background->drawSolidRect(i_pos1, i_pos2, i_background);
-        d_background->drawRect(i_pos1, i_pos2, framecolor);
-        addChild(d_background);
-    }
-    
-    void Message::drawText(cocos2d::Vec2 i_pos, const std::string& i_message, cocos2d::Color3B i_color)
+    cocos2d::ui::Text* Message::drawText(cocos2d::Vec2 i_pos, const std::string& i_message, cocos2d::Color3B i_color)
     {
         auto t = cocos2d::ui::Text::create(i_message, "Washington.ttf", FONT_SIZE);
         t->setPosition(i_pos);
         t->setColor(i_color);
+        t->setAnchorPoint({0,0});
+        return t;
         d_text.push_back(t);
-        addChild(t);
     }
     
     bool Message::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
@@ -75,40 +67,46 @@ namespace UI_NS {
         if(!cocos2d::ui::Widget::init() || i_message.empty())
             return false;
         
-        auto list = stringSplit(i_message, 80);
-        cocos2d::Vec2 textSize(stringWidth(list.front(), FONT_SIZE), stringHeight(list.size(), FONT_SIZE));
-        cocos2d::Vec2 stringSize(stringWidth(list.front(), FONT_SIZE), stringHeight(1, FONT_SIZE));
-        cocos2d::Vec2 stringh(0, stringSize.y);
+        auto arrayText = stringSplit(i_message, 50);
+        const cocos2d::Size stringSize(20 * FONT_SIZE, stringHeight(1, FONT_SIZE));
+        const cocos2d::Size windowSize(stringSize.width, stringSize.height*12);
+        const cocos2d::Size textSize(20 * FONT_SIZE, fmax(stringSize.height*12, stringHeight(arrayText.size(), FONT_SIZE)));
+        const cocos2d::Size stringh(0, stringSize.height);
+        const cocos2d::Color3B textcolor(255-255*i_background.r,255-255*i_background.g,255-255*i_background.b);
         
-        drawBackground(i_pos + textSize/1.9 + stringh/2, i_pos - textSize/1.9 + stringh/2, i_background);
-    
-        for(size_t i=0; i<list.size(); ++i)
+        auto* list = cocos2d::ui::ScrollView::create();
+        list->setContentSize(windowSize);
+        list->setInnerContainerSize(textSize);
+        list->setBackGroundImage("panel_blue.png", cocos2d::ui::TextureResType::PLIST);
+        list->setBackGroundImageScale9Enabled(true);
+        list->setAnchorPoint({0.5, 0.5});
+        list->setBounceEnabled(false);
+        list->setPosition(i_pos);
+        for(size_t i=0; i<arrayText.size(); ++i)
         {
-            cocos2d::Color3B textcolor(255-255*i_background.r,255-255*i_background.g,255-255*i_background.b);
-            drawText(i_pos+cocos2d::Vec2(0, textSize.y/2 - i*stringSize.y), list[i], textcolor);
+            auto* t = drawText({10, textSize.height-(i+2)*stringSize.height}, arrayText[i], textcolor);
+            list->addChild(t);
         }
+        addChild(list);
         
-        d_listener = cocos2d::EventListenerTouchOneByOne::create();
-        d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
-        {
-            return true;
-        };
-        
-        d_listener->onTouchEnded = [&](cocos2d::Touch *touch, cocos2d::Event *event)
-        {
-            callback(touch);
-        };
-        
-        cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 1);
-        
+        auto button = cocos2d::ui::Button::create("buttonLong_beige.png", "buttonLong_beige_pressed.png", "buttonLong_blue.png", cocos2d::ui::TextureResType::PLIST);
+        button->setTitleText("Закрыть");
+        button->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+            if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+            {
+                callback();
+            }
+        });
+        button->setAnchorPoint({0.5, 0});
+        button->setPosition({windowSize.width/2, 30});
+        list->addChild(button);
         return true;
     }
     
-    void Message::callback(cocos2d::Touch *touch)
+    void Message::callback()
     {
         if(isVisible() && !d_block)
         {
-            cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
             d_listener = nullptr;
             removeFromParent();
         }
