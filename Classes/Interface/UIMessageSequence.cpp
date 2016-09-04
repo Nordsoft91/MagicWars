@@ -43,31 +43,25 @@ namespace UI_NS {
 		if (d_sequence.empty())
 			return false;
 
+        for(auto iter = d_sequence.begin(); iter!=std::prev(d_sequence.end()); ++iter)
+        {
+            Message& nextMsg = **std::next(iter);
+            (*iter)->d_callbackNext = [&nextMsg](Message& m)
+            {
+                nextMsg.setVisible(true);
+                m.callback();
+            };
+        }
+        
+        d_sequence.back()->d_callbackNext = [this](Message& m)
+        {
+            MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Message);
+            m.callback();
+            this->removeFromParent();
+        };
+        
         d_sequence.front()->setVisible(true);
         MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Message);
-        
-        d_listener = cocos2d::EventListenerTouchOneByOne::create();
-        d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
-        {
-            return true;
-        };
-        
-        d_listener->onTouchEnded = [this](cocos2d::Touch *touch, cocos2d::Event *event)
-        {
-            d_sequence.erase(d_sequence.begin());
-            if(d_sequence.empty())
-            {
-                cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
-                d_listener = nullptr;
-                MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Message);
-                removeFromParent();
-            }
-            else
-                d_sequence.front()->setVisible(true);
-        };
-        
-        cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 31);
-        
         
         return true;
     }
@@ -80,11 +74,5 @@ namespace UI_NS {
     void MessageSequence::releaseLast()
     {
         d_sequence.back()->block(false);
-    }
-    
-    MessageSequence::~MessageSequence()
-    {
-        if(d_listener)
-            cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
     }
 }

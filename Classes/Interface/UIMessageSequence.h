@@ -22,7 +22,7 @@ namespace UI_NS {
         
         void releaseLast();
         
-        virtual ~MessageSequence();
+        virtual ~MessageSequence() = default;
         
     protected:
         MessageSequence() = default;
@@ -30,8 +30,6 @@ namespace UI_NS {
         virtual bool init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message);
         
         std::list<Message*> d_sequence;
-        
-        cocos2d::EventListenerTouchOneByOne* d_listener = nullptr;
     };
 }
 

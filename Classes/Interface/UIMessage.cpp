@@ -70,36 +70,44 @@ namespace UI_NS {
         auto arrayText = stringSplit(i_message, 50);
         const cocos2d::Size stringSize(20 * FONT_SIZE, stringHeight(1, FONT_SIZE));
         const cocos2d::Size windowSize(stringSize.width, stringSize.height*12);
-        const cocos2d::Size textSize(20 * FONT_SIZE, fmax(stringSize.height*12, stringHeight(arrayText.size(), FONT_SIZE)));
+        const cocos2d::Size containerSize(stringSize.width, stringSize.height*8);
+        const cocos2d::Size textSize(stringSize.width, fmax(windowSize.height, stringHeight(arrayText.size(), FONT_SIZE)));
         const cocos2d::Size stringh(0, stringSize.height);
         const cocos2d::Color3B textcolor(255-255*i_background.r,255-255*i_background.g,255-255*i_background.b);
         
+        auto* layout = cocos2d::ui::Layout::create();
+        layout->setContentSize(windowSize);
+        layout->setBackGroundImage("panel_blue.png", cocos2d::ui::TextureResType::PLIST);
+        layout->setBackGroundImageScale9Enabled(true);
+        layout->setOpacity(160);
+        layout->setAnchorPoint({0.5, 0.5});
+        layout->setPosition(i_pos);
+        addChild(layout);
+        
         auto* list = cocos2d::ui::ScrollView::create();
-        list->setContentSize(windowSize);
+        list->setContentSize(containerSize);
         list->setInnerContainerSize(textSize);
-        list->setBackGroundImage("panel_blue.png", cocos2d::ui::TextureResType::PLIST);
-        list->setBackGroundImageScale9Enabled(true);
-        list->setAnchorPoint({0.5, 0.5});
         list->setBounceEnabled(false);
-        list->setPosition(i_pos);
+        list->setPosition({windowSize.width-containerSize.width, windowSize.height-containerSize.height-FONT_SIZE});
         for(size_t i=0; i<arrayText.size(); ++i)
         {
-            auto* t = drawText({10, textSize.height-(i+2)*stringSize.height}, arrayText[i], textcolor);
+            auto* t = drawText({10, textSize.height-(i+1)*stringSize.height}, arrayText[i], textcolor);
             list->addChild(t);
         }
-        addChild(list);
+        layout->addChild(list);
         
-        auto button = cocos2d::ui::Button::create("buttonLong_beige.png", "buttonLong_beige_pressed.png", "buttonLong_blue.png", cocos2d::ui::TextureResType::PLIST);
-        button->setTitleText("Закрыть");
-        button->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+        auto buttonNext = cocos2d::ui::Button::create("buttonLong_beige.png", "buttonLong_beige_pressed.png", "buttonLong_blue.png", cocos2d::ui::TextureResType::PLIST);
+        buttonNext->setTitleText("Закрыть");
+        buttonNext->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
             if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
             {
-                callback();
+                d_callbackNext(*this);
             }
         });
-        button->setAnchorPoint({0.5, 0});
-        button->setPosition({windowSize.width/2, 30});
-        list->addChild(button);
+        buttonNext->setAnchorPoint({0.5, 0});
+        buttonNext->setPosition({windowSize.width/2, 30});
+        layout->addChild(buttonNext);
+        d_callbackNext = &Message::callback; //set default callback
         return true;
     }
     

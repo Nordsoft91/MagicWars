@@ -11,6 +11,7 @@
 
 #include <cocos2d.h>
 #include <CocosGUI.h>
+#include <functional>
 
 namespace UI_NS {
     
@@ -34,6 +35,9 @@ namespace UI_NS {
         
     public:
         virtual void callback();
+        
+        std::function<void(Message&)> d_callbackNext;
+        //std::function<void(Message&)> d_callbackPrev;
         
         void block( bool i_block );
         
