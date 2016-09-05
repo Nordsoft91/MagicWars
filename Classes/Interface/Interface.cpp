@@ -175,6 +175,12 @@ void Interface::makeRegularMenu(Magican* i_obj)
                                     if(isInterfaceAvailable())
                                         makeTricksMenu();
                                 }), "tricks");
+    /*menuAddItem(*createMenuItem("panel_inventory", TouchControl::instance().getTurnController().beginTurn(i_obj, TURN_ATTACK),
+                                [&](cocos2d::Ref* pSender)
+                                {
+                                    if(isInterfaceAvailable())
+                                        makeTricksMenu();
+                                }), "inventory");*/
     menuAddItem(*createMenuItem("panel_finish", TouchControl::instance().getTurnController().beginTurn(i_obj, TURN_ANY),
                                 [&](cocos2d::Ref* pSender)
                                 {

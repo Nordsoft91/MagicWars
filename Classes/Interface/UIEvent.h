@@ -236,6 +236,18 @@ namespace UI_NS {
         const std::string d_name;
     };
     
+    //EventCameraFollow
+    class EventCameraFollow: public Event
+    {
+    public:
+        EventCameraFollow(const std::string& i_name): d_name(i_name) {}
+        
+        virtual void throwEvent() override;
+        
+    protected:
+        const std::string d_name;
+    };
+    
     class EventCharacteristic: public Event
     {
     public:

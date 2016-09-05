@@ -93,6 +93,7 @@ bool TutorialPressOnMap::init(cocos2d::Vec2 i_pos)
     MagicWars_NS::TouchControl::instance().disableAllButPoint(i_pos.x, i_pos.y);
     
     MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Interface);
+    MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Message);
     
     d_listener = cocos2d::EventListenerTouchOneByOne::create();
     d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
@@ -117,6 +118,7 @@ void TutorialPressOnMap::callback(cocos2d::Touch *touch)
     {
         MagicWars_NS::TouchControl::instance().enableAll();
         MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Interface);
+        MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Message);
         cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
         removeFromParent();
     }

@@ -122,7 +122,6 @@ namespace UI_NS {
     {
         if(isVisible() && !d_block)
         {
-            //d_listener = nullptr;
             removeFromParent();
         }
     }

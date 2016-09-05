@@ -200,6 +200,14 @@ namespace UI_NS {
         }
     }
     
+    void EventCameraFollow::throwEvent()
+    {
+        if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name)))
+        {
+            MagicWars_NS::TouchControl::instance().centralizeOn(object->getSprite()->getPosition());
+        }
+    }
+    
     void EventCharacteristic::throwEvent()
     {
         if(auto object = dynamic_cast<MagicWars_NS::Magican*>( MagicWars_NS::ContainUtils::findObjectByName(MagicWars_NS::TouchControl::instance().getAllPersons(), d_name)))

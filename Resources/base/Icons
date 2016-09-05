@@ -3,6 +3,7 @@
 panel_tricks = { crossed-swords.png 200 0 0 }
 panel_spells = { bookmarklet.png 0 0 200 }
 panel_move = { boot-prints.png 50 50 50 }
+panel_inventory = { briefcase.png 100 30 0 }
 panel_finish = { flying-flag.png 0 0 0 }
 
 spell_fireball = { fire-tail.png 255 0 0 }
