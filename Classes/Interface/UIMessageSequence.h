@@ -16,7 +16,7 @@ namespace UI_NS {
     class MessageSequence: public cocos2d::ui::Widget
     {
     public:
-        static MessageSequence* create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message);
+        static MessageSequence* create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message, bool i_dialog);
         
         void blockLast();
         
@@ -27,7 +27,7 @@ namespace UI_NS {
     protected:
         MessageSequence() = default;
         
-        virtual bool init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message);
+        virtual bool init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message, bool i_dialog);
         
         std::list<Message*> d_sequence;
     };

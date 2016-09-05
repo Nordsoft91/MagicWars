@@ -9,10 +9,10 @@
 #include "UIMessageSequence.h"
 
 namespace UI_NS {
-    MessageSequence* MessageSequence::create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message)
+    MessageSequence* MessageSequence::create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string>& i_message, bool i_dialog)
     {
         MessageSequence *pRet = new MessageSequence;
-        if (pRet && pRet->init(i_pos, i_background, i_message))
+        if (pRet && pRet->init(i_pos, i_background, i_message, i_dialog))
         {
             pRet->autorelease();
             return pRet;
@@ -25,14 +25,14 @@ namespace UI_NS {
         }
     }
     
-    bool MessageSequence::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string> &i_message)
+    bool MessageSequence::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::list<std::string> &i_message, bool i_dialog)
     {
         if(!cocos2d::ui::Widget::init())
             return false;
         
         for(auto& i : i_message)
         {
-			if (auto* msg = Message::create(i_pos, i_background, i))
+            if (auto* msg = i_dialog ? MessageDialog::create(i_pos, i_background, i) : Message::create(i_pos, i_background, i))
 			{
 				msg->setVisible(false);
 				addChild(msg);

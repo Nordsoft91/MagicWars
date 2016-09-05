@@ -62,11 +62,8 @@ namespace UI_NS {
         d_text.push_back(t);
     }
     
-    bool Message::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
+    void Message::interface(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
     {
-        if(!cocos2d::ui::Widget::init() || i_message.empty())
-            return false;
-        
         auto arrayText = stringSplit(i_message, 50);
         const cocos2d::Size stringSize(20 * FONT_SIZE, stringHeight(1, FONT_SIZE));
         const cocos2d::Size windowSize(stringSize.width, stringSize.height*12);
@@ -107,6 +104,16 @@ namespace UI_NS {
         buttonNext->setAnchorPoint({0.5, 0});
         buttonNext->setPosition({windowSize.width/2, 30});
         layout->addChild(buttonNext);
+
+    }
+    
+    bool Message::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
+    {
+        if(!cocos2d::ui::Widget::init() || i_message.empty())
+            return false;
+        
+        interface(i_pos, i_background, i_message);
+        
         d_callbackNext = &Message::callback; //set default callback
         return true;
     }
@@ -115,7 +122,7 @@ namespace UI_NS {
     {
         if(isVisible() && !d_block)
         {
-            d_listener = nullptr;
+            //d_listener = nullptr;
             removeFromParent();
         }
     }
@@ -124,5 +131,73 @@ namespace UI_NS {
     {
         if(d_listener)
             cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
+    }
+    
+    MessageDialog* MessageDialog::create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
+    {
+        MessageDialog *pRet = new MessageDialog;
+        if (pRet && pRet->init(i_pos, i_background, i_message))
+        {
+            pRet->autorelease();
+            return pRet;
+        }
+        else
+        {
+            delete pRet;
+            pRet = NULL;
+            return NULL;
+        }
+    }
+    
+    bool MessageDialog::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
+    {
+        if(!Message::init(i_pos, i_background, i_message) || i_message.empty())
+            return false;
+        return true;
+    }
+    
+    void MessageDialog::interface(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
+    {
+        auto arrayText = stringSplit(i_message, 50);
+        const cocos2d::Size stringSize(16 * FONT_SIZE, stringHeight(1, FONT_SIZE));
+        const cocos2d::Size windowSize(stringSize.width, stringSize.height*4);
+        const cocos2d::Size containerSize(windowSize.width, stringSize.height*3);
+        const cocos2d::Size textSize(stringSize.width, fmax(windowSize.height, stringHeight(arrayText.size(), FONT_SIZE)));
+        const cocos2d::Size stringh(0, stringSize.height);
+        const cocos2d::Color3B textcolor(255-255*i_background.r,255-255*i_background.g,255-255*i_background.b);
+        
+        auto* layout = cocos2d::ui::Layout::create();
+        layout->setContentSize(windowSize);
+        layout->setBackGroundImage("panel_beige.png", cocos2d::ui::TextureResType::PLIST);
+        layout->setBackGroundImageScale9Enabled(true);
+        layout->setOpacity(200);
+        layout->setAnchorPoint({0.5, 0.5});
+        layout->setPosition(i_pos+cocos2d::Vec2{0,windowSize.height*1.5f});
+        addChild(layout);
+        
+        auto* list = cocos2d::ui::ScrollView::create();
+        list->setContentSize(containerSize);
+        list->setInnerContainerSize(textSize);
+        list->setBounceEnabled(false);
+        list->setPosition({windowSize.width-containerSize.width, windowSize.height-containerSize.height-FONT_SIZE/2});
+        for(size_t i=0; i<arrayText.size(); ++i)
+        {
+            auto* t = drawText({10, textSize.height-(i+1)*stringSize.height}, arrayText[i], textcolor);
+            list->addChild(t);
+        }
+        layout->addChild(list);
+        
+        d_listener = cocos2d::EventListenerTouchOneByOne::create();
+        d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
+        {
+            return true;
+        };
+        
+        d_listener->onTouchEnded = [&](cocos2d::Touch *touch, cocos2d::Event *event)
+        {
+            d_callbackNext(*this);
+        };
+        
+        cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 1);
     }
 }

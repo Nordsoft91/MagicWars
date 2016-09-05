@@ -36,6 +36,8 @@ namespace UI_NS {
     public:
         virtual void callback();
         
+        virtual void interface(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message);
+        
         std::function<void(Message&)> d_callbackNext;
         //std::function<void(Message&)> d_callbackPrev;
         
@@ -51,6 +53,16 @@ namespace UI_NS {
         cocos2d::EventListenerTouchOneByOne* d_listener = nullptr;
         
         const size_t FONT_SIZE = 17;
+    };
+    
+    class MessageDialog: public Message
+    {
+    public:
+        static MessageDialog* create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string& i_message);
+        
+        virtual bool init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string& i_message);
+        
+        virtual void interface(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string& i_message);
     };
     
 }
