@@ -190,6 +190,8 @@
 		8475EFD51CAF481F00738297 /* shard-sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD21CAF481F00738297 /* shard-sword.png */; };
 		8475EFD61CAF481F00738297 /* sword-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD31CAF481F00738297 /* sword-spin.png */; };
 		8475EFD71CAF481F00738297 /* sword-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD31CAF481F00738297 /* sword-spin.png */; };
+		84885AEC1D7DEE720064AC61 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84885AEB1D7DEE720064AC61 /* map2.png */; };
+		84885AED1D7DEE720064AC61 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84885AEB1D7DEE720064AC61 /* map2.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EA71C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
 		848F6EAA1C861A32005B928E /* UITutorialPressOnMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */; };
@@ -933,6 +935,7 @@
 		8475EFCD1CAF41C800738297 /* crosshair-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crosshair-arrow.png"; path = "icons/crosshair-arrow.png"; sourceTree = "<group>"; };
 		8475EFD21CAF481F00738297 /* shard-sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shard-sword.png"; path = "icons/shard-sword.png"; sourceTree = "<group>"; };
 		8475EFD31CAF481F00738297 /* sword-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sword-spin.png"; path = "icons/sword-spin.png"; sourceTree = "<group>"; };
+		84885AEB1D7DEE720064AC61 /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map2.png; path = travel/map2.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
@@ -1492,6 +1495,7 @@
 		8438F0011C8B5C0400087593 /* travel */ = {
 			isa = PBXGroup;
 			children = (
+				84885AEB1D7DEE720064AC61 /* map2.png */,
 				8438F0051C8B5C3A00087593 /* map1.png */,
 				8438F0061C8B5C3A00087593 /* points.png */,
 			);
@@ -2225,6 +2229,7 @@
 				84B522351BFFC41E004A6CA0 /* olderman.png in Resources */,
 				84B522251BFFC41E004A6CA0 /* Girl.png in Resources */,
 				84B522591BFFC41E004A6CA0 /* 006-Grass_Road02.png in Resources */,
+				84885AEC1D7DEE720064AC61 /* map2.png in Resources */,
 				84B5234A1BFFC48F004A6CA0 /* stub.png in Resources */,
 				84B522771BFFC41E004A6CA0 /* 014-G2_Swamp03.png in Resources */,
 				84B522D31BFFC41E004A6CA0 /* 037-Fort01.png in Resources */,
@@ -2784,6 +2789,7 @@
 				84A07BF61C98C014001300B0 /* ArmorBoost.png in Resources */,
 				84B522D01BFFC41E004A6CA0 /* 036-Shop01.png in Resources */,
 				84B72D131C8905F100660898 /* Victorian Gothic One.ttf in Resources */,
+				84885AED1D7DEE720064AC61 /* map2.png in Resources */,
 				84B522001BFFC41E004A6CA0 /* icon_fire.png in Resources */,
 				8475EFB11CA8471D00738297 /* 489489_Lights-Justice.mp3 in Resources */,
 				84B522AC1BFFC41E004A6CA0 /* 027-Castle03.png in Resources */,

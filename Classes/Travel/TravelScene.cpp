@@ -17,7 +17,12 @@ namespace MagicWars_NS {
         
         d_point = cocos2d::Sprite::create(RES("travel","points.png"), cocos2d::Rect{0,100,100,100});
         d_point->setAnchorPoint(cocos2d::Vec2::ZERO);
+        d_point->setScale(0.5);
         addChild(d_point, 1);
+        
+        auto txt = cocos2d::Label::createWithTTF(std::to_string(++Level), "Washington.ttf", 30);
+        txt->setAnchorPoint(cocos2d::Vec2::ZERO);
+        addChild(txt, 2);
         
         setVisible(false);
         return true;
@@ -38,6 +43,7 @@ namespace MagicWars_NS {
         removeChild(d_point);
         d_point = cocos2d::Sprite::create(RES("travel","points.png"), cocos2d::Rect{100,100,100,100});
         d_point->setAnchorPoint(cocos2d::Vec2::ZERO);
+        d_point->setScale(0.5);
         addChild(d_point, 1);
         setVisible(true);
     }
@@ -50,12 +56,16 @@ namespace MagicWars_NS {
         d_layer = cocos2d::Layer::create();
         addChild(d_layer);
         
-        auto* background = cocos2d::Sprite::create(RES("travel","map1.png"));
+        auto sz = cocos2d::Director::getInstance()->getVisibleSize();
+        
+        auto* background = cocos2d::Sprite::create(RES("travel","map2.png"));
         background->setAnchorPoint(cocos2d::Vec2::ZERO);
+        background->setScale(sz.width/background->getContentSize().width, sz.height/background->getContentSize().height);
         d_layer->addChild(background);
         
         d_chip = cocos2d::Sprite::create(RES("travel","points.png"), cocos2d::Rect{0,0,100,100});
         d_chip->setAnchorPoint(cocos2d::Vec2::ZERO);
+        d_chip->setScale(0.5);
         d_layer->addChild(d_chip, 2);
         
         CampaignReader reader("WizardWay");

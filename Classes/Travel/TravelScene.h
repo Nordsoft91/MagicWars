@@ -17,6 +17,8 @@
 
 namespace MagicWars_NS {
     
+    static size_t Level = 0;
+    
     class TravelPoint: public cocos2d::Node
     {
     public:

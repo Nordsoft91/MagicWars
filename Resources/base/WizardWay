@@ -4,7 +4,7 @@ map      mapT_S_tutorial01.txt
 triggers mapT_S_tutorial01_triggers.txt
 rules    mapRule_Grassland01.txt
 previous null
-position 100 100
+position 200 300
 music    348286_wizard_in_the_rain_LQ.mp3
 
 mission  Пролог
@@ -13,7 +13,7 @@ map      map_M_intro.txt
 triggers map_M_intro_triggers.txt
 rules    mapRule_Grassland01.txt
 previous Обучение
-position 250 180
+position 350 380
 music    600122_Over-the-Rooftops.mp3
 
 mission  Голодные звери
@@ -22,7 +22,7 @@ map      map_M_mission1.txt
 triggers map_M_mission1_triggers.txt
 rules    mapRule_Grassland01.txt
 previous Пролог
-position 120 200
+position 220 400
 music    661428_Entering-the-Dark.mp3
 
 mission  Таверна
@@ -31,7 +31,7 @@ map      map_M_tavern1.txt
 triggers map_M_tavern1_triggers.txt
 rules    mapRule_forestTown.txt
 previous Голодные звери
-position 380 220
+position 390 540
 music    594085_quotShadows-Bladequot---In.mp3
 
 mission  Фрюмент
@@ -40,5 +40,5 @@ map      map_L_frument.txt
 triggers map_L_frument_triggers.txt
 rules    mapRule_frument.txt
 previous Таверна
-position 300 300
+position 440 520
 music    306160_Hero_s_Courage.mp3
