@@ -10,6 +10,7 @@
 #include <Common/ContainUtils.h>
 #include <Controllers/TouchControl.h>
 #include <Engine/AnimatedObject.h>
+#include <Engine/StateProcessor.h>
 
 using namespace MagicWars_NS;
 
@@ -267,6 +268,8 @@ void Magican::setState(const std::string &i_state, int i_turns, bool isAdditive)
 
 void Magican::onEndOfMove(size_t ix, size_t iy)
 {
+    processMove(this);
+    
     GameObj::onEndOfMove(ix, iy);
     if( auto collide = dynamic_cast<ObjectFire*>(ContainUtils::findObject(GET_OBJECTS_LIST, ix, iy)) )
     {
@@ -280,9 +283,13 @@ void Magican::onStartNewTurn()
         if(t.second)
             --t.second;
     
+    processTurnStart(this);
+    
     for( auto it = d_states.begin(); it!=d_states.end();)
+    {
         if(--(it->second) == 0)
             it = d_states.erase(it);
         else
             ++it;
+    }
 }

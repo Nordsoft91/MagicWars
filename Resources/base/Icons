@@ -32,4 +32,6 @@ weapon_broadsword = { broadsword.png 0 0 0 }
 
 state_burn = { fire-silhouette.png 250 40 30 }
 state_shield = { checked-shield.png 60 10 200 }
+
+item_healthPotion = { magic-potion.png 25 0 90 }
 }

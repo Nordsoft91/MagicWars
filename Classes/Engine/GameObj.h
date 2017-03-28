@@ -51,6 +51,7 @@ namespace MagicWars_NS {
         InventoryItem& getInventoryItem(const std::string& i_name);
         InventoryItem& getInventoryItem(size_t ind);
         InventoryItem* findInventoryItem(const std::string& i_name);
+        const std::vector<InventoryItem>& getInventoryItems() const;
         bool isInventoryItemExists(const std::string& i_name, size_t i_count = 1);
         
         size_t x,y;
@@ -59,7 +60,7 @@ namespace MagicWars_NS {
         cocos2d::Sprite *d_sprite = nullptr;
         cocos2d::Sprite *d_highSprite = nullptr;
         std::string d_name;
-        std::vector<InventoryItem> d_equipment;
+        std::vector<InventoryItem> d_equipment = {{"item_healthPotion", 2}};
         int d_id;
     };
 

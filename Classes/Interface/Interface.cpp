@@ -175,12 +175,12 @@ void Interface::makeRegularMenu(Magican* i_obj)
                                     if(isInterfaceAvailable())
                                         makeTricksMenu();
                                 }), "tricks");
-    /*menuAddItem(*createMenuItem("panel_inventory", TouchControl::instance().getTurnController().beginTurn(i_obj, TURN_ATTACK),
+    menuAddItem(*createMenuItem("panel_inventory", TouchControl::instance().getTurnController().beginTurn(i_obj, TURN_ATTACK) && !i_obj->getInventoryItems().empty(),
                                 [&](cocos2d::Ref* pSender)
                                 {
                                     if(isInterfaceAvailable())
-                                        makeTricksMenu();
-                                }), "inventory");*/
+                                        makeInventoryMenu();
+                                }), "inventory");
     menuAddItem(*createMenuItem("panel_finish", TouchControl::instance().getTurnController().beginTurn(i_obj, TURN_ANY),
                                 [&](cocos2d::Ref* pSender)
                                 {
@@ -225,6 +225,25 @@ void Interface::makeTricksMenu()
                                         if(isInterfaceAvailable())
                                             TouchControl::instance().spellAction(trickstr.first.c_str());
                                     }), trickstr.first);
+    }
+}
+
+void Interface::makeInventoryMenu()
+{
+    menuClear();
+    for(const auto& item : d_pMagican->getInventoryItems())
+    {
+        if(!item.getCount())
+            continue;
+        
+        menuAddItem(*createMenuItem(item.getName(), true,
+                                    [&](cocos2d::Ref* pSender)
+                                    {
+                                        if(isInterfaceAvailable())
+                                        {
+                                            TouchControl::instance().spellAction(item.getName());
+                                        }
+                                    }), item.getName());
     }
 }
 

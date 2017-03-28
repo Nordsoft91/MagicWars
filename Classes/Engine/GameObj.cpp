@@ -7,6 +7,7 @@
 //
 
 #include "GameObj.h"
+#include <Controllers/TouchControl.h>
 
 using namespace MagicWars_NS;
 
@@ -139,6 +140,7 @@ void GameObj::addInventoryItem(const std::string& i_name, size_t i_count)
         d_equipment.emplace_back(i_name, i_count);
     }
 }
+
 void GameObj::useInventoryItem(const std::string& i_name, size_t i_count)
 {
     assert(i_count>0);
@@ -146,18 +148,16 @@ void GameObj::useInventoryItem(const std::string& i_name, size_t i_count)
                           {
                               return v.getName() == i_name;
                           });
-    if(iter != d_equipment.end())
-    {
-        if(iter->getCount()==i_count)
-        {
-            d_equipment.erase(iter);
-            return;
-        }
-        
-        if(iter->getCount()>i_count)
-            iter->setCount(iter->getCount()-i_count);
-    }
-    throw std::logic_error("Item doesn't exists");
+    if(iter == d_equipment.end())
+        throw std::logic_error("Item doesn't exists");
+    
+    if(iter->getCount()<i_count)
+        throw std::logic_error("Not enough items");
+    
+    if(iter->getCount()==i_count)
+        d_equipment.erase(iter);
+    else
+        iter->setCount(iter->getCount()-i_count);
 }
 InventoryItem& GameObj::getInventoryItem(const std::string& i_name)
 {
@@ -178,6 +178,10 @@ InventoryItem* GameObj::findInventoryItem(const std::string& i_name)
     if(iter == d_equipment.end())
         return nullptr;
     return &*iter;
+}
+const std::vector<InventoryItem>& GameObj::getInventoryItems() const
+{
+    return d_equipment;
 }
 bool GameObj::isInventoryItemExists(const std::string& i_name, size_t i_count)
 {

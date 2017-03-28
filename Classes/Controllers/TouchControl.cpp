@@ -21,6 +21,7 @@
 #include <Interface/UITriggerReader.h>
 
 #include <Engine/AnimatedObject.h>
+#include <Engine/StateProcessor.h>
 
 using namespace MagicWars_NS;
 using namespace cocos2d;
@@ -80,6 +81,11 @@ void TouchControl::performSpell(Magican* i_owner, size_t x, size_t y, const std:
         if(i_owner && i_owner->isHaveTrick(i_spell))
             i_owner->d_tricks[i_spell] = Consts::get("recover", i_spell);
     }
+    if(Consts::isExist("item", i_spell))
+    {
+        if(i_owner && i_owner->isInventoryItemExists(i_spell))
+            i_owner->useInventoryItem(i_spell);
+    }
 }
 
 void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::string& i_spell)
@@ -98,19 +104,24 @@ void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::
     Magican* tgrt = dynamic_cast<Magican*>(ContainUtils::findObject(d_persons, x, y));
     if( tgrt )
     {
+        const std::string type = std::string(Consts::get("type", i_spell));
+        int force = int(Consts::get("force", i_spell));
+        force = processAction(tgrt, type, force, i_owner);
+        
         tgrt->showStatus(false);
-        if(std::string(Consts::get("type", i_spell))=="DAMMAGE")
+        if(type=="DAMMAGE")
         {
-            tgrt->decreaseHealth(int(Consts::get("force", i_spell)));
+            
+            tgrt->decreaseHealth(force);
             if(i_owner)
-                i_owner->increaseExperience(int(Consts::get("force", i_spell)));
+                i_owner->increaseExperience(force);
         }
-        if(std::string(Consts::get("type", i_spell))=="BLESS")
+        if(type=="BLESS")
         {
             if(std::string(Consts::get("bressType", i_spell))=="HEAL")
-                tgrt->increaseHealth(int(Consts::get("force", i_spell)));
+                tgrt->increaseHealth(force);
             if(std::string(Consts::get("bressType", i_spell))=="STATE")
-                tgrt->setState(Consts::get("state", i_spell), Consts::get("force", i_spell));
+                tgrt->setState(Consts::get("state", i_spell), force);
         }
     }
     

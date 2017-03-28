@@ -11,7 +11,6 @@ character=Light,hero02_level01,19,24,Erson
 character=Light,hero03_level01,20,25,Dolor
 character=Light,dog01,27,19,Dog
 character=Dark,soldier1,15,21
-character=Dark,soldier1,16,27
 character=Dark,soldier1,12,21
 character=Dark,officer1,14,24,Officer
 character=Dark,soldier1,23,19

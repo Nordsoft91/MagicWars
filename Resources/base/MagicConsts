@@ -78,6 +78,7 @@ frameHeight = 80
 
 <include> Spells
 <include> Tricks
+<include> Items
 <include> maplist
 <include> automap
 <include> Icons

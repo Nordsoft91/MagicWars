@@ -48,6 +48,14 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		840689081E8A8CAA004A26C2 /* states in Resources */ = {isa = PBXBuildFile; fileRef = 840689071E8A8CAA004A26C2 /* states */; };
+		840689091E8A8CAA004A26C2 /* states in Resources */ = {isa = PBXBuildFile; fileRef = 840689071E8A8CAA004A26C2 /* states */; };
+		8406890C1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */; };
+		8406890D1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */; };
+		8406890F1E8ABA18004A26C2 /* magic-potion.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406890E1E8ABA18004A26C2 /* magic-potion.png */; };
+		840689101E8ABA18004A26C2 /* magic-potion.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406890E1E8ABA18004A26C2 /* magic-potion.png */; };
+		840689121E8AC6AB004A26C2 /* Items in Resources */ = {isa = PBXBuildFile; fileRef = 840689111E8AC6AB004A26C2 /* Items */; };
+		840689131E8AC6AB004A26C2 /* Items in Resources */ = {isa = PBXBuildFile; fileRef = 840689111E8AC6AB004A26C2 /* Items */; };
 		84150FC21D762049007B1077 /* uipack_rpg_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 84150FC11D762049007B1077 /* uipack_rpg_sheet.png */; };
 		84150FC31D762049007B1077 /* uipack_rpg_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 84150FC11D762049007B1077 /* uipack_rpg_sheet.png */; };
 		84150FDF1D763F76007B1077 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84150FDD1D763F76007B1077 /* SpriteSheet.cpp */; };
@@ -859,6 +867,11 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		840689071E8A8CAA004A26C2 /* states */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = states; sourceTree = "<group>"; };
+		8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateProcessor.cpp; sourceTree = "<group>"; };
+		8406890B1E8A8D54004A26C2 /* StateProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateProcessor.h; sourceTree = "<group>"; };
+		8406890E1E8ABA18004A26C2 /* magic-potion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic-potion.png"; sourceTree = "<group>"; };
+		840689111E8AC6AB004A26C2 /* Items */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Items; sourceTree = "<group>"; };
 		84150FC11D762049007B1077 /* uipack_rpg_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uipack_rpg_sheet.png; sourceTree = "<group>"; };
 		84150FDD1D763F76007B1077 /* SpriteSheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheet.cpp; sourceTree = "<group>"; };
 		84150FDE1D763F76007B1077 /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
@@ -1524,6 +1537,7 @@
 				84F152871C95D20000B57942 /* jawbone.png */,
 				843D4A301C011C5100835492 /* plain-dagger.png */,
 				843D4A311C011C5100835492 /* wizard-staff.png */,
+				8406890E1E8ABA18004A26C2 /* magic-potion.png */,
 				843D4A2D1C0105F600835492 /* bowman.png */,
 				843D4A271C00FCD700835492 /* fire-tail.png */,
 				843D4A281C00FCD700835492 /* thunder-struck.png */,
@@ -1630,6 +1644,8 @@
 				84B520481BFFC2C2004A6CA0 /* TileMap.h */,
 				84B552651CAFF88F00ED0431 /* InventoryItem.cpp */,
 				84B552661CAFF88F00ED0431 /* InventoryItem.h */,
+				8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */,
+				8406890B1E8A8D54004A26C2 /* StateProcessor.h */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -1733,6 +1749,8 @@
 				84B72D0A1C88F90500660898 /* WizardWay */,
 				84F152921C962DBD00B57942 /* animations */,
 				84A07BF11C974451001300B0 /* mapObjects */,
+				840689071E8A8CAA004A26C2 /* states */,
+				840689111E8AC6AB004A26C2 /* Items */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -2224,6 +2242,7 @@
 				84B522CD1BFFC41E004A6CA0 /* 035-Waterfall03.png in Resources */,
 				84B522691BFFC41E004A6CA0 /* 010-G2_Ground01.png in Resources */,
 				84B522FF1BFFC41E004A6CA0 /* 048-Sewer01.png in Resources */,
+				8406890F1E8ABA18004A26C2 /* magic-potion.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				84B521FD1BFFC41E004A6CA0 /* icon4_select.png in Resources */,
 				84B522351BFFC41E004A6CA0 /* olderman.png in Resources */,
@@ -2438,6 +2457,7 @@
 				84A07C041C9B5639001300B0 /* map_S_tavern.txt in Resources */,
 				84B5230D1BFFC41E004A6CA0 /* 052-Carpet02.png in Resources */,
 				84B5228D1BFFC41E004A6CA0 /* 019-Sa_Grass02.png in Resources */,
+				840689121E8AC6AB004A26C2 /* Items in Resources */,
 				84B523111BFFC41E004A6CA0 /* 054-Wall02.png in Resources */,
 				84B522051BFFC41E004A6CA0 /* icon_icy.png in Resources */,
 				8475EFBA1CA8471D00738297 /* 624141_Facing-the-Stormy-Sea.mp3 in Resources */,
@@ -2470,6 +2490,7 @@
 				843D4A471C0202D800835492 /* undead02.png in Resources */,
 				84B72CFA1C88E4A600660898 /* menu_background.png in Resources */,
 				84B521CD1BFFC41E004A6CA0 /* Lightning.png in Resources */,
+				840689081E8A8CAA004A26C2 /* states in Resources */,
 				84B523351BFFC41E004A6CA0 /* 072-CI_Ice01.png in Resources */,
 				84B522F51BFFC41E004A6CA0 /* 045-Road02.png in Resources */,
 				84B523311BFFC41E004A6CA0 /* 070-CI_Snow01.png in Resources */,
@@ -2623,6 +2644,7 @@
 				843D4A171C00D2FF00835492 /* Icons in Resources */,
 				84B5221C1BFFC41E004A6CA0 /* CloseSelected.png in Resources */,
 				8475EFCB1CA89EE500738297 /* blade-fall.png in Resources */,
+				840689131E8AC6AB004A26C2 /* Items in Resources */,
 				844535C61CA0B88200C523A1 /* roundButton_select.png in Resources */,
 				84B5221E1BFFC41E004A6CA0 /* playbutton_desktop_180.png in Resources */,
 				84B522401BFFC41E004A6CA0 /* tilesWater.png in Resources */,
@@ -2800,6 +2822,7 @@
 				84B523181BFFC41E004A6CA0 /* 057-CE_Shadow01.png in Resources */,
 				84B523001BFFC41E004A6CA0 /* 048-Sewer01.png in Resources */,
 				84B522361BFFC41E004A6CA0 /* olderman.png in Resources */,
+				840689101E8ABA18004A26C2 /* magic-potion.png in Resources */,
 				84B521C81BFFC41E004A6CA0 /* Firewall.png in Resources */,
 				84B522201BFFC41E004A6CA0 /* Sphash.jpg in Resources */,
 				84150FE31D76418B007B1077 /* uipack_rpg_sheet.xml in Resources */,
@@ -2839,6 +2862,7 @@
 				84B5226E1BFFC41E004A6CA0 /* 011-PortTown01.png in Resources */,
 				84B522BE1BFFC41E004A6CA0 /* 031-Sn_Undulation01.png in Resources */,
 				84B522921BFFC41E004A6CA0 /* 020-Sa_Grass03.png in Resources */,
+				840689091E8A8CAA004A26C2 /* states in Resources */,
 				84B521D21BFFC41E004A6CA0 /* Ray.png in Resources */,
 				84B72CF71C88E4A600660898 /* camp4.png in Resources */,
 				84B522B61BFFC41E004A6CA0 /* 029-Sn_Shadow01.png in Resources */,
@@ -2880,6 +2904,7 @@
 			files = (
 				84B520B31BFFC2C2004A6CA0 /* UITrigger.cpp in Sources */,
 				84B552671CAFF88F00ED0431 /* InventoryItem.cpp in Sources */,
+				8406890C1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */,
 				84B520A71BFFC2C2004A6CA0 /* FlaredTileset.cpp in Sources */,
 				84B520AB1BFFC2C2004A6CA0 /* UICondition.cpp in Sources */,
 				84B520871BFFC2C2004A6CA0 /* Animated.cpp in Sources */,
@@ -2986,6 +3011,7 @@
 				84B520A21BFFC2C2004A6CA0 /* FlaredMap.cpp in Sources */,
 				84B520B41BFFC2C2004A6CA0 /* UITrigger.cpp in Sources */,
 				84B5526C1CB01B7F00ED0431 /* UIInformation.cpp in Sources */,
+				8406890D1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */,
 				84B5209C1BFFC2C2004A6CA0 /* FlaredAutomapRules.cpp in Sources */,
 				84B520AE1BFFC2C2004A6CA0 /* UIEvent.cpp in Sources */,
 				84B520A01BFFC2C2004A6CA0 /* FlaredLayer.cpp in Sources */,

@@ -26,7 +26,7 @@ namespace MagicWars_NS {
     public:
         enum class Button
         {
-            Trick, Spell, End, Custom
+            Trick, Spell, End, Inventory, Custom
         };
         
     public:
@@ -59,6 +59,7 @@ namespace MagicWars_NS {
         void makeRegularMenu(Magican* i_obj);
         void makeSpellsMenu();
         void makeTricksMenu();
+        void makeInventoryMenu();
         
         void createPortraits();
         
