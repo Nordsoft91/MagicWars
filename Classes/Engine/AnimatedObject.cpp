@@ -108,12 +108,16 @@ namespace MagicWars_NS {
         switchAnimation(d_deactivation);
         d_activated = false;
     }
-    void ObjectBox::action()
+    void ObjectBox::action(GameObj* i_owner)
     {
         if(d_activated)
             deactivate();
         else
+        {
             activate();
+            for(auto& i : d_equipment)
+                i_owner->addInventoryItem(i.getName(), i.getCount());
+            d_equipment.clear();
+        }
     }
-    
 }

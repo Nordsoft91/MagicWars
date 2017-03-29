@@ -12,6 +12,7 @@
 #include "Magican.h"
 #include "Animated.h"
 #include "SolidObject.h"
+#include "InventoryItem.h"
 
 namespace MagicWars_NS {
     class AnimatedObject: public GameObj
@@ -50,7 +51,7 @@ namespace MagicWars_NS {
         void activate();
         void deactivate();
         
-        virtual void action() override;
+        virtual void action(GameObj* i_owner) override;
         
     protected:
         
@@ -61,7 +62,6 @@ namespace MagicWars_NS {
         
         const std::string d_activation;
         const std::string d_deactivation;
-
     };
 }
 

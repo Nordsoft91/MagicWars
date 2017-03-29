@@ -9,6 +9,8 @@
 #ifndef MagicWars_SolidObject_h
 #define MagicWars_SolidObject_h
 
+#include <Engine/GameObj.h>
+
 namespace MagicWars_NS {
     class SolidObject
     {
@@ -18,7 +20,7 @@ namespace MagicWars_NS {
     class InteractiveObject
     {
     public:
-        virtual void action() = 0;
+        virtual void action(GameObj* i_owner) = 0;
     };
 }
 

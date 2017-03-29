@@ -60,7 +60,7 @@ namespace MagicWars_NS {
         cocos2d::Sprite *d_sprite = nullptr;
         cocos2d::Sprite *d_highSprite = nullptr;
         std::string d_name;
-        std::vector<InventoryItem> d_equipment = {{"item_healthPotion", 2}};
+        std::vector<InventoryItem> d_equipment;
         int d_id;
     };
 

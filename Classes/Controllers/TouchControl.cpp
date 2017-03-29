@@ -328,7 +328,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
                 d_turnControl.endTurn(TURN_MOVE);
                 if(auto* obj = dynamic_cast<InteractiveObject*>(ContainUtils::findObject(d_mapObjects, clickX, clickY)))
                 {
-                    obj->action();
+                    obj->action(d_turnControl.getTurn());
                 }
                 break;
             }
@@ -470,6 +470,7 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
     Flared_NS::AutomapLog::clear();
     
     auto newObj = new ObjectBox("box_animation_open", "box_animation_close");
+    newObj->addInventoryItem("item_healthPotion");
     d_mapObjects.push_back(newObj);
     newObj->born(d_mapLayer, 18, 22);
     d_map->setSolid(18, 22);
