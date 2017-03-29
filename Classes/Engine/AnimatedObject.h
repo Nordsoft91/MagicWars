@@ -11,6 +11,7 @@
 
 #include "Magican.h"
 #include "Animated.h"
+#include "SolidObject.h"
 
 namespace MagicWars_NS {
     class AnimatedObject: public GameObj
@@ -22,7 +23,7 @@ namespace MagicWars_NS {
     protected:
         AnimatedObject();
         
-        void switchAnimation(const std::string& i_animation);
+        virtual void switchAnimation(const std::string& i_animation);
         
         Animated *anim;
     };
@@ -38,6 +39,29 @@ namespace MagicWars_NS {
     private:
         const std::string d_description;
         int d_liveTime = 0;
+    };
+    
+    class ObjectBox: public AnimatedObject, public InteractiveObject
+    {
+    public:
+        ObjectBox(const std::string& i_activation, const std::string& i_deactivation);
+
+        bool isActivated() const {return d_activated;}
+        void activate();
+        void deactivate();
+        
+        virtual void action() override;
+        
+    protected:
+        
+        virtual void switchAnimation(const std::string& i_animation) override;
+        
+        bool d_activated = false;
+        bool d_enabled = false;
+        
+        const std::string d_activation;
+        const std::string d_deactivation;
+
     };
 }
 

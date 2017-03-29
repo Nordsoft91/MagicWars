@@ -74,4 +74,45 @@ namespace MagicWars_NS {
         }
     }
     
+    ObjectBox::ObjectBox(const std::string& i_activation, const std::string& i_deactivation): d_activation(i_activation), d_deactivation(i_deactivation)
+    {
+        switchAnimation(i_deactivation);
+    }
+    
+    void ObjectBox::switchAnimation(const std::string &i_animation)
+    {
+        d_sprite->removeAllChildren();
+        
+        if(std::string(Consts::get("spriteType", i_animation)) != "ANIMATED")
+            throw std::runtime_error("not animated object!");
+        
+        auto seq = Consts::get("sequence", i_animation).toVector<int>();
+        if(seq.empty())
+        {
+            anim = Animated::create((std::string)Consts::get("animationName", i_animation), i_animation, 0, (size_t)Consts::get("sizeX", i_animation) * (size_t)Consts::get("sizeY", i_animation), false);
+        }
+        else
+            anim = Animated::create((std::string)Consts::get("animationName", i_animation), i_animation, seq, false);
+        
+        d_sprite->addChild(anim, 2);
+    }
+    
+    void ObjectBox::activate()
+    {
+        switchAnimation(d_activation);
+        d_activated = true;
+    }
+    void ObjectBox::deactivate()
+    {
+        switchAnimation(d_deactivation);
+        d_activated = false;
+    }
+    void ObjectBox::action()
+    {
+        if(d_activated)
+            deactivate();
+        else
+            activate();
+    }
+    
 }

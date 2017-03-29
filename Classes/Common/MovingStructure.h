@@ -32,7 +32,8 @@ namespace MagicWars_NS {
         
         bool applyPath(size_t i_x, size_t i_y) const
         {
-            d_finder->process(int(i_x) - int(d_origX), int(i_y) - int(d_origY));
+            if(d_finder->process(int(i_x) - int(d_origX), int(i_y) - int(d_origY)) < 0)
+                return false;
             d_pObject->move(d_finder->GetPath());
             return true;
         }

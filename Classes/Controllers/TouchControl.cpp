@@ -276,8 +276,16 @@ void TouchControl::createSquaresMove(Magican* i_object)
         prepareMovingStructure(*d_move);
         
         //filling finder
+        auto points = SquareControl::instance().getSquare(i_object->x, i_object->y, *d_move->d_finder);
+        auto iteractionPoints = SquareControl::instance().getNeighbours(points);
+        iteractionPoints.erase(std::remove_if(iteractionPoints.begin(), iteractionPoints.end(), [&](SquareControl::Point& p)
+                       {
+                           return !dynamic_cast<InteractiveObject*>(ContainUtils::findObject(d_mapObjects, p.first, p.second));
+                       }), iteractionPoints.end());
+        
         SquareControl::instance().deleteSquares();
-        SquareControl::instance().createSquares(SquareControl::instance().getSquare(i_object->x, i_object->y, *d_move->d_finder), "blue");
+        SquareControl::instance().createSquares(points, "blue");
+        SquareControl::instance().createSquares(iteractionPoints, "yellow");
         d_targetCursor.first = std::numeric_limits<size_t>::max();
         d_targetCursor.second = std::numeric_limits<size_t>::max();
     }
@@ -307,6 +315,24 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
     {
         d_move->applyPath(clickX, clickY);
         d_turnControl.endTurn(TURN_MOVE);
+    }
+    //grab
+    if(d_move && SquareControl::instance().isSquared(clickX, clickY, "yellow"))
+    {
+        auto n = SquareControl::instance().getNeighbours({clickX, clickY});
+        for(auto& p : n)
+        {
+            if(SquareControl::instance().isSquared(p.first, p.second, "blue"))
+            {
+                d_move->applyPath(p.first, p.second);
+                d_turnControl.endTurn(TURN_MOVE);
+                break;
+            }
+        }
+        if(auto* obj = dynamic_cast<InteractiveObject*>(ContainUtils::findObject(d_mapObjects, clickX, clickY)))
+        {
+            obj->action();
+        }
     }
     //show cover zone
     if((d_targetCursor.first != clickX || d_targetCursor.second != clickY) && (SquareControl::instance().isSquared(clickX, clickY, "red") || SquareControl::instance().isSquared(clickX, clickY, "green")))
@@ -442,6 +468,11 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
 	for (std::string& s : Flared_NS::AutomapLog::log())
 		cocos2d::log(s.c_str());
     Flared_NS::AutomapLog::clear();
+    
+    auto newObj = new ObjectBox("box_animation_open", "box_animation_close");
+    d_mapObjects.push_back(newObj);
+    newObj->born(d_mapLayer, 18, 22);
+    d_map->setSolid(18, 22);
 }
 
 Magican* TouchControl::createMagican(int i_x, int i_y, const std::string &i_group, const std::string &i_name)

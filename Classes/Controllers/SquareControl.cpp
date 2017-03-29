@@ -165,6 +165,32 @@ SquareControl::Points SquareControl::getTShape(size_t xs, size_t ys, size_t xd, 
     return pnts;
 }
 
+SquareControl::Points SquareControl::getNeighbours(const Points &i_points)
+{
+    std::set<SquareControl::Point> pset;
+    SquareControl::Points pnts;
+    
+    for(auto& i : i_points)
+    {
+        pset.insert({i.first-1, i.second});
+        pset.insert({i.first+1, i.second});
+        pset.insert({i.first, i.second-1});
+        pset.insert({i.first, i.second+1});
+    }
+    pnts.assign(pset.begin(), pset.end());
+    return pnts;
+}
+
+SquareControl::Points SquareControl::getNeighbours(const Point &i_point)
+{
+    SquareControl::Points pnts;
+    pnts.push_back({i_point.first-1, i_point.second});
+    pnts.push_back({i_point.first+1, i_point.second});
+    pnts.push_back({i_point.first, i_point.second-1});
+    pnts.push_back({i_point.first, i_point.second+1});
+    return pnts;
+}
+
 bool SquareControl::isSquared(size_t x, size_t y)
 {
     return d_pSquares->isTiled(x, y);

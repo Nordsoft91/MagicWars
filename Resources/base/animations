@@ -27,3 +27,23 @@ sequence = { 78 79 80 }
 {
 sequence = { 90 91 92 }
 }
+
+<group> box_animation
+{
+spriteType = ANIMATED
+animationName = boxes.png
+frameWidth = 64
+frameHeight = 64
+sizeX = 12
+sizeY = 8
+}
+
+<group> box_animation_open <override> box_animation
+{
+sequence = { 1 13 25 }
+}
+
+<group> box_animation_close <override> box_animation
+{
+sequence = { 25 13 1 }
+}

@@ -30,7 +30,7 @@ namespace MagicWars_NS {
         ~SquareControl();
         
     public:
-        using Point = std::pair<size_t, size_t>;
+        using Point = std::pair<int, int>;
         using Points = std::vector<Point>;
         
         static SquareControl& instance();
@@ -43,6 +43,8 @@ namespace MagicWars_NS {
         Points getLine(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius);
         Points getSquare(size_t x, size_t y, WavePathFinder& i_finder);
         Points getTShape(size_t xs, size_t ys, size_t xd, size_t yd, size_t i_radius, size_t i_minRadius);
+        Points getNeighbours(const Points& i_points);
+        Points getNeighbours(const Point& i_point);
         
         void createSquares(const Points& i_points, const std::string i_color);
         

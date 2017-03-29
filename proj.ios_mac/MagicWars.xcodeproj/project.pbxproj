@@ -52,10 +52,12 @@
 		840689091E8A8CAA004A26C2 /* states in Resources */ = {isa = PBXBuildFile; fileRef = 840689071E8A8CAA004A26C2 /* states */; };
 		8406890C1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */; };
 		8406890D1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */; };
-		8406890F1E8ABA18004A26C2 /* magic-potion.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406890E1E8ABA18004A26C2 /* magic-potion.png */; };
-		840689101E8ABA18004A26C2 /* magic-potion.png in Resources */ = {isa = PBXBuildFile; fileRef = 8406890E1E8ABA18004A26C2 /* magic-potion.png */; };
 		840689121E8AC6AB004A26C2 /* Items in Resources */ = {isa = PBXBuildFile; fileRef = 840689111E8AC6AB004A26C2 /* Items */; };
 		840689131E8AC6AB004A26C2 /* Items in Resources */ = {isa = PBXBuildFile; fileRef = 840689111E8AC6AB004A26C2 /* Items */; };
+		840689151E8B1252004A26C2 /* boxes.png in Resources */ = {isa = PBXBuildFile; fileRef = 840689141E8B1252004A26C2 /* boxes.png */; };
+		840689161E8B1252004A26C2 /* boxes.png in Resources */ = {isa = PBXBuildFile; fileRef = 840689141E8B1252004A26C2 /* boxes.png */; };
+		840689181E8B1273004A26C2 /* magic-potion.png in Resources */ = {isa = PBXBuildFile; fileRef = 840689171E8B1273004A26C2 /* magic-potion.png */; };
+		840689191E8B1273004A26C2 /* magic-potion.png in Resources */ = {isa = PBXBuildFile; fileRef = 840689171E8B1273004A26C2 /* magic-potion.png */; };
 		84150FC21D762049007B1077 /* uipack_rpg_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 84150FC11D762049007B1077 /* uipack_rpg_sheet.png */; };
 		84150FC31D762049007B1077 /* uipack_rpg_sheet.png in Resources */ = {isa = PBXBuildFile; fileRef = 84150FC11D762049007B1077 /* uipack_rpg_sheet.png */; };
 		84150FDF1D763F76007B1077 /* SpriteSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84150FDD1D763F76007B1077 /* SpriteSheet.cpp */; };
@@ -870,8 +872,9 @@
 		840689071E8A8CAA004A26C2 /* states */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = states; sourceTree = "<group>"; };
 		8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateProcessor.cpp; sourceTree = "<group>"; };
 		8406890B1E8A8D54004A26C2 /* StateProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateProcessor.h; sourceTree = "<group>"; };
-		8406890E1E8ABA18004A26C2 /* magic-potion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic-potion.png"; sourceTree = "<group>"; };
 		840689111E8AC6AB004A26C2 /* Items */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Items; sourceTree = "<group>"; };
+		840689141E8B1252004A26C2 /* boxes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boxes.png; path = objects/boxes.png; sourceTree = "<group>"; };
+		840689171E8B1273004A26C2 /* magic-potion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "magic-potion.png"; path = "icons/magic-potion.png"; sourceTree = "<group>"; };
 		84150FC11D762049007B1077 /* uipack_rpg_sheet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uipack_rpg_sheet.png; sourceTree = "<group>"; };
 		84150FDD1D763F76007B1077 /* SpriteSheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteSheet.cpp; sourceTree = "<group>"; };
 		84150FDE1D763F76007B1077 /* SpriteSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteSheet.h; sourceTree = "<group>"; };
@@ -1044,7 +1047,7 @@
 		84B520661BFFC2C2004A6CA0 /* UITrigger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITrigger.cpp; sourceTree = "<group>"; };
 		84B520671BFFC2C2004A6CA0 /* UITrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITrigger.h; sourceTree = "<group>"; };
 		84B520691BFFC2C2004A6CA0 /* MenuScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScene.cpp; sourceTree = "<group>"; };
-		84B5206A1BFFC2C2004A6CA0 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		84B5206A1BFFC2C2004A6CA0 /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuScene.h; path = ../../Classes/Menu/MenuScene.h; sourceTree = "<group>"; };
 		84B5206C1BFFC2C2004A6CA0 /* Uncopyble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uncopyble.h; sourceTree = "<group>"; };
 		84B520B91BFFC41D004A6CA0 /* automap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = automap; sourceTree = "<group>"; };
 		84B520BA1BFFC41D004A6CA0 /* automap_reserve */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = automap_reserve; sourceTree = "<group>"; };
@@ -1518,6 +1521,7 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				840689171E8B1273004A26C2 /* magic-potion.png */,
 				8475EFD21CAF481F00738297 /* shard-sword.png */,
 				8475EFD31CAF481F00738297 /* sword-spin.png */,
 				8475EFCC1CAF41C800738297 /* arrow-dunk.png */,
@@ -1537,7 +1541,6 @@
 				84F152871C95D20000B57942 /* jawbone.png */,
 				843D4A301C011C5100835492 /* plain-dagger.png */,
 				843D4A311C011C5100835492 /* wizard-staff.png */,
-				8406890E1E8ABA18004A26C2 /* magic-potion.png */,
 				843D4A2D1C0105F600835492 /* bowman.png */,
 				843D4A271C00FCD700835492 /* fire-tail.png */,
 				843D4A281C00FCD700835492 /* thunder-struck.png */,
@@ -1707,7 +1710,6 @@
 			isa = PBXGroup;
 			children = (
 				84B520691BFFC2C2004A6CA0 /* MenuScene.cpp */,
-				84B5206A1BFFC2C2004A6CA0 /* MenuScene.h */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1751,6 +1753,7 @@
 				84A07BF11C974451001300B0 /* mapObjects */,
 				840689071E8A8CAA004A26C2 /* states */,
 				840689111E8AC6AB004A26C2 /* Items */,
+				84B5206A1BFFC2C2004A6CA0 /* MenuScene.h */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -2134,6 +2137,7 @@
 		84F152981C962FEC00B57942 /* objects */ = {
 			isa = PBXGroup;
 			children = (
+				840689141E8B1252004A26C2 /* boxes.png */,
 				84F152991C962FF700B57942 /* natureEffects.png */,
 			);
 			name = objects;
@@ -2242,7 +2246,6 @@
 				84B522CD1BFFC41E004A6CA0 /* 035-Waterfall03.png in Resources */,
 				84B522691BFFC41E004A6CA0 /* 010-G2_Ground01.png in Resources */,
 				84B522FF1BFFC41E004A6CA0 /* 048-Sewer01.png in Resources */,
-				8406890F1E8ABA18004A26C2 /* magic-potion.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				84B521FD1BFFC41E004A6CA0 /* icon4_select.png in Resources */,
 				84B522351BFFC41E004A6CA0 /* olderman.png in Resources */,
@@ -2271,6 +2274,7 @@
 				84B522571BFFC41E004A6CA0 /* 006-Desert01.png in Resources */,
 				84B522B31BFFC41E004A6CA0 /* 029-Church02.png in Resources */,
 				843D4A291C00FCD700835492 /* fire-tail.png in Resources */,
+				840689181E8B1273004A26C2 /* magic-potion.png in Resources */,
 				84B72D0B1C88F90500660898 /* WizardWay in Resources */,
 				84B521E91BFFC41E004A6CA0 /* icon1_disable.png in Resources */,
 				84B522B71BFFC41E004A6CA0 /* 030-Ship01.png in Resources */,
@@ -2313,6 +2317,7 @@
 				84B522891BFFC41E004A6CA0 /* 018-Sa_Ground01.png in Resources */,
 				84B523331BFFC41E004A6CA0 /* 071-CI_Ground01.png in Resources */,
 				84150FE21D76418B007B1077 /* uipack_rpg_sheet.xml in Resources */,
+				840689151E8B1252004A26C2 /* boxes.png in Resources */,
 				8475EFCE1CAF41C800738297 /* arrow-dunk.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				84B523031BFFC41E004A6CA0 /* 049-InnerBody01.png in Resources */,
@@ -2589,6 +2594,7 @@
 				84B521CE1BFFC41E004A6CA0 /* Lightning.png in Resources */,
 				8438F0081C8B5C3A00087593 /* map1.png in Resources */,
 				84B5228C1BFFC41E004A6CA0 /* 019-DesertTown01.png in Resources */,
+				840689191E8B1273004A26C2 /* magic-potion.png in Resources */,
 				84B522721BFFC41E004A6CA0 /* 012-PortTown02.png in Resources */,
 				84A07BF91C98C0F5001300B0 /* fire-silhouette.png in Resources */,
 				84B521D01BFFC41E004A6CA0 /* LightningBolt.png in Resources */,
@@ -2736,6 +2742,7 @@
 				84B521FA1BFFC41E004A6CA0 /* icon4.gif in Resources */,
 				84B522E61BFFC41E004A6CA0 /* 041-Grass01.png in Resources */,
 				84B523421BFFC41E004A6CA0 /* 078-CW_Ground01.png in Resources */,
+				840689161E8B1252004A26C2 /* boxes.png in Resources */,
 				84B522FC1BFFC41E004A6CA0 /* 047-Flower01.png in Resources */,
 				84B521EC1BFFC41E004A6CA0 /* icon1_none.png in Resources */,
 				84B521A41BFFC41E004A6CA0 /* Girl in Resources */,
@@ -2822,7 +2829,6 @@
 				84B523181BFFC41E004A6CA0 /* 057-CE_Shadow01.png in Resources */,
 				84B523001BFFC41E004A6CA0 /* 048-Sewer01.png in Resources */,
 				84B522361BFFC41E004A6CA0 /* olderman.png in Resources */,
-				840689101E8ABA18004A26C2 /* magic-potion.png in Resources */,
 				84B521C81BFFC41E004A6CA0 /* Firewall.png in Resources */,
 				84B522201BFFC41E004A6CA0 /* Sphash.jpg in Resources */,
 				84150FE31D76418B007B1077 /* uipack_rpg_sheet.xml in Resources */,

@@ -14,6 +14,12 @@ namespace MagicWars_NS {
     {
         
     };
+    
+    class InteractiveObject
+    {
+    public:
+        virtual void action() = 0;
+    };
 }
 
 #endif

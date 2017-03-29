@@ -74,7 +74,7 @@ namespace MagicWars_NS {
         MovingStructure* getMove() {return d_move;}
         
         void prepareMovingStructure(MovingStructure &io_struct);
-        
+     
         std::string d_spellCurrent;
         
         Interface& getInterface() { return *d_interface; }
