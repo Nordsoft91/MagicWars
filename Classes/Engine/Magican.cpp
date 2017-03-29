@@ -252,6 +252,9 @@ void Magican::setActive(bool i_act)
 
 void Magican::setState(const std::string &i_state, int i_turns, bool isAdditive)
 {
+    if(i_turns<=0)
+        return;
+    
     for(auto& i : d_states)
     {
         if(i.first == i_state)
@@ -291,5 +294,10 @@ void Magican::onStartNewTurn()
             it = d_states.erase(it);
         else
             ++it;
+    }
+    
+    if( auto collide = dynamic_cast<ObjectFire*>(ContainUtils::findObject(GET_OBJECTS_LIST, x, y)) )
+    {
+        collide->collisionWithMagican(this);
     }
 }

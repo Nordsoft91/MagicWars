@@ -326,12 +326,12 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
             {
                 d_move->applyPath(p.first, p.second);
                 d_turnControl.endTurn(TURN_MOVE);
+                if(auto* obj = dynamic_cast<InteractiveObject*>(ContainUtils::findObject(d_mapObjects, clickX, clickY)))
+                {
+                    obj->action();
+                }
                 break;
             }
-        }
-        if(auto* obj = dynamic_cast<InteractiveObject*>(ContainUtils::findObject(d_mapObjects, clickX, clickY)))
-        {
-            obj->action();
         }
     }
     //show cover zone

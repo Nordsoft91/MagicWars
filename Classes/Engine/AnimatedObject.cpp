@@ -59,6 +59,7 @@ namespace MagicWars_NS {
     
     void ObjectFire::collisionWithMagican(MagicWars_NS::Magican *i_magican)
     {
+        int v = Consts::get("animatedArray", d_description).toVector<std::string>().size() - d_liveTime;
         if(std::string(Consts::get("type", d_description))=="DAMMAGE")
         {
             i_magican->decreaseHealth(int(Consts::get("force", d_description)));
@@ -70,7 +71,7 @@ namespace MagicWars_NS {
         }
         if(std::string(Consts::get("type", d_description))=="STATE")
         {
-            i_magican->setState(Consts::get("state", d_description), d_liveTime);
+            i_magican->setState(Consts::get("state", d_description), v);
         }
     }
     
