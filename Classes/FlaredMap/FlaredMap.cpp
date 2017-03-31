@@ -202,14 +202,24 @@ void Flared_NS::Map::addMapToLayer(cocos2d::Layer& i_layer)
     }
 }
 
-std::vector<Flared_NS::Map::Character> Flared_NS::Map::getCharacters() const
+const std::vector<Flared_NS::Map::Character>& Flared_NS::Map::getCharacters() const
 {
     return d_characters;
 }
 
-void Flared_NS::Map::addCharacter(Flared_NS::Map::Character i_ch)
+void Flared_NS::Map::addCharacter(const Flared_NS::Map::Character& i_ch)
 {
     d_characters.push_back(i_ch);
+}
+
+const std::vector<Flared_NS::Map::Object>& Flared_NS::Map::getObjects() const
+{
+    return d_objects;
+}
+
+void Flared_NS::Map::addObject(const Flared_NS::Map::Object& i_obj)
+{
+    d_objects.push_back(i_obj);
 }
 
 void Flared_NS::Map::decreaseOrder(const std::string &i_referenceLayer)

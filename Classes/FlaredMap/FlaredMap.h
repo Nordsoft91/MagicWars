@@ -22,6 +22,13 @@ namespace Flared_NS {
             std::string name;
         };
         
+        struct Object
+        {
+            std::string type;
+            size_t x,y;
+            std::map<std::string, int> attributes;
+        };
+        
         Map() = default;
         ~Map() = default;
         
@@ -52,9 +59,11 @@ namespace Flared_NS {
         
         cocos2d::Sprite* getTileImg(const Flared_NS::Tile& i_tile);
         
-        std::vector<Character> getCharacters() const;
+        const std::vector<Character>& getCharacters() const;
+        const std::vector<Object>& getObjects() const;
         
-        void addCharacter(Character i_ch);
+        void addCharacter(const Character& i_ch);
+        void addObject(const Object& i_obj);
         
         void decreaseOrder(const std::string& i_referenceLayer);
         
@@ -68,6 +77,7 @@ namespace Flared_NS {
         std::list<Tileset> d_tilesetList;
         std::vector<std::pair<std::string, Layer>> d_layerMap;
         std::vector<Character> d_characters;
+        std::vector<Object> d_objects;
         size_t d_width, d_height;
         size_t d_tileWidth, d_tileHeight;
     };

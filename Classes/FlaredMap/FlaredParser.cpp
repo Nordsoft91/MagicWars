@@ -183,5 +183,25 @@ void Flared_NS::Parser::construct(Flared_NS::Map &o_map)
                 }
             }
         }
+        
+        //add objects
+        if(section.name=="characters")
+        {
+            for(auto& parameter : section.data)
+            {
+                if(parameter.name=="object")
+                {
+                    assert(parameter.data.size()>=3);
+                    Map::Object obj;
+                    obj.type=parameter.data[0];
+                    obj.x=toSizeT(parameter.data[1]);
+                    obj.y=toSizeT(parameter.data[2]);
+                    for(int i=3; i+1<parameter.data.size(); i+=2)
+                        obj.attributes[parameter.data[i]]=toSizeT(parameter.data[i+1]);
+                        
+                    o_map.addObject(obj);
+                }
+            }
+        }
     }
 }

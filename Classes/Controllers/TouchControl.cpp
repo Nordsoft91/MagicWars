@@ -455,6 +455,20 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
         else
             cocos2d::log("createMagican returns nullptr for %s with name %s", i.group.c_str(), i.name.c_str());
     }
+    
+    for(auto& i : flaredSet.getObjects())
+    {
+        //TODO: make separate function/class to put objects on map
+        if(i.type=="Box1")
+        {
+            auto newObj = new ObjectBox("box_animation_open", "box_animation_close");
+            d_mapObjects.push_back(newObj);
+            newObj->born(d_mapLayer, i.x, i.y);
+            d_map->setSolid(i.x, i.y);
+            for(auto& item : i.attributes)
+                newObj->addInventoryItem(item.first, item.second);
+        }
+    }
 
     if(i_mission.triggersFile!="null")
     {
@@ -468,12 +482,6 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
 	for (std::string& s : Flared_NS::AutomapLog::log())
 		cocos2d::log(s.c_str());
     Flared_NS::AutomapLog::clear();
-    
-    auto newObj = new ObjectBox("box_animation_open", "box_animation_close");
-    newObj->addInventoryItem("item_healthPotion");
-    d_mapObjects.push_back(newObj);
-    newObj->born(d_mapLayer, 18, 22);
-    d_map->setSolid(18, 22);
 }
 
 Magican* TouchControl::createMagican(int i_x, int i_y, const std::string &i_group, const std::string &i_name)
