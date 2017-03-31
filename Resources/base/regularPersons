@@ -83,3 +83,9 @@ animationName = 127-Noble02.png
 health = 120
 trickSkills = { trick_shoot trick_strongshoot }
 }
+
+<group> sailor1 <override> civil01
+{
+animationName = 150-Sailor01.png
+health = 95
+}

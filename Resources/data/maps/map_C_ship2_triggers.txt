@@ -1,0 +1,108 @@
+Trigger Active
+NoCondition
+ChainOfEvents
+Event LoadPersons
+Event Centralize Marshal
+Event Dialog Marshal
+{
+Все это не укладывается в голове...
+Может это просто сон, нужно как следует выспаться
+}
+Event Move Marshal -4 8
+Event BornWithControl wia_level01 Light Wia REL Marshal 4 5
+Event Dialog Marshal
+{
+ЧТО????????
+}
+Event Move Marshal 1 3
+Event Move Marhsal 1 0
+Event Dialog Marshal
+{
+Еще одной морской тварью сейчас станет меньше
+}
+Event Dialog Wia
+{
+<смотрит испуганными глазами, наполненными морской водой>
+не на-до...
+}
+Event Dialog Marshal
+{
+Что?? Ты говоришь? Кто ты? Как ты здесь оказалась?
+}
+Event Dialog Wia
+{
+Я... Вия
+Ты?
+}
+Event Dialog Marshal
+{
+Меня зовут Маршал, я капитан этого судна
+}
+Event Dialog Wia
+{
+Они здесь...
+Пожалуйста, помоги
+}
+}
+Event Dialog Marshal
+{
+Помочь? Помочь с чем? Могу помочь тебе вернуться к себе домой... в смысле в море. Мне кажется, там тебе будет очень... комфортно
+}
+Event Dialog Wia
+{
+Она ищет меня...
+Нельзя мне в море...
+Спрячь меня...
+}
+Event Message
+{
+<Слышен шум и крики на верхней палубе>
+}
+Event Dialog Marshal
+{
+Что за шум...
+}
+Event Dialog Wia
+{
+Это они... пришли за мной...
+}
+Event Dialog Marshal
+{
+Я пожалуй пойду посмотрю
+}
+Event Move Marshal -1 0
+Event BornWithControl aquaMonster02 Dark m1 ABS 3 12
+Event BornWithControl aquaMonster02 Dark ABS 7 10
+Event BornWithControl aquaMonster02 Dark ABS 6 6
+Event BornWithControl aquaMonster02 Dark ABS 4 2
+Event BornWithControl aquaMonster02 Dark ABS 7 4
+Event Dialog m1
+{
+гррррр.....
+}
+Event Dialog Marshal
+{
+Эта тварь смотрит на меня так, будто пришла за мной а не за тобой!
+}
+Event Dialog Wia
+{
+Пожалусйта, помоги...
+}
+Event Dialog Marshal
+{
+Помогу, ведь выбора у меня, похоже нет...
+}
+Event PlayTheme
+Event Message
+{
+Спасите Вию
+}
+EndOfChain
+
+Trigger Active
+ConditionDeathPerson Marshal
+Event Lose
+
+Trigger Active
+ConditionDeathPerson Wia
+Event Lose

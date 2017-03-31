@@ -11,7 +11,7 @@ sprite_end = Fire10.png
 sprite_end_size = 30
 createObject = regularFire
 createObjectArg = 2
-force = 28
+force = 26
 mind = 20
 wisdom = 6
 }
@@ -28,6 +28,20 @@ sprite_size = 20
 force = 29
 mind = 19
 wisdom = 6
+}
+
+<group> spell_waterSplash
+{
+type = DAMMAGE
+radius = 2
+gridType = CROSS
+coverType = POINT
+effectType = APPEAR_ONCE
+sprite = WaterSplash.png
+sprite_size = 20
+force = 19
+mind = 13
+wisdom = 1
 }
 
 <group> spell_shield

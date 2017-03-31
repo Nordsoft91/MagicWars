@@ -1,0 +1,111 @@
+Trigger Active
+NoCondition
+ChainOfEvents
+Event LoadPersons
+Event Centralize Marshal
+Event PlayTheme
+Event Dialog Marshal
+{
+Матросы! Всем слушать внимательно!
+}
+Event HeapOfEvents
+Event Move s1 1 -5
+Event Move s2 0 -3
+Event Move s4 1 4
+EndOfHeap
+Event Dialog Marshal
+{
+Скоро начнется шторм, гроза движется к нам навстречу намного быстрее чем мы думали.
+Мы должны быть готовы, поэтому слушай мою команду
+Паруса убрать! Все предметы закрепить! Двери закрыть!
+За работу, парни!
+}
+Event HeapOfEvents
+Event Dialog s1
+{
+Есть!
+}
+Event Dialog s2
+{
+Ага...
+}
+Event Dialog s4
+{
+Сделаем
+}
+Event Move s1 -1 5
+Event Move s4 -1 -4
+Event Move s2 0 3
+Event Move s3 2 -10
+EndOfHeap
+Event Dialog s3
+{
+Капитан! Капитан!
+Там что-то есть, у нас прямо по курсу! И оно движется прямо к нам!
+}
+Event Dialog Marshal
+{
+Что там? Корабль?
+}
+Event Dialog s3
+{
+Нет.. не думаю, не похожее на корабль
+}
+Event Move Marshal -1 13
+Event Centralize Marshal
+Event Dialog Marshal
+{
+Ну-ка посмотрим...
+Что за?!
+}
+Event Centralize m1
+Event Dialog m1
+{
+............
+}
+Event MoveForce m1 0 -5
+Event HeapOfEvents
+Event Move Marshal 0 -1
+Event Dialog Marshal
+{
+Все по местам!!!
+}
+Event MoveForce m2 -3 -31
+Event MoveForce m3 -2 -29
+Event MoveForce m1 -8 -30
+EndOfHeap
+Event Dialog Marshal
+{
+Приготовиться к бою!!!
+}
+Event HeapOfEvents
+Event MoveForce m1 2 0
+Event MoveForce m2 2 0
+Event MoveForce m3 -2 0
+EndOfHeap
+Event Message
+{
+Отбейтесь от морских чудищ. Спасите по крайней мере 3х членов команды.
+}
+EndOfChain
+
+Trigger Active
+ConditionDeathPerson Marshal
+Event Lose
+
+Trigger Active
+ConditionKillTeam Dark
+ChainOfEvents
+Event Dialog Marshal
+{
+Эти твари - порождение морского дьявола, а значит ничего хорошего нам не сулит
+Приготовьте корабль к шторму
+Это будет нелегко
+Море на нас разгневано...
+}
+Event Message
+{
+ПОБЕДА
+}
+Event Win
+EndOfChain

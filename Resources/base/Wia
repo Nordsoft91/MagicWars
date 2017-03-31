@@ -1,0 +1,29 @@
+<group> wiaAnimation
+{
+frameWidth = 64
+frameHeight = 96
+sizeX = 12
+sizeY = 8
+goDown = { 9 10 11 10 }
+goLeft = { 21 22 23 22 }
+goRight = { 33 34 35 34 }
+goUp = { 45 46 47 46 }
+}
+
+<group> wia_level01
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = vx_chara06_a.png
+animationParams = wiaAnimation
+health = 105
+concentrate = 15
+mind = 100
+wisdom = 15
+speed = 3
+expirience = 4000
+weapon = weapon_dagger
+spellBook = { spell_waterSplash }
+trickSkills = { }
+promotionGroup = wia_level01
+}

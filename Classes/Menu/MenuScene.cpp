@@ -82,7 +82,7 @@ namespace Menu_NS {
         buttonSandbox->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
             if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
             {
-                CampaignReader::Mission mission{"Песочница", "map_L_frument.txt", "map_sandbox_triggers.txt", "mapRule_frument.txt", "", "", {}, 0, 0};
+                CampaignReader::Mission mission{"Песочница", "map_C_ship2.txt", "map_C_ship2_triggers.txt", "mapRule_ship2.txt", "", "", {}, 0, 0};
                 auto scene = HelloWorld::createScene(mission);
                 cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
             }
@@ -104,6 +104,7 @@ namespace Menu_NS {
             return false;
         
         cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true); //USERDATA
+        cocos2d::UserDefault::getInstance()->setBoolForKey("CorpseCollector", true); //USERDATA
 
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         auto origin = cocos2d::Director::getInstance()->getVisibleOrigin();

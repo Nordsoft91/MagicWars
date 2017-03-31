@@ -1,6 +1,6 @@
 <group> Flared
 {
-terrainTypes = { watergrass groundgrass ground2grass grass2grass stone2stone lavastone stone3stone lstonestone wall02floor }
+terrainTypes = { ocean watergrass groundgrass ground2grass grass2grass stone2stone lavastone stone3stone lstonestone wall02floor }
 terrainOutputLayer = layerTerrain
 terrainInputTileset = tsSurfaces.png
 }
@@ -37,6 +37,16 @@ file = 001_G_Water01.png
 animation_frames = 4
 animation_shift = 192
 }
+
+<group> flared_ocean
+{
+from = { 0 0 64 64 }
+to = { 128 64 64 64 }
+file = 032-T_Ocean01.png
+animation_frames = 4
+animation_shift = 192
+}
+
 
 <group> flared_groundgrass
 {

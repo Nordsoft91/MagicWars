@@ -44,3 +44,33 @@ speed = 3
 expirience = 10000
 spellBook = { }
 }
+
+<group> aquaMonster01
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = 092-Monster06.png
+animationParams = quadAnimation4x96
+health = 110
+concentrate = 2
+mind = 50
+wisdom = 1
+speed = 2
+expirience = 10000
+spellBook = { spell_waterSplash }
+}
+
+<group> aquaMonster02
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = 059-Aquatic01.png
+animationParams = charAnimation4
+health = 72
+concentrate = 2
+mind = 15
+wisdom = 1
+speed = 2
+expirience = 10000
+spellBook = { }
+}

@@ -1,0 +1,16 @@
+Trigger Active
+NoCondition
+ChainOfEvents
+Event LoadPersons
+Event Centralize Solo
+Event Dialog Solo
+{
+Мы уже близко, не давайтесь этим гадам живьем
+Надо положить конец этой войне во чтобы это не стало
+Мы близки как никогда...
+}
+EndOfChain
+
+Trigger Active
+ConditionDeathPerson Solo
+Event Lose

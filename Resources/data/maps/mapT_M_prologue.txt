@@ -10,7 +10,7 @@ tileset=../../../../Resources/tiles/tsSurfaces.png,64,64,0,0
 tileset=../../../../Resources/tiles/vx_map02/044-Cave02.png,64,64,0,0
 
 [characters]
-character=Light,hero04,2,4,Braves
+character=Light,hero04,2,4,Solo
 character=Light,warrior02,4,3
 character=Light,warrior02,1,2
 character=Light,warrior02,3,1

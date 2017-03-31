@@ -1,0 +1,31 @@
+<group> item_healthPotion
+{
+item = TRUE
+type = BLESS
+bressType = HEAL
+radius = 1
+gridType = SQUAD
+coverType = POINT
+effectType = APPEAR
+sprite = Healing1.png
+sprite_size = 20
+force = 50
+mind = 0
+wisdom = 0
+}
+
+<group> item_shotgun
+{
+item = TRUE
+type = DAMMAGE
+radius = 4
+minRadius = 2
+gridType = STAR
+coverType = POINT
+effectType = FOLLOW
+sprite_fly = Shotgun.png
+sprite_fly_size = 12
+force = 35
+mind = 0
+wisdom = 0
+}

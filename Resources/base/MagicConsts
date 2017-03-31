@@ -76,6 +76,12 @@ frameWidth = 80
 frameHeight = 80
 }
 
+<group> quadAnimation4x96 <override> charAnimation4
+{
+frameWidth = 96
+frameHeight = 96
+}
+
 <include> Spells
 <include> Tricks
 <include> Items
@@ -93,4 +99,6 @@ frameHeight = 80
 <include> hero01
 <include> hero02
 <include> hero03
+<include> hero05
 <include> Girl
+<include> Wia
