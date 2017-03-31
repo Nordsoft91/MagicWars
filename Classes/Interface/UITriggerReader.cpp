@@ -110,11 +110,26 @@ namespace UI_NS
 	{
 		std::string type;
 		io_stream >> type;
+        if(type.empty())
+        {
+            cocos2d::log("Error during reading");
+            io_stream >> type;
+        }
+        
         if(type == "Event")
         {
             io_stream >> type;
         }
-
+        
+        if(type == "COMMENT")
+        {
+            for (std::string s; s != "COMMENT"; io_stream >> s)
+            {}
+            io_stream >> type;
+        }
+        
+        cocos2d::log("Read event %s", type.c_str());
+        
         if( type == "Win")
         {
             return new UI_NS::EventWin();
@@ -132,6 +147,7 @@ namespace UI_NS
 					if (auto* ev = readEvent(io_stream))
 						list.push_back(ev);
 			}
+            cocos2d::log("End of heap");
 			if (!list.empty())
 				return new UI_NS::EventHeap(list);
 		}
@@ -144,6 +160,7 @@ namespace UI_NS
 					if (auto* ev = readEvent(io_stream))
 						list.push_back(ev);
 			}
+            cocos2d::log("End of chain");
 			if (!list.empty())
 				return new UI_NS::EventChain(d_layer, list);
 		}
@@ -188,6 +205,12 @@ namespace UI_NS
             auto n = readObject(io_stream);
             auto pos = readPosition(io_stream);
             return new UI_NS::EventMove(n, pos.first, pos.second);
+        }
+        if (type == "MoveForce")
+        {
+            auto n = readObject(io_stream);
+            auto pos = readPosition(io_stream);
+            return new UI_NS::EventMove(n, pos.first, pos.second, false);
         }
         if (type == "BornWithoutControl")
         {

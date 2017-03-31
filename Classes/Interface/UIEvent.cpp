@@ -54,6 +54,11 @@ namespace UI_NS {
         d_trigger->activate();
     }
     
+    EventHeap::EventHeap(std::list<Event*> i_events): d_events(i_events)
+    {
+        
+    }
+    
     void EventHeap::throwEvent()
     {
         for(auto* i : d_events)
@@ -65,7 +70,6 @@ namespace UI_NS {
     EventHeap::~EventHeap()
     {
         static int a = 1;
-        cocos2d::log("Heap destructor %i", a++);
         for(auto* i : d_events)
         {
             if(std::find(d_preventRelease.begin(), d_preventRelease.end(), i)==d_preventRelease.end())
@@ -152,7 +156,8 @@ namespace UI_NS {
         {
             int rad = std::max(abs(d_x),abs(d_y));
             auto move = new MagicWars_NS::MovingStructure(object, object->x, object->y, rad );
-            MagicWars_NS::TouchControl::instance().prepareMovingStructure(*move);
+            if(d_obstacles)
+                MagicWars_NS::TouchControl::instance().prepareMovingStructure(*move);
             move->applyPath(int(object->x)+d_x, int(object->y)+d_y);
         }
     }

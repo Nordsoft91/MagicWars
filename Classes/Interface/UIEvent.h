@@ -70,7 +70,7 @@ namespace UI_NS {
     class EventHeap: public Event
     {
     public:
-        EventHeap(std::list<Event*> i_events): d_events(i_events) { static int a = 1; cocos2d::log("Heap constructor %i", a++); }
+        EventHeap(std::list<Event*> i_events);
         void releaseResourceControl(Event* i_event) {d_preventRelease.push_back(i_event);}
         virtual void throwEvent() override;
         virtual ~EventHeap();
@@ -175,11 +175,12 @@ namespace UI_NS {
     class EventMove: public Event
     {
     public:
-        EventMove(const std::string& i_name, int i_relX, int i_relY): d_name(i_name), d_x(i_relX), d_y(i_relY) {}
+        EventMove(const std::string& i_name, int i_relX, int i_relY, bool i_obstacles = true): d_name(i_name), d_x(i_relX), d_y(i_relY), d_obstacles(i_obstacles) {}
         virtual void throwEvent() override;
         
     protected:
         const std::string d_name;
+        const bool d_obstacles = true;
         int d_x, d_y;
     };
     
