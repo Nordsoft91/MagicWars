@@ -50,7 +50,6 @@ namespace UI_NS {
         
         std::list<cocos2d::ui::Text*> d_text;
         cocos2d::DrawNode* d_background = nullptr;
-        cocos2d::EventListenerTouchOneByOne* d_listener = nullptr;
         
         const size_t FONT_SIZE = 17;
     };

@@ -6,7 +6,10 @@
 //
 //
 #include "UIMessage.h"
+#include "Interface.h"
 #include <SDK/StringUtils.h>
+#include <Engine/Blocker.h>
+#include <Controllers/TouchControl.h>
 
 namespace UI_NS {
     int stringWidth(const std::string& i_str, int i_size)
@@ -115,6 +118,8 @@ namespace UI_NS {
         interface(i_pos, i_background, i_message);
         
         d_callbackNext = &Message::callback; //set default callback
+        
+        MagicWars_NS::Blocker::setActive(this);
         return true;
     }
     
@@ -128,8 +133,7 @@ namespace UI_NS {
     
     Message::~Message()
     {
-        if(d_listener)
-            cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
+        MagicWars_NS::Blocker::resetActive(this);
     }
     
     MessageDialog* MessageDialog::create(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)
@@ -185,18 +189,5 @@ namespace UI_NS {
             list->addChild(t);
         }
         layout->addChild(list);
-        
-        d_listener = cocos2d::EventListenerTouchOneByOne::create();
-        d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
-        {
-            return true;
-        };
-        
-        d_listener->onTouchEnded = [&](cocos2d::Touch *touch, cocos2d::Event *event)
-        {
-            d_callbackNext(*this);
-        };
-        
-        cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 1);
     }
 }

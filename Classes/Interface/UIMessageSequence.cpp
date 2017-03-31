@@ -46,9 +46,11 @@ namespace UI_NS {
         for(auto iter = d_sequence.begin(); iter!=std::prev(d_sequence.end()); ++iter)
         {
             Message& nextMsg = **std::next(iter);
+            MagicWars_NS::Blocker::resetActive(&nextMsg);
             (*iter)->d_callbackNext = [&nextMsg](Message& m)
             {
                 nextMsg.setVisible(true);
+                MagicWars_NS::Blocker::setActive(&nextMsg);
                 m.callback();
             };
         }

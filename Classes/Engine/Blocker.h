@@ -10,6 +10,7 @@
 #define MagicWars_Blocker_h
 
 #include <map>
+#include <cocos2d.h>
 
 namespace MagicWars_NS {
     enum class Pause
@@ -23,6 +24,8 @@ namespace MagicWars_NS {
         Blocker() = default;
         
         std::map<Pause, std::pair<bool, float>> d_pauseMap;
+        
+        std::set<cocos2d::Node*> d_activeNodes;
         
         static Blocker& get()
         {
@@ -42,6 +45,21 @@ namespace MagicWars_NS {
         }
         
     public:
+        static void setActive(cocos2d::Node* i_n)
+        {
+            get().d_activeNodes.insert(i_n);
+        }
+        
+        static const std::set<cocos2d::Node*> getActive() 
+        {
+            return get().d_activeNodes;
+        }
+        
+        static void resetActive(cocos2d::Node* i_n)
+        {
+            get().d_activeNodes.erase(i_n);
+        }
+        
         static void block(const Pause& i_p)
         {
             get().d_pauseMap[i_p].first = true;

@@ -10,6 +10,7 @@
 #include "Interface.h"
 
 #include "UIIcon.h"
+#include "UIMessage.h"
 
 using namespace MagicWars_NS;
 
@@ -20,11 +21,32 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
     
     d_pMenu = cocos2d::Menu::create();
     d_pScreen->addChild(d_pMenu);
+    
+    d_listener = cocos2d::EventListenerTouchOneByOne::create();
+    d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
+    {
+        return true;
+    };
+    
+    d_listener->onTouchEnded = [&](cocos2d::Touch *touch, cocos2d::Event *event)
+    {
+        auto active = Blocker::getActive();
+        for(auto* i : active)
+        {
+            if(auto* message = dynamic_cast<UI_NS::Message*>(i))
+            {
+                message->d_callbackNext(*message);
+            }
+        }
+    };
+    
+    cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 1);
 }
 
 Interface::~Interface()
 {
-
+    if(d_listener)
+        cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
 }
 
 void Interface::createPortraits()
@@ -126,13 +148,21 @@ void Interface::menuClear()
     }
 }
 
-void Interface::menuAddItem(cocos2d::MenuItemImage &i_item, const std::string& i_name)
+void Interface::menuAddItem(cocos2d::MenuItemImage &i_item, const std::string& i_name, int number)
 {
     if(!d_pMenu)
         throw std::runtime_error("menu is not opened");
     
     d_buttons.push_back({&i_item, i_name});
     d_pMenu->addChild(&i_item);
+    if(number > 1)
+    {
+        auto label = cocos2d::Label::createWithSystemFont(std::to_string(number), "Arial", 24);
+        label->setColor({100, 80, 80});
+        label->setPosition(46, 17);
+        label->setOpacity(255);
+        i_item.addChild(label);
+    }
     
     for(int i = 0; i<d_buttons.size(); ++i)
     {
@@ -243,7 +273,7 @@ void Interface::makeInventoryMenu()
                                         {
                                             TouchControl::instance().spellAction(item.getName());
                                         }
-                                    }), item.getName());
+                                    }), item.getName(), item.getCount());
     }
 }
 

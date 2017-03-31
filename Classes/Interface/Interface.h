@@ -52,7 +52,7 @@ namespace MagicWars_NS {
         
         void menuClear();
         
-        void menuAddItem(cocos2d::MenuItemImage& i_item, const std::string& i_name);
+        void menuAddItem(cocos2d::MenuItemImage& i_item, const std::string& i_name, int i_number = 1);
         
         cocos2d::MenuItemImage* createMenuItem(const std::string& i_str, bool i_isEnabled, const cocos2d::ccMenuCallback& i_callback);
         
@@ -69,7 +69,7 @@ namespace MagicWars_NS {
     protected:
         cocos2d::Menu* d_pMenu = nullptr;
         cocos2d::ui::Widget* d_pScreen = nullptr;
-        
+        cocos2d::EventListenerTouchOneByOne* d_listener = nullptr;
         std::vector<std::pair<cocos2d::MenuItemImage*, std::string>> d_buttons;
     };
 }
