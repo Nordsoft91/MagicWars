@@ -25,8 +25,8 @@ CharacterAnimated::CharacterAnimated(const std::string& i_group): Magican(i_grou
     seqRight = Consts::get("goRight", prms).toVector<int>();
     seqUp = Consts::get("goUp", prms).toVector<int>();
     
-    d_animation = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, 0, 1);
-    d_highAnimation = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, 0, 1);
+    d_animation = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, seqDown[0], 1);
+    d_highAnimation = Animated::create(RES("persons",(std::string)Consts::get("animationName", d_group)), prms, seqDown[0], 1);
     d_highAnimation->setOpacity(96);
     d_sprite->addChild(d_animation);
     d_highSprite->addChild(d_highAnimation);
