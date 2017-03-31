@@ -74,6 +74,8 @@ namespace Flared_NS {
         
         void processInputLayer(const Layer& i_layer, Map& o_map);
         
+        void processInputLayer(const Layer& i_layer, Map& o_map, const std::pair<std::string, std::string>& i_replacement);
+        
         std::list<std::string> getOutputTilesetNames();
         
         const std::string& getInputLayerName() const { return d_inputLayer; }

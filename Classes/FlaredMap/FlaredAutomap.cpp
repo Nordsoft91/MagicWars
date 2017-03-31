@@ -74,6 +74,11 @@ namespace Flared_NS {
     
     void Rule::processInputLayer(const Layer& i_layer, Map& o_map)
     {
+        processInputLayer(i_layer, o_map, {"unexpected", "unexpected"});
+    }
+    
+    void Rule::processInputLayer(const Layer& i_layer, Map& o_map, const std::pair<std::string, std::string>& i_replacement)
+    {
         for( int y = -1; y<=int(o_map.getHeight()-d_input.getHeight()+1); ++y )
         {
             for( int x = -1; x<=int(o_map.getWidth()-d_input.getWidth()+1); ++x )
@@ -101,17 +106,20 @@ namespace Flared_NS {
                 {
                     for( auto& output : d_output)
                     {
-                        if(output.first.empty())
+                        std::string name = output.first;
+                        if(name==i_replacement.first)
+                            name=i_replacement.second;
+                        if(name.empty())
                             AutomapLog::report("Unassigned output name layer", AutomapLog::Type::Warning);
                         if(output.second.getWidth()!=d_input.getWidth() || output.second.getHeight()!=d_input.getHeight() )
                             AutomapLog::report("Input and output patterns has different sizes", AutomapLog::Type::Error);
                         
-                        if(!o_map.isLayerExist(output.first))
+                        if(!o_map.isLayerExist(name))
                         {
-                            AutomapLog::report(std::string("Add new layer into map ") + output.first.c_str());
-                            o_map.addLayer(output.first);
+                            AutomapLog::report(std::string("Add new layer into map ") + name.c_str());
+                            o_map.addLayer(name);
                         }
-                        auto& layer = o_map.getLayer(output.first);
+                        auto& layer = o_map.getLayer(name);
                         for( int j = 0; j<d_input.getHeight(); ++j )
                         {
                             for( int i = 0; i<d_input.getWidth(); ++i )
@@ -181,6 +189,9 @@ namespace Flared_NS {
             const std::string layerName = rule->getInputLayerName().empty() ? "layerSet" : rule->getInputLayerName();
             if(i_map.isLayerExist(layerName))
                 rule->processInputLayer( i_map.getLayer(layerName), o_map );
+            const std::string layerName0 = layerName + "0";
+            if(i_map.isLayerExist(layerName0))
+                rule->processInputLayer( i_map.getLayer(layerName0), o_map, {layerName, layerName0} );
         }
         
         /*for( auto* rule : d_rules)
