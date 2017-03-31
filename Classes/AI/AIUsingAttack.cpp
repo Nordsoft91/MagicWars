@@ -53,10 +53,16 @@ std::string AIUsingAttack::findBestSpell(int x, int y, double& o_w)
 {
     std::map<std::string, double> spell;
     spell["attack"] = useAttack(x,y);
-    if(TouchControl::instance().getTurn()->isHaveSpell("spell_fireball")) spell["spell_fireball"]=useFireball(x,y);
+    /*if(TouchControl::instance().getTurn()->isHaveSpell("spell_fireball")) spell["spell_fireball"]=useFireball(x,y);
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_lighting")) spell["spell_lighting"]=useLighting(x,y);
     if(TouchControl::instance().getTurn()->isHaveSpell("spell_ray"))      spell["spell_ray"]=useRay(x,y);
-    if(TouchControl::instance().getTurn()->isHaveSpell("spell_firewall")) spell["spell_firewall"]=useFirewall(x,y);
+    if(TouchControl::instance().getTurn()->isHaveSpell("spell_firewall")) spell["spell_firewall"]=useFirewall(x,y);*/
+    
+    //spells
+    for(auto i : TouchControl::instance().getTurn()->d_spells)
+    {
+        spell[i] = useSpell(i, x, y);
+    }
     
     //tricks
     for(auto i : TouchControl::instance().getTurn()->d_tricks)
@@ -83,13 +89,17 @@ bool AIUsingAttack::attackPhase()
     double w;
     std::string k = findBestSpell(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, w);
     if(k=="attack") useAttack(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
-    if(k=="spell_fireball") useFireball(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    /*if(k=="spell_fireball") useFireball(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
     if(k=="spell_lighting") useLighting(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
     if(k=="spell_ray") useRay(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
-    if(k=="spell_firewall") useFirewall(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    if(k=="spell_firewall") useFirewall(TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);*/
     if(k.find("trick")!=std::string::npos)
     {
         useTrick(k, TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
+    }
+    if(k.find("spell")!=std::string::npos)
+    {
+        useSpell(k, TouchControl::instance().getTurnController().getTurn()->x, TouchControl::instance().getTurnController().getTurn()->y, true);
     }
         
     
@@ -356,7 +366,7 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
     double force = Consts::get("force", i_trick);
     int radius = Consts::get("radius", i_trick);
     int minRadius = Consts::isExist("minRadius", i_trick) ? Consts::get("radius", i_trick) : 0;
-    //check if recovered
+    //check if enough mind
     if(pMag->d_tricks[i_trick])
         return 0;
     
@@ -429,6 +439,94 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
     //attack
     TouchControl::instance().centralizeOn(cocos2d::Vec2(goal_x * size_t(Consts::get("mapCellWidth")), goal_y * size_t(Consts::get("mapCellHeight"))));
     TouchControl::instance().spellAction(i_trick);
+    TouchControl::instance().pressAction(goal_x, goal_y);
+    setGoal(goal_x, goal_y);
+    return w;
+}
+
+double AIUsingAttack::useSpell(const std::string &i_spell, int x, int y, bool i_action)
+{
+    Magican* pMag = TouchControl::instance().getTurnController().getTurn();
+    int goal_x = 0, goal_y = 0;
+    double w = 0;
+    //spell params
+    int mind = Consts::get("mind", i_spell);
+    double force = Consts::get("force", i_spell);
+    int radius = Consts::get("radius", i_spell);
+    int minRadius = Consts::isExist("minRadius", i_spell) ? Consts::get("radius", i_spell) : 0;
+    //check if recovered
+    if(pMag->getMind() < mind)
+        return 0;
+    
+    std::string squareType = Consts::get("gridType", i_spell);
+    
+    SquareControl::Points pnts;
+    if(squareType=="POINT")
+        pnts = SquareControl::instance().getPoint(x, y);
+    if(squareType=="BORDER")
+        pnts = SquareControl::instance().getBorder(x, y, radius);
+    if(squareType=="SQUAD")
+        pnts = SquareControl::instance().getSquare(x, y, minRadius, radius, false);
+    if(squareType=="CROSS")
+        pnts = SquareControl::instance().getCross(x, y, minRadius, radius, false);
+    if(squareType=="STAR")
+        pnts = SquareControl::instance().getStar(x, y, minRadius, radius, false);
+    
+    for( auto i : pnts)
+    {
+        //check cover area
+        std::string coverSquareType = Consts::get("coverType", i_spell);
+        int coverRadius = Consts::isExist("coverRadius", i_spell) ? Consts::get("coverRadius", i_spell) : 0;
+        int coverMinRadius = Consts::isExist("coverMinRadius", i_spell) ? Consts::get("coverMinRadius", i_spell) : 0;
+        SquareControl::Points cover;
+        if(coverSquareType=="POINT")
+            cover = SquareControl::instance().getPoint(i.first, i.second);
+        if(coverSquareType=="BORDER")
+            cover = SquareControl::instance().getBorder(i.first, i.second, coverRadius);
+        if(coverSquareType=="SQUAD")
+            cover = SquareControl::instance().getSquare(i.first, i.second, coverMinRadius, coverRadius, true);
+        if(coverSquareType=="CROSS")
+            cover = SquareControl::instance().getCross(i.first, i.second, coverMinRadius, coverRadius, true);
+        if(coverSquareType=="STAR")
+            cover = SquareControl::instance().getStar(i.first, i.second, coverMinRadius, coverRadius, true);
+        if(coverSquareType=="LINE")
+            cover = SquareControl::instance().getLine(x, y, i.first, i.second, coverRadius);
+        if(coverSquareType=="TSHAPE")
+            cover = SquareControl::instance().getTShape(x, y, i.first, i.second, coverRadius, coverMinRadius);
+        
+        double currentCombintaion = 0;
+        for(auto j : cover)
+        {
+            if(Magican* p = ContainUtils::findMagican(d_enemies, j.first, j.second))
+            {
+                if(d_goals[p]>0)
+                {
+                    currentCombintaion += d_goals[p]*force;
+                }
+                else
+                {
+                    currentCombintaion -= 3*force;
+                }
+            }
+        }
+        
+        if(currentCombintaion>w)
+        {
+            w = currentCombintaion;
+            goal_x = i.first;
+            goal_y = i.second;
+        }
+    }
+    
+    
+    w *= 2.0 / mind * pMag->getMind() * pMag->getPercentMind();
+    
+    if(!i_action)
+        return w;
+    
+    //attack
+    TouchControl::instance().centralizeOn(cocos2d::Vec2(goal_x * size_t(Consts::get("mapCellWidth")), goal_y * size_t(Consts::get("mapCellHeight"))));
+    TouchControl::instance().spellAction(i_spell);
     TouchControl::instance().pressAction(goal_x, goal_y);
     setGoal(goal_x, goal_y);
     return w;

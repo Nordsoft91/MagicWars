@@ -33,6 +33,7 @@ namespace MagicWars_NS {
         double useFirewall(int x, int y, bool i_action = false);
         
         double useTrick(const std::string& i_trick, int x, int y, bool i_action = false);
+        double useSpell(const std::string& i_spell, int x, int y, bool i_action = false);
         
     protected:
         std::vector<Magican*> d_enemies;
