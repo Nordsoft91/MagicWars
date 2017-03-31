@@ -9,7 +9,7 @@ Event Dialog Marshal
 Может это просто сон, нужно как следует выспаться
 }
 Event Move Marshal -4 8
-Event BornWithControl wia_level01 Light Wia REL Marshal 4 5
+Event BornWithControl wia_level01 Neutral Wia REL Marshal 4 5
 Event Dialog Marshal
 {
 ЧТО????????

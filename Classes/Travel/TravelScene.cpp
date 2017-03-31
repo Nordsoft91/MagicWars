@@ -48,7 +48,7 @@ namespace MagicWars_NS {
         setVisible(true);
     }
     
-    bool TravelScene::init()
+    bool TravelScene::init(const std::string& i_campaign)
     {
         if(!cocos2d::Scene::init())
             return false;
@@ -68,9 +68,9 @@ namespace MagicWars_NS {
         d_chip->setScale(0.5);
         d_layer->addChild(d_chip, 2);
         
-        CampaignReader reader("WizardWay");
+        CampaignReader reader(i_campaign);
         const size_t missions = reader.getMissionsCount();
-        const size_t achivedLevel = cocos2d::UserDefault::getInstance()->getIntegerForKey("WizardWay_level", 0);
+        const size_t achivedLevel = cocos2d::UserDefault::getInstance()->getIntegerForKey((i_campaign+"_level").c_str(), 0);
         
         for(size_t i = 0; i<missions; ++i)
         {
@@ -133,7 +133,7 @@ namespace MagicWars_NS {
                         size_t level = 0;
                         for( std::string p = d_points[d_currentPlace].second.prevMission; p!="null"; p=d_points[p].second.prevMission) { ++level; }
                         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
-                        auto scene = Menu_NS::MissionBrief::create("WizardWay", level);
+                        auto scene = Menu_NS::MissionBrief::create(i_campaign, level);
                         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                     }), NULL );
                     d_chip->runAction(seq);

@@ -244,7 +244,7 @@ void TouchControl::tapAction(const cocos2d::Vec2& i_touch)
         if( std::find(d_allowedCells.begin(), d_allowedCells.end(), std::pair<size_t,size_t>{tapLastCellX, tapLastCellY}) == d_allowedCells.end() )
             return;
     }
-    if(!Blocker::stateIgnore(Pause::Interface))
+    if(isInterfaceAvailable())
         pressAction(tapLastCellX, tapLastCellY);
 }
 
@@ -384,6 +384,8 @@ void TouchControl::centralizeOn(GameObj* i_object)
 void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mission& i_mission)
 {
     destroy();
+    
+    missionInfo = i_mission;
     
     //Vec2 origin = Director::getInstance()->getVisibleOrigin();
     //i_scene->setPosition(origin);

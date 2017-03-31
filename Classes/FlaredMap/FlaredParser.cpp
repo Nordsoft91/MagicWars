@@ -185,7 +185,7 @@ void Flared_NS::Parser::construct(Flared_NS::Map &o_map)
         }
         
         //add objects
-        if(section.name=="characters")
+        if(section.name=="objects")
         {
             for(auto& parameter : section.data)
             {

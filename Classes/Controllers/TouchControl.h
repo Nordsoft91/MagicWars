@@ -81,6 +81,8 @@ namespace MagicWars_NS {
         
         Magican* createMagican(int x, int y, const std::string& i_group, const std::string& i_name);
         
+        CampaignReader::Mission missionInfo;
+        
     private:
         Interface* d_interface = nullptr;
         

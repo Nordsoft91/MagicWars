@@ -41,10 +41,24 @@ namespace MagicWars_NS {
     class TravelScene: public cocos2d::Scene
     {
     public:
-        CREATE_FUNC(TravelScene);
+        static TravelScene* create(const std::string& i_campaign)
+        {
+            auto* pRet = new TravelScene;
+            if (pRet && pRet->init(i_campaign))
+            {
+                pRet->autorelease();
+                return pRet;
+            }
+            else
+            {
+                delete pRet;
+                pRet = NULL;
+                return NULL;
+            }
+        }
         
     private:
-        bool init() override;
+        bool init(const std::string& i_campaign);
         
         cocos2d::Layer* d_layer = nullptr;
         

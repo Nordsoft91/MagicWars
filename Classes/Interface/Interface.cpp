@@ -280,7 +280,7 @@ void Interface::makeInventoryMenu()
 bool MagicWars_NS::isInterfaceAvailable()
 {
     Blocker::release(Pause::Interface);
-    if( !Blocker::stateIgnore(Pause::Map) )
+    if( !Blocker::stateIgnore(Pause::Map) && Blocker::getActive().empty())
     {
         Blocker::release(Pause::Map);
         return true;

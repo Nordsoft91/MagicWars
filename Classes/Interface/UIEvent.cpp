@@ -128,7 +128,7 @@ namespace UI_NS {
         MagicWars_NS::TouchControl::instance().destroy();
         
         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
-        auto scene = MagicWars_NS::TravelScene::create();
+        auto scene = MagicWars_NS::TravelScene::create(camp);
         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
     }
     
@@ -144,9 +144,10 @@ namespace UI_NS {
     
     void EventLose::throwEvent()
     {
+        std::string camp = cocos2d::UserDefault::getInstance()->getStringForKey("CurrentCampaignName");
         MagicWars_NS::TouchControl::instance().destroy();
         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
-        auto scene = MagicWars_NS::TravelScene::create();
+        auto scene = MagicWars_NS::TravelScene::create(camp);
         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
     }
     

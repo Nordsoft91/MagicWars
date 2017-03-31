@@ -136,7 +136,7 @@ namespace Menu_NS {
                                                               cocos2d::UserDefault::getInstance()->setStringForKey("CurrentCampaignName", campaignNames[i-1]);
                                                               if(cocos2d::UserDefault::getInstance()->getIntegerForKey((campaignNames[i-1]+"_level").c_str(), 0))
                                                               {
-                                                                  auto scene = MagicWars_NS::TravelScene::create();
+                                                                  auto scene = MagicWars_NS::TravelScene::create(campaignNames[i-1]);
                                                                   cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
                                                               }
                                                               else

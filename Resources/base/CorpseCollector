@@ -12,6 +12,6 @@ brief    null
 map      map_C_ship2.txt
 rules    mapRule_ship2.txt
 triggers map_C_ship2_triggers.txt
-previous null
-position 70 270
+previous Шторм
+position 90 270
 music    624141_Facing-the-Stormy-Sea.mp3
