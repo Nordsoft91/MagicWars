@@ -9,13 +9,19 @@
 #ifndef MagicWars_Blocker_h
 #define MagicWars_Blocker_h
 
-#include <map>
+//#include <Interface/UIEvent.h>
 #include <cocos2d.h>
+#include <map>
+#include <deque>
+
+namespace UI_NS {
+    class Event;
+}
 
 namespace MagicWars_NS {
     enum class Pause
     {
-        Animation, Interface, Intellect, Message, Map
+        Animation, Interface, Intellect, Message, Map, Tutorial
     };
     
     class Blocker
@@ -26,6 +32,7 @@ namespace MagicWars_NS {
         std::map<Pause, std::pair<bool, float>> d_pauseMap;
         
         std::set<cocos2d::Node*> d_activeNodes;
+        std::set<UI_NS::Event*> d_activeEvents;
         
         static Blocker& get()
         {
@@ -58,6 +65,21 @@ namespace MagicWars_NS {
         static void resetActive(cocos2d::Node* i_n)
         {
             get().d_activeNodes.erase(i_n);
+        }
+        
+        static void setEvent(UI_NS::Event* i_event)
+        {
+            get().d_activeEvents.insert(i_event);
+        }
+        
+        static void resetEvent(UI_NS::Event* i_event)
+        {
+            get().d_activeEvents.erase(i_event);
+        }
+        
+        static bool isLocked()
+        {
+            return !get().d_activeNodes.empty() || !get().d_activeEvents.empty();
         }
         
         static void block(const Pause& i_p)
@@ -96,6 +118,16 @@ namespace MagicWars_NS {
             for(auto& i : get().d_pauseMap)
                 if(i.first != i_p && i.second.first==true)
                     return true;
+            return false;
+        }
+        
+        static bool stateIgnore(const std::list<Pause>& i_p)
+        {
+            for(auto& i : get().d_pauseMap)
+            {
+                if(std::find(i_p.begin(), i_p.end(), i.first) == i_p.end() && i.second.first==true)
+                    return true;
+            }
             return false;
         }
         

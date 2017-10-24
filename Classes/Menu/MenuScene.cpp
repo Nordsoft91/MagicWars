@@ -15,7 +15,7 @@
 
 #define SANDBOX
 //#define RESET_GAMEPLAY
-#define ALL_AVAILABLE
+//#define ALL_AVAILABLE
 
 namespace Menu_NS {
     MainMenu* MainMenu::create()
@@ -44,9 +44,11 @@ namespace Menu_NS {
         
 #ifdef RESET_GAMEPLAY
         cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",0); //USERDATA
+        cocos2d::UserDefault::getInstance()->setIntegerForKey("CorpseCollector_level",0); //USERDATA
 #endif
 #ifdef ALL_AVAILABLE
         cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",10); //USERDATA
+        cocos2d::UserDefault::getInstance()->setIntegerForKey("CorpseCollector_level",10); //USERDATA
 #endif
         loadSpriteSheetFromXml("uipack_rpg_sheet.png", "uipack_rpg_sheet.xml");
         
@@ -82,7 +84,8 @@ namespace Menu_NS {
         buttonSandbox->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
             if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
             {
-                CampaignReader::Mission mission{"Песочница", "map_C_ship2.txt", "map_C_ship2_triggers.txt", "mapRule_ship2.txt", "", "", {}, 0, 0};
+                //CampaignReader::Mission mission{"Песочница", "map_C_ship2.txt", "map_C_ship2_triggers.txt", "mapRule_ship2.txt", "", "", {}, 0, 0};
+                CampaignReader::Mission mission{"Песочница", "mapT_S_tutorial01.txt", "mapT_S_tutorial01_triggers.txt", "mapRule_Grassland01.txt", "", "", {}, 0, 0};
                 auto scene = HelloWorld::createScene(mission);
                 cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
             }

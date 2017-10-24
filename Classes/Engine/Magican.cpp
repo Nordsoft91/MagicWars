@@ -301,3 +301,37 @@ void Magican::onStartNewTurn()
         collide->collisionWithMagican(this);
     }
 }
+
+const cocos2d::Data Magican::getMagicanData() const
+{
+    if(d_equipment.empty())
+        return cocos2d::Data::Null;
+    
+    const size_t itemsize = sizeof(InventoryItem);
+    cocos2d::Data data;
+    unsigned char* buffer = new unsigned char[d_equipment.size() * itemsize];
+    for(size_t i = 0; i < d_equipment.size(); ++i)
+    {
+        unsigned char* ptr = const_cast<unsigned char*>(reinterpret_cast<const unsigned char*>(&d_equipment[i]));
+        memcpy(&buffer[i*itemsize], ptr, itemsize);
+    }
+    data.fastSet(buffer, d_equipment.size() * itemsize);
+    delete[] buffer;
+    return data;
+}
+
+void Magican::loadFromData(const cocos2d::Data &i_data)
+{
+    if(i_data.isNull())
+        return;
+    const size_t itemsize = sizeof(InventoryItem);
+    const size_t items = i_data.getSize() / itemsize;
+    if(i_data.getSize() % itemsize > 0)
+        throw std::runtime_error("Incorrect data");
+    
+    for(size_t i = 0; i < items; ++i)
+    {
+        InventoryItem* item =reinterpret_cast<InventoryItem*>(i_data.getBytes()+i*itemsize);
+        addInventoryItem(item->getName(), item->getCount());
+    }
+}

@@ -90,6 +90,16 @@ Event Message
 EndOfChain
 
 Trigger Active
+ConditionTurnNumberBegin 2
+ChainOfEvents
+Event Message
+{
+ПОБЕДА
+}
+Event Win
+EndOfChain
+
+Trigger Active
 ConditionDeathPerson Marshal
 Event Lose
 

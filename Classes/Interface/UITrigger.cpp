@@ -19,10 +19,11 @@ namespace UI_NS {
         d_event = i_event;
     }
     
-    void Trigger::activate()
+    void Trigger::activate(bool rightAway)
     {
         d_active = true;
         scheduleUpdateWithPriority(1);
+        if(rightAway) update(0);
     }
     
     void Trigger::deactivate()
@@ -32,7 +33,7 @@ namespace UI_NS {
     
     void Trigger::update(float i_delta)
     {
-        if(MagicWars_NS::Blocker::state() || !d_active)
+        if(MagicWars_NS::Blocker::stateIgnore(MagicWars_NS::Pause::Interface) || !d_active)
             return;
         
         if(d_thrown || !d_event)
@@ -43,8 +44,12 @@ namespace UI_NS {
         
         if(!d_condition || d_condition->get())
         {
-            d_event->throwEvent();
-            removeFromParent();
+            if(!MagicWars_NS::Blocker::isLocked())
+            {
+                MagicWars_NS::Blocker::setEvent(d_event);
+                d_event->throwEvent();
+                removeFromParent();
+            }
         }
     }
     

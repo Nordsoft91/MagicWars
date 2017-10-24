@@ -61,6 +61,7 @@ bool TutorialPressOnMap::init(const std::string& i_name, int i_relX, int i_relY)
     MagicWars_NS::TouchControl::instance().disableAllButPoint(x, y);
     
     MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Interface);
+    MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Tutorial);
     
     d_listener = cocos2d::EventListenerTouchOneByOne::create();
     d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
@@ -73,9 +74,8 @@ bool TutorialPressOnMap::init(const std::string& i_name, int i_relX, int i_relY)
         callback(touch);
     };
     
-    cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 31);
-    
-    
+    cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(d_listener, this);
+
     return true;
 }
 
@@ -94,6 +94,7 @@ bool TutorialPressOnMap::init(cocos2d::Vec2 i_pos)
     
     MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Interface);
     MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Message);
+    MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Tutorial);
     
     d_listener = cocos2d::EventListenerTouchOneByOne::create();
     d_listener->onTouchBegan = [](cocos2d::Touch *touch, cocos2d::Event *event)
@@ -106,8 +107,7 @@ bool TutorialPressOnMap::init(cocos2d::Vec2 i_pos)
         callback(touch);
     };
     
-    cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 31);
-    
+    cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(d_listener, this);
     
     return true;
 }
@@ -119,6 +119,7 @@ void TutorialPressOnMap::callback(cocos2d::Touch *touch)
         MagicWars_NS::TouchControl::instance().enableAll();
         MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Interface);
         MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Message);
+        MagicWars_NS::Blocker::release(MagicWars_NS::Pause::Tutorial);
         cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
         removeFromParent();
     }
@@ -146,6 +147,7 @@ bool TutorialPressButton::init(const std::string& i_but)
         return false;
     
     MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Map);
+    //MagicWars_NS::Blocker::block(MagicWars_NS::Pause::Tutorial);
     MagicWars_NS::TouchControl::instance().getInterface().disableAllButtons();
     MagicWars_NS::TouchControl::instance().getInterface().enableButton(i_but);
     MagicWars_NS::TouchControl::instance().getInterface().tutorialHighlightButton(i_but);

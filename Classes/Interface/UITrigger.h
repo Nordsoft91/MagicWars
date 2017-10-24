@@ -23,7 +23,7 @@ namespace UI_NS {
         
         void releaseResources();
         
-        void activate();
+        void activate(bool rightAway);
         void deactivate();
 
         virtual void update(float i_delta) override;

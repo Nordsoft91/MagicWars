@@ -53,6 +53,8 @@ namespace MagicWars_NS {
         if(!cocos2d::Scene::init())
             return false;
         
+        d_campaign = i_campaign;
+        
         d_layer = cocos2d::Layer::create();
         addChild(d_layer);
         
@@ -133,7 +135,7 @@ namespace MagicWars_NS {
                         size_t level = 0;
                         for( std::string p = d_points[d_currentPlace].second.prevMission; p!="null"; p=d_points[p].second.prevMission) { ++level; }
                         cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
-                        auto scene = Menu_NS::MissionBrief::create(i_campaign, level);
+                        auto scene = Menu_NS::MissionBrief::create(d_campaign, level);
                         cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                     }), NULL );
                     d_chip->runAction(seq);

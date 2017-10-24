@@ -4,7 +4,7 @@ map      map_C_ship1.txt
 rules    mapRule_ship1.txt
 triggers map_C_ship1_triggers.txt
 previous null
-position 50 300
+position 50 50
 music    624141_Facing-the-Stormy-Sea.mp3
 
 mission  Вия
@@ -13,5 +13,5 @@ map      map_C_ship2.txt
 rules    mapRule_ship2.txt
 triggers map_C_ship2_triggers.txt
 previous Шторм
-position 90 270
-music    624141_Facing-the-Stormy-Sea.mp3
+position 100 25
+music    622661_Intervention.mp3

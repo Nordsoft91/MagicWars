@@ -14,6 +14,15 @@
 
 namespace UI_NS {
     
+    Event::Event()
+    {
+    }
+    
+    Event::~Event()
+    {
+        MagicWars_NS::Blocker::resetEvent(this);
+    }
+    
     EventChain::EventChain(cocos2d::Node* io_scene, const std::list<Event*>& i_chain): d_chain(i_chain)
     {
         d_trigger = UI_NS::Trigger::create();
@@ -39,7 +48,7 @@ namespace UI_NS {
     void EventChain::throwEvent()
     {
         if(d_trigger)
-            d_trigger->activate();
+            d_trigger->activate(false);
     }
     
     EventActivateTrigger::EventActivateTrigger(Trigger* i_trigger): d_trigger(i_trigger) {}
@@ -51,7 +60,7 @@ namespace UI_NS {
     
     void EventActivateTrigger::throwEvent()
     {
-        d_trigger->activate();
+        d_trigger->activate(true);
     }
     
     EventHeap::EventHeap(std::list<Event*> i_events): d_events(i_events)
@@ -63,6 +72,7 @@ namespace UI_NS {
     {
         for(auto* i : d_events)
         {
+            MagicWars_NS::Blocker::setEvent(i);
             i->throwEvent();
         }
     }
@@ -123,6 +133,8 @@ namespace UI_NS {
         for(auto i : magicans)
         {
             cocos2d::UserDefault::getInstance()->setIntegerForKey((i->getName()+"_experience_"+std::to_string(level)).c_str(), i->getExperience());
+            auto& items = i->getInventoryItems();
+            cocos2d::UserDefault::getInstance()->setDataForKey((i->getName()+"_data_"+std::to_string(level)).c_str(), i->getMagicanData());
         }
         
         MagicWars_NS::TouchControl::instance().destroy();
@@ -139,6 +151,7 @@ namespace UI_NS {
         for(auto i : magicans)
         {
             i->increaseExperience(cocos2d::UserDefault::getInstance()->getIntegerForKey((i->getName()+"_experience_"+std::to_string(level-1)).c_str()));
+            cocos2d::UserDefault::getInstance()->getDataForKey((i->getName()+"_data_"+std::to_string(level-1)).c_str(), cocos2d::Data::Null);
         }
     }
     

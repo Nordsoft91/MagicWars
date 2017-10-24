@@ -65,6 +65,9 @@ namespace MagicWars_NS
         std::vector<std::pair<std::string, int>> d_states;
         std::string d_weapon;
         
+        const cocos2d::Data getMagicanData() const;
+        void loadFromData(const cocos2d::Data& i_data);
+        
     protected:
         std::string d_group;
         int d_health = 0;

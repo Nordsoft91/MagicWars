@@ -303,7 +303,7 @@ namespace UI_NS
         }
         
 		if (act == "Active")
-			trigger->activate();
+			trigger->activate(false);
 
 		if (auto* c = readCondition(io_stream))
 			trigger->setActivationCondition(c);

@@ -21,9 +21,9 @@ namespace UI_NS {
     class Event
     {
     public:
-        Event() {} //cocos2d::log("Constructor"); };
+        Event(); //cocos2d::log("Constructor"); };
         
-        virtual ~Event() {} //cocos2d::log("Destructor"); }
+        virtual ~Event(); //cocos2d::log("Destructor"); }
         
         virtual void throwEvent() = 0;
     };

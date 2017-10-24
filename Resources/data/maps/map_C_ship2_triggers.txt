@@ -9,6 +9,7 @@ Event Dialog Marshal
 Может это просто сон, нужно как следует выспаться
 }
 Event Move Marshal -4 8
+Event PlayTheme
 Event BornWithControl wia_level01 Neutral Wia REL Marshal 4 5
 Event Dialog Marshal
 {
@@ -92,7 +93,6 @@ Event Dialog Marshal
 {
 Помогу, ведь выбора у меня, похоже нет...
 }
-Event PlayTheme
 Event Message
 {
 Спасите Вию

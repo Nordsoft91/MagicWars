@@ -67,6 +67,8 @@ namespace MagicWars_NS {
         std::map<std::string, std::pair<TravelPoint*, CampaignReader::Mission>> d_points;
         
         std::string d_currentPlace;
+        
+        std::string d_campaign;
     };
 }
 

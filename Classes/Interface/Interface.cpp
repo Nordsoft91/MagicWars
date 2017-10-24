@@ -279,8 +279,11 @@ void Interface::makeInventoryMenu()
 
 bool MagicWars_NS::isInterfaceAvailable()
 {
+    if(Blocker::isLocked())
+        return false;
+    
     Blocker::release(Pause::Interface);
-    if( !Blocker::stateIgnore(Pause::Map) && Blocker::getActive().empty())
+    if( !Blocker::stateIgnore(Pause::Map) && !Blocker::isLocked())
     {
         Blocker::release(Pause::Map);
         return true;
