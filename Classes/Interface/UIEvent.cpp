@@ -11,6 +11,7 @@
 #include "UITutorialPressOnMap.h"
 #include <Travel/TravelScene.h>
 #include <Common/MovingStructure.h>
+#include <Controllers/GameSaver.h>
 
 namespace UI_NS {
     
@@ -122,19 +123,21 @@ namespace UI_NS {
     
     void EventWin::throwEvent()
     {
-        std::string camp = cocos2d::UserDefault::getInstance()->getStringForKey("CurrentCampaignName");
-        int level = cocos2d::UserDefault::getInstance()->getIntegerForKey("CurrentLevel");
-        int maxLevel = cocos2d::UserDefault::getInstance()->getIntegerForKey((camp+"_level").c_str(),0);
-        if(level==maxLevel)
-            cocos2d::UserDefault::getInstance()->setIntegerForKey((camp+"_level").c_str(), maxLevel+1);
-        
-        //save persons expirience
-        auto magicans = MagicWars_NS::TouchControl::instance().getTurnController().sideArray("Light");
-        for(auto i : magicans)
+        const std::string camp = cocos2d::UserDefault::getInstance()->getStringForKey("CurrentCampaignName");
+
         {
-            cocos2d::UserDefault::getInstance()->setIntegerForKey((i->getName()+"_experience_"+std::to_string(level)).c_str(), i->getExperience());
-            auto& items = i->getInventoryItems();
-            cocos2d::UserDefault::getInstance()->setDataForKey((i->getName()+"_data_"+std::to_string(level)).c_str(), i->getMagicanData());
+            MagicWars_NS::GameSaver saver;
+            int level = saver.loadCurrentLevel(camp);
+            int maxLevel = saver.loadCampaignProgress(camp);
+            if(level==maxLevel)
+                saver.saveCampaignProgress(camp, maxLevel+1);
+        
+            //save persons expirience
+            auto magicans = MagicWars_NS::TouchControl::instance().getTurnController().sideArray("Light");
+            for(auto i : magicans)
+            {
+                saver.savePerson(camp, *i, i->getName());
+            }
         }
         
         MagicWars_NS::TouchControl::instance().destroy();
@@ -146,12 +149,13 @@ namespace UI_NS {
     
     void EventLoadPersons::throwEvent()
     {
-        int level = cocos2d::UserDefault::getInstance()->getIntegerForKey("CurrentLevel");
+        MagicWars_NS::GameSaver saver;
+        const std::string camp = cocos2d::UserDefault::getInstance()->getStringForKey("CurrentCampaignName");
+        int level = saver.loadCurrentLevel(camp);
         auto magicans = MagicWars_NS::TouchControl::instance().getTurnController().sideArray("Light");
         for(auto i : magicans)
         {
-            i->increaseExperience(cocos2d::UserDefault::getInstance()->getIntegerForKey((i->getName()+"_experience_"+std::to_string(level-1)).c_str()));
-            cocos2d::UserDefault::getInstance()->getDataForKey((i->getName()+"_data_"+std::to_string(level-1)).c_str(), cocos2d::Data::Null);
+            saver.loadPerson(camp, *i, i->getName());
         }
     }
     

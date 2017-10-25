@@ -12,8 +12,9 @@
 #include <cocos/audio/include/SimpleAudioEngine.h>
 #include <cocos/ui/CocosGUI.h>
 #include <SDK/SpriteSheet.h>
+#include <Controllers/GameSaver.h>
 
-#define SANDBOX
+//#define SANDBOX
 //#define RESET_GAMEPLAY
 //#define ALL_AVAILABLE
 
@@ -43,13 +44,22 @@ namespace Menu_NS {
         auto origin = cocos2d::Director::getInstance()->getVisibleOrigin();
         
 #ifdef RESET_GAMEPLAY
-        cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",0); //USERDATA
-        cocos2d::UserDefault::getInstance()->setIntegerForKey("CorpseCollector_level",0); //USERDATA
+        {
+            cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true); //USERDATA
+            cocos2d::UserDefault::getInstance()->setBoolForKey("CorpseCollector", false); //USERDATA
+            MagicWars_NS::GameSaver saver(true);
+        }
 #endif
 #ifdef ALL_AVAILABLE
-        cocos2d::UserDefault::getInstance()->setIntegerForKey("WizardWay_level",10); //USERDATA
-        cocos2d::UserDefault::getInstance()->setIntegerForKey("CorpseCollector_level",10); //USERDATA
+        {
+            cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true); //USERDATA
+            cocos2d::UserDefault::getInstance()->setBoolForKey("CorpseCollector", true); //USERDATA
+            MagicWars_NS::GameSaver saver(true);
+            saver.saveCampaignProgress("WizardWay", 10);
+        }
 #endif
+        
+        cocos2d::UserDefault::getInstance()->setBoolForKey("CorpseCollector", true); //USERDATA
         loadSpriteSheetFromXml("uipack_rpg_sheet.png", "uipack_rpg_sheet.xml");
         
 		auto* backgroundImage = cocos2d::Sprite::create(RES("menu","Sphash.jpg"));
@@ -105,9 +115,6 @@ namespace Menu_NS {
     {
         if(!cocos2d::Scene::init())
             return false;
-        
-        cocos2d::UserDefault::getInstance()->setBoolForKey("WizardWay", true); //USERDATA
-        cocos2d::UserDefault::getInstance()->setBoolForKey("CorpseCollector", true); //USERDATA
 
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         auto origin = cocos2d::Director::getInstance()->getVisibleOrigin();
@@ -136,16 +143,18 @@ namespace Menu_NS {
             std::string name = "camp"+std::to_string(i);
             auto* campaign_buton = cocos2d::MenuItemImage::create(RES("menu", name+".png"), RES("menu", name+".png"), RES("menu", name+"_d.png"), [i, campaignNames](cocos2d::Ref* pSender)
                                                           {
-                                                              cocos2d::UserDefault::getInstance()->setStringForKey("CurrentCampaignName", campaignNames[i-1]);
-                                                              if(cocos2d::UserDefault::getInstance()->getIntegerForKey((campaignNames[i-1]+"_level").c_str(), 0))
+                                                              auto currentCampaignName = campaignNames[i-1];
+                                                              cocos2d::UserDefault::getInstance()->setStringForKey("CurrentCampaignName", currentCampaignName);
+                                                              MagicWars_NS::GameSaver saver;
+                                                              if(saver.loadCampaignProgress(currentCampaignName))
                                                               {
-                                                                  auto scene = MagicWars_NS::TravelScene::create(campaignNames[i-1]);
+                                                                  auto scene = MagicWars_NS::TravelScene::create(currentCampaignName);
                                                                   cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
                                                               }
                                                               else
                                                               {
                                                                   cocos2d::Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
-                                                                  auto scene = MissionBrief::create(campaignNames[i-1], 0);
+                                                                  auto scene = MissionBrief::create(currentCampaignName, 0);
                                                                   cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(3, scene));
                                                               }
                                                           });
@@ -177,7 +186,8 @@ namespace Menu_NS {
         if(!cocos2d::Scene::init())
             return false;
         
-        cocos2d::UserDefault::getInstance()->setIntegerForKey("CurrentLevel", level);
+        MagicWars_NS::GameSaver saver;
+        saver.saveCurrentLevel(i_campaign, level);
         
         auto sz = cocos2d::Director::getInstance()->getVisibleSize();
         

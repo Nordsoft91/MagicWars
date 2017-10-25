@@ -8,6 +8,7 @@
 
 #include "TravelScene.h"
 #include <Menu/MenuScene.h>
+#include <Controllers/GameSaver.h>
 
 namespace MagicWars_NS {
     bool TravelPoint::init()
@@ -71,8 +72,9 @@ namespace MagicWars_NS {
         d_layer->addChild(d_chip, 2);
         
         CampaignReader reader(i_campaign);
+        GameSaver saver;
         const size_t missions = reader.getMissionsCount();
-        const size_t achivedLevel = cocos2d::UserDefault::getInstance()->getIntegerForKey((i_campaign+"_level").c_str(), 0);
+        const size_t achivedLevel = saver.loadCampaignProgress(i_campaign);
         
         for(size_t i = 0; i<missions; ++i)
         {
