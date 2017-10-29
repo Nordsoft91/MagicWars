@@ -11,7 +11,7 @@
 #include <Controllers/GameSaver.h>
 
 namespace MagicWars_NS {
-    bool TravelPoint::init()
+    bool TravelPoint::init(const size_t level)
     {
         if(!cocos2d::Node::init())
             return false;
@@ -21,7 +21,7 @@ namespace MagicWars_NS {
         d_point->setScale(0.5);
         addChild(d_point, 1);
         
-        auto txt = cocos2d::Label::createWithTTF(std::to_string(++Level), "Washington.ttf", 30);
+        auto txt = cocos2d::Label::createWithTTF(std::to_string(level), "Washington.ttf", 30);
         txt->setAnchorPoint(cocos2d::Vec2::ZERO);
         addChild(txt, 2);
         
@@ -79,7 +79,7 @@ namespace MagicWars_NS {
         for(size_t i = 0; i<missions; ++i)
         {
             auto m = reader.getMission(i);
-            d_points[m.missionName].first = TravelPoint::create();
+            d_points[m.missionName].first = createFunction<TravelPoint>(++d_level);
             d_points[m.missionName].second = m;
             if(m.prevMission=="null")
             {

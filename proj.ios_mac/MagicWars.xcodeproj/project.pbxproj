@@ -1002,6 +1002,7 @@
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
 		84935A2B1FA01B4A00474E1A /* GameSaver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSaver.cpp; sourceTree = "<group>"; };
 		84935A2C1FA01B4A00474E1A /* GameSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSaver.h; sourceTree = "<group>"; };
+		84935A301FA620AF00474E1A /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
 		8497C9DE1C1DBE6F005C334C /* UITriggerReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITriggerReader.cpp; sourceTree = "<group>"; };
 		8497C9DF1C1DBE6F005C334C /* UITriggerReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITriggerReader.h; sourceTree = "<group>"; };
 		8497C9E21C1DBE93005C334C /* StringUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringUtils.cpp; sourceTree = "<group>"; };
@@ -1801,6 +1802,7 @@
 				843EAB9B1C025526003BC913 /* DBStructure.h */,
 				84150FDD1D763F76007B1077 /* SpriteSheet.cpp */,
 				84150FDE1D763F76007B1077 /* SpriteSheet.h */,
+				84935A301FA620AF00474E1A /* Scene.h */,
 			);
 			path = SDK;
 			sourceTree = "<group>";

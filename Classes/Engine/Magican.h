@@ -9,8 +9,6 @@
 #ifndef MagicWars_Magican_h
 #define MagicWars_Magican_h
 
-#define MAGICAN_GROUP(S,L) magican S Level ##L
-
 #include "GameObj.h"
 #include "StatusUpdater.h"
 #include "CurrentTurnLight.h"

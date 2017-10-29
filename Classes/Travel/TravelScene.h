@@ -14,22 +14,20 @@
 #include <map>
 #include <Common/Consts.h>
 #include <Common/CampaignReader.h>
+#include <SDK/Scene.h>
 
 namespace MagicWars_NS {
-    
-    static size_t Level = 0;
     
     class TravelPoint: public cocos2d::Node
     {
     public:
-        CREATE_FUNC(TravelPoint);
-        
         void addConnection(TravelPoint* i_point);
         
         void complite();
             
+        bool init(const size_t level);
+        
     private:
-        bool init() override;
         
         bool d_compilte = false;
         
@@ -69,6 +67,9 @@ namespace MagicWars_NS {
         std::string d_currentPlace;
         
         std::string d_campaign;
+        
+        size_t d_level = 0;
+
     };
 }
 
