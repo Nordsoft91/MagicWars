@@ -48,6 +48,10 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		8400F6602343EE4B00F89C9A /* UIGameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8400F65E2343EE4B00F89C9A /* UIGameMenu.cpp */; };
+		8400F6612343EE4B00F89C9A /* UIGameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8400F65E2343EE4B00F89C9A /* UIGameMenu.cpp */; };
+		8400F6662343FDC100F89C9A /* Sandbox in Resources */ = {isa = PBXBuildFile; fileRef = 8400F6652343FDC100F89C9A /* Sandbox */; };
+		8400F6672343FDC100F89C9A /* Sandbox in Resources */ = {isa = PBXBuildFile; fileRef = 8400F6652343FDC100F89C9A /* Sandbox */; };
 		840689081E8A8CAA004A26C2 /* states in Resources */ = {isa = PBXBuildFile; fileRef = 840689071E8A8CAA004A26C2 /* states */; };
 		840689091E8A8CAA004A26C2 /* states in Resources */ = {isa = PBXBuildFile; fileRef = 840689071E8A8CAA004A26C2 /* states */; };
 		8406890C1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */; };
@@ -867,6 +871,13 @@
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
 			remoteInfo = "cocos2dx iOS";
 		};
+		8400F6632343EE4C00F89C9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 507B40FD1C31BDD30067B53E;
+			remoteInfo = "libcocos2d tvOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -914,6 +925,9 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8400F65E2343EE4B00F89C9A /* UIGameMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UIGameMenu.cpp; sourceTree = "<group>"; };
+		8400F65F2343EE4B00F89C9A /* UIGameMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIGameMenu.h; sourceTree = "<group>"; };
+		8400F6652343FDC100F89C9A /* Sandbox */ = {isa = PBXFileReference; lastKnownFileType = text; path = Sandbox; sourceTree = "<group>"; };
 		840689071E8A8CAA004A26C2 /* states */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = states; sourceTree = "<group>"; };
 		8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StateProcessor.cpp; sourceTree = "<group>"; };
 		8406890B1E8A8D54004A26C2 /* StateProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateProcessor.h; sourceTree = "<group>"; };
@@ -1082,7 +1096,7 @@
 		84B520581BFFC2C2004A6CA0 /* FlaredTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlaredTile.h; sourceTree = "<group>"; };
 		84B520591BFFC2C2004A6CA0 /* FlaredTileset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlaredTileset.cpp; sourceTree = "<group>"; };
 		84B5205A1BFFC2C2004A6CA0 /* FlaredTileset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlaredTileset.h; sourceTree = "<group>"; };
-		84B5205C1BFFC2C2004A6CA0 /* Interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Interface.cpp; sourceTree = "<group>"; };
+		84B5205C1BFFC2C2004A6CA0 /* Interface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Interface.cpp; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 0; };
 		84B5205D1BFFC2C2004A6CA0 /* Interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interface.h; sourceTree = "<group>"; };
 		84B5205E1BFFC2C2004A6CA0 /* UICondition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UICondition.cpp; sourceTree = "<group>"; };
 		84B5205F1BFFC2C2004A6CA0 /* UICondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICondition.h; sourceTree = "<group>"; };
@@ -1447,6 +1461,7 @@
 			children = (
 				1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */,
 				1AC6FB07180E9839004C840B /* libcocos2d iOS.a */,
+				8400F6642343EE4C00F89C9A /* libcocos2d tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1779,6 +1794,8 @@
 				8475EF9E1CA8180B00738297 /* Portrait.h */,
 				84B552691CB01B7F00ED0431 /* UIInformation.cpp */,
 				84B5526A1CB01B7F00ED0431 /* UIInformation.h */,
+				8400F65E2343EE4B00F89C9A /* UIGameMenu.cpp */,
+				8400F65F2343EE4B00F89C9A /* UIGameMenu.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1835,6 +1852,7 @@
 				840689111E8AC6AB004A26C2 /* Items */,
 				84B72D0A1C88F90500660898 /* WizardWay */,
 				84D7233B1E8DB30100C1A675 /* CorpseCollector */,
+				8400F6652343FDC100F89C9A /* Sandbox */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -2326,6 +2344,13 @@
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		8400F6642343EE4C00F89C9A /* libcocos2d tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libcocos2d tvOS.a";
+			remoteRef = 8400F6632343EE4C00F89C9A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -2667,6 +2692,7 @@
 				84F1529A1C962FF700B57942 /* natureEffects.png in Resources */,
 				84B522331BFFC41E004A6CA0 /* farmer01.png in Resources */,
 				84B522231BFFC41E004A6CA0 /* Logo.png in Resources */,
+				8400F6662343FDC100F89C9A /* Sandbox in Resources */,
 				8475EFC21CA86F0600738297 /* icon_mute.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				848F6EA61C86120C005B928E /* Washington.ttf in Resources */,
@@ -2907,6 +2933,7 @@
 				84B521CC1BFFC41E004A6CA0 /* Icicles.png in Resources */,
 				8475EF9C1CA5F5B000738297 /* double-shot.png in Resources */,
 				84B523261BFFC41E004A6CA0 /* 064-CF_Ground01.png in Resources */,
+				8400F6672343FDC100F89C9A /* Sandbox in Resources */,
 				843D4A4A1C0202D800835492 /* undead03.png in Resources */,
 				84B5234B1BFFC48F004A6CA0 /* stub.png in Resources */,
 				84B522C21BFFC41E004A6CA0 /* 032-T_Ocean01.png in Resources */,
@@ -3066,6 +3093,7 @@
 				84B520AF1BFFC2C2004A6CA0 /* UIMessage.cpp in Sources */,
 				84B520951BFFC2C2004A6CA0 /* StatusUpdater.cpp in Sources */,
 				84B520931BFFC2C2004A6CA0 /* Map.cpp in Sources */,
+				8400F6602343EE4B00F89C9A /* UIGameMenu.cpp in Sources */,
 				84F152901C9626EF00B57942 /* AnimatedObject.cpp in Sources */,
 				84B520851BFFC2C2004A6CA0 /* TurnController.cpp in Sources */,
 				84B520831BFFC2C2004A6CA0 /* TouchControl.cpp in Sources */,
@@ -3130,6 +3158,7 @@
 				84B520701BFFC2C2004A6CA0 /* AIEngine.cpp in Sources */,
 				84B520A81BFFC2C2004A6CA0 /* FlaredTileset.cpp in Sources */,
 				84B520721BFFC2C2004A6CA0 /* AIMovable.cpp in Sources */,
+				8400F6612343EE4B00F89C9A /* UIGameMenu.cpp in Sources */,
 				84B520AC1BFFC2C2004A6CA0 /* UICondition.cpp in Sources */,
 				84B5209E1BFFC2C2004A6CA0 /* FlaredAutomapTerrainRuleRecorder.cpp in Sources */,
 				84B520761BFFC2C2004A6CA0 /* AppDelegate.cpp in Sources */,
