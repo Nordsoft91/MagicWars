@@ -13,8 +13,9 @@
 #include <cocos/ui/CocosGUI.h>
 #include <SDK/SpriteSheet.h>
 #include <Controllers/GameSaver.h>
+#include "UIGameMenu.h"
 
-//#define SANDBOX
+#define SANDBOX
 //#define RESET_GAMEPLAY
 //#define ALL_AVAILABLE
 
@@ -71,40 +72,46 @@ namespace Menu_NS {
         layout->cocos2d::Node::setPosition(sz.width/2+origin.x, sz.height/2+origin.y);
         layout->setScale(scaleFactorW, scaleFactorH);
         
-        auto* box = cocos2d::ui::RelativeBox::create({220,180});
-        box->setAnchorPoint({0.5, 0.5});
-        box->setBackGroundImage("panel_brown.png", cocos2d::ui::TextureResType::PLIST);
-        box->setBackGroundImageScale9Enabled(true);
-        layout->addChild(box);
-        
-        auto buttonNewGame = cocos2d::ui::Button::create("buttonLong_beige.png", "buttonLong_beige_pressed.png", "buttonLong_blue.png", cocos2d::ui::TextureResType::PLIST);
-        buttonNewGame->setTitleText("Play MagicWars");
-        buttonNewGame->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+        auto* gameMenu = UI_NS::GameMenu::create();
+        gameMenu->addMenuButton("Play MagicWars", [](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
             if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
             {
                 auto scene = CampaignSelect::create();
                 cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1.5, scene));
             }
         });
-        buttonNewGame->setPosition({0,50});
-        layout->addChild(buttonNewGame);
-        
-        auto buttonSandbox = cocos2d::ui::Button::create("buttonLong_beige.png", "buttonLong_beige_pressed.png", "buttonLong_blue.png", cocos2d::ui::TextureResType::PLIST);
-        buttonSandbox->setTitleText("Sandbox");
-        buttonSandbox->addTouchEventListener([&](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+        gameMenu->addMenuButton("Sandbox", [gameMenu](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
             if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
             {
-                //CampaignReader::Mission mission{"Песочница", "map_C_ship2.txt", "map_C_ship2_triggers.txt", "mapRule_ship2.txt", "", "", {}, 0, 0};
-                CampaignReader::Mission mission{"Песочница", "mapT_S_tutorial01.txt", "mapT_S_tutorial01_triggers.txt", "mapRule_Grassland01.txt", "", "", {}, 0, 0};
-                auto scene = HelloWorld::createScene(mission);
-                cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
+                std::vector<Param> list = Consts::get("maps", "sandbox");
+                auto* sandboxMenu = UI_NS::GameMenu::create();
+                for(auto& map : list)
+                {
+                    const auto& v = map.toVector<std::string>();
+                    sandboxMenu->addMenuButton(v.at(0), [v](Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+                        if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+                        {
+                            CampaignReader::Mission mission{"Песочница", v.at(0), v.at(1), v.at(2), "", "", {}, 0, 0};
+                            auto scene = HelloWorld::createScene(mission);
+                            cocos2d::Director::getInstance()->replaceScene(cocos2d::TransitionFade::create(1, scene));
+                        }
+                    });
+                }
+                sandboxMenu->addMenuButton("Back", [sandboxMenu](Ref* sender, cocos2d::ui::Widget::TouchEventType type)
+                {
+                    if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+                    {
+                        sandboxMenu->removeFromParent();
+                    }
+                });
+                
+                gameMenu->getParent()->addChild(sandboxMenu);
             }
         });
-#ifndef SANDBOX
-        buttonSandbox->setEnabled(false);
-#endif
-        buttonSandbox->setPosition({0,0});
-        layout->addChild(buttonSandbox);
+        #ifndef SANDBOX
+        gameMenu->setButtonEnabled("Sandbox", false);
+        #endif
+        layout->addChild(gameMenu);
         
         addChild(layout);
         
