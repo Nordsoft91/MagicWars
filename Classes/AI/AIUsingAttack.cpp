@@ -8,6 +8,7 @@
 
 #include "AIUsingAttack.h"
 #include <Common/ContainUtils.h>
+#include <algorithm>
 
 using namespace MagicWars_NS;
 
@@ -431,7 +432,7 @@ double AIUsingAttack::useTrick(const std::string &i_trick, int x, int y, bool i_
     }
     
     
-    w *= 3.0 / fmax(1, Consts::get("recover", i_trick));
+    w *= 3.0 / std::max(1.0, static_cast<double>(Consts::get("recover", i_trick)));
     
     if(!i_action)
         return w;
