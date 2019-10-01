@@ -82,6 +82,8 @@ frameWidth = 96
 frameHeight = 96
 }
 
+<include> Sandbox
+
 <include> Spells
 <include> Tricks
 <include> Items

@@ -4,7 +4,7 @@
     spriteName = stub.png
     animationName = wolf1.png
     animationParams = quadAnimation3x64
-    health = 50
+    health = 35
     concentrate = 2
     mind = 0
     wisdom = 1
