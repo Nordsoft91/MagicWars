@@ -87,8 +87,7 @@ namespace MagicWars_NS {
     
     void Portrait::onPress()
     {
-        Blocker::release(Pause::Interface);
-        if(!Blocker::stateIgnore(Pause::Map))
+        if(!Blocker::stateIgnore(Pause::Map) || !Blocker::stateIgnore(Pause::Interface))
         {
             TouchControl::instance().centralizeOn(d_magican);
             TouchControl::instance().getInterface().menuClose();

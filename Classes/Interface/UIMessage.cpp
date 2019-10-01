@@ -107,7 +107,6 @@ namespace UI_NS {
         buttonNext->setAnchorPoint({0.5, 0});
         buttonNext->setPosition({windowSize.width/2, 30});
         layout->addChild(buttonNext);
-
     }
     
     bool Message::init(cocos2d::Vec2 i_pos, cocos2d::Color4F i_background, const std::string &i_message)

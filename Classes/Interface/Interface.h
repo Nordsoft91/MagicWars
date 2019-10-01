@@ -30,7 +30,6 @@ namespace MagicWars_NS {
         };
         
     public:
-        Interface() = default;
         Interface(cocos2d::Scene* io_scene);
         ~Interface();
         

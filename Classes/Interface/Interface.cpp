@@ -11,6 +11,7 @@
 
 #include "UIIcon.h"
 #include "UIMessage.h"
+#include "UIGameMenu.h"
 
 using namespace MagicWars_NS;
 
@@ -28,8 +29,10 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
         return true;
     };
     
-    d_listener->onTouchEnded = [&](cocos2d::Touch *touch, cocos2d::Event *event)
+    d_listener->onTouchEnded = [io_scene](cocos2d::Touch *touch, cocos2d::Event *event)
     {
+        if(Blocker::stateIgnore(Pause::Message)) return;
+        
         auto active = Blocker::getActive();
         for(auto* i : active)
         {
@@ -39,12 +42,44 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
             }
         }
     };
+
     
-    cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 1);
+    auto gamemenubutton = cocos2d::ui::Button::create("buttonSquare_beige.png", "buttonSquare_beige_pressed.png", "buttonSquare_blue.png", cocos2d::ui::TextureResType::PLIST);
+    gamemenubutton->setTitleText("Menu");
+    gamemenubutton->addTouchEventListener([&](cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+        if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+        {
+            Blocker::block(Pause::Interface);
+            Blocker::block(Pause::Map);
+            auto* gamemenu = UI_NS::GameMenu::create();
+            gamemenu->addMenuButton("Resume", [gamemenu](cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+            if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+            {
+                Blocker::release(Pause::Interface);
+                Blocker::release(Pause::Map);
+                gamemenu->removeFromParent();
+            }});
+            gamemenu->addMenuButton("Sound off", [](cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+            if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+            {
+            }});
+            gamemenu->addMenuButton("Exit", [](cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type){
+            if(type==cocos2d::ui::Widget::TouchEventType::ENDED)
+            {
+            }});
+            gamemenu->setPosition(SCREEN_CENTER);
+            d_pScreen->addChild(gamemenu);
+        }
+    });
+    gamemenubutton->setAnchorPoint({1,1});
+    gamemenubutton->setPosition(SCREEN_CENTER*2);
+    d_pScreen->addChild(gamemenubutton);
+    cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 8);
 }
 
 Interface::~Interface()
 {
+    d_pScreen->removeFromParent();
     if(d_listener)
         cocos2d::Director::getInstance()->getEventDispatcher()->removeEventListener(d_listener);
 }
@@ -282,10 +317,9 @@ bool MagicWars_NS::isInterfaceAvailable()
     if(Blocker::isLocked())
         return false;
     
-    Blocker::release(Pause::Interface);
-    if( !Blocker::stateIgnore(Pause::Map) && !Blocker::isLocked())
+    if(!Blocker::stateIgnore(Pause::Map) || !Blocker::stateIgnore(Pause::Interface))
     {
-        Blocker::release(Pause::Map);
+        //Blocker::release(Pause::Map);
         return true;
     }
     return false;

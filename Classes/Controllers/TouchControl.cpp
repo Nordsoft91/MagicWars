@@ -245,7 +245,10 @@ void TouchControl::tapAction(const cocos2d::Vec2& i_touch)
             return;
     }
     if(isInterfaceAvailable())
+    {
+        Blocker::release(Pause::Map);
         pressAction(tapLastCellX, tapLastCellY);
+    }
 }
 
 void TouchControl::prepareMovingStructure(MagicWars_NS::MovingStructure& io_struct)
@@ -358,7 +361,7 @@ void TouchControl::pressAction(size_t clickX, size_t clickY)
 
 void TouchControl::moveAction(const cocos2d::Vec2& i_touch)
 {
-    if(!Blocker::state(Pause::Interface))
+    if(!Blocker::state())
     {
         d_mapLayer->setPosition(d_mapLayer->getPosition() + i_touch);
         d_highLayer->setPosition(d_highLayer->getPosition() + i_touch);

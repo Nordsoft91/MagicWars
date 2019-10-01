@@ -86,6 +86,16 @@ namespace MagicWars_NS {
         {
             get().d_pauseMap[i_p].first = true;
             get().d_pauseMap[i_p].second = -1;
+
+            switch(i_p)
+            {
+                case Pause::Animation: cocos2d::log("Pause::Animation - block"); break;
+                case Pause::Interface: cocos2d::log("Pause::Interface - block"); break;
+                case Pause::Intellect: cocos2d::log("Pause::Intellect - block"); break;
+                case Pause::Message: cocos2d::log("Pause::Message - block"); break;
+                case Pause::Map: cocos2d::log("Pause::Map - block"); break;
+                case Pause::Tutorial: cocos2d::log("Pause::Tutorial - block"); break;
+            }
         }
         
         static void block(const Pause& i_p, float i_time)
@@ -98,6 +108,16 @@ namespace MagicWars_NS {
         {
             get().d_pauseMap[i_p].first = false;
             get().d_pauseMap[i_p].second = -1;
+            
+            switch(i_p)
+            {
+                case Pause::Animation: cocos2d::log("Pause::Animation - release"); break;
+                case Pause::Interface: cocos2d::log("Pause::Interface - release"); break;
+                case Pause::Intellect: cocos2d::log("Pause::Intellect - release"); break;
+                case Pause::Message: cocos2d::log("Pause::Message - release"); break;
+                case Pause::Map: cocos2d::log("Pause::Map - release"); break;
+                case Pause::Tutorial: cocos2d::log("Pause::Tutorial - release"); break;
+            }
         }
         
         static bool state(const Pause& i_p)

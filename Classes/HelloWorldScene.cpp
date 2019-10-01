@@ -67,7 +67,7 @@ bool HelloWorld::init()
         }
     };
     
-    Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, this);
+    Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(listener, 4);
     
     scheduleUpdateWithPriority(2);
     

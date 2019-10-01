@@ -46,6 +46,8 @@ public:
     int loadCampaignProgress(const std::string& i_campName);
     int loadCurrentLevel(const std::string& i_campName) const;
     void loadPerson(const std::string& i_campName, Magican& io_mag, const std::string& i_name);
+    
+    
 };
 }
 
