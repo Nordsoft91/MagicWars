@@ -23,8 +23,6 @@ namespace MagicWars_NS {
         float protectPhysical = 0.0f;
     };
     
-    void processTurnStart(Magican* io_magican);
-    void processMove(Magican* io_magican);
     int processAction(Magican* io_magican, const std::string& i_type, int value, Magican* io_source = nullptr);
 }
 

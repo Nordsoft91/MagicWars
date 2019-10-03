@@ -12,6 +12,8 @@
 #include "UIIcon.h"
 #include "UIMessage.h"
 #include "UIGameMenu.h"
+#include "UIConsole.h"
+
 
 using namespace MagicWars_NS;
 
@@ -75,6 +77,13 @@ Interface::Interface(cocos2d::Scene* io_scene): SCREEN_CENTER(cocos2d::Director:
     gamemenubutton->setPosition(SCREEN_CENTER*2);
     d_pScreen->addChild(gamemenubutton);
     cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithFixedPriority(d_listener, 8);
+    
+    //#ifdef SANDBOX
+    auto* console = UI_NS::Console::create();
+    console->setPosition(SCREEN_CENTER);
+    d_pScreen->addChild(console);
+    //#endif
+        
 }
 
 Interface::~Interface()
@@ -316,10 +325,9 @@ bool MagicWars_NS::isInterfaceAvailable()
 {
     if(Blocker::isLocked())
         return false;
-    
-    if(!Blocker::stateIgnore(Pause::Map) || !Blocker::stateIgnore(Pause::Interface))
+
+    if(!Blocker::stateIgnore(Pause::Map) || !Blocker::stateIgnore(Pause::Interface) || !Blocker::stateIgnore(Pause::Tutorial))
     {
-        //Blocker::release(Pause::Map);
         return true;
     }
     return false;

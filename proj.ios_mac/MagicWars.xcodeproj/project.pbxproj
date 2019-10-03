@@ -204,6 +204,8 @@
 		8475EFD51CAF481F00738297 /* shard-sword.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD21CAF481F00738297 /* shard-sword.png */; };
 		8475EFD61CAF481F00738297 /* sword-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD31CAF481F00738297 /* sword-spin.png */; };
 		8475EFD71CAF481F00738297 /* sword-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD31CAF481F00738297 /* sword-spin.png */; };
+		84773DBB2345754F00FE3106 /* map_M_arena.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84773DB92345754F00FE3106 /* map_M_arena.txt */; };
+		84773DBC2345754F00FE3106 /* map_M_arena.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84773DB92345754F00FE3106 /* map_M_arena.txt */; };
 		84885AEC1D7DEE720064AC61 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84885AEB1D7DEE720064AC61 /* map2.png */; };
 		84885AED1D7DEE720064AC61 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84885AEB1D7DEE720064AC61 /* map2.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
@@ -766,6 +768,22 @@
 		84B72D101C88FAC700660898 /* CampaignReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84B72D0D1C88FAC700660898 /* CampaignReader.cpp */; };
 		84B72D121C8905F100660898 /* Victorian Gothic One.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D111C8905F100660898 /* Victorian Gothic One.ttf */; };
 		84B72D131C8905F100660898 /* Victorian Gothic One.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84B72D111C8905F100660898 /* Victorian Gothic One.ttf */; };
+		84D1AC8023453C2D00C8A270 /* UIConsole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D1AC7E23453C2D00C8A270 /* UIConsole.cpp */; };
+		84D1AC8123453C2D00C8A270 /* UIConsole.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84D1AC7E23453C2D00C8A270 /* UIConsole.cpp */; };
+		84D1AC842345524600C8A270 /* dog01 in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC832345524600C8A270 /* dog01 */; };
+		84D1AC852345524600C8A270 /* dog01 in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC832345524600C8A270 /* dog01 */; };
+		84D1AC8C2345531400C8A270 /* foot-trip.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC862345531300C8A270 /* foot-trip.png */; };
+		84D1AC8D2345531400C8A270 /* foot-trip.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC862345531300C8A270 /* foot-trip.png */; };
+		84D1AC8E2345531400C8A270 /* half-body-crawling.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC872345531300C8A270 /* half-body-crawling.png */; };
+		84D1AC8F2345531400C8A270 /* half-body-crawling.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC872345531300C8A270 /* half-body-crawling.png */; };
+		84D1AC902345531400C8A270 /* shark-jaws.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC882345531300C8A270 /* shark-jaws.png */; };
+		84D1AC912345531400C8A270 /* shark-jaws.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC882345531300C8A270 /* shark-jaws.png */; };
+		84D1AC922345531400C8A270 /* chicken-leg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC892345531400C8A270 /* chicken-leg.png */; };
+		84D1AC932345531400C8A270 /* chicken-leg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC892345531400C8A270 /* chicken-leg.png */; };
+		84D1AC942345531400C8A270 /* croc-jaws.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC8A2345531400C8A270 /* croc-jaws.png */; };
+		84D1AC952345531400C8A270 /* croc-jaws.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC8A2345531400C8A270 /* croc-jaws.png */; };
+		84D1AC962345531400C8A270 /* flaming-claw.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC8B2345531400C8A270 /* flaming-claw.png */; };
+		84D1AC972345531400C8A270 /* flaming-claw.png in Resources */ = {isa = PBXBuildFile; fileRef = 84D1AC8B2345531400C8A270 /* flaming-claw.png */; };
 		84D723171E8C66A300C1A675 /* mapT_M_prologue_triggers.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84D723161E8C66A300C1A675 /* mapT_M_prologue_triggers.txt */; };
 		84D7231C1E8C7BF900C1A675 /* map_C_ship1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84D7231A1E8C7BF900C1A675 /* map_C_ship1.txt */; };
 		84D7231D1E8C7BF900C1A675 /* mapRule_ship1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84D7231B1E8C7BF900C1A675 /* mapRule_ship1.txt */; };
@@ -1010,9 +1028,10 @@
 		8475EFCD1CAF41C800738297 /* crosshair-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "crosshair-arrow.png"; path = "icons/crosshair-arrow.png"; sourceTree = "<group>"; };
 		8475EFD21CAF481F00738297 /* shard-sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shard-sword.png"; path = "icons/shard-sword.png"; sourceTree = "<group>"; };
 		8475EFD31CAF481F00738297 /* sword-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sword-spin.png"; path = "icons/sword-spin.png"; sourceTree = "<group>"; };
+		84773DB92345754F00FE3106 /* map_M_arena.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_M_arena.txt; sourceTree = "<group>"; };
 		84885AEB1D7DEE720064AC61 /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map2.png; path = travel/map2.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
-		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; };
+		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; wrapsLines = 0; };
 		848F6EA91C861A32005B928E /* UITutorialPressOnMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITutorialPressOnMap.h; sourceTree = "<group>"; };
 		84935A2B1FA01B4A00474E1A /* GameSaver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameSaver.cpp; sourceTree = "<group>"; };
 		84935A2C1FA01B4A00474E1A /* GameSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameSaver.h; sourceTree = "<group>"; };
@@ -1344,6 +1363,15 @@
 		84B72D0D1C88FAC700660898 /* CampaignReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CampaignReader.cpp; sourceTree = "<group>"; };
 		84B72D0E1C88FAC700660898 /* CampaignReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampaignReader.h; sourceTree = "<group>"; };
 		84B72D111C8905F100660898 /* Victorian Gothic One.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Victorian Gothic One.ttf"; sourceTree = "<group>"; };
+		84D1AC7E23453C2D00C8A270 /* UIConsole.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UIConsole.cpp; sourceTree = "<group>"; };
+		84D1AC7F23453C2D00C8A270 /* UIConsole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIConsole.h; sourceTree = "<group>"; };
+		84D1AC832345524600C8A270 /* dog01 */ = {isa = PBXFileReference; lastKnownFileType = text; path = dog01; sourceTree = "<group>"; };
+		84D1AC862345531300C8A270 /* foot-trip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "foot-trip.png"; path = "icons/foot-trip.png"; sourceTree = "<group>"; };
+		84D1AC872345531300C8A270 /* half-body-crawling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "half-body-crawling.png"; path = "icons/half-body-crawling.png"; sourceTree = "<group>"; };
+		84D1AC882345531300C8A270 /* shark-jaws.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shark-jaws.png"; path = "icons/shark-jaws.png"; sourceTree = "<group>"; };
+		84D1AC892345531400C8A270 /* chicken-leg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chicken-leg.png"; path = "icons/chicken-leg.png"; sourceTree = "<group>"; };
+		84D1AC8A2345531400C8A270 /* croc-jaws.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "croc-jaws.png"; path = "icons/croc-jaws.png"; sourceTree = "<group>"; };
+		84D1AC8B2345531400C8A270 /* flaming-claw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "flaming-claw.png"; path = "icons/flaming-claw.png"; sourceTree = "<group>"; };
 		84D723161E8C66A300C1A675 /* mapT_M_prologue_triggers.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapT_M_prologue_triggers.txt; sourceTree = "<group>"; };
 		84D7231A1E8C7BF900C1A675 /* map_C_ship1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_C_ship1.txt; sourceTree = "<group>"; };
 		84D7231B1E8C7BF900C1A675 /* mapRule_ship1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mapRule_ship1.txt; sourceTree = "<group>"; };
@@ -1606,6 +1634,12 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				84D1AC892345531400C8A270 /* chicken-leg.png */,
+				84D1AC8A2345531400C8A270 /* croc-jaws.png */,
+				84D1AC8B2345531400C8A270 /* flaming-claw.png */,
+				84D1AC862345531300C8A270 /* foot-trip.png */,
+				84D1AC872345531300C8A270 /* half-body-crawling.png */,
+				84D1AC882345531300C8A270 /* shark-jaws.png */,
 				84D7234D1E8DC9C900C1A675 /* water-splash.png */,
 				84D7232C1E8D75D800C1A675 /* sacrificial-dagger.png */,
 				84D7232D1E8D75D800C1A675 /* sawed-off-shotgun.png */,
@@ -1796,6 +1830,8 @@
 				84B5526A1CB01B7F00ED0431 /* UIInformation.h */,
 				8400F65E2343EE4B00F89C9A /* UIGameMenu.cpp */,
 				8400F65F2343EE4B00F89C9A /* UIGameMenu.h */,
+				84D1AC7E23453C2D00C8A270 /* UIConsole.cpp */,
+				84D1AC7F23453C2D00C8A270 /* UIConsole.h */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -1836,6 +1872,7 @@
 				84B520BD1BFFC41D004A6CA0 /* hero02 */,
 				84B520BE1BFFC41D004A6CA0 /* hero03 */,
 				84D723261E8C92D500C1A675 /* hero05 */,
+				84D1AC832345524600C8A270 /* dog01 */,
 				84D7234A1E8DC7BD00C1A675 /* Wia */,
 				84B520BF1BFFC41D004A6CA0 /* keyPersons */,
 				84B520C01BFFC41D004A6CA0 /* MagicConsts */,
@@ -1971,6 +2008,7 @@
 		84B520F71BFFC41D004A6CA0 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				84773DB92345754F00FE3106 /* map_M_arena.txt */,
 				84D7233E1E8DC19500C1A675 /* map_C_ship2.txt */,
 				84D723501E8DCBF100C1A675 /* map_C_ship2_triggers.txt */,
 				84D7233F1E8DC19500C1A675 /* mapRule_ship2.txt */,
@@ -2387,6 +2425,7 @@
 				844535C51CA0B88200C523A1 /* roundButton_select.png in Resources */,
 				84B5219F1BFFC41E004A6CA0 /* automap in Resources */,
 				8475EFB41CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 in Resources */,
+				84D1AC922345531400C8A270 /* chicken-leg.png in Resources */,
 				84B522C11BFFC41E004A6CA0 /* 032-T_Ocean01.png in Resources */,
 				84F152791C95707E00B57942 /* map_M_intro.txt in Resources */,
 				84D723271E8C92D500C1A675 /* hero05 in Resources */,
@@ -2406,6 +2445,7 @@
 				84B522B11BFFC41E004A6CA0 /* 028-Sn_Water01.png in Resources */,
 				84D723451E8DC76100C1A675 /* 059-Aquatic01.png in Resources */,
 				84B522531BFFC41E004A6CA0 /* 005-Beach01.png in Resources */,
+				84D1AC942345531400C8A270 /* croc-jaws.png in Resources */,
 				84A07BFE1C98C50F001300B0 /* roundButton.png in Resources */,
 				84B522EB1BFFC41E004A6CA0 /* 043-Cave01.png in Resources */,
 				84B521E51BFFC41E004A6CA0 /* icon0_select.png in Resources */,
@@ -2514,6 +2554,7 @@
 				84B522F31BFFC41E004A6CA0 /* 045-Cave03.png in Resources */,
 				84B522C51BFFC41E004A6CA0 /* 033-Waterfall01.png in Resources */,
 				8475EFCA1CA89EE500738297 /* blade-fall.png in Resources */,
+				84D1AC8C2345531400C8A270 /* foot-trip.png in Resources */,
 				84B521D11BFFC41E004A6CA0 /* Ray.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
 				8475EF831CA4745500738297 /* map_L_frument.txt in Resources */,
@@ -2557,6 +2598,7 @@
 				84B521C71BFFC41E004A6CA0 /* Firewall.png in Resources */,
 				84B5232D1BFFC41E004A6CA0 /* 068-CI_Water01.png in Resources */,
 				84B522991BFFC41E004A6CA0 /* 022-SnowTown02.png in Resources */,
+				84D1AC902345531400C8A270 /* shark-jaws.png in Resources */,
 				84B522871BFFC41E004A6CA0 /* 018-MineTown02.png in Resources */,
 				8475EFBE1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */,
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
@@ -2613,6 +2655,7 @@
 				84B5227B1BFFC41E004A6CA0 /* 015-ForestTown01.png in Resources */,
 				84B523211BFFC41E004A6CA0 /* 062-CF_Lava01.png in Resources */,
 				84B5228F1BFFC41E004A6CA0 /* 020-DesertTown02.png in Resources */,
+				84D1AC962345531400C8A270 /* flaming-claw.png in Resources */,
 				84B523231BFFC41E004A6CA0 /* 063-CF_Shadow01.png in Resources */,
 				84B522F11BFFC41E004A6CA0 /* 044-Road01.png in Resources */,
 				84B522A11BFFC41E004A6CA0 /* 024-Ocean01.png in Resources */,
@@ -2676,6 +2719,7 @@
 				84B522E51BFFC41E004A6CA0 /* 041-Grass01.png in Resources */,
 				84B522DB1BFFC41E004A6CA0 /* 039-Tower01.png in Resources */,
 				84B5224F1BFFC41E004A6CA0 /* 004-Mountain01.png in Resources */,
+				84773DBB2345754F00FE3106 /* map_M_arena.txt in Resources */,
 				844535A41C9DDA3400C523A1 /* 124-Civilian24.png in Resources */,
 				84B522AD1BFFC41E004A6CA0 /* 027-Ocean04.png in Resources */,
 				84B521BD1BFFC41E004A6CA0 /* Tricks in Resources */,
@@ -2684,11 +2728,13 @@
 				84B5220B1BFFC41E004A6CA0 /* icon_thunderbolt.png in Resources */,
 				84B521EB1BFFC41E004A6CA0 /* icon1_none.png in Resources */,
 				84B522F71BFFC41E004A6CA0 /* 046-Cave04.png in Resources */,
+				84D1AC842345524600C8A270 /* dog01 in Resources */,
 				84B521A51BFFC41E004A6CA0 /* hero01 in Resources */,
 				84B522211BFFC41E004A6CA0 /* basewall.png in Resources */,
 				84B521D51BFFC41E004A6CA0 /* Melee3.png in Resources */,
 				84B522311BFFC41E004A6CA0 /* civil02.png in Resources */,
 				84B522431BFFC41E004A6CA0 /* 001_G_Water01.png in Resources */,
+				84D1AC8E2345531400C8A270 /* half-body-crawling.png in Resources */,
 				84F1529A1C962FF700B57942 /* natureEffects.png in Resources */,
 				84B522331BFFC41E004A6CA0 /* farmer01.png in Resources */,
 				84B522231BFFC41E004A6CA0 /* Logo.png in Resources */,
@@ -2734,6 +2780,7 @@
 				84B5230E1BFFC41E004A6CA0 /* 052-Carpet02.png in Resources */,
 				84B5220C1BFFC41E004A6CA0 /* icon_thunderbolt.png in Resources */,
 				84B521AE1BFFC41E004A6CA0 /* MagicConsts in Resources */,
+				84D1AC852345524600C8A270 /* dog01 in Resources */,
 				84B5220A1BFFC41E004A6CA0 /* icon_ray.png in Resources */,
 				84B521CE1BFFC41E004A6CA0 /* Lightning.png in Resources */,
 				8438F0081C8B5C3A00087593 /* map1.png in Resources */,
@@ -2824,6 +2871,7 @@
 				844535C41CA0B88200C523A1 /* roundButton_none.png in Resources */,
 				84B522081BFFC41E004A6CA0 /* icon_lighting.png in Resources */,
 				84B523401BFFC41E004A6CA0 /* 077-CW_Grass02.png in Resources */,
+				84D1AC8D2345531400C8A270 /* foot-trip.png in Resources */,
 				84B522C61BFFC41E004A6CA0 /* 033-Waterfall01.png in Resources */,
 				848F6EA71C86120C005B928E /* Washington.ttf in Resources */,
 				84B523461BFFC41E004A6CA0 /* 080-B_Ground01.png in Resources */,
@@ -2869,6 +2917,7 @@
 				84B521F81BFFC41E004A6CA0 /* icon3_select.png in Resources */,
 				84150FC31D762049007B1077 /* uipack_rpg_sheet.png in Resources */,
 				84B522561BFFC41E004A6CA0 /* 005-Grass_Road01.png in Resources */,
+				84D1AC912345531400C8A270 /* shark-jaws.png in Resources */,
 				843D4A2F1C0105F600835492 /* bowman.png in Resources */,
 				8475EFBF1CA8471D00738297 /* 672090_Ancient-Empires.mp3 in Resources */,
 				84D723461E8DC76100C1A675 /* 059-Aquatic01.png in Resources */,
@@ -2881,6 +2930,7 @@
 				84B5221A1BFFC41E004A6CA0 /* CloseNormal.png in Resources */,
 				84B522E21BFFC41E004A6CA0 /* 040-Tower02.png in Resources */,
 				84B5226C1BFFC41E004A6CA0 /* 011-G2_Ground02.png in Resources */,
+				84773DBC2345754F00FE3106 /* map_M_arena.txt in Resources */,
 				84B523381BFFC41E004A6CA0 /* 073-CI_Ground02.png in Resources */,
 				84B72CED1C88E4A600660898 /* camp1_d.png in Resources */,
 				84B522741BFFC41E004A6CA0 /* 013-G2_Swamp02.png in Resources */,
@@ -2893,6 +2943,7 @@
 				844535B71C9F667600C523A1 /* laserburn.png in Resources */,
 				84B521F41BFFC41E004A6CA0 /* icon3_disable.png in Resources */,
 				84B522121BFFC41E004A6CA0 /* mapRule_Grassland01.txt in Resources */,
+				84D1AC8F2345531400C8A270 /* half-body-crawling.png in Resources */,
 				84B521FA1BFFC41E004A6CA0 /* icon4.gif in Resources */,
 				84B522E61BFFC41E004A6CA0 /* 041-Grass01.png in Resources */,
 				84B523421BFFC41E004A6CA0 /* 078-CW_Ground01.png in Resources */,
@@ -2902,6 +2953,7 @@
 				84B521A41BFFC41E004A6CA0 /* Girl in Resources */,
 				84B522221BFFC41E004A6CA0 /* basewall.png in Resources */,
 				84D723291E8C95F100C1A675 /* hero05.png in Resources */,
+				84D1AC952345531400C8A270 /* croc-jaws.png in Resources */,
 				84B522CA1BFFC41E004A6CA0 /* 034-Waterfall02.png in Resources */,
 				84D723311E8D75D800C1A675 /* sawed-off-shotgun.png in Resources */,
 				8475EFD11CAF41C800738297 /* crosshair-arrow.png in Resources */,
@@ -2980,6 +3032,7 @@
 				84B72D131C8905F100660898 /* Victorian Gothic One.ttf in Resources */,
 				84885AED1D7DEE720064AC61 /* map2.png in Resources */,
 				84B522001BFFC41E004A6CA0 /* icon_fire.png in Resources */,
+				84D1AC972345531400C8A270 /* flaming-claw.png in Resources */,
 				8475EFB11CA8471D00738297 /* 489489_Lights-Justice.mp3 in Resources */,
 				84B522AC1BFFC41E004A6CA0 /* 027-Castle03.png in Resources */,
 				84B522E41BFFC41E004A6CA0 /* 041-EvilCastle01.png in Resources */,
@@ -3063,6 +3116,7 @@
 				84B522801BFFC41E004A6CA0 /* 016-ForestTown02.png in Resources */,
 				84B523481BFFC41E004A6CA0 /* 081-B_Ground02.png in Resources */,
 				84B522141BFFC41E004A6CA0 /* mapT_M_template.txt in Resources */,
+				84D1AC932345531400C8A270 /* chicken-leg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3092,6 +3146,7 @@
 				84B5207B1BFFC2C2004A6CA0 /* MapReader.cpp in Sources */,
 				84B520AF1BFFC2C2004A6CA0 /* UIMessage.cpp in Sources */,
 				84B520951BFFC2C2004A6CA0 /* StatusUpdater.cpp in Sources */,
+				84D1AC8023453C2D00C8A270 /* UIConsole.cpp in Sources */,
 				84B520931BFFC2C2004A6CA0 /* Map.cpp in Sources */,
 				8400F6602343EE4B00F89C9A /* UIGameMenu.cpp in Sources */,
 				84F152901C9626EF00B57942 /* AnimatedObject.cpp in Sources */,
@@ -3143,6 +3198,7 @@
 				843D49EF1C00CECD00835492 /* UIIcon.cpp in Sources */,
 				84B552681CAFF88F00ED0431 /* InventoryItem.cpp in Sources */,
 				84F152911C9626EF00B57942 /* AnimatedObject.cpp in Sources */,
+				84D1AC8123453C2D00C8A270 /* UIConsole.cpp in Sources */,
 				84B520B01BFFC2C2004A6CA0 /* UIMessage.cpp in Sources */,
 				84B520881BFFC2C2004A6CA0 /* Animated.cpp in Sources */,
 				84B520801BFFC2C2004A6CA0 /* SquareControl.cpp in Sources */,

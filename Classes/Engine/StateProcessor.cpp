@@ -10,15 +10,21 @@
 
 namespace MagicWars_NS
 {
-    void processTurnStart(Magican* io_magican)
+    void Magican::processTurnStart()
     {
+        d_speed = d_speedMax;
         StateEffect effect;
-        for(auto& i : io_magican->d_states)
+        for(auto& i : d_states)
         {
             if(i.first == "state_burn")
             {
                 effect.anyEffect = true;
                 effect.dammage += i.second * 4;
+            }
+            if(i.first == "state_lame")
+            {
+                effect.anyEffect = true;
+                d_speed = d_speedMax / 2;
             }
         }
         
@@ -26,13 +32,21 @@ namespace MagicWars_NS
             return;
         
         if(effect.dammage > 0)
-            io_magican->decreaseHealth(effect.dammage);
+            decreaseHealth(effect.dammage);
+    }
+
+    void Magican::processImmediately(const std::string& i_state)
+    {
+        if(i_state == "state_lame")
+        {
+            d_speed = d_speedMax / 2;
+        }
     }
     
-    void processMove(Magican* io_magican)
+    void Magican::processMove()
     {
         StateEffect effect;
-        for(auto& i : io_magican->d_states)
+        for(auto& i : d_states)
         {
             
         }

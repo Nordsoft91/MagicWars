@@ -1,6 +1,6 @@
 <group> Flared
 {
-terrainTypes = { ocean watergrass groundgrass ground2grass grass2grass stone2stone lavastone stone3stone lstonestone wall02floor }
+terrainTypes = { ocean watergrass groundgrass ground2grass grass2grass stone2stone lavastone stone3stone lstonestone wall02floor watersnow }
 terrainOutputLayer = layerTerrain
 terrainInputTileset = tsSurfaces.png
 }
@@ -9,6 +9,12 @@ terrainInputTileset = tsSurfaces.png
 {
 outputLayers = { layerSolid }
 indexes = { { tsSurfaces.png 128 192 64 64 } { Solid.png 0 0 64 64 } }
+}
+
+<group> rule_snow_center
+{
+outputLayers = { layerTerrain }
+indexes = { { tsSurfaces.png 0 64 64 64 } { 029-Sn_Shadow01.png 64 0 64 64 } }
 }
 
 <group> rule_grass_center
@@ -34,6 +40,15 @@ indexes = { { tsSurfaces.png 128 256 64 64 } { 054-Wall02.png 64 0 64 64 } }
 from = { 0 0 64 64 }
 to = { 192 0 64 64 }
 file = 001_G_Water01.png
+animation_frames = 4
+animation_shift = 192
+}
+
+<group> flared_watersnow
+{
+from = { 0 64 64 64 }
+to = { 192 0 64 64 }
+file = 028-Sn_Water01.png
 animation_frames = 4
 animation_shift = 192
 }

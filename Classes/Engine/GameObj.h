@@ -54,7 +54,7 @@ namespace MagicWars_NS {
         const std::vector<InventoryItem>& getInventoryItems() const;
         bool isInventoryItemExists(const std::string& i_name, size_t i_count = 1);
         
-        size_t x,y;
+        int x,y;
         
     protected:
         cocos2d::Sprite *d_sprite = nullptr;

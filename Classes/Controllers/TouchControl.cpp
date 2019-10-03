@@ -109,19 +109,44 @@ void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::
         force = processAction(tgrt, type, force, i_owner);
         
         tgrt->showStatus(false);
-        if(type=="DAMMAGE")
+        std::vector<const std::string> combination;
+        if(type=="COMBINATION")
+            combination = Consts::get("types", i_spell).toVector<const std::string>();
+        else
+            combination.push_back(type);
+        
+        for(auto& t : combination)
         {
-            
-            tgrt->decreaseHealth(force);
-            if(i_owner)
-                i_owner->increaseExperience(force);
-        }
-        if(type=="BLESS")
-        {
-            if(std::string(Consts::get("bressType", i_spell))=="HEAL")
-                tgrt->increaseHealth(force);
-            if(std::string(Consts::get("bressType", i_spell))=="STATE")
-                tgrt->setState(Consts::get("state", i_spell), force);
+            if(t=="DAMMAGE")
+            {
+                tgrt->decreaseHealth(force);
+                if(i_owner)
+                    i_owner->increaseExperience(force);
+            }
+            if(t=="BLESS")
+            {
+                if(std::string(Consts::get("blessType", i_spell))=="HEAL")
+                    tgrt->increaseHealth(force);
+                if(std::string(Consts::get("blessType", i_spell))=="STATE")
+                    tgrt->setState(Consts::get("state", i_spell), static_cast<int>(Consts::get("duration", i_spell)));
+            }
+            if(t=="CURSE")
+            {
+                if(std::string(Consts::get("curseType", i_spell))=="STATE")
+                    tgrt->setState(Consts::get("state", i_spell), static_cast<int>(Consts::get("duration", i_spell)));
+            }
+            if(t=="TELEPORTATION")
+            {
+                int signx = tgrt->x - i_owner->x;
+                int signy = tgrt->y - i_owner->y;
+                if(signx) signx /= abs(signx);
+                if(signy) signy /= abs(signy);
+                
+                if(std::string(Consts::get("teleport_type", i_spell))=="SOURCE_TO_TARGET")
+                    i_owner->jump(x-signx, y-signy);
+                if(std::string(Consts::get("teleport_type", i_spell))=="TARGET_TO_SOURCE")
+                    tgrt->jump(i_owner->x+signx, i_owner->y+signy);
+            }
         }
     }
     
@@ -192,8 +217,13 @@ void TouchControl::spellAction(const std::string& i_spell)
         std::string spellType = Consts::get("type", i_spell);
         std::string color = "red";
         bool forme = false;
+        if(spellType=="COMBINATION")
+        {
+            spellType = Consts::get("types", i_spell).toVector<std::string>().at(0);
+        }
         if(spellType=="DAMMAGE") color = "red";
         if(spellType=="BLESS") { color = "green"; forme=true; }
+        
         
         
         SquareControl::instance().deleteSquares();
@@ -244,7 +274,7 @@ void TouchControl::tapAction(const cocos2d::Vec2& i_touch)
         if( std::find(d_allowedCells.begin(), d_allowedCells.end(), std::pair<size_t,size_t>{tapLastCellX, tapLastCellY}) == d_allowedCells.end() )
             return;
     }
-    if(isInterfaceAvailable())
+    if(isInterfaceAvailable() || !Blocker::stateIgnore(Pause::Tutorial))
     {
         Blocker::release(Pause::Map);
         pressAction(tapLastCellX, tapLastCellY);
@@ -423,6 +453,8 @@ void TouchControl::initialize(cocos2d::Scene* i_scene, const CampaignReader::Mis
 	RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "grass");
 	RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "stone");
     RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "floor");
+    RULE_MAKER_TERRAIN_CENTER_REGISTER(automap, "snow");
+
 
 	automap.registerRule(ruleMakerSimpleChange.makeRuleFromConsts("rule_lava_solid"));
 

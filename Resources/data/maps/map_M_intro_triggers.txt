@@ -42,7 +42,7 @@ Event Dialog Friend
 Брайв, тихо! Там кто-то есть, будь осторожен, это могут быть волки.
 }
 Event Move Braves 2 0
-Event BornWithControl dog01 Light Dog REL Braves 10 0
+Event BornWithControl dog01_level01 Light Dog REL Braves 10 0
 Event Move Dog -6 0
 Event Dialog Braves
 {

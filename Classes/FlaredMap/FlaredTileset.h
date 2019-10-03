@@ -16,6 +16,7 @@
 
 namespace Flared_NS {
     
+//class to work with specific tileset
     class Tileset
     {
     public:

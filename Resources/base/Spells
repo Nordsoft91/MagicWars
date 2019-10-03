@@ -47,7 +47,7 @@ wisdom = 1
 <group> spell_shield
 {
 type = BLESS
-bressType = STATE
+blessType = STATE
 state = state_shield
 radius = 1
 gridType = SQUAD
@@ -55,7 +55,8 @@ coverType = POINT
 effectType = APPEAR
 sprite = ArmorBoost.png
 sprite_size = 20
-force = 3
+force = 0
+duration = 3;
 mind = 24
 wisdom = 9
 }
@@ -141,7 +142,7 @@ wisdom = 16
 <group> spell_healing
 {
 type = BLESS
-bressType = HEAL
+blessType = HEAL
 icon = icon_healing.png
 radius = 1
 gridType = SQUAD
@@ -157,7 +158,7 @@ wisdom = 6
 <group> spell_farhealing
 {
 type = BLESS
-bressType = HEAL
+blessType = HEAL
 icon = icon_healing.png
 radius = 3
 gridType = SQUAD

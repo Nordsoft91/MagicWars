@@ -24,6 +24,11 @@ trick_strongAttack = { croc-sword.png 160 40 100 }
 trick_blade = { blade-fall.png 120 150 130 }
 trick_spinsword = { sword-spin.png 200 150 240 }
 trick_shardsword = { shard-sword.png 90 200 10 }
+trick_legbite = { chicken-leg.png 140 70 15 }
+trick_crossbite = { croc-jaws.png 110 110 110 }
+trick_flameclaw = { flaming-claw.png 250 40 90 }
+trick_bodyclawling = { half-body-crawling.png 20 100 25 }
+
 
 weapon_dagger = { plain-dagger.png 0 0 0 }
 weapon_staff = { wizard-staff.png 0 0 0 }
@@ -33,6 +38,8 @@ weapon_piratedagger = { sacrificial-dagger.png 0 0 40 }
 
 state_burn = { fire-silhouette.png 250 40 30 }
 state_shield = { checked-shield.png 60 10 200 }
+state_lame = { foot-trip.png 0 0 70 }
+
 
 item_healthPotion = { magic-potion.png 25 0 90 }
 item_shotgun = { sawed-off-shotgun.png 100 20 40 }

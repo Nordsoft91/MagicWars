@@ -1,0 +1,46 @@
+<group> dog01_level01
+{
+spriteType = ANIMATED
+spriteName = stub.png
+animationName = dog01.png
+animationParams = quadAnimation4x80
+health = 105
+concentrate = 2
+mind = 10
+wisdom = 1
+speed = 3
+expirience = 100
+weapon = weapon_jawbone
+trickSkills = { }
+spellBook = { }
+promotionGroup = dog01_level02
+}
+
+<group> dog01_level02 <override> dog01_level01
+{
+health = 150
+mind = 15
+speed = 3
+expirience = 310
+trickSkills = { trick_legbite }
+promotionGroup = dog01_level03
+}
+
+<group> dog01_level03 <override> dog01_level02
+{
+health = 210
+mind = 20
+speed = 4
+trickSkills = { trick_legbite trick_crossbite trick_flameclaw }
+expirience = 950
+promotionGroup = dog01_level04
+}
+
+<group> dog01_level04 <override> dog01_level03
+{
+health = 290
+mind = 30
+speed = 4
+trickSkills = { trick_legbite trick_crossbite trick_flameclaw trick_bodyclawling }
+expirience = 10000
+}

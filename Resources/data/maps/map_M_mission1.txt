@@ -11,7 +11,7 @@ tileset=../tiles/vx_map02/001_Grassland01.png,64,64,0,0
 
 [characters]
 character=Light,hero01_level01,2,12,Braves
-character=Light,dog01,1,12,Dog
+character=Light,dog01_level01,1,12,Dog
 character=Neutral,hero02_level01,19,6,Erson
 character=Dark,wolf01,16,12,Wolf1
 character=Dark,wolf01,7,20,Wolf2

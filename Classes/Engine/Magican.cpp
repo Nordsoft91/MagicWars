@@ -22,7 +22,7 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
     d_concentrate = Consts::get("concentrate", i_group);
     d_mind = Consts::get("mind", i_group);
     d_wisdom = Consts::get("wisdom", i_group);
-    d_speed = Consts::get("speed", i_group);
+    d_speedMax = Consts::get("speed", i_group);
     d_nextLevel = Consts::get("expirience", i_group);
     
     for( auto& i : Consts::get("spellBook", i_group).toVector<std::string>() )
@@ -35,6 +35,7 @@ Magican::Magican(const std::string i_group): d_group(i_group), GameObj()
     
     d_health = d_healthMax;
     d_mana = d_mind;
+    d_speed = d_speedMax;
     
     if(d_sprite && d_highSprite)
     {
@@ -79,7 +80,7 @@ void Magican::metamorph(const std::string i_group)
     d_concentrate = Consts::get("concentrate", i_group);
     d_mind = Consts::get("mind", i_group);
     d_wisdom = Consts::get("wisdom", i_group);
-    d_speed = Consts::get("speed", i_group);
+    d_speedMax = Consts::get("speed", i_group);
     d_nextLevel += (int)Consts::get("expirience", i_group);
     
     d_spells.clear();
@@ -95,6 +96,7 @@ void Magican::metamorph(const std::string i_group)
     //fix parameters
     increaseHealth(d_healthMax - currHealth);
     increaseMind(d_mind - currMind);
+    d_speed = d_speedMax;
     
 	//setSprite(RES("persons", (std::string)Consts::get("spriteName", i_group)));
     
@@ -198,6 +200,12 @@ int Magican::getExperience() const
     return d_expirience;
 }
 
+int Magican::getExperienceForNextLevel() const
+{
+    return d_nextLevel;
+}
+
+
 float Magican::getPercentMind() const
 {
     return float(d_mana) / float(d_mind);
@@ -267,11 +275,12 @@ void Magican::setState(const std::string &i_state, int i_turns, bool isAdditive)
         }
     }
     d_states.push_back({i_state, i_turns});
+    processImmediately(i_state);
 }
 
 void Magican::onEndOfMove(size_t ix, size_t iy)
 {
-    processMove(this);
+    processMove();
     
     GameObj::onEndOfMove(ix, iy);
     if( auto collide = dynamic_cast<ObjectFire*>(ContainUtils::findObject(GET_OBJECTS_LIST, ix, iy)) )
@@ -286,7 +295,7 @@ void Magican::onStartNewTurn()
         if(t.second)
             --t.second;
     
-    processTurnStart(this);
+    processTurnStart();
     
     for( auto it = d_states.begin(); it!=d_states.end();)
     {

@@ -40,6 +40,8 @@ namespace MagicWars_NS
         int getExperience() const;
         float getPercentMind() const;
         float getPercentHealth() const;
+        int getExperienceForNextLevel() const;
+        
         
         bool isHaveSpell(const std::string& i_spell) const;
         bool isHaveTrick(const std::string& i_trick) const;
@@ -58,6 +60,11 @@ namespace MagicWars_NS
         
         void setState(const std::string& i_state, int i_turns, bool isAdditive = false);
         
+        //StateProcessor.cpp
+        void processTurnStart();
+        void processMove();
+        void processImmediately(const std::string& i_state);
+        
         std::vector<std::string> d_spells;
         std::map<std::string, int> d_tricks;
         std::vector<std::pair<std::string, int>> d_states;
@@ -75,6 +82,7 @@ namespace MagicWars_NS
         int d_concentrate = 0;
         int d_wisdom = 0;
         int d_speed = 0;
+        int d_speedMax = 0;
         int d_expirience = 0;
         int d_nextLevel = 0;
         

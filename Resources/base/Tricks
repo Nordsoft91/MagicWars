@@ -136,3 +136,69 @@ sprite_fly_size = 10
 force = 64
 recover = 4
 }
+
+<group> trick_legbite
+{
+type = COMBINATION
+types = { DAMMAGE CURSE }
+curseType = STATE
+state = state_lame
+duration = 2
+radius = 1
+gridType = CROSS
+coverType = POINT
+effectType = APPEAR
+sprite = Melee1.png
+sprite_size = 10
+force = 24
+recover = 2
+}
+
+<group> trick_crossbite
+{
+type = COMBINATION
+types = { DAMMAGE TELEPORTATION }
+teleport_type = SOURCE_TO_TARGET
+radius = 3
+minRadius = 2
+gridType = STAR
+coverType = POINT
+effectType = APPEAR
+sprite_fly = Melee1.png
+sprite_fly_size = 10
+force = 55
+recover = 3
+}
+
+<group> trick_flameclaw
+{
+type = COMBINATION
+types = { DAMMAGE CURSE }
+curseType = STATE
+state = state_burn
+duration = 2
+radius = 1
+gridType = SQUAD
+coverType = POINT
+effectType = APPEAR
+sprite_fly = Melee1.png
+sprite_fly_size = 10
+force = 40
+mind = 12
+}
+
+<group> trick_bodyclawling
+{
+type = COMBINATION
+types = { DAMMAGE TELEPORTATION }
+teleport_type = TARGET_TO_SOURCE
+radius = 2
+minRadius = 2
+gridType = STAR
+coverType = POINT
+effectType = APPEAR
+sprite_fly = Melee1.png
+sprite_fly_size = 10
+force = 98
+recover = 4
+}

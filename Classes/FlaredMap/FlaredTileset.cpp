@@ -24,6 +24,7 @@ Flared_NS::Tileset::Tileset( const std::string& i_path, size_t i_tW, size_t i_tH
 {
     d_name = parsePath(d_path);
     auto s = cocos2d::Sprite::create(RES("tiles",d_name));
+
     
     d_countX = s->getContentSize().width / i_tW;
     d_countY = s->getContentSize().height / i_tH;

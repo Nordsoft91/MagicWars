@@ -27,6 +27,7 @@ namespace Flared_NS {
         std::vector<T> data;
     };
     
+//reads flared file structure and fills the Map structure with objects and characters
     class Parser
     {
     private:
