@@ -206,6 +206,12 @@
 		8475EFD71CAF481F00738297 /* sword-spin.png in Resources */ = {isa = PBXBuildFile; fileRef = 8475EFD31CAF481F00738297 /* sword-spin.png */; };
 		84773DBB2345754F00FE3106 /* map_M_arena.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84773DB92345754F00FE3106 /* map_M_arena.txt */; };
 		84773DBC2345754F00FE3106 /* map_M_arena.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84773DB92345754F00FE3106 /* map_M_arena.txt */; };
+		84773DBE2345863B00FE3106 /* pentagram-rose.png in Resources */ = {isa = PBXBuildFile; fileRef = 84773DBD2345863B00FE3106 /* pentagram-rose.png */; };
+		84773DBF2345863B00FE3106 /* pentagram-rose.png in Resources */ = {isa = PBXBuildFile; fileRef = 84773DBD2345863B00FE3106 /* pentagram-rose.png */; };
+		84773DC12345864800FE3106 /* Pentagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 84773DC02345864800FE3106 /* Pentagram.png */; };
+		84773DC22345864800FE3106 /* Pentagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 84773DC02345864800FE3106 /* Pentagram.png */; };
+		84773DC6234695E800FE3106 /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84773DC4234695E800FE3106 /* Projectile.cpp */; };
+		84773DC7234695E800FE3106 /* Projectile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84773DC4234695E800FE3106 /* Projectile.cpp */; };
 		84885AEC1D7DEE720064AC61 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84885AEB1D7DEE720064AC61 /* map2.png */; };
 		84885AED1D7DEE720064AC61 /* map2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84885AEB1D7DEE720064AC61 /* map2.png */; };
 		848F6EA61C86120C005B928E /* Washington.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848F6EA51C86120C005B928E /* Washington.ttf */; };
@@ -1029,6 +1035,10 @@
 		8475EFD21CAF481F00738297 /* shard-sword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shard-sword.png"; path = "icons/shard-sword.png"; sourceTree = "<group>"; };
 		8475EFD31CAF481F00738297 /* sword-spin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sword-spin.png"; path = "icons/sword-spin.png"; sourceTree = "<group>"; };
 		84773DB92345754F00FE3106 /* map_M_arena.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_M_arena.txt; sourceTree = "<group>"; };
+		84773DBD2345863B00FE3106 /* pentagram-rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pentagram-rose.png"; path = "icons/pentagram-rose.png"; sourceTree = "<group>"; };
+		84773DC02345864800FE3106 /* Pentagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pentagram.png; sourceTree = "<group>"; };
+		84773DC4234695E800FE3106 /* Projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projectile.cpp; sourceTree = "<group>"; wrapsLines = 1; };
+		84773DC5234695E800FE3106 /* Projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		84885AEB1D7DEE720064AC61 /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map2.png; path = travel/map2.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
 		848F6EA81C861A32005B928E /* UITutorialPressOnMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UITutorialPressOnMap.cpp; sourceTree = "<group>"; wrapsLines = 0; };
@@ -1073,11 +1083,11 @@
 		84B5202C1BFFC2C1004A6CA0 /* SquareControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareControl.h; sourceTree = "<group>"; };
 		84B5202D1BFFC2C1004A6CA0 /* TeamRelationships.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TeamRelationships.cpp; sourceTree = "<group>"; };
 		84B5202E1BFFC2C1004A6CA0 /* TeamRelationships.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamRelationships.h; sourceTree = "<group>"; };
-		84B5202F1BFFC2C1004A6CA0 /* TouchControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchControl.cpp; sourceTree = "<group>"; };
+		84B5202F1BFFC2C1004A6CA0 /* TouchControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchControl.cpp; sourceTree = "<group>"; wrapsLines = 0; };
 		84B520301BFFC2C2004A6CA0 /* TouchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchControl.h; sourceTree = "<group>"; };
 		84B520311BFFC2C2004A6CA0 /* TurnController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TurnController.cpp; sourceTree = "<group>"; };
 		84B520321BFFC2C2004A6CA0 /* TurnController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TurnController.h; sourceTree = "<group>"; };
-		84B520341BFFC2C2004A6CA0 /* Animated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animated.cpp; sourceTree = "<group>"; };
+		84B520341BFFC2C2004A6CA0 /* Animated.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animated.cpp; sourceTree = "<group>"; wrapsLines = 0; };
 		84B520351BFFC2C2004A6CA0 /* Animated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animated.h; sourceTree = "<group>"; };
 		84B520361BFFC2C2004A6CA0 /* BaseWall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWall.h; sourceTree = "<group>"; };
 		84B520371BFFC2C2004A6CA0 /* Blocker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blocker.h; sourceTree = "<group>"; };
@@ -1634,6 +1644,7 @@
 		843D4A141C00D2AA00835492 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				84773DBD2345863B00FE3106 /* pentagram-rose.png */,
 				84D1AC892345531400C8A270 /* chicken-leg.png */,
 				84D1AC8A2345531400C8A270 /* croc-jaws.png */,
 				84D1AC8B2345531400C8A270 /* flaming-claw.png */,
@@ -1775,6 +1786,8 @@
 				84B552661CAFF88F00ED0431 /* InventoryItem.h */,
 				8406890A1E8A8D54004A26C2 /* StateProcessor.cpp */,
 				8406890B1E8A8D54004A26C2 /* StateProcessor.h */,
+				84773DC4234695E800FE3106 /* Projectile.cpp */,
+				84773DC5234695E800FE3106 /* Projectile.h */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -1916,6 +1929,7 @@
 		84B520CA1BFFC41D004A6CA0 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				84773DC02345864800FE3106 /* Pentagram.png */,
 				84D723381E8DB2A000C1A675 /* WaterSplash.png */,
 				84D723321E8D7AAA00C1A675 /* Shotgun.png */,
 				84A07BF41C98C014001300B0 /* ArmorBoost.png */,
@@ -2427,6 +2441,7 @@
 				8475EFB41CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 in Resources */,
 				84D1AC922345531400C8A270 /* chicken-leg.png in Resources */,
 				84B522C11BFFC41E004A6CA0 /* 032-T_Ocean01.png in Resources */,
+				84773DC12345864800FE3106 /* Pentagram.png in Resources */,
 				84F152791C95707E00B57942 /* map_M_intro.txt in Resources */,
 				84D723271E8C92D500C1A675 /* hero05 in Resources */,
 				84B5229D1BFFC41E004A6CA0 /* 023-Sa_Undulation01.png in Resources */,
@@ -2695,6 +2710,7 @@
 				84150FC21D762049007B1077 /* uipack_rpg_sheet.png in Resources */,
 				84B521F51BFFC41E004A6CA0 /* icon3_none.png in Resources */,
 				844535B31C9EBD6000C523A1 /* 050-Soldier02.png in Resources */,
+				84773DBE2345863B00FE3106 /* pentagram-rose.png in Resources */,
 				8475EFB61CA8471D00738297 /* 600122_Over-the-Rooftops.mp3 in Resources */,
 				8445359E1C9DDA3400C523A1 /* 108-Civilian08.png in Resources */,
 				84B523131BFFC41E004A6CA0 /* 055-Wall03.png in Resources */,
@@ -2938,6 +2954,7 @@
 				84F152971C962E0700B57942 /* Blaze.png in Resources */,
 				84B522021BFFC41E004A6CA0 /* icon_firewall.png in Resources */,
 				8475EFB91CA8471D00738297 /* 602072_Castle-Theme-1.mp3 in Resources */,
+				84773DC22345864800FE3106 /* Pentagram.png in Resources */,
 				84B522A41BFFC41E004A6CA0 /* 025-Castle01.png in Resources */,
 				844535C21CA0B88200C523A1 /* roundButton_disable.png in Resources */,
 				844535B71C9F667600C523A1 /* laserburn.png in Resources */,
@@ -2975,6 +2992,7 @@
 				84B522441BFFC41E004A6CA0 /* 001_G_Water01.png in Resources */,
 				84B5231C1BFFC41E004A6CA0 /* 059-CE_Ground02.png in Resources */,
 				84B72CF51C88E4A600660898 /* camp3_d.png in Resources */,
+				84773DBF2345863B00FE3106 /* pentagram-rose.png in Resources */,
 				84B522821BFFC41E004A6CA0 /* 016-Sa_Shadow01.png in Resources */,
 				84B522881BFFC41E004A6CA0 /* 018-MineTown02.png in Resources */,
 				84B522681BFFC41E004A6CA0 /* 010-CastleTown02.png in Resources */,
@@ -3167,6 +3185,7 @@
 				84B5206D1BFFC2C2004A6CA0 /* AIController.cpp in Sources */,
 				84B520811BFFC2C2004A6CA0 /* TeamRelationships.cpp in Sources */,
 				84B520AD1BFFC2C2004A6CA0 /* UIEvent.cpp in Sources */,
+				84773DC6234695E800FE3106 /* Projectile.cpp in Sources */,
 				8497C9E01C1DBE6F005C334C /* UITriggerReader.cpp in Sources */,
 				8497C9E41C1DBE93005C334C /* StringUtils.cpp in Sources */,
 				84B520B51BFFC2C2004A6CA0 /* MenuScene.cpp in Sources */,
@@ -3239,6 +3258,7 @@
 				84B520841BFFC2C2004A6CA0 /* TouchControl.cpp in Sources */,
 				84B5208E1BFFC2C2004A6CA0 /* Effect.cpp in Sources */,
 				84B520A21BFFC2C2004A6CA0 /* FlaredMap.cpp in Sources */,
+				84773DC7234695E800FE3106 /* Projectile.cpp in Sources */,
 				84B520B41BFFC2C2004A6CA0 /* UITrigger.cpp in Sources */,
 				84B5526C1CB01B7F00ED0431 /* UIInformation.cpp in Sources */,
 				8406890D1E8A8D54004A26C2 /* StateProcessor.cpp in Sources */,

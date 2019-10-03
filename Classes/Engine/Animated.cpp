@@ -25,7 +25,7 @@ Animated::Animated(const std::string i_spr, int i_w, int i_h, int i_sizex, int i
     }
     d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, 1);
     
-    ignoreAnchorPointForPosition(true);
+    setIgnoreAnchorPointForPosition(true);
 }
 
 Animated::Animated(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, const std::vector<int>& i_seq)
@@ -37,7 +37,7 @@ Animated::Animated(const std::string i_spr, int i_w, int i_h, int i_sizex, int i
     }
     d_animation = cocos2d::Animation::createWithSpriteFrames(frames, 0.1, 1);
     
-    ignoreAnchorPointForPosition(true);
+    setIgnoreAnchorPointForPosition(true);
 }
 
 Animated::~Animated()
@@ -97,16 +97,25 @@ bool Animated::init(bool i_forever)
     if(!cocos2d::Sprite::init())
         return false;
     
+
+    auto seq = cocos2d::Sequence::create(cocos2d::Animate::create(d_animation), cocos2d::CallFunc::create(std::bind(&Animated::throwEvent, this)), NULL);
     if(i_forever)
-        runAction(cocos2d::RepeatForever::create(cocos2d::Animate::create(d_animation)));
+        runAction(cocos2d::RepeatForever::create(seq));
     else
-        runAction(cocos2d::Animate::create(d_animation));
+        runAction(seq);
     
-    scheduleUpdateWithPriority(10);
+    //scheduleUpdateWithPriority(10);
     return true;
 }
 
 void Animated::update(float delta)
 {
      //   runAction(cocos2d::Animate::create(d_animation));
+}
+
+void Animated::throwEvent()
+{
+    cocos2d::EventCustom event("Animation end");
+    event.setUserData(this);
+    cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(&event);
 }

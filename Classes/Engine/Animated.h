@@ -23,7 +23,6 @@ namespace MagicWars_NS {
         static Animated* create(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count, bool i_forever = false);
         static Animated* create(const std::string i_spr, std::string i_group, int i_start, int i_count, bool i_forever = false);
         static Animated* create(const std::string i_spr, std::string i_group, const std::vector<int>& i_seq, bool i_forever = false);
-
         
         virtual void update(float delta) override;
         
@@ -32,6 +31,8 @@ namespace MagicWars_NS {
         Animated(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, const std::vector<int>& i_seq);
         
         virtual bool init(bool i_forever);
+        
+        void throwEvent();
         
         cocos2d::Animation *d_animation = nullptr;
     };

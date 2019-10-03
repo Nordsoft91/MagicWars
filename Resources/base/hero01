@@ -48,5 +48,5 @@ mind = 84
 wisdom = 35
 speed = 3
 expirience = 1550
-spellBook = { spell_fireball spell_lighting spell_ray spell_shield spell_thunderbolt spell_icicles spell_firewall }
+spellBook = { spell_fireball spell_lighting spell_ray spell_shield spell_thunderbolt spell_icicles spell_firewall spell_pentagram }
 }

@@ -170,3 +170,19 @@ force = 50
 mind = 33
 wisdom = 6
 }
+
+<group> spell_pentagram
+{
+type = DAMMAGE
+radius = 9
+minRadius = 3
+gridType = SQUAD
+coverType = STAR
+coverRadius = 3
+effectType = APPEAR
+sprite = Pentagram.png
+sprite_size = 20
+force = 200
+mind = 80
+wisdom = 44
+}
