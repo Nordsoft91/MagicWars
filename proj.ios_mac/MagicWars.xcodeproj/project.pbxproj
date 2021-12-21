@@ -1437,6 +1437,7 @@
 		84FB020323498F620091F018 /* fireball_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireball_idle.png; sourceTree = "<group>"; };
 		84FB020423498F620091F018 /* fireball_end.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fireball_end.plist; sourceTree = "<group>"; };
 		84FB020523498F620091F018 /* fireball_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireball_end.png; sourceTree = "<group>"; };
+		84FDEF13277288EF007B1D4F /* SimpleAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleAudioEngine.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1882,6 +1883,7 @@
 		84B5206B1BFFC2C2004A6CA0 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				84FDEF13277288EF007B1D4F /* SimpleAudioEngine.h */,
 				8497C9E21C1DBE93005C334C /* StringUtils.cpp */,
 				8497C9E31C1DBE93005C334C /* StringUtils.h */,
 				84B5206C1BFFC2C2004A6CA0 /* Uncopyble.h */,
