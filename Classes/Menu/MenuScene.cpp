@@ -17,7 +17,7 @@
 
 #define SANDBOX
 //#define RESET_GAMEPLAY
-#define ALL_AVAILABLE
+//#define ALL_AVAILABLE
 
 namespace Menu_NS {
     MainMenu* MainMenu::create()
