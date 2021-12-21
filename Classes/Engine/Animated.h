@@ -20,15 +20,20 @@ namespace MagicWars_NS {
         
         virtual ~Animated();
         
-        static Animated* create(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count, bool i_forever = false);
-        static Animated* create(const std::string i_spr, std::string i_group, int i_start, int i_count, bool i_forever = false);
-        static Animated* create(const std::string i_spr, std::string i_group, const std::vector<int>& i_seq, bool i_forever = false);
+        static Animated* create(const std::string& i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count, bool i_forever = false);
+        static Animated* create(const std::string& i_spr, const std::string& i_group, bool i_forever = false);
+        static Animated* create(const std::string& i_spr, const std::string& i_group, int i_start, int i_count, bool i_forever = false);
+        static Animated* create(const std::string& i_spr, const std::string& i_group, const std::vector<int>& i_seq, bool i_forever = false);
+        static Animated* create(const std::string& i_spr, bool i_forever = false);
+
         
         virtual void update(float delta) override;
         
     protected:
-        Animated(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count);
-        Animated(const std::string i_spr, int i_w, int i_h, int i_sizex, int i_sizey, const std::vector<int>& i_seq);
+        Animated(const std::string& i_spr, int i_w, int i_h, int i_sizex, int i_sizey, int i_start, int i_count);
+        Animated(const std::string& i_spr, int i_w, int i_h, int i_sizex, int i_sizey, const std::vector<int>& i_seq);
+        Animated(const std::string& i_plist);
+        
         
         virtual bool init(bool i_forever);
         

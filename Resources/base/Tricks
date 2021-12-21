@@ -4,11 +4,9 @@ type = DAMMAGE
 radius = 1
 gridType = SQUAD
 coverType = POINT
-effectType = APPEAR
-sprite = Melee1.png
-sprite_size = 10
 force = 14
 recover = 0
+projectile = projectileSlash
 }
 
 <group> trick_strongAttack

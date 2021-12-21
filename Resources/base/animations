@@ -47,3 +47,11 @@ sequence = { 1 13 25 }
 {
 sequence = { 25 13 1 }
 }
+
+<group> quadAnimation6x2
+{
+frameWidth = 192
+frameHeight = 192
+sizeX = 6
+sizeY = 2
+}

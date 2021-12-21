@@ -11,7 +11,7 @@
     speed = 2
     expirience = 150
     weapon = weapon_staff
-    spellBook = { spell_fireball spell_lighting }
+    spellBook = { spell_fireball spell_lighting spell_pentagram }
     trickSkills = { }
     promotionGroup = hero01_level02
 }

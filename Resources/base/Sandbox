@@ -8,5 +8,6 @@ maps = { { mapT_S_tutorial01.txt mapT_S_tutorial01_triggers.txt mapRule_Grasslan
  { map_C_ship2.txt map_C_ship2_triggers.txt mapRule_ship2.txt }
  { map_M_arena.txt map_sandbox_triggers.txt mapRule_Cave02.txt }
 
+
 }
 }

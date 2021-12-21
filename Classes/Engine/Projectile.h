@@ -43,6 +43,8 @@ protected:
     std::function<void()> d_callback = nullptr;
     bool d_finalStage = false;
 };
+
+Projectile* createProjectileFromConsts(const std::string& i_group, int sx, int sy, int ex, int ey);
 }
 
 #endif /* Projectile_hpp */

@@ -1,0 +1,17 @@
+<group> projectileSlash
+{
+type = SIMPLE
+animationName = Melee1.png
+animationGroup = quadAnimation6x2
+}
+
+<group> projectileFireball
+{
+type = TARGET
+beginAnimationPlist = fireball_begin.plist
+idleAnimationPlist = fireball_idle.plist
+endAnimationPlist = fireball_end.plist
+speed = 350
+oriented = true
+moveTrigger = AnimationEnd
+}

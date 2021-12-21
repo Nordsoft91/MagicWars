@@ -855,6 +855,20 @@
 		84F152971C962E0700B57942 /* Blaze.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F152951C962E0700B57942 /* Blaze.png */; };
 		84F1529A1C962FF700B57942 /* natureEffects.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F152991C962FF700B57942 /* natureEffects.png */; };
 		84F1529B1C962FF700B57942 /* natureEffects.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F152991C962FF700B57942 /* natureEffects.png */; };
+		84FB01FC23497F2C0091F018 /* Projectiles in Resources */ = {isa = PBXBuildFile; fileRef = 84FB01FB23497F2C0091F018 /* Projectiles */; };
+		84FB01FD23497F2C0091F018 /* Projectiles in Resources */ = {isa = PBXBuildFile; fileRef = 84FB01FB23497F2C0091F018 /* Projectiles */; };
+		84FB020623498F620091F018 /* fireball_begin.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020023498F620091F018 /* fireball_begin.png */; };
+		84FB020723498F620091F018 /* fireball_begin.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020023498F620091F018 /* fireball_begin.png */; };
+		84FB020823498F620091F018 /* fireball_begin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020123498F620091F018 /* fireball_begin.plist */; };
+		84FB020923498F620091F018 /* fireball_begin.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020123498F620091F018 /* fireball_begin.plist */; };
+		84FB020A23498F620091F018 /* fireball_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020223498F620091F018 /* fireball_idle.plist */; };
+		84FB020B23498F620091F018 /* fireball_idle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020223498F620091F018 /* fireball_idle.plist */; };
+		84FB020C23498F620091F018 /* fireball_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020323498F620091F018 /* fireball_idle.png */; };
+		84FB020D23498F620091F018 /* fireball_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020323498F620091F018 /* fireball_idle.png */; };
+		84FB020E23498F620091F018 /* fireball_end.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020423498F620091F018 /* fireball_end.plist */; };
+		84FB020F23498F620091F018 /* fireball_end.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020423498F620091F018 /* fireball_end.plist */; };
+		84FB021023498F620091F018 /* fireball_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020523498F620091F018 /* fireball_end.png */; };
+		84FB021123498F620091F018 /* fireball_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FB020523498F620091F018 /* fireball_end.png */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -1037,7 +1051,7 @@
 		84773DB92345754F00FE3106 /* map_M_arena.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_M_arena.txt; sourceTree = "<group>"; };
 		84773DBD2345863B00FE3106 /* pentagram-rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pentagram-rose.png"; path = "icons/pentagram-rose.png"; sourceTree = "<group>"; };
 		84773DC02345864800FE3106 /* Pentagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pentagram.png; sourceTree = "<group>"; };
-		84773DC4234695E800FE3106 /* Projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projectile.cpp; sourceTree = "<group>"; wrapsLines = 1; };
+		84773DC4234695E800FE3106 /* Projectile.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projectile.cpp; sourceTree = "<group>"; wrapsLines = 0; };
 		84773DC5234695E800FE3106 /* Projectile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Projectile.h; sourceTree = "<group>"; };
 		84885AEB1D7DEE720064AC61 /* map2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map2.png; path = travel/map2.png; sourceTree = "<group>"; };
 		848F6EA51C86120C005B928E /* Washington.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Washington.ttf; sourceTree = "<group>"; };
@@ -1416,6 +1430,13 @@
 		84F152921C962DBD00B57942 /* animations */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = animations; sourceTree = "<group>"; };
 		84F152951C962E0700B57942 /* Blaze.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blaze.png; sourceTree = "<group>"; };
 		84F152991C962FF700B57942 /* natureEffects.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = natureEffects.png; path = objects/natureEffects.png; sourceTree = "<group>"; };
+		84FB01FB23497F2C0091F018 /* Projectiles */ = {isa = PBXFileReference; lastKnownFileType = text; path = Projectiles; sourceTree = "<group>"; };
+		84FB020023498F620091F018 /* fireball_begin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireball_begin.png; sourceTree = "<group>"; };
+		84FB020123498F620091F018 /* fireball_begin.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fireball_begin.plist; sourceTree = "<group>"; };
+		84FB020223498F620091F018 /* fireball_idle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fireball_idle.plist; sourceTree = "<group>"; };
+		84FB020323498F620091F018 /* fireball_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireball_idle.png; sourceTree = "<group>"; };
+		84FB020423498F620091F018 /* fireball_end.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fireball_end.plist; sourceTree = "<group>"; };
+		84FB020523498F620091F018 /* fireball_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireball_end.png; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1903,6 +1924,7 @@
 				84B72D0A1C88F90500660898 /* WizardWay */,
 				84D7233B1E8DB30100C1A675 /* CorpseCollector */,
 				8400F6652343FDC100F89C9A /* Sandbox */,
+				84FB01FB23497F2C0091F018 /* Projectiles */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -1910,6 +1932,7 @@
 		84B520C91BFFC41D004A6CA0 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				84FB01FF23498F620091F018 /* projectiles */,
 				8475EFA11CA8471100738297 /* music */,
 				84F152981C962FEC00B57942 /* objects */,
 				8438F0011C8B5C0400087593 /* travel */,
@@ -2308,6 +2331,19 @@
 			name = objects;
 			sourceTree = "<group>";
 		};
+		84FB01FF23498F620091F018 /* projectiles */ = {
+			isa = PBXGroup;
+			children = (
+				84FB020023498F620091F018 /* fireball_begin.png */,
+				84FB020123498F620091F018 /* fireball_begin.plist */,
+				84FB020223498F620091F018 /* fireball_idle.plist */,
+				84FB020323498F620091F018 /* fireball_idle.png */,
+				84FB020423498F620091F018 /* fireball_end.plist */,
+				84FB020523498F620091F018 /* fireball_end.png */,
+			);
+			path = projectiles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2410,6 +2446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84FB020623498F620091F018 /* fireball_begin.png in Resources */,
 				84B5220F1BFFC41E004A6CA0 /* map_XS_demo01.txt in Resources */,
 				84B521BF1BFFC41E004A6CA0 /* BubbleShield.png in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
@@ -2482,9 +2519,11 @@
 				84B5226D1BFFC41E004A6CA0 /* 011-PortTown01.png in Resources */,
 				8438F0091C8B5C3A00087593 /* points.png in Resources */,
 				8475EFAC1CA8471D00738297 /* 306160_Hero_s_Courage.mp3 in Resources */,
+				84FB020823498F620091F018 /* fireball_begin.plist in Resources */,
 				84B522031BFFC41E004A6CA0 /* icon_healing.png in Resources */,
 				84B72CEC1C88E4A600660898 /* camp1_d.png in Resources */,
 				84B522AF1BFFC41E004A6CA0 /* 028-Church01.png in Resources */,
+				84FB020C23498F620091F018 /* fireball_idle.png in Resources */,
 				84B523171BFFC41E004A6CA0 /* 057-CE_Shadow01.png in Resources */,
 				8445359C1C9DDA3400C523A1 /* 107-Civilian07.png in Resources */,
 				84D723401E8DC19500C1A675 /* map_C_ship2.txt in Resources */,
@@ -2511,6 +2550,7 @@
 				84B523091BFFC41E004A6CA0 /* 050-Roof02.png in Resources */,
 				84B522711BFFC41E004A6CA0 /* 012-PortTown02.png in Resources */,
 				8475EFD01CAF41C800738297 /* crosshair-arrow.png in Resources */,
+				84FB020A23498F620091F018 /* fireball_idle.plist in Resources */,
 				84B522411BFFC41E004A6CA0 /* tsSurfaces.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				843D4A251C00FAEE00835492 /* flying-flag.png in Resources */,
@@ -2518,6 +2558,7 @@
 				84B521AF1BFFC41E004A6CA0 /* maplist in Resources */,
 				84B522E91BFFC41E004A6CA0 /* 042-Ground02.png in Resources */,
 				84B523071BFFC41E004A6CA0 /* 050-DarkSpace01.png in Resources */,
+				84FB01FC23497F2C0091F018 /* Projectiles in Resources */,
 				84B5222F1BFFC41E004A6CA0 /* civil01.png in Resources */,
 				8475EFD61CAF481F00738297 /* sword-spin.png in Resources */,
 				84B5230B1BFFC41E004A6CA0 /* 051-Carpet01.png in Resources */,
@@ -2732,6 +2773,7 @@
 				84B521D31BFFC41E004A6CA0 /* Melee2.png in Resources */,
 				84B523251BFFC41E004A6CA0 /* 064-CF_Ground01.png in Resources */,
 				8475EFD41CAF481F00738297 /* shard-sword.png in Resources */,
+				84FB021023498F620091F018 /* fireball_end.png in Resources */,
 				84B522E51BFFC41E004A6CA0 /* 041-Grass01.png in Resources */,
 				84B522DB1BFFC41E004A6CA0 /* 039-Tower01.png in Resources */,
 				84B5224F1BFFC41E004A6CA0 /* 004-Mountain01.png in Resources */,
@@ -2760,6 +2802,7 @@
 				848F6EA61C86120C005B928E /* Washington.ttf in Resources */,
 				84B521D91BFFC41E004A6CA0 /* Melee 5.png in Resources */,
 				84B5226F1BFFC41E004A6CA0 /* 012-G2_Swamp01.png in Resources */,
+				84FB020E23498F620091F018 /* fireball_end.plist in Resources */,
 				84B521A71BFFC41E004A6CA0 /* hero02 in Resources */,
 				84B5231B1BFFC41E004A6CA0 /* 059-CE_Ground02.png in Resources */,
 				844535A71C9DDA7600C523A1 /* 138-Cook01.png in Resources */,
@@ -2796,6 +2839,7 @@
 				84B5230E1BFFC41E004A6CA0 /* 052-Carpet02.png in Resources */,
 				84B5220C1BFFC41E004A6CA0 /* icon_thunderbolt.png in Resources */,
 				84B521AE1BFFC41E004A6CA0 /* MagicConsts in Resources */,
+				84FB020F23498F620091F018 /* fireball_end.plist in Resources */,
 				84D1AC852345524600C8A270 /* dog01 in Resources */,
 				84B5220A1BFFC41E004A6CA0 /* icon_ray.png in Resources */,
 				84B521CE1BFFC41E004A6CA0 /* Lightning.png in Resources */,
@@ -2806,6 +2850,7 @@
 				84B522721BFFC41E004A6CA0 /* 012-PortTown02.png in Resources */,
 				84A07BF91C98C0F5001300B0 /* fire-silhouette.png in Resources */,
 				84B521D01BFFC41E004A6CA0 /* LightningBolt.png in Resources */,
+				84FB020923498F620091F018 /* fireball_begin.plist in Resources */,
 				84B522261BFFC41E004A6CA0 /* Girl.png in Resources */,
 				84B522341BFFC41E004A6CA0 /* farmer01.png in Resources */,
 				84B521F01BFFC41E004A6CA0 /* icon2.gif in Resources */,
@@ -2893,6 +2938,7 @@
 				84B523461BFFC41E004A6CA0 /* 080-B_Ground01.png in Resources */,
 				84B521EE1BFFC41E004A6CA0 /* icon1_select.png in Resources */,
 				8475EF811CA35D3A00738297 /* mapRule_frument.txt in Resources */,
+				84FB020B23498F620091F018 /* fireball_idle.plist in Resources */,
 				8475EFB51CA8471D00738297 /* 594085_quotShadows-Bladequot---In.mp3 in Resources */,
 				84D7234C1E8DC7BD00C1A675 /* Wia in Resources */,
 				84B522101BFFC41E004A6CA0 /* map_XS_demo01.txt in Resources */,
@@ -2902,6 +2948,7 @@
 				84B522B41BFFC41E004A6CA0 /* 029-Church02.png in Resources */,
 				84B72D0C1C88F90500660898 /* WizardWay in Resources */,
 				844535A31C9DDA3400C523A1 /* 118-Civilian18.png in Resources */,
+				84FB021123498F620091F018 /* fireball_end.png in Resources */,
 				84A07C021C98CB45001300B0 /* checked-shield.png in Resources */,
 				84B521C61BFFC41E004A6CA0 /* Fireball.png in Resources */,
 				84D7233D1E8DB30100C1A675 /* CorpseCollector in Resources */,
@@ -2982,11 +3029,13 @@
 				84F152891C95D20000B57942 /* jawbone.png in Resources */,
 				84B522F81BFFC41E004A6CA0 /* 046-Cave04.png in Resources */,
 				844535B41C9EBD6000C523A1 /* 050-Soldier02.png in Resources */,
+				84FB020D23498F620091F018 /* fireball_idle.png in Resources */,
 				84B522BC1BFFC41E004A6CA0 /* 031-Ship02.png in Resources */,
 				84B521BC1BFFC41E004A6CA0 /* Team.matrix in Resources */,
 				84B521D81BFFC41E004A6CA0 /* Melee 4.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				84B72CF31C88E4A600660898 /* camp3.png in Resources */,
+				84FB020723498F620091F018 /* fireball_begin.png in Resources */,
 				84B72CFE1C88E58500660898 /* frame.png in Resources */,
 				843D4A221C00FAEE00835492 /* briefcase.png in Resources */,
 				84B522441BFFC41E004A6CA0 /* 001_G_Water01.png in Resources */,
@@ -3127,6 +3176,7 @@
 				84B522661BFFC41E004A6CA0 /* 009-G2_Water01.png in Resources */,
 				84F1527D1C95726300B57942 /* map_M_intro_triggers.txt in Resources */,
 				84B523061BFFC41E004A6CA0 /* 049-St_Shadow01.png in Resources */,
+				84FB01FD23497F2C0091F018 /* Projectiles in Resources */,
 				84B522DE1BFFC41E004A6CA0 /* 039-Tree04.png in Resources */,
 				84B522A01BFFC41E004A6CA0 /* 024-FarmVillage02.png in Resources */,
 				84B522DA1BFFC41E004A6CA0 /* 038-Tree03.png in Resources */,

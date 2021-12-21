@@ -96,24 +96,19 @@ void TouchControl::createSpell(Magican* i_owner, size_t x, size_t y, const std::
     if(std::string(Consts::get("effectType", i_spell)) == "APPEAR")
         myEff = Effect::create(Consts::get("sprite", i_spell), Consts::get("sprite_size", i_spell), Vec2((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight));
     
-    /*if(std::string(Consts::get("effectType", i_spell)) == "FOLLOW")
-        myEff = Effect::create(Consts::get("sprite_fly", i_spell), Consts::get("sprite_fly_size", i_spell), Vec2((d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight),Vec2((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight));*/
-    
     if(std::string(Consts::get("effectType", i_spell)) == "FOLLOW")
-    {
-        auto* projectile = MagicWars_NS::Projectile::create();
-        d_mapLayer->addChild(projectile);
-        projectile->setPosition((d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight);
-        projectile->setTarget((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight);
-        projectile->setBegin(MagicWars_NS::Animated::create("BubbleShield.png", 192, 192, 5, 4, 0, 20), -1);
-        projectile->setIdle(MagicWars_NS::Animated::create("Arrow1.png", 192, 192, 5, 2, 0, 10, true), 30, true);
-        projectile->setEnd([](){}, MagicWars_NS::Animated::create("Fire10.png", 192, 192, 5, 6, 0, 30));
-        projectile->run();
-    }
-
+        myEff = Effect::create(Consts::get("sprite_fly", i_spell), Consts::get("sprite_fly_size", i_spell), Vec2((d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight),Vec2((0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight));
     
     if(std::string(Consts::get("effectType", i_spell)) != "APPEAR_ONCE")
         if(myEff) d_mapLayer->addChild(myEff);
+    
+    auto p = Consts::get("projectile", i_spell);
+    if(p.isValid())
+    {
+        auto* projectile = MagicWars_NS::createProjectileFromConsts(p, (d_turnControl.getTurn()->x+0.5)*d_sizeWidth,(d_turnControl.getTurn()->y+0.5)*d_sizeHeight, (0.5+x)*d_sizeWidth, (0.5+y)*d_sizeHeight);
+        d_mapLayer->addChild(projectile);
+        projectile->run();
+    }
     
     Magican* tgrt = dynamic_cast<Magican*>(ContainUtils::findObject(d_persons, x, y));
     if( tgrt )

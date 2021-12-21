@@ -92,6 +92,7 @@ frameHeight = 96
 <include> Icons
 <include> animations
 <include> mapObjects
+<include> Projectiles
 
 <include> regularPersons
 <include> keyPersons

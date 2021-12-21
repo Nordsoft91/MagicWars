@@ -120,6 +120,16 @@ public:
         return arrayV;
     }
     
+    bool operator == (const std::string& i_str) const
+    {
+        return stringV == i_str;
+    }
+    
+    bool operator == (const char* i_str) const
+    {
+        return stringV == i_str;
+    }
+    
 private:
     size_t type;
     
