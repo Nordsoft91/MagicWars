@@ -69,6 +69,8 @@ namespace MagicWars_NS {
             
             d_info[campName] = info;
         }
+        if(!campCount)
+            return false;
         return true;
     }
     
@@ -104,11 +106,16 @@ namespace MagicWars_NS {
     
     int GameSaver::loadCurrentLevel(const std::string& i_campName) const
     {
+        if(d_info.find(i_campName)==d_info.end())
+            return 1;
         return d_info.at(i_campName).level;
     }
     
     void GameSaver::loadPerson(const std::string& i_campName, Magican& io_mag, const std::string& i_name)
     {
+        if(d_info.find(i_campName)==d_info.end())
+            return;
+            
         io_mag.increaseExperience(d_info.at(i_campName).persons[i_name].experience);
         for(auto& i : d_info.at(i_campName).persons.at(i_name).equipment)
             io_mag.addInventoryItem(i.getName(), i.getCount());

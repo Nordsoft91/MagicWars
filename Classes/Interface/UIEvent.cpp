@@ -12,6 +12,7 @@
 #include <Travel/TravelScene.h>
 #include <Common/MovingStructure.h>
 #include <Controllers/GameSaver.h>
+#include <SDK/SimpleAudioEngine.h>
 
 namespace UI_NS {
     
