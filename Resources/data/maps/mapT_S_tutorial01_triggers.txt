@@ -5,7 +5,7 @@ Event PlayTheme
 Event Message
 {
 Добро пожаловать в Magic Wars! Это обучающий уровень. Нажмите, чтобы продолжить.
-ВНИМАНИЕ! Обучение в этой версии работает с ошибками! Из-за этого часть функциональности по обучению отключена
+Поздравляем! Вы начинающий маг. Сейчас вы обучитесь основам управления и ведения магического боя.
 }
 Event Dialog Braves
 {
@@ -36,11 +36,21 @@ Event TutorialPressObject Braves
 Event Message
 {
 Выбери движение из списка
+}
+Event TutorialPressButton move
+Event Message
+{
 Синие клетки вокруг персонажа - возможные варианты передвижения. Для начала отойдем от палатки.
+}
+Event TutorialPressObjectRelative Braves 2 -2
+Event Message
+{
 За один ход ты можешь передвинуть один раз каждого из персонажей под твоим управлением.
 Теперь давай завершим ход и посмотрим за действиями противника.
 Для этого выдели своег оперсонажа снова и нажми кнопку завершения его хода.
 }
+Event TutorialPressObject Braves
+Event TutorialPressButton finish
 EndOfChain
 
 Trigger Name WolfNear Active
@@ -53,15 +63,27 @@ Event Message
 Выбери своего персонажа и посмотри список доступных тебе заклинаний нажав на кнопку с книгой.
 }
 Event TutorialPressObject Braves
+Event TutorialPressButton spells
+Event TutorialPressButton spell_fireball
 Event Message
 {
 Красные клетки - возможные цели для заклинания. Когда ты нажмешь на клетку, клетки, находящиеся в зоне поражения станут оранжевыми. Нажми на клетку с волком
+}
+Event TutorialPressObjectRelative Braves 2 0
+Event Message
+{
 Хорошо, теперь нажми на эту клетку еще раз для подтверждения.
+}
+Event TutorialPressObjectRelative Braves 2 0
+Event Message
+{
 Ты нанес магический удар! Красное и синее кольца воркуг персонажей показывают их здоровье и ману. Мана понемногу восстанавливается каждый ход, а здоровье нужно восстанавливать другими средствами.
 Если ход не завершился автоматически, значит у твоих персонажей еще есть действия.
 Ты еще можешь двигаться. Самое время отойти подальше.
 }
 Event TutorialPressObject Braves
+Event TutorialPressButton move
+Event TutorialPressObjectRelative Braves -2 0
 EndOfChain
 
 Trigger Name Injure Active
@@ -85,10 +107,17 @@ Event Message
 Кнопка в левом верхнем углу - это трюки, которыми персонаж владеет. Выдели персонажа и нажми на нее.
 }
 Event TutorialPressObject Braves
+Event TutorialPressButton tricks
 Event Message
 {
 Пока что ты можешь только ударить врага посохом. Что же, давай так и сделаем.
-Теперь проучи этого волка, используя свои знания.
+}
+Event TutorialPressButton attack
+Event TutorialPressObjectRelative Braves 1 0
+Event TutorialPressObjectRelative Braves 1 0
+Event Message
+{
+Достойный ответ! Теперь проучи этого волка, используя свои знания.
 }
 EndOfChain
 
