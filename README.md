@@ -8,6 +8,9 @@ Turn-based tactical RPG in fantasy style.
 - View: top down
 - Story: linear, different campaigns, different sides
 
+# Latest release
+[Release 0.22](https://github.com/Nordsoft91/MagicWars/tree/release-0.2)
+
 # How to contribute
 
 This project really needs help from C++ developers, SQA, level designers, painters.
